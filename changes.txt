@@ -1,5 +1,10 @@
 ﻿~ EXIF.py Changelog ~
 
+2012-06-13 - Ianaré Sévi
+Merge patches:
+  Support malformed last IFD by fhats
+  Light source, Flash and Metering mode dictionaries update by gryfik
+
 2008-07-31 - Ianaré Sévi
 Wikipedia Commons hunt for suitable test case images,
 testing new code additions.
