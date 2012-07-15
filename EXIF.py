@@ -1585,7 +1585,8 @@ class EXIF_header:
                           dict=MAKERNOTE_CANON_TAGS)
             for i in (('MakerNote Tag 0x0001', MAKERNOTE_CANON_TAG_0x001),
                       ('MakerNote Tag 0x0004', MAKERNOTE_CANON_TAG_0x004)):
-                self.canon_decode_tag(self.tags[i[0]].values, i[1])
+                if i[0] in self.tags:
+                   self.canon_decode_tag(self.tags[i[0]].values, i[1])
             return
 
 
