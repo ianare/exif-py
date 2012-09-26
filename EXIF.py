@@ -4,7 +4,7 @@
 # Library to extract EXIF information from digital camera image files
 # http://sourceforge.net/projects/exif-py/
 #
-# VERSION 1.1.0
+# VERSION 1.0.10
 #
 # To use this library call with:
 #    f = open(path_name, 'rb')

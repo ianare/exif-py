@@ -1,5 +1,10 @@
 ﻿~ EXIF.py Changelog ~
 
+2012-09-26 - Ianaré Sévi
+Merge patches:
+  Add GPS tags
+  Add better endian debug info
+
 2012-06-13 - Ianaré Sévi
 Merge patches:
   Support malformed last IFD by fhats
