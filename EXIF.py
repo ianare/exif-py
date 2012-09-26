@@ -424,7 +424,10 @@ GPS_TAGS = {
     0x0018: ('GPSDestBearing', ),
     0x0019: ('GPSDestDistanceRef', ),
     0x001A: ('GPSDestDistance', ),
+    0x001B: ('GPSProcessingMethod', ),
+    0x001C: ('GPSAreaInformation', ),
     0x001D: ('GPSDate', ),
+    0x001E: ('GPSDifferential', ),
     }
 
 # Ignore these tags when quick processing
@@ -1651,7 +1654,8 @@ def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
 
     # deal with the EXIF info we found
     if debug:
-        print {'I': 'Intel', 'M': 'Motorola'}[endian], 'format'
+        print "Endian format is ",endian
+        print {'I': 'Intel', 'M': 'Motorola', '\x01':'Adobe Ducky', 'd':'XMP/Adobe unknown' }[endian], 'format'
     hdr = EXIF_header(f, endian, offset, fake_exif, strict, debug)
     ifd_list = hdr.list_IFDs()
     ctr = 0
