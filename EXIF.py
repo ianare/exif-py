@@ -2,17 +2,11 @@
 # -*- coding: utf-8 -*-
 #
 #
+# Library to extract EXIF information from digital camera image files.
+# https://github.com/ianare/exif-py
 #
-# Library to extract EXIF information from digital camera image files
-# http://sourceforge.net/projects/exif-py/
 #
-#
-# Patches and changes by Gregory Dudek.
-#   Overflow error fixes added (related to 2**31 size)
-#   GPS tags added.
-#
-# VERSION 1.1.1  with extra debugging statements
-# with extra debugging statements
+# VERSION 1.1.0
 #
 # To use this library call with:
 #    f = open(path_name, 'rb')
@@ -29,7 +23,6 @@
 # where TAG is a valid tag name, ex 'DateTimeOriginal'
 #
 # These 2 are useful when you are retrieving a large list of images
-#
 #
 # To return an error on invalid tags,
 # pass the -s or --strict argument, or as
@@ -56,7 +49,7 @@
 # 'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
 #
 # Copyright (c) 2002-2007 Gene Cash All rights reserved
-# Copyright (c) 2007-2008 Ianaré Sévi All rights reserved
+# Copyright (c) 2007-2012 Ianaré Sévi All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions

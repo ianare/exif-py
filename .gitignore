@@ -25,3 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Images
+*.jpg
+*.jpeg
+*.tif
+*.tiff

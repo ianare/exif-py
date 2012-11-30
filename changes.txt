@@ -1,5 +1,10 @@
 ﻿~ EXIF.py Changelog ~
 
+2012-11-30 - Gregory Dudek (date of merge).
+Patches and changes:
+  Overflow error fixes added (related to 2**31 size)
+  GPS tags added.
+
 2012-09-26 - Ianaré Sévi
 Merge patches:
   Add GPS tags
