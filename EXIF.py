@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Library to extract EXIF information from digital camera image files.
+# Library to extract Exif information from digital camera image files.
 # https://github.com/ianare/exif-py
 #
 #
-# VERSION 1.1.0
+# VERSION 1.2.0
 #
 # To use this library call with:
 #    f = open(path_name, 'rb')
@@ -22,7 +22,7 @@
 #
 # where TAG is a valid tag name, ex 'DateTimeOriginal'
 #
-# These 2 are useful when you are retrieving a large list of images
+# These two are useful when you are retrieving a large list of images
 #
 # To return an error on invalid tags,
 # pass the -s or --strict argument, or as
@@ -30,7 +30,7 @@
 #
 # Otherwise these tags will be ignored
 #
-# Returned tags will be a dictionary mapping names of EXIF tags to their
+# Returned tags will be a dictionary mapping names of Exif tags to their
 # values in the file named by path_name.  You can process the tags
 # as you wish.  In particular, you can iterate through all the tags with:
 #     for tag in tags.keys():
@@ -40,7 +40,7 @@
 # (This code uses the if statement to avoid printing out a few of the
 # tags that tend to be long or boring.)
 #
-# The tags dictionary will include keys for all of the usual EXIF
+# The tags dictionary will include keys for all of the usual Exif
 # tags, and will also include keys for Makernotes used by some
 # cameras, for which we have a good specification.
 #
@@ -48,8 +48,8 @@
 # tag name. For example:
 # 'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
 #
-# Copyright (c) 2002-2007 Gene Cash All rights reserved
-# Copyright (c) 2007-2012 Ianaré Sévi All rights reserved
+# Copyright (c) 2002-2007 Gene Cash
+# Copyright (c) 2007-2013 Ianaré Sévi and contributors
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions

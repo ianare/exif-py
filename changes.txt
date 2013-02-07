@@ -1,19 +1,22 @@
 ﻿~ EXIF.py Changelog ~
 
-2012-11-30 - Gregory Dudek (date of merge).
-Patches and changes:
-  Overflow error fixes added (related to 2**31 size)
-  GPS tags added.
+2013-02-?? - Ianaré Sévi
+Port to Python 3 (DarkRedman)
+Fix endless loop on broken images (Michael Bemmerl)
+Rewrite of README.md
+Fixed incoherent copyright notices
+
+2012-11-30 - Gregory Dudek
+Overflow error fixes added (related to 2**31 size)
+GPS tags added.
 
 2012-09-26 - Ianaré Sévi
-Merge patches:
-  Add GPS tags
-  Add better endian debug info
+Add GPS tags
+Add better endian debug info
 
-2012-06-13 - Ianaré Sévi
-Merge patches:
-  Support malformed last IFD by fhats
-  Light source, Flash and Metering mode dictionaries update by gryfik
+2012-06-13
+Support malformed last IFD (fhats)
+Light source, Flash and Metering mode dictionaries (gryfik)
 
 2008-07-31 - Ianaré Sévi
 Wikipedia Commons hunt for suitable test case images,
@@ -73,7 +76,7 @@ Fix for inverted detailed flag and Photoshop header
 2007-03-24 - Ianaré Sévi
 Can now ignore MakerNotes Tags for faster processing.
 
-2007-01-18 - Ianaré Sévi <ianare@gmail.com>
+2007-01-18 - Ianaré Sévi
 Fixed a couple errors and assuming maintenance of the library.
 
 2006-08-04 MoinMoin:ReimarBauer
