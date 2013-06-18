@@ -82,6 +82,9 @@
 #
 # ----- See 'changes.txt' file for all contributors and changes ----- #
 #
+import sys
+import getopt
+
 from tags import FIELD_TYPES, EXIF_TAGS, INTR_TAGS, GPS_TAGS, IGNORE_TAGS
 from makernotes import MAKERNOTE_CANON_TAG_0x001, MAKERNOTE_CANON_TAG_0x004, MAKERNOTE_CANON_TAGS, \
     MAKERNOTE_CASIO_TAGS, MAKERNOTE_FUJIFILM_TAGS, MAKERNOTE_NIKON_NEWER_TAGS, MAKERNOTE_NIKON_OLDER_TAGS, \
@@ -741,9 +744,8 @@ def usage(exit_status):
     sys.exit(exit_status)
 
 # library test/debug function (dump given files)
-if __name__ == '__main__':
-    import sys
-    import getopt
+#if __name__ == '__main__':
+def main():
 
     # parse command line options/arguments
     try:

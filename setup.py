@@ -20,7 +20,8 @@ setup(name='exif-py',
       install_requires=[
           # -*- Extra requirements: -*-
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+      entry_points={
+        'console_scripts':[
+              'EXIF = exifread.EXIF:main',
+              ]},
       )
