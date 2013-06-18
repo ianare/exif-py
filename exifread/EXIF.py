@@ -84,6 +84,7 @@
 #
 import sys
 import getopt
+import argparse
 
 from tags import FIELD_TYPES, EXIF_TAGS, INTR_TAGS, GPS_TAGS, IGNORE_TAGS
 from makernotes import MAKERNOTE_CANON_TAG_0x001, MAKERNOTE_CANON_TAG_0x004, MAKERNOTE_CANON_TAGS, \
@@ -732,46 +733,23 @@ def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
     return hdr.tags
 
 
-# show command line usage
-def usage(exit_status):
-    msg = 'Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
-    msg += 'Extract EXIF information from digital camera image files.\n\nOptions:\n'
-    msg += '-q --quick   Do not process MakerNotes.\n'
-    msg += '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
-    msg += '-s --strict   Run in strict mode (stop on errors).\n'
-    msg += '-d --debug   Run in debug mode (display extra info).\n'
-    print(msg)
-    sys.exit(exit_status)
-
-# library test/debug function (dump given files)
-#if __name__ == '__main__':
 def main():
-
-    # parse command line options/arguments
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "hqsdt:v", ["help", "quick", "strict", "debug", "stop-tag="])
-    except getopt.GetoptError:
-        usage(2)
-    if args == []:
-        usage(2)
-    detailed = True
-    stop_tag = 'UNDEF'
-    debug = False
-    strict = False
-    for o, a in opts:
-        if o in ("-h", "--help"):
-            usage(0)
-        if o in ("-q", "--quick"):
-            detailed = False
-        if o in ("-t", "--stop-tag"):
-            stop_tag = a
-        if o in ("-s", "--strict"):
-            strict = True
-        if o in ("-d", "--debug"):
-            debug = True
-
-    # output info for each file
-    for filename in args:
+    DEFAULT_STOP_TAG = "UNDEF"
+    parser = argparse.ArgumentParser(description='Extract EXIF information from digital camera image files.', usage='%(prog)s [OPTIONS] image1 [image2 ...]')
+    parser.add_argument('images', nargs='+', help='Images to process')
+    parser.add_argument('-q', '--quick', dest='detailed', action="store_false", help='Do not process MakerNotes')
+    parser.add_argument('-t', '--stop-tag', dest="stop_tag", default=DEFAULT_STOP_TAG, help="Stop processing when this tag is retrieved (default is '%s')" % DEFAULT_STOP_TAG)
+    parser.add_argument('-s', '--strict', action="store_true", help='Run in strict mode (stop on errors)')
+    parser.add_argument('-d', '--debug', action="store_true", help='Run in debug mode (display extra info)')
+    
+    args = parser.parse_args()
+    
+    detailed = args.detailed
+    stop_tag = args.stop_tag
+    strict = args.strict
+    debug = args.debug
+    
+    for filename in args.images:
         try:
             file=open(str(filename), 'rb')
         except:
@@ -796,3 +774,5 @@ def main():
                 print('error', i, '"', data[i], '"')
         if 'JPEGThumbnail' in data:
             print('File has JPEG thumbnail')
+        
+    
