@@ -1,25 +1,28 @@
 EXIF.py
 =======
 
-**Version 1.2.0**
+**Version 1.3**
 
 Python library to extract EXIF data from tiff and jpeg files.
 
 Originally written by Gene Cash / Thierry Bousch.
 
+##Installation
+python setup.py install
+
 ##Command line Usage
 ```
-$ ./EXIF.py image.jpg
+$ EXIF image.jpg
 ```
 
 Show command line options
 ```
-$ ./EXIF.py
+$ EXIF -h
 ```
 
 ##Python Script Usage
 ```python
-import EXIF
+from exifread import EXIF
 
 # Open image file for reading (binary mode)
 f = open(path_name, 'rb')

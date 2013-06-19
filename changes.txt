@@ -1,5 +1,10 @@
 ﻿~ EXIF.py Changelog ~
 
+2013-06-18 Peter Reimer
+moved tags and makernotes to seperate files
+using setup tools for installation and creating commandline script 
+using argparse to preocess commandline arguments
+
 2013-02-?? - Ianaré Sévi
 Port to Python 3 (DarkRedman)
 Fix endless loop on broken images (Michael Bemmerl)
