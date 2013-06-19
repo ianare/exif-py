@@ -82,14 +82,12 @@
 #
 # ----- See 'changes.txt' file for all contributors and changes ----- #
 #
-import sys
-import getopt
 import argparse
 
 from tags import FIELD_TYPES, EXIF_TAGS, INTR_TAGS, GPS_TAGS, IGNORE_TAGS
 from makernotes import MAKERNOTE_CANON_TAG_0x001, MAKERNOTE_CANON_TAG_0x004, MAKERNOTE_CANON_TAGS, \
     MAKERNOTE_CASIO_TAGS, MAKERNOTE_FUJIFILM_TAGS, MAKERNOTE_NIKON_NEWER_TAGS, MAKERNOTE_NIKON_OLDER_TAGS, \
-    MAKERNOTE_OLYMPUS_TAG_0x2020, MAKERNOTE_OLYMPUS_TAGS
+    MAKERNOTE_OLYMPUS_TAGS
     
 DEFAULT_STOP_TAG = "UNDEF"
 
@@ -159,19 +157,20 @@ class IFD_Tag:
 
     def __repr__(self):
         try:
-            s= '(0x%04X) %s=%s @ %d' % (self.tag,
+            s = '(0x%04X) %s=%s @ %d' % (self.tag,
                                         FIELD_TYPES[self.field_type][2],
                                         self.printable,
                                         self.field_offset)
         except:
-            s= '(%s) %s=%s @ %s' % (str(self.tag),
+            s = '(%s) %s=%s @ %s' % (str(self.tag),
                                         FIELD_TYPES[self.field_type][2],
                                         self.printable,
                                         str(self.field_offset))
         return s
 
-# class that handles an EXIF header
 class EXIF_header:
+    """class that handles an EXIF header"""
+    
     def __init__(self, file, endian, offset, fake_exif, strict, debug=0):
         self.file = file
         self.endian = endian
@@ -181,26 +180,28 @@ class EXIF_header:
         self.debug = debug
         self.tags = {}
 
-    # convert slice to integer, based on sign and endian flags
-    # usually this offset is assumed to be relative to the beginning of the
-    # start of the EXIF information.  For some cameras that use relative tags,
-    # this offset may be relative to some other starting point.
     def s2n(self, offset, length, signed=0):
+	"""convert slice to integer, based on sign and endian flags
+	usually this offset is assumed to be relative to the beginning of the
+	start of the EXIF information.  For some cameras that use relative tags,
+        this offset may be relative to some other starting point."""
+        
         self.file.seek(self.offset+offset)
-        slice=self.file.read(length)
+        slice = self.file.read(length)
         if self.endian == 'I':
-            val=s2n_intel(slice)
+            val = s2n_intel(slice)
         else:
-            val=s2n_motorola(slice)
+            val = s2n_motorola(slice)
         # Sign extension ?
         if signed:
-            msb=1 << (8*length-1)
+            msb = 1 << (8*length-1)
             if val & msb:
-                val=val-(msb << 1)
+                val = val-(msb << 1)
         return val
 
-    # convert offset to string
     def n2s(self, offset, length):
+	""" convert offset to string"""
+
         s = ''
         for dummy in range(length):
             if self.endian == 'I':
@@ -210,31 +211,35 @@ class EXIF_header:
             offset = offset >> 8
         return s
 
-    # return first IFD
     def first_IFD(self):
+	"""return first IFD"""
+        
         return self.s2n(4, 4)
 
-    # return pointer to next IFD
     def next_IFD(self, ifd):
-        entries=self.s2n(ifd, 2)
+	"""return pointer to next IFD"""
+        
+        entries = self.s2n(ifd, 2)
         next_ifd = self.s2n(ifd+2+12*entries, 4)
         if next_ifd == ifd:
             return 0
         else:
             return next_ifd
 
-    # return list of IFDs in header
     def list_IFDs(self):
-        i=self.first_IFD()
-        a=[]
+	"""return list of IFDs in header"""
+
+        i = self.first_IFD()
+        a = []
         while i:
             a.append(i)
-            i=self.next_IFD(i)
+            i = self.next_IFD(i)
         return a
 
-    # return list of entries in this IFD
     def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
-        entries=self.s2n(ifd, 2)
+	"""return list of entries in this IFD"""
+
+        entries = self.s2n(ifd, 2)
         for i in range(entries):
             # entry is index of start of this IFD in the file
             entry = ifd + 2 + 12 * i
@@ -324,11 +329,11 @@ class EXIF_header:
                 
                 # now 'values' is either a string or an array
                 if count == 1 and field_type != 2:
-                    printable=str(values[0])
+                    printable = str(values[0])
                 elif count > 50 and len(values) > 20 :
-                    printable=str( values[0:20] )[0:-1] + ", ... ]"
+                    printable = str( values[0:20] )[0:-1] + ", ... ]"
                 else:
-                    printable=str(values)
+                    printable = str(values)
 
                 # compute printable version of values
                 if tag_entry:
@@ -353,10 +358,11 @@ class EXIF_header:
             if tag_name == stop_tag: 
                 break
 
-    # extract uncompressed TIFF thumbnail (like pulling teeth)
-    # we take advantage of the pre-existing layout in the thumbnail IFD as
-    # much as possible
     def extract_TIFF_thumbnail(self, thumb_ifd):
+	"""extract uncompressed TIFF thumbnail (like pulling teeth)
+	we take advantage of the pre-existing layout in the thumbnail IFD as
+	much as possible"""
+
         entries = self.s2n(thumb_ifd, 2)
         # this is header plus offset to IFD ...
         if self.endian == 'M':
@@ -409,26 +415,27 @@ class EXIF_header:
 
         self.tags['TIFFThumbnail'] = tiff
 
-    # decode all the camera-specific MakerNote formats
-
-    # Note is the data that comprises this MakerNote.  The MakerNote will
-    # likely have pointers in it that point to other parts of the file.  We'll
-    # use self.offset as the starting point for most of those pointers, since
-    # they are relative to the beginning of the file.
-    #
-    # If the MakerNote is in a newer format, it may use relative addressing
-    # within the MakerNote.  In that case we'll use relative addresses for the
-    # pointers.
-    #
-    # As an aside: it's not just to be annoying that the manufacturers use
-    # relative offsets.  It's so that if the makernote has to be moved by the
-    # picture software all of the offsets don't have to be adjusted.  Overall,
-    # this is probably the right strategy for makernotes, though the spec is
-    # ambiguous.  (The spec does not appear to imagine that makernotes would
-    # follow EXIF format internally.  Once they did, it's ambiguous whether
-    # the offsets should be from the header at the start of all the EXIF info,
-    # or from the header at the start of the makernote.)
     def decode_maker_note(self):
+	"""decode all the camera-specific MakerNote formats
+
+	Note is the data that comprises this MakerNote.  The MakerNote will
+	likely have pointers in it that point to other parts of the file.  We'll
+	use self.offset as the starting point for most of those pointers, since
+	they are relative to the beginning of the file.
+	
+	If the MakerNote is in a newer format, it may use relative addressing
+	within the MakerNote.  In that case we'll use relative addresses for the
+	pointers.
+	
+	As an aside: it's not just to be annoying that the manufacturers use
+	relative offsets.  It's so that if the makernote has to be moved by the
+	picture software all of the offsets don't have to be adjusted.  Overall,
+	this is probably the right strategy for makernotes, though the spec is
+	ambiguous.  (The spec does not appear to imagine that makernotes would
+	follow EXIF format internally.  Once they did, it's ambiguous whether
+	the offsets should be from the header at the start of all the EXIF info,
+	or from the header at the start of the makernote.)"""
+
         note = self.tags['EXIF MakerNote']
         
         # Some apps use MakerNote tags but do not use a format for which we
@@ -510,31 +517,34 @@ class EXIF_header:
             return
 
 
-    # XXX TODO decode Olympus MakerNote tag based on offset within tag
     def olympus_decode_tag(self, value, dict):
+	"""XXX TODO decode Olympus MakerNote tag based on offset within tag"""
+	
         pass
 
-    # decode Canon MakerNote tag based on offset within tag
-    # see http://www.burren.cx/david/canon.html by David Burren
     def canon_decode_tag(self, value, dict):
+	"""decode Canon MakerNote tag based on offset within tag
+	see http://www.burren.cx/david/canon.html by David Burren"""
+	
         for i in range(1, len(value)):
-            x=dict.get(i, ('Unknown', ))
+            x = dict.get(i, ('Unknown', ))
             if self.debug:
                 print(i, x)
-            name=x[0]
+            name = x[0]
             if len(x) > 1:
-                val=x[1].get(value[i], 'Unknown')
+                val = x[1].get(value[i], 'Unknown')
             else:
-                val=value[i]
+                val = value[i]
             # it's not a real IFD Tag but we fake one to make everybody
             # happy. this will have a "proprietary" type
-            self.tags['MakerNote '+name]=IFD_Tag(str(val), None, 0, None,
+            self.tags['MakerNote ' + name] = IFD_Tag(str(val), None, 0, None,
                                                  None, None)
 
-# process an image file (expects an open file object)
-# this is the function that has to deal with all the arbitrary nasty bits
-# of the EXIF standard
 def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
+    """process an image file (expects an open file object)
+    this is the function that has to deal with all the arbitrary nasty bits
+    of the EXIF standard"""
+    
     # yah it's cheesy...
     global detailed
     detailed = details
@@ -555,110 +565,110 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         if debug: print("JPEG format recognized data[0:2] == '0xFFD8'.")
         base = 2
         while data[2] == '\xFF' and data[6:10] in ('JFIF', 'JFXX', 'OLYM', 'Phot'):
-            if debug: print("data[2] == 0xxFF data[3]==%x and data[6:10] = %s"%(ord(data[3]),data[6:10]))
+            if debug: print("data[2] == 0xxFF data[3]==%x and data[6:10] = %s" % (ord(data[3]), data[6:10]))
             length = ord(data[4])*256+ord(data[5])
-            if debug: print("Length offset is",length)
-            f.read(length-8)
+            if debug: print("Length offset is", length)
+            f.read(length - 8)
             # fake an EXIF beginning of file
             # I don't think this is used. --gd
-            data = '\xFF\x00'+f.read(10)
+            data = '\xFF\x00' + f.read(10)
             fake_exif = 1
-            if base>2: 
+            if base > 2: 
                 if debug: print("added to base ")
-                base = base + length + 4 -2
+                base = base + length + 4 - 2
             else: 
                 if debug: print("added to zero ")
                 base = length + 4
-            if debug: print("Set segment base to",base)
+            if debug: print("Set segment base to", base)
 
         # Big ugly patch to deal with APP2 (or other) data coming before APP1
         f.seek(0)
-        data = f.read(base+4000) # in theory, this could be insufficient since 64K is the maximum size--gd
+        data = f.read(base + 4000) # in theory, this could be insufficient since 64K is the maximum size--gd
         # base = 2
         while 1:
             if debug: print("Segment base 0x%X" % base)
-            if data[base:base+2]=='\xFF\xE1':
+            if data[base:base + 2] == '\xFF\xE1':
                 # APP1
-                if debug: print("APP1 at base",hex(base))
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if data[base+4:base+8] == "Exif":
-                    if debug: print("Decrement base by",2,"to get to pre-segment header (for compatibility with later code)")
-                    base = base-2
+                if debug: print("APP1 at base", hex(base))
+                if debug: print("Length", hex(ord(data[base+2])), hex(ord(data[base+3])))
+                if debug: print("Code", data[base+4:base+8])
+                if data[base + 4:base + 8] == "Exif":
+                    if debug: print("Decrement base by", 2, "to get to pre-segment header (for compatibility with later code)")
+                    base = base - 2
                     break
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
-            elif data[base:base+2]=='\xFF\xE0':
+                if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
+                base = base+ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
+            elif data[base:base+2] == '\xFF\xE0':
                 # APP0
-                if debug: print("APP0 at base",hex(base))
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
-            elif data[base:base+2]=='\xFF\xE2':
+                if debug: print("APP0 at base", hex(base))
+                if debug: print("Length", hex(ord(data[base + 2])), hex(ord(data[base + 3])))
+                if debug: print("Code", data[base + 4:base + 8])
+                if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
+                base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
+            elif data[base:base + 2] == '\xFF\xE2':
                 # APP2
-                if debug: print("APP2 at base",hex(base))
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
-            elif data[base:base+2]=='\xFF\xEE':
+                if debug: print("APP2 at base", hex(base))
+                if debug: print("Length", hex(ord(data[base + 2])), hex(ord(data[base + 3])))
+                if debug: print("Code", data[base+4:base + 8])
+                if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
+                base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
+            elif data[base:base + 2] == '\xFF\xEE':
                 # APP14
-                if debug: print("APP14 Adobe segment at base",hex(base))
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
+                if debug: print("APP14 Adobe segment at base", hex(base))
+                if debug: print("Length", hex(ord(data[base + 2])), hex(ord(data[base + 3])))
+                if debug: print("Code", data[base + 4:base + 8])
+                if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
                 print("There is useful EXIF-like data here, but we have no parser for it.")
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
-            elif data[base:base+2]=='\xFF\xDB':
-                if debug: print("JPEG image data at base",hex(base),"No more segments are expected.")
+                base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
+            elif data[base:base + 2] == '\xFF\xDB':
+                if debug: print("JPEG image data at base", hex(base), "No more segments are expected.")
                 # sys.exit(0)
                 break
-            elif data[base:base+2]=='\xFF\xD8':
+            elif data[base:base + 2] == '\xFF\xD8':
                 # APP12
-                if debug: print("FFD8 segment at base",hex(base))
-                if debug: print("Got",hex(ord(data[base])), hex(ord(data[base+1])),"and", data[4+base:10+base], "instead.")
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
-            elif data[base:base+2]=='\xFF\xEC':
+                if debug: print("FFD8 segment at base", hex(base))
+                if debug: print("Got", hex(ord(data[base])), hex(ord(data[base + 1])), "and", data[4 + base:10 + base], "instead.")
+                if debug: print("Length", hex(ord(data[base + 2])), hex(ord(data[base + 3])))
+                if debug: print("Code", data[base + 4:base + 8])
+                if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
+                base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
+            elif data[base:base + 2] == '\xFF\xEC':
                 # APP12
-                if debug: print("APP12 XMP (Ducky) or Pictureinfo segment at base",hex(base))
-                if debug: print("Got",hex(ord(data[base])), hex(ord(data[base+1])),"and", data[4+base:10+base], "instead.")
-                if debug: print("Length",hex(ord(data[base+2])), hex(ord(data[base+3])))
-                if debug: print("Code",data[base+4:base+8])
-                if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
+                if debug: print("APP12 XMP (Ducky) or Pictureinfo segment at base", hex(base))
+                if debug: print("Got", hex(ord(data[base])), hex(ord(data[base + 1])), "and", data[4 + base:10 + base], "instead.")
+                if debug: print("Length", hex(ord(data[base + 2])), hex(ord(data[base + 3])))
+                if debug: print("Code", data[base + 4:base + 8])
+                if debug: print("Increment base by", ord(data[base+2]) * 256 + ord(data[base + 3]) + 2)
                 print("There is useful EXIF-like data here (quality, comment, copyright), but we have no parser for it.")
-                base=base+ord(data[base+2])*256+ord(data[base+3])+2
+                base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
             else: 
                 try:
                     if debug: print("Unexpected/unhandled segment type or file content.")
-                    if debug: print("Got",hex(ord(data[base])), hex(ord(data[base+1])),"and", data[4+base:10+base], "instead.")
-                    if debug: print("Increment base by",ord(data[base+2])*256+ord(data[base+3])+2)
+                    if debug: print("Got", hex(ord(data[base])), hex(ord(data[base + 1])), "and", data[4 + base:10 + base], "instead.")
+                    if debug: print("Increment base by", ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2)
                 except: pass
-                try: base=base+ord(data[base+2])*256+ord(data[base+3])+2
+                try: base = base + ord(data[base + 2]) * 256 + ord(data[base + 3]) + 2
                 except: return {}
-        f.seek(base+12)
-        if data[2+base] == '\xFF' and data[6+base:10+base] == 'Exif':
+        f.seek(base + 12)
+        if data[2 + base] == '\xFF' and data[6 + base:10 + base] == 'Exif':
             # detected EXIF header
             offset = f.tell()
             endian = f.read(1)
             #HACK TEST:  endian = 'M'
-        elif data[2+base] == '\xFF' and data[6+base:10+base+1] == 'Ducky':
+        elif data[2 + base] == '\xFF' and data[6 + base:10 + base + 1] == 'Ducky':
             # detected Ducky header.
-            if debug: print("EXIF-like header (normally 0xFF and code):",hex(ord(data[2+base])) , "and", data[6+base:10+base+1])
+            if debug: print("EXIF-like header (normally 0xFF and code):", hex(ord(data[2 + base])) , "and", data[6 + base:10 + base + 1])
             offset = f.tell()
             endian = f.read(1)
-        elif data[2+base] == '\xFF' and data[6+base:10+base+1] == 'Adobe':
+        elif data[2 + base] == '\xFF' and data[6 + base:10 + base + 1] == 'Adobe':
             # detected APP14 (Adobe)
-            if debug: print("EXIF-like header (normally 0xFF and code):",hex(ord(data[2+base])) , "and", data[6+base:10+base+1])
+            if debug: print("EXIF-like header (normally 0xFF and code):", hex(ord(data[2 + base])) , "and", data[6 + base:10 + base + 1])
             offset = f.tell()
             endian = f.read(1)
         else:
             # no EXIF information
-            if debug: print("No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)")
-            if debug: print(" but got",hex(ord(data[2+base])) , "and", data[6+base:10+base+1])
+            if debug: print("No EXIF header expected data[2 + base]==0xFF and data[6 + base:10 + base]===Exif (or Duck)")
+            if debug: print(" but got", hex(ord(data[2 + base])) , "and", data[6 + base:10 + base + 1])
             return {}
     else:
         # file format not recognized
@@ -667,7 +677,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
 
     # deal with the EXIF info we found
     if debug:
-        print("Endian format is ",endian)
+        print("Endian format is ", endian)
         print({'I': 'Intel', 'M': 'Motorola', '\x01':'Adobe Ducky', 'd':'XMP/Adobe unknown' }[endian], 'format')
     hdr = EXIF_header(f, endian, offset, fake_exif, strict, debug)
     ifd_list = hdr.list_IFDs()
@@ -682,9 +692,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
             IFD_name = 'IFD %d' % ctr
         if debug:
             print(' IFD %d (%s) at offset %d:' % (ctr, IFD_name, i))
-        hdr.dump_IFD(i, IFD_name, stop_tag=stop_tag)
+        hdr.dump_IFD(i, IFD_name, stop_tag = stop_tag)
         # EXIF IFD
-        exif_off = hdr.tags.get(IFD_name+' ExifOffset')
+        exif_off = hdr.tags.get(IFD_name + ' ExifOffset')
         if exif_off:
             if debug:
                 print(' EXIF SubIFD at offset %d:' % exif_off.values[0])
@@ -726,10 +736,10 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
     # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
     # since it's not allowed in a uncompressed TIFF IFD
     if 'JPEGThumbnail' not in hdr.tags:
-        thumb_off=hdr.tags.get('MakerNote JPEGThumbnail')
+        thumb_off = hdr.tags.get('MakerNote JPEGThumbnail')
         if thumb_off:
             f.seek(offset+thumb_off.values[0])
-            hdr.tags['JPEGThumbnail']=file.read(thumb_off.field_length)
+            hdr.tags['JPEGThumbnail'] = file.read(thumb_off.field_length)
 
     return hdr.tags
 
@@ -751,7 +761,7 @@ def main():
     
     for filename in args.images:
         try:
-            file=open(str(filename), 'rb')
+            file = open(str(filename), 'rb')
         except:
             print("'%s' is unreadable\n"%filename)
             continue
@@ -762,16 +772,16 @@ def main():
             print('No EXIF information found')
             continue
 
-        x=data.keys()
-        x.sort()
-        for i in x:
-            if i in ('JPEGThumbnail', 'TIFFThumbnail'):
+        tags = data.keys()
+        tags.sort()
+        for tag in tags:
+            if tag in ('JPEGThumbnail', 'TIFFThumbnail'):
                 continue
             try:
                 print('   %s (%s): %s' % \
-                      (i, FIELD_TYPES[data[i].field_type][2], data[i].printable))
+                      (tag, FIELD_TYPES[data[tag].field_type][2], data[tag].printable))
             except:
-                print('error', i, '"', data[i], '"')
+                print('error', tag, '"', data[tag], '"')
         if 'JPEGThumbnail' in data:
             print('File has JPEG thumbnail')
         
