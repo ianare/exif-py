@@ -90,6 +90,8 @@ from tags import FIELD_TYPES, EXIF_TAGS, INTR_TAGS, GPS_TAGS, IGNORE_TAGS
 from makernotes import MAKERNOTE_CANON_TAG_0x001, MAKERNOTE_CANON_TAG_0x004, MAKERNOTE_CANON_TAGS, \
     MAKERNOTE_CASIO_TAGS, MAKERNOTE_FUJIFILM_TAGS, MAKERNOTE_NIKON_NEWER_TAGS, MAKERNOTE_NIKON_OLDER_TAGS, \
     MAKERNOTE_OLYMPUS_TAG_0x2020, MAKERNOTE_OLYMPUS_TAGS
+    
+DEFAULT_STOP_TAG = "UNDEF"
 
 
 
@@ -231,7 +233,7 @@ class EXIF_header:
         return a
 
     # return list of entries in this IFD
-    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag='UNDEF'):
+    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
         entries=self.s2n(ifd, 2)
         for i in range(entries):
             # entry is index of start of this IFD in the file
@@ -348,8 +350,7 @@ class EXIF_header:
                 if self.debug:
                     print(' debug:   %s: %s' % (tag_name,
                                                 repr(self.tags[ifd_name + ' ' + tag_name])))
-
-            if tag_name == stop_tag:
+            if tag_name == stop_tag: 
                 break
 
     # extract uncompressed TIFF thumbnail (like pulling teeth)
@@ -533,7 +534,7 @@ class EXIF_header:
 # process an image file (expects an open file object)
 # this is the function that has to deal with all the arbitrary nasty bits
 # of the EXIF standard
-def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
+def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
     # yah it's cheesy...
     global detailed
     detailed = details
@@ -734,7 +735,6 @@ def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
 
 
 def main():
-    DEFAULT_STOP_TAG = "UNDEF"
     parser = argparse.ArgumentParser(description='Extract EXIF information from digital camera image files.', usage='%(prog)s [OPTIONS] image1 [image2 ...]')
     parser.add_argument('images', nargs='+', help='Images to process')
     parser.add_argument('-q', '--quick', dest='detailed', action="store_false", help='Do not process MakerNotes')
