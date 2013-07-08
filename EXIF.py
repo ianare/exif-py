@@ -1373,6 +1373,7 @@ class EXIF_header:
                         offset = self.s2n(offset, 4)
 
                 field_offset = offset
+                values = None
                 if field_type == 2:
                     # special case: null-terminated ASCII string
                     # XXX investigate
