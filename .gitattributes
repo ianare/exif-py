@@ -1,0 +1,10 @@
+#
+# Git normalization
+#
+
+.gitattributes export-ignore  
+.gitignore export-ignore
+
+*.py text eol=lf diff=python whitespace=blank-at-eol
+*.txt eol=lf
+*.md eol=lf
