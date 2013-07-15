@@ -8,79 +8,11 @@
 #
 # VERSION 1.2.0
 #
-# To use this library call with:
-#    f = open(path_name, 'rb')
-#    tags = EXIF.process_file(f)
-#
-# To ignore MakerNote tags, pass the -q or --quick
-# command line arguments, or as
-#    tags = EXIF.process_file(f, details=False)
-#
-# To stop processing after a certain tag is retrieved,
-# pass the -t TAG or --stop-tag TAG argument, or as
-#    tags = EXIF.process_file(f, stop_tag='TAG')
-#
-# where TAG is a valid tag name, ex 'DateTimeOriginal'
-#
-# These two are useful when you are retrieving a large list of images
-#
-# To return an error on invalid tags,
-# pass the -s or --strict argument, or as
-#    tags = EXIF.process_file(f, strict=True)
-#
-# Otherwise these tags will be ignored
-#
-# Returned tags will be a dictionary mapping names of Exif tags to their
-# values in the file named by path_name.  You can process the tags
-# as you wish.  In particular, you can iterate through all the tags with:
-#     for tag in tags.keys():
-#         if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename',
-#                        'EXIF MakerNote'):
-#             print "Key: %s, value %s" % (tag, tags[tag])
-# (This code uses the if statement to avoid printing out a few of the
-# tags that tend to be long or boring.)
-#
-# The tags dictionary will include keys for all of the usual Exif
-# tags, and will also include keys for Makernotes used by some
-# cameras, for which we have a good specification.
-#
-# Note that the dictionary keys are the IFD name followed by the
-# tag name. For example:
-# 'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
-#
 # Copyright (c) 2002-2007 Gene Cash
 # Copyright (c) 2007-2013 Ianaré Sévi and contributors
 #
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions
-# are met:
-#
-#  1. Redistributions of source code must retain the above copyright
-#     notice, this list of conditions and the following disclaimer.
-#
-#  2. Redistributions in binary form must reproduce the above
-#     copyright notice, this list of conditions and the following
-#     disclaimer in the documentation and/or other materials provided
-#     with the distribution.
-#
-#  3. Neither the name of the authors nor the names of its contributors
-#     may be used to endorse or promote products derived from this
-#     software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-#
-# ----- See 'changes.txt' file for all contributors and changes ----- #
+# See LICENSE file for licensing information
+# See 'changes.txt' file for all contributors and changes
 #
 
 
@@ -123,7 +55,7 @@ FIELD_TYPES = (
     (2, 'SS', 'Signed Short'),
     (4, 'SL', 'Signed Long'),
     (8, 'SR', 'Signed Ratio'),
-    )
+)
 
 # dictionary of main EXIF tag names
 # first element of tuple is tag name, optional second element is
@@ -390,7 +322,7 @@ EXIF_TAGS = {
     0xA500: ('Gamma', ),
     0xC4A5: ('PrintIM', ),
     0xEA1C: ('Padding', ),
-    }
+}
 
 # interoperability tags
 INTR_TAGS = {
@@ -399,7 +331,7 @@ INTR_TAGS = {
     0x1000: ('RelatedImageFileFormat', ),
     0x1001: ('RelatedImageWidth', ),
     0x1002: ('RelatedImageLength', ),
-    }
+}
 
 # GPS tags (not used yet, haven't seen camera with GPS)
 GPS_TAGS = {
@@ -434,7 +366,7 @@ GPS_TAGS = {
     0x001C: ('GPSAreaInformation', ),
     0x001D: ('GPSDate', ),
     0x001E: ('GPSDifferential', ),
-    }
+}
 
 # Ignore these tags when quick processing
 # 0x927C is MakerNote Tags
@@ -635,7 +567,7 @@ MAKERNOTE_NIKON_NEWER_TAGS = {
              {1: 'Centered',
               2: 'Co-sited'}),
     0x0010: ('DataDump', ),
-    }
+}
 
 MAKERNOTE_NIKON_OLDER_TAGS = {
     0x0003: ('Quality',
@@ -667,7 +599,7 @@ MAKERNOTE_NIKON_OLDER_TAGS = {
               4: 'Fluorescent',
               5: 'Cloudy',
               6: 'Speed Light'}),
-    }
+}
 
 
 def olympus_special_mode(v):
@@ -773,7 +705,7 @@ MAKERNOTE_OLYMPUS_TAGS = {
     0x2040: ('ImageProcessing', ),
     0x2050: ('FocusInfo', ),
     0x3000: ('RawInfo ', ),
-    }
+}
 
 # 0x2020 CameraSettings
 MAKERNOTE_OLYMPUS_TAG_0x2020 = {
@@ -924,7 +856,7 @@ MAKERNOTE_OLYMPUS_TAG_0x2020 = {
               3: 'SHQ',
               4: 'RAW'}),
     0x0901: ('ManometerReading', ),
-    }
+}
 
 
 MAKERNOTE_CASIO_TAGS = {
@@ -979,7 +911,7 @@ MAKERNOTE_CASIO_TAGS = {
               125: '+1.0',
               244: '+3.0',
               250: '+2.0'}),
-    }
+}
 
 MAKERNOTE_FUJIFILM_TAGS = {
     0x0000: ('NoteVersion', make_string),
@@ -1044,14 +976,14 @@ MAKERNOTE_FUJIFILM_TAGS = {
     0x1302: ('AEWarning',
              {0: 'Off',
               1: 'On'}),
-    }
+}
 
 MAKERNOTE_CANON_TAGS = {
     0x0006: ('ImageType', ),
     0x0007: ('FirmwareVersion', ),
     0x0008: ('ImageNumber', ),
     0x0009: ('OwnerName', ),
-    }
+}
 
 # this is in element offset, name, optional value dictionary format
 MAKERNOTE_CANON_TAG_0x001 = {
@@ -1160,7 +1092,7 @@ MAKERNOTE_CANON_TAG_0x001 = {
     32: ('FocusMode',
          {0: 'Single',
           1: 'Continuous'}),
-    }
+}
 
 MAKERNOTE_CANON_TAG_0x004 = {
     7: ('WhiteBalance',
@@ -1192,7 +1124,7 @@ MAKERNOTE_CANON_TAG_0x004 = {
           0x0034: '1.67 EV',
           0x0040: '2 EV'}),
     19: ('SubjectDistance', ),
-    }
+}
 
 
 def s2n_motorola(str):
