@@ -42,3 +42,6 @@ pip-log.txt
 .project
 .pydevproject
 .settings
+
+# Misc
+*swp
