@@ -1145,13 +1145,6 @@ def s2n_intel(str):
     return x
 
 
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a % b)
-
-
 class Ratio:
     """
     Ratio object that eventually will be able to reduce itself to lowest
@@ -1167,8 +1160,14 @@ class Ratio:
             return str(self.num)
         return '%d/%d' % (self.num, self.den)
 
+    def _gcd(self, a, b):
+        if b == 0:
+            return a
+        else:
+            return self._gcd(b, a % b)
+
     def reduce(self):
-        div = gcd(self.num, self.den)
+        div = self._gcd(self.num, self.den)
         if div > 1:
             self.num = self.num / div
             self.den = self.den / div
