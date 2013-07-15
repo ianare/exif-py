@@ -42,6 +42,8 @@ def make_string_uc(seq):
     # allows JIS and Unicode.
     return make_string( make_string(seq) )
 
+DEFAULT_STOP_TAG = 'UNDEF'
+
 # field type descriptions as (length, abbreviation, full name) tuples
 FIELD_TYPES = (
     (0, 'X', 'Proprietary'), # no such type
@@ -1280,7 +1282,7 @@ class EXIF_header:
         return ifds
 
 
-    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag='UNDEF'):
+    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
         """Return a list of entries in the given IFD."""
         entries = self.s2n(ifd, 2)
         for i in range(entries):
@@ -1593,7 +1595,7 @@ class EXIF_header:
                                                  None, None)
 
 
-def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
+def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
     """
     Process an image file (expects an open file object).
 
@@ -1846,7 +1848,7 @@ if __name__ == '__main__':
     if args == []:
         usage(2)
     detailed = True
-    stop_tag = 'UNDEF'
+    stop_tag = DEFAULT_STOP_TAG
     debug = False
     strict = False
     for o, a in opts:
