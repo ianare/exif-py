@@ -17,7 +17,7 @@
 
 import sys
 import getopt
-from exifread.tags import DEFAULT_STOP_TAG
+from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
 from exifread import process_file
 
 def usage(exit_status):
