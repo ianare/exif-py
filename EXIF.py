@@ -65,7 +65,7 @@ def main():
             continue
         print(filename, ':')
         # get the tags
-        data = process_file(file, stop_tag=stop_tag, detailed=detailed, strict=strict, debug=debug)
+        data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
         if not data:
             print('No EXIF information found')
             continue

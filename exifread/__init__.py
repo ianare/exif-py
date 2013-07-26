@@ -3,7 +3,7 @@
 from classes import *
 from tags import *
 
-def process_file(f, stop_tag=DEFAULT_STOP_TAG, detailed=True, strict=False, debug=False):
+def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
     """
     Process an image file (expects an open file object).
 
@@ -216,7 +216,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, detailed=True, strict=False, debu
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
     # have a description, do not process these).
-    if 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags and detailed:
+    if 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags and details:
         hdr.decode_maker_note()
 
     # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
