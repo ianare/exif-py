@@ -4,7 +4,7 @@
 from distutils.core import setup
 
 setup(
-    name="exifread",
+    name="ExifRead",
     version="1.3.0",
     author="Ianaré Sévi",
     author_email="ianare@gmail.com",
