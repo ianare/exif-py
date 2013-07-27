@@ -77,8 +77,8 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 base = base + increment
             elif data[base:base+2] == '\xFF\xE2':
                 # APP2
-                logger.debug("APP2 at base %S", hex(base))
-                logger.debug("Length: %s", hex(ord(data[base+2])),
+                logger.debug("APP2 at base %s", hex(base))
+                logger.debug("Length: %s %s", hex(ord(data[base+2])),
                              hex(ord(data[base+3])))
                 logger.debug("Code: %s", data[base+4:base+8])
                 increment = ord(data[base+2])*256+ord(data[base+3])+2

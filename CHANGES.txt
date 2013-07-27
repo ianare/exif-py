@@ -5,6 +5,7 @@ Set default values in case not set (ortsed)
 PEP8 & PEP257 improvements
 Better score in pylint
 Ideas and some code from Samuele Santi's and Peter Reimer's forks
+Replace print with logging
 Package for PyPI
 
 2013-02-07 - Ianaré Sévi
