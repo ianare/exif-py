@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """
 Tag definitions.
@@ -17,7 +16,7 @@ def make_string(seq):
             string += chr(c)
     # If no printing chars
     if not string:
-        return seq
+        return str(seq)
     return string
 
 
@@ -26,7 +25,7 @@ def make_string_uc(seq):
     Special version to deal with the code in the first 8 bytes of a user comment.
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
-    code = seq[0:8]
+    #code = seq[0:8]
     seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.

@@ -1,6 +1,6 @@
 ﻿~ EXIF.py Changelog ~
 
-2013-07-2? - Ianaré Sévi
+2013-07-27 - Ianaré Sévi
 Set default values in case not set (ortsed)
 PEP8 & PEP257 improvements
 Better score in pylint

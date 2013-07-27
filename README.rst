@@ -15,7 +15,7 @@ PyPI
 ****
 ::
 
-    pip install exifread
+    $ pip install exifread
 
 *****
 Usage
@@ -25,11 +25,11 @@ Command line
 ************
 ::
 
-$ ./EXIF.py image.jpg
+$ EXIF.py image.jpg
 
 Show command line options::
 
-$ ./EXIF.py
+$ EXIF.py
 
 Python Script
 *************

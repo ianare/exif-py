@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
 
+import logging
 from tags import *
+
+logger = logging.getLogger('exifread')
 
 def s2n_motorola(str):
     """Extract multibyte integer in Motorola format (little endian)."""
@@ -275,9 +277,7 @@ class ExifHeader:
                                                             field_type,
                                                             values, field_offset,
                                                             count * typelen)
-                if self.debug:
-                    print(' debug:   %s: %s' % (tag_name,
-                                                repr(self.tags[ifd_name + ' ' + tag_name])))
+                logger.debug("%s: %s", tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
 
             if tag_name == stop_tag:
                 break
@@ -383,8 +383,7 @@ class ExifHeader:
         # cameras work that way.
         if 'NIKON' in make:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
-                if self.debug:
-                    print("Looks like a type 1 Nikon MakerNote.")
+                logger.debug("Looks like a type 1 Nikon MakerNote.")
                 self.dump_IFD(note.field_offset+8, 'MakerNote',
                                 dict=MAKERNOTE_NIKON_OLDER_TAGS)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
@@ -397,8 +396,7 @@ class ExifHeader:
                                 dict=MAKERNOTE_NIKON_NEWER_TAGS, relative=1)
             else:
                 # E99x or D1
-                if self.debug:
-                    print("Looks like an unlabeled type 2 Nikon MakerNote")
+                logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
                 self.dump_IFD(note.field_offset, 'MakerNote',
                                 dict=MAKERNOTE_NIKON_NEWER_TAGS)
             return
@@ -459,8 +457,7 @@ class ExifHeader:
         """
         for i in range(1, len(value)):
             x = mn_tags.get(i, ('Unknown', ))
-            if self.debug:
-                print(i, x)
+            logger.debug("%s %s", i, x)
             name = x[0]
             if len(x) > 1:
                 val = x[1].get(value[i], 'Unknown')

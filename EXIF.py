@@ -17,6 +17,7 @@
 
 import sys
 import getopt
+import logging
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
 from exifread import process_file
 
@@ -31,11 +32,10 @@ def usage(exit_status):
     print(msg)
     sys.exit(exit_status)
 
-
 def main():
     # parse command line options/arguments
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hqsdt:v", ["help", "quick", "strict", "debug", "stop-tag="])
+        opts, args = getopt.getopt(sys.argv[1:], "hqsdct:v", ["help", "quick", "strict", "debug", "stop-tag="])
     except getopt.GetoptError:
         usage(2)
     if args == []:
@@ -44,6 +44,7 @@ def main():
     stop_tag = DEFAULT_STOP_TAG
     debug = False
     strict = False
+    color = False
     for o, a in opts:
         if o in ("-h", "--help"):
             usage(0)
@@ -56,18 +57,33 @@ def main():
         if o in ("-d", "--debug"):
             debug = True
 
+    ## Configure the logger
+    if debug:
+        level = logging.DEBUG
+        log_format = '%(levelname)s - %(message)s'
+    else:
+        level = logging.INFO
+        log_format = '%(message)s'
+
+    logger = logging.getLogger('exifread')
+    ch = logging.StreamHandler()
+    ch.setFormatter(logging.Formatter(log_format))
+    logger.setLevel(level)
+    ch.setLevel(level)
+    logger.addHandler(ch)
+
     # output info for each file
     for filename in args:
         try:
             file = open(str(filename), 'rb')
         except:
-            print("'%s' is unreadable\n"%filename)
+            logger.error("'%s' is unreadable", filename)
             continue
-        print(filename, ':')
+        logger.info(filename)
         # get the tags
         data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
         if not data:
-            print('No EXIF information found')
+            logger.warning('No EXIF information found')
             continue
 
         x = data.keys()
@@ -76,12 +92,11 @@ def main():
             if i in ('JPEGThumbnail', 'TIFFThumbnail'):
                 continue
             try:
-                print('   %s (%s): %s' % \
-                      (i, FIELD_TYPES[data[i].field_type][2], data[i].printable))
+                logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
             except:
-                print('error', i, '"', data[i], '"')
+                logger.error("%s : %s", i, str(data[i]))
         if 'JPEGThumbnail' in data:
-            print('File has JPEG thumbnail')
+            logger.info('File has JPEG thumbnail')
 
 
 if __name__ == '__main__':
