@@ -13,9 +13,19 @@ Installation
 
 PyPI
 ****
+This is the recomended process, it allows easily staying up to date.
 ::
 
     $ pip install exifread
+
+See https://pypi.python.org/pypi/pip for more info.
+
+Archive
+*******
+Download an archive from the releases page: https://github.com/ianare/exif-py/releases
+
+Extract and enjoy.
+
 
 *****
 Usage
