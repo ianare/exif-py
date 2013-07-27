@@ -59,17 +59,16 @@ def main():
 
     ## Configure the logger
     if debug:
-        level = logging.DEBUG
+        log_level = logging.DEBUG
         log_format = '%(levelname)s - %(message)s'
     else:
-        level = logging.INFO
+        log_level = logging.INFO
         log_format = '%(message)s'
-
     logger = logging.getLogger('exifread')
     ch = logging.StreamHandler()
     ch.setFormatter(logging.Formatter(log_format))
-    logger.setLevel(level)
-    ch.setLevel(level)
+    logger.setLevel(log_level)
+    ch.setLevel(log_level)
     logger.addHandler(ch)
 
     # output info for each file
