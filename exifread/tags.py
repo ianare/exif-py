@@ -429,6 +429,7 @@ MAKERNOTE_NIKON_NEWER_TAGS = {
     # Nearly the same as the other EV vals, but step size is 1/12 EV (?)
     0x000E: ('ExposureDifference', nikon_ev_bias),
     0x000F: ('ISOSelection', ),
+    0x0010: ('DataDump', ),
     0x0011: ('NikonPreview', ),
     0x0012: ('FlashCompensation', nikon_ev_bias),
     0x0013: ('ISOSpeedRequested', ),
@@ -557,7 +558,10 @@ MAKERNOTE_NIKON_NEWER_TAGS = {
     0x0213: ('PreviewYCbCrPositioning',
              {1: 'Centered',
               2: 'Co-sited'}),
-    0x0010: ('DataDump', ),
+    0x0E09: ('NikonCaptureVersion', ),
+    0x0E0E: ('NikonCaptureOffsets', ),
+    0x0E10: ('NikonScan', ),
+    0x0E22: ('NEFBitDepth', ),
 }
 
 MAKERNOTE_NIKON_OLDER_TAGS = {
