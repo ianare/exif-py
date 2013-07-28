@@ -21,6 +21,8 @@ import logging
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
 from exifread import process_file
 
+logger = logging.getLogger('exifread')
+
 def usage(exit_status):
     """Show command line usage."""
     msg = 'Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
@@ -64,7 +66,6 @@ def main():
     else:
         log_level = logging.INFO
         log_format = '%(message)s'
-    logger = logging.getLogger('exifread')
     ch = logging.StreamHandler()
     ch.setFormatter(logging.Formatter(log_format))
     logger.setLevel(log_level)

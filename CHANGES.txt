@@ -8,6 +8,8 @@ Ideas and some code from Samuele Santi's and Peter Reimer's forks
 Replace print with logging
 Package for PyPI
 
+Improvements to debug output
+
 2013-02-07 - Ianaré Sévi
 Port to Python 3 (DarkRedman)
 Fix endless loop on broken images (Michael Bemmerl)
