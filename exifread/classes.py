@@ -46,8 +46,8 @@ class Ratio:
     def reduce(self):
         div = self._gcd(self.num, self.den)
         if div > 1:
-            self.num = self.num / div
-            self.den = self.den / div
+            self.num = self.num // div
+            self.den = self.den // div
 
 
 class IfdTag:
