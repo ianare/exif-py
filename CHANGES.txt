@@ -1,4 +1,8 @@
-﻿~ EXIF.py Changelog ~
+﻿2013-07-29 - Ianaré Sévi
+Improve PyPI package
+fix for DeprecationWarning: classic int division
+Improvements to debug output
+Add some Nikon makernote tags
 
 2013-07-27 - Ianaré Sévi
 Set default values in case not set (ortsed)
@@ -7,8 +11,6 @@ Better score in pylint
 Ideas and some code from Samuele Santi's and Peter Reimer's forks
 Replace print with logging
 Package for PyPI
-
-Improvements to debug output
 
 2013-02-07 - Ianaré Sévi
 Port to Python 3 (DarkRedman)
