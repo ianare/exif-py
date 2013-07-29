@@ -1,7 +1,7 @@
 
 import logging
-from classes import *
-from tags import *
+from .classes import *
+from .tags import *
 
 logger = logging.getLogger('exifread')
 
@@ -30,11 +30,11 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         offset = 0
     elif data[0:2] == '\xFF\xD8':
         # it's a JPEG file
-        logger.debug("JPEG format recognized data[0:2] == 0xFFD8")
+        logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord(data[0]), ord(data[1]))
         base = 2
+        logger.debug("data[2]=0x%X data[3]=0x%X data[6:10]=%s",
+                     ord(data[2]), ord(data[3]), data[6:10])
         while data[2] == '\xFF' and data[6:10] in ('JFIF', 'JFXX', 'OLYM', 'Phot'):
-            logger.debug("data[2] == 0xxFF data[3]== %x and data[6:10] = %s",
-                         ord(data[3]), data[6:10])
             length = ord(data[4]) * 256 + ord(data[5])
             logger.debug(" Length offset is %s", length)
             f.read(length-8)

@@ -1,6 +1,6 @@
 
 import logging
-from tags import *
+from .tags import *
 
 logger = logging.getLogger('exifread')
 
