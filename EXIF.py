@@ -6,8 +6,6 @@
 # https://github.com/ianare/exif-py
 #
 #
-# VERSION 1.3.0
-#
 # Copyright (c) 2002-2007 Gene Cash
 # Copyright (c) 2007-2013 Ianaré Sévi and contributors
 #
