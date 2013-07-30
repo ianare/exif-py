@@ -10,7 +10,7 @@
 # Copyright (c) 2007-2013 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
-# See 'CHANGES.txt' file for all contributors and changes
+# See CHANGES.txt file for all contributors and changes
 #
 
 import sys

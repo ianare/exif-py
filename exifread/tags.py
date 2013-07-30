@@ -323,7 +323,7 @@ INTR_TAGS = {
     0x1002: ('RelatedImageLength', ),
 }
 
-# GPS tags (not used yet, haven't seen camera with GPS)
+# GPS tags
 GPS_TAGS = {
     0x0000: ('GPSVersionID', ),
     0x0001: ('GPSLatitudeRef', ),

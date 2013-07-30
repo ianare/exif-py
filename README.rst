@@ -1,7 +1,7 @@
 EXIF.py
 =======
 
-:Version: 1.3.1
+:Version: 1.3.2
 
 Python library to extract EXIF data from tiff and jpeg files.
 
@@ -26,7 +26,6 @@ Download an archive from the releases page: https://github.com/ianare/exif-py/re
 
 Extract and enjoy.
 
-
 *****
 Usage
 *****
@@ -45,12 +44,20 @@ Python Script
 *************
 ::
 
-    import EXIF
+    import exifread
     # Open image file for reading (binary mode)
     f = open(path_name, 'rb')
 
     # Return Exif tags
-    tags = EXIF.process_file(f)
+    tags = exifread.process_file(f)
+
+*Note:* if you use this library in your project as a Git submodule, you may need to do::
+
+    from <submodule_folder> import EXIF
+
+or::
+
+    from <submodule_folder> import exifread
 
 Returned tags will be a dictionary mapping names of Exif tags to their
 values in the file named by path_name.
@@ -80,7 +87,7 @@ Ignore MakerNote Tags
 *********************
 Pass the ``-q`` or ``--quick`` command line arguments, or as::
 
-    tags = EXIF.process_file(f, details=False)
+    tags = exifread.process_file(f, details=False)
 
 Stop at Given Tag
 *****************
@@ -88,7 +95,7 @@ To stop processing the file after a specified tag is retrieved.
 
 Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as::
 
-    tags = EXIF.process_file(f, stop_tag='TAG')
+    tags = exifread.process_file(f, stop_tag='TAG')
 
 where ``TAG`` is a valid tag name, ex ``'DateTimeOriginal'``.
 
@@ -100,4 +107,4 @@ Return an error on invalid tags instead of silently ignoring.
 
 Pass the ``-s`` or ``--strict`` argument, or as::
 
-    tags = EXIF.process_file(f, strict=True)
+    tags = exifread.process_file(f, strict=True)
