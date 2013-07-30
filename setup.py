@@ -3,9 +3,14 @@
 
 from distutils.core import setup
 
+readme_file = open("README.rst", "rt").read()
+
+v_index = readme_file.index(":Version:") + 10
+version = readme_file[v_index:v_index + 5]
+
 setup(
     name = "ExifRead",
-    version = "1.3.1",
+    version = version,
     author = "Ianaré Sévi",
     author_email = "ianare@gmail.com",
     packages = ["exifread"],
@@ -14,7 +19,7 @@ setup(
     license = "BSD",
     keywords = "exif image metadata photo",
     description = "Read Exif metadata from tiff and jpeg files.",
-    long_description = open("README.rst", "rt").read(),
+    long_description = readme_file,
     classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
