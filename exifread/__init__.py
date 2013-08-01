@@ -178,7 +178,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         'd':'XMP/Adobe unknown'
         }[endian])
 
-    hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug)
+    hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug, details)
     ifd_list = hdr.list_IFDs()
     ctr = 0
     for i in ifd_list:
