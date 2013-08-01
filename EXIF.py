@@ -16,6 +16,7 @@
 import sys
 import getopt
 import logging
+import timeit
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
 from exifread import process_file
 
@@ -60,7 +61,7 @@ def main():
     ## Configure the logger
     if debug:
         log_level = logging.DEBUG
-        log_format = '%(levelname)s - %(message)s'
+        log_format = '%(levelname)-5s  %(message)s'
     else:
         log_level = logging.INFO
         log_format = '%(message)s'
@@ -77,9 +78,15 @@ def main():
         except:
             logger.error("'%s' is unreadable", filename)
             continue
-        logger.info(filename)
+        logger.info("Opening: %s", filename)
+
+        tic = timeit.default_timer()
+
         # get the tags
         data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
+
+        toc = timeit.default_timer()
+
         if not data:
             logger.warning('No EXIF information found')
             continue
@@ -95,6 +102,9 @@ def main():
                 logger.error("%s : %s", i, str(data[i]))
         if 'JPEGThumbnail' in data:
             logger.info('File has JPEG thumbnail')
+
+        logger.debug("Tags processed in %s seconds", toc - tic)
+        print("")
 
 
 if __name__ == '__main__':
