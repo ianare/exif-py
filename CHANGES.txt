@@ -1,4 +1,9 @@
-﻿2013-07-29 - Ianaré Sévi
+﻿
+2013-08-02 - Ianaré Sévi
+Add timing info in debug mode and nicer message format
+Fix for faster processing
+
+2013-07-29 - Ianaré Sévi
 Improve PyPI package
 fix for DeprecationWarning: classic int division
 Improvements to debug output
