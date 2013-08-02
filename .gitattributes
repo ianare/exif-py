@@ -7,4 +7,5 @@
 
 *.py text eol=lf diff=python whitespace=blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
 *.txt text eol=lf
-*.md text eol=lf
+*.rst text eol=lf
+*.in text eol=lf
