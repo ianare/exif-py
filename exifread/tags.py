@@ -309,6 +309,7 @@ EXIF_TAGS = {
               2: 'Hard'}),
     0xA40B: ('DeviceSettingDescription', ),
     0xA40C: ('SubjectDistanceRange', ),
+    0xA420: ('ImageUniqueID', ),
     0xA500: ('Gamma', ),
     0xC4A5: ('PrintIM', ),
     0xEA1C: ('Padding', ),
