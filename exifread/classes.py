@@ -161,7 +161,7 @@ class ExifHeader:
         return ifds
 
 
-    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
+    def dump_IFD(self, ifd, ifd_name, tag_dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
         """Return a list of entries in the given IFD."""
         entries = self.s2n(ifd, 2)
         for i in range(entries):
@@ -170,7 +170,7 @@ class ExifHeader:
             tag = self.s2n(entry, 2)
 
             # get tag name early to avoid errors, help debug
-            tag_entry = dict.get(tag)
+            tag_entry = tag_dict.get(tag)
             if tag_entry:
                 tag_name = tag_entry[0]
             else:
@@ -385,7 +385,7 @@ class ExifHeader:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
                 logger.debug("Looks like a type 1 Nikon MakerNote.")
                 self.dump_IFD(note.field_offset+8, 'MakerNote',
-                                dict=MAKERNOTE_NIKON_OLDER_TAGS)
+                              tag_dict=MAKERNOTE_NIKON_OLDER_TAGS)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
                 if self.debug:
                     logger.debug("Looks like a labeled type 2 Nikon MakerNote")
@@ -393,18 +393,18 @@ class ExifHeader:
                     raise ValueError("Missing marker tag '42' in MakerNote.")
                 # skip the Makernote label and the TIFF header
                 self.dump_IFD(note.field_offset+10+8, 'MakerNote',
-                                dict=MAKERNOTE_NIKON_NEWER_TAGS, relative=1)
+                              tag_dict=MAKERNOTE_NIKON_NEWER_TAGS, relative=1)
             else:
                 # E99x or D1
                 logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
                 self.dump_IFD(note.field_offset, 'MakerNote',
-                                dict=MAKERNOTE_NIKON_NEWER_TAGS)
+                              tag_dict=MAKERNOTE_NIKON_NEWER_TAGS)
             return
 
         # Olympus
         if make.startswith('OLYMPUS'):
             self.dump_IFD(note.field_offset+8, 'MakerNote',
-                            dict=MAKERNOTE_OLYMPUS_TAGS)
+                          tag_dict=MAKERNOTE_OLYMPUS_TAGS)
             # TODO
             #for i in (('MakerNote Tag 0x2020', MAKERNOTE_OLYMPUS_TAG_0x2020),):
             #    self.decode_olympus_tag(self.tags[i[0]].values, i[1])
@@ -413,7 +413,7 @@ class ExifHeader:
         # Casio
         if 'CASIO' in make or 'Casio' in make:
             self.dump_IFD(note.field_offset, 'MakerNote',
-                            dict=MAKERNOTE_CASIO_TAGS)
+                          tag_dict=MAKERNOTE_CASIO_TAGS)
             return
 
         # Fujifilm
@@ -427,7 +427,7 @@ class ExifHeader:
             offset = self.offset
             self.offset += note.field_offset
             # process note with bogus values (note is actually at offset 12)
-            self.dump_IFD(12, 'MakerNote', dict=MAKERNOTE_FUJIFILM_TAGS)
+            self.dump_IFD(12, 'MakerNote', tag_dict=MAKERNOTE_FUJIFILM_TAGS)
             # reset to correct values
             self.endian = endian
             self.offset = offset
@@ -436,10 +436,11 @@ class ExifHeader:
         # Canon
         if make == 'Canon':
             self.dump_IFD(note.field_offset, 'MakerNote',
-                            dict=MAKERNOTE_CANON_TAGS)
+                          tag_dict=MAKERNOTE_CANON_TAGS)
             for i in (('MakerNote Tag 0x0001', MAKERNOTE_CANON_TAG_0x001),
-                        ('MakerNote Tag 0x0004', MAKERNOTE_CANON_TAG_0x004)):
+                      ('MakerNote Tag 0x0004', MAKERNOTE_CANON_TAG_0x004)):
                 if i[0] in self.tags:
+                    logger.debug('Canon ' + i[0])
                     self.canon_decode_tag(self.tags[i[0]].values, i[1])
             return
 
@@ -456,13 +457,14 @@ class ExifHeader:
         See http://www.burren.cx/david/canon.html by David Burren
         """
         for i in range(1, len(value)):
-            x = mn_tags.get(i, ('Unknown', ))
-            logger.debug("%s %s", i, x)
-            name = x[0]
-            if len(x) > 1:
-                val = x[1].get(value[i], 'Unknown')
+            tag = mn_tags.get(i, ('Unknown', ))
+            name = tag[0]
+            if len(tag) > 1:
+                val = tag[1].get(value[i], 'Unknown')
             else:
                 val = value[i]
+            logger.debug(" %s %s %s", i, name, hex(value[i]))
+
             # it's not a real IFD Tag but we fake one to make everybody
             # happy. this will have a "proprietary" type
             self.tags['MakerNote '+name] = IfdTag(str(val), None, 0, None,

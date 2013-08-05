@@ -194,7 +194,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         # EXIF IFD
         exif_off = hdr.tags.get(IFD_name+' ExifOffset')
         if exif_off:
-            logger.debug(' EXIF SubIFD at offset %d:', exif_off.values[0])
+            logger.debug(' Exif SubIFD at offset %d:', exif_off.values[0])
             hdr.dump_IFD(exif_off.values[0], 'EXIF', stop_tag=stop_tag)
             # Interoperability IFD contained in EXIF IFD
             intr_off = hdr.tags.get('EXIF SubIFD InteroperabilityOffset')
@@ -202,12 +202,12 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 logger.debug('  EXIF Interoperability SubSubIFD at offset %d:',
                           intr_off.values[0])
                 hdr.dump_IFD(intr_off.values[0], 'EXIF Interoperability',
-                             dict=INTR_TAGS, stop_tag=stop_tag)
+                             tag_dict=INTR_TAGS, stop_tag=stop_tag)
         # GPS IFD
         gps_off = hdr.tags.get(IFD_name+' GPSInfo')
         if gps_off:
             logger.debug(' GPS SubIFD at offset %d:', gps_off.values[0])
-            hdr.dump_IFD(gps_off.values[0], 'GPS', dict=GPS_TAGS, stop_tag=stop_tag)
+            hdr.dump_IFD(gps_off.values[0], 'GPS', tag_dict=GPS_TAGS, stop_tag=stop_tag)
         ctr += 1
 
     # extract uncompressed TIFF thumbnail
@@ -225,7 +225,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
     # have a description, do not process these).
-    if 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags and details:
+    if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
         hdr.decode_maker_note()
 
     # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
@@ -233,7 +233,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
     if 'JPEGThumbnail' not in hdr.tags:
         thumb_off = hdr.tags.get('MakerNote JPEGThumbnail')
         if thumb_off:
-            f.seek(offset+thumb_off.values[0])
-            hdr.tags['JPEGThumbnail'] = file.read(thumb_off.field_length)
+            f.seek(offset + thumb_off.values[0])
+            hdr.tags['JPEGThumbnail'] = f.read(thumb_off.field_length)
 
     return hdr.tags

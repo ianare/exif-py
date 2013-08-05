@@ -88,7 +88,7 @@ def main():
         toc = timeit.default_timer()
 
         if not data:
-            logger.warning('No EXIF information found')
+            logger.warning("No EXIF information found\n")
             continue
 
         x = data.keys()
