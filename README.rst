@@ -13,16 +13,17 @@ Installation
 
 PyPI
 ****
-This is the recomended process, it allows easily staying up to date.
+The recomended process is to install the `PyPI package <https://pypi.python.org/pypi/ExifRead>`_,
+as it allows easily staying up to date.
 ::
 
     $ pip install exifread
 
-See https://pypi.python.org/pypi/pip for more info.
+See the `pip documentation <https://pypi.python.org/pypi/pi>`_ for more info.
 
 Archive
 *******
-Download an archive from the releases page: https://github.com/ianare/exif-py/releases
+Download an archive from the project's `releases page <https://github.com/ianare/exif-py/releases>`_.
 
 Extract and enjoy.
 
