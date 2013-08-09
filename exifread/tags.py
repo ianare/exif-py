@@ -117,7 +117,7 @@ EXIF_TAGS = {
     0x0123: ('GrayResponseCurve', ),
     0x0124: ('T4Options', ),
     0x0125: ('T6Options', ),
-    0x0128: ('ResolutionUnit' {
+    0x0128: ('ResolutionUnit', {
         1: 'Not Absolute',
         2: 'Pixels/Inch',
         3: 'Pixels/Centimeter'

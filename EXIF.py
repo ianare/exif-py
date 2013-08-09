@@ -26,29 +26,42 @@ def usage(exit_status):
     """Show command line usage."""
     msg = 'Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
     msg += 'Extract EXIF information from digital camera image files.\n\nOptions:\n'
-    msg += '-q --quick   Do not process MakerNotes.\n'
+    msg += '-h --help               Display usage information and exit.\n'
+    msg += '-v --version            Display version information and exit.\n'
+    msg += '-q --quick              Do not process MakerNotes.\n'
     msg += '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
-    msg += '-s --strict   Run in strict mode (stop on errors).\n'
-    msg += '-d --debug   Run in debug mode (display extra info).\n'
+    msg += '-s --strict             Run in strict mode (stop on errors).\n'
+    msg += '-d --debug              Run in debug mode (display extra info).\n'
     print(msg)
     sys.exit(exit_status)
+
+
+def show_version():
+    readme_file = open("README.rst", "rt").read()
+    v_index = readme_file.index(":Version:") + 10
+    version = readme_file[v_index:v_index + 5]
+    print('Version %s' % version)
+    sys.exit(0)
+
 
 def main():
     # parse command line options/arguments
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hqsdct:v", ["help", "quick", "strict", "debug", "stop-tag="])
+        opts, args = getopt.getopt(sys.argv[1:], "hvqsdct:v", ["help", "version", "quick", "strict", "debug", "stop-tag="])
     except getopt.GetoptError:
         usage(2)
-    if args == []:
-        usage(2)
+
     detailed = True
     stop_tag = DEFAULT_STOP_TAG
     debug = False
     strict = False
     color = False
+
     for o, a in opts:
         if o in ("-h", "--help"):
             usage(0)
+        if o in ("-v", "--version"):
+            show_version()
         if o in ("-q", "--quick"):
             detailed = False
         if o in ("-t", "--stop-tag"):
@@ -57,6 +70,9 @@ def main():
             strict = True
         if o in ("-d", "--debug"):
             debug = True
+
+    if args == []:
+        usage(2)
 
     ## Configure the logger
     if debug:
@@ -73,6 +89,7 @@ def main():
 
     # output info for each file
     for filename in args:
+        file_start = timeit.default_timer()
         try:
             file = open(str(filename), 'rb')
         except:
@@ -80,30 +97,37 @@ def main():
             continue
         logger.info("Opening: %s", filename)
 
-        tic = timeit.default_timer()
+        tag_start = timeit.default_timer()
 
         # get the tags
         data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
 
-        toc = timeit.default_timer()
+        tag_stop = timeit.default_timer()
 
         if not data:
             logger.warning("No EXIF information found\n")
             continue
 
+        if 'JPEGThumbnail' in data:
+            logger.info('File has JPEG thumbnail')
+            del data['JPEGThumbnail']
+        if 'TIFFThumbnail' in data:
+            del data['TIFFThumbnail']
+            logger.info('File has TIFF thumbnail')
+
         x = data.keys()
         x.sort()
+
         for i in x:
-            if i in ('JPEGThumbnail', 'TIFFThumbnail'):
-                continue
             try:
                 logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
             except:
                 logger.error("%s : %s", i, str(data[i]))
-        if 'JPEGThumbnail' in data:
-            logger.info('File has JPEG thumbnail')
 
-        logger.debug("Tags processed in %s seconds", toc - tic)
+        file_stop = timeit.default_timer()
+
+        logger.debug("Tags processed in %s seconds", tag_stop - tag_start)
+        logger.debug("File processed in %s seconds", file_stop - file_start)
         print("")
 
 
