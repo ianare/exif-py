@@ -65,7 +65,7 @@ class ExifHeader:
         For some cameras that use relative tags, this offset may be relative
         to some other starting point.
         """
-        self.file.seek(self.offset+offset)
+        self.file.seek(self.offset + offset)
         slice = self.file.read(length)
         if self.endian == 'I':
             val = s2n_intel(slice)
@@ -238,13 +238,17 @@ class ExifHeader:
                 break
 
 
-    def extract_TIFF_thumbnail(self, thumb_ifd):
+    def extract_tiff_thumbnail(self, thumb_ifd):
         """
-        Extract uncompressed TIFF thumbnail (like pulling teeth).
+        Extract uncompressed TIFF thumbnail.
 
         Take advantage of the pre-existing layout in the thumbnail IFD as
         much as possible
         """
+        thumb = self.tags.get('Thumbnail Compression')
+        if not thumb or thumb.printable != 'Uncompressed TIFF':
+            return
+
         entries = self.s2n(thumb_ifd, 2)
         # this is header plus offset to IFD ...
         if self.endian == 'M':
@@ -252,7 +256,7 @@ class ExifHeader:
         else:
             tiff = 'II*\x00\x08\x00\x00\x00'
         # ... plus thumbnail IFD data plus a null "next IFD" pointer
-        self.file.seek(self.offset+thumb_ifd)
+        self.file.seek(self.offset + thumb_ifd)
         tiff += self.file.read(entries*12+2) + '\x00\x00\x00\x00'
 
         # fix up large value offset pointers into data area
@@ -296,6 +300,27 @@ class ExifHeader:
             tiff += self.file.read(old_counts[i])
 
         self.tags['TIFFThumbnail'] = tiff
+
+
+    def extract_jpeg_thumbnail(self):
+        """
+        Extract JPEG thumbnail.
+
+        (Thankfully the JPEG data is stored as a unit.)
+        """
+        thumb_offset = self.tags.get('Thumbnail JPEGInterchangeFormat')
+        if thumb_offset:
+            self.file.seek(self.offset + thumb_offset.values[0])
+            size = self.tags['Thumbnail JPEGInterchangeFormatLength'].values[0]
+            self.tags['JPEGThumbnail'] = self.file.read(size)
+
+        # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
+        # since it's not allowed in a uncompressed TIFF IFD
+        if 'JPEGThumbnail' not in self.tags:
+            thumb_offset = self.tags.get('MakerNote JPEGThumbnail')
+            if thumb_offset:
+                self.file.seek(self.offset + thumb_offset.values[0])
+                self.tags['JPEGThumbnail'] = self.file.read(thumb_offset.field_length)
 
 
     def decode_maker_note(self):

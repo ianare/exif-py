@@ -84,8 +84,10 @@ Processing Options
 
 These options can be used both in command line mode and within a script.
 
-Ignore MakerNote Tags
-*********************
+Faster Processing
+*****************
+Don't process makernote tags, don't extract the tumbnail image (if any).
+
 Pass the ``-q`` or ``--quick`` command line arguments, or as::
 
     tags = exifread.process_file(f, details=False)

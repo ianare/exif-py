@@ -180,19 +180,20 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
 
     hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug, details)
     ifd_list = hdr.list_IFDs()
+    thumb_ifd = False
     ctr = 0
-    for i in ifd_list:
+    for ifd in ifd_list:
         if ctr == 0:
-            IFD_name = 'Image'
+            ifd_name = 'Image'
         elif ctr == 1:
-            IFD_name = 'Thumbnail'
-            thumb_ifd = i
+            ifd_name = 'Thumbnail'
+            thumb_ifd = ifd
         else:
-            IFD_name = 'IFD %d' % ctr
-        logger.debug('IFD %d (%s) at offset %d:', ctr, IFD_name, i)
-        hdr.dump_IFD(i, IFD_name, stop_tag=stop_tag)
+            ifd_name = 'IFD %d' % ctr
+        logger.debug('IFD %d (%s) at offset %d:', ctr, ifd_name, ifd)
+        hdr.dump_IFD(ifd, ifd_name, stop_tag=stop_tag)
         # EXIF IFD
-        exif_off = hdr.tags.get(IFD_name+' ExifOffset')
+        exif_off = hdr.tags.get(ifd_name + ' ExifOffset')
         if exif_off:
             logger.debug(' Exif SubIFD at offset %d:', exif_off.values[0])
             hdr.dump_IFD(exif_off.values[0], 'EXIF', stop_tag=stop_tag)
@@ -204,23 +205,11 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 hdr.dump_IFD(intr_off.values[0], 'EXIF Interoperability',
                              tag_dict=INTR_TAGS, stop_tag=stop_tag)
         # GPS IFD
-        gps_off = hdr.tags.get(IFD_name+' GPSInfo')
+        gps_off = hdr.tags.get(ifd_name+' GPSInfo')
         if gps_off:
             logger.debug(' GPS SubIFD at offset %d:', gps_off.values[0])
             hdr.dump_IFD(gps_off.values[0], 'GPS', tag_dict=GPS_TAGS, stop_tag=stop_tag)
         ctr += 1
-
-    # extract uncompressed TIFF thumbnail
-    thumb = hdr.tags.get('Thumbnail Compression')
-    if thumb and thumb.printable == 'Uncompressed TIFF':
-        hdr.extract_TIFF_thumbnail(thumb_ifd)
-
-    # JPEG thumbnail (thankfully the JPEG data is stored as a unit)
-    thumb_off = hdr.tags.get('Thumbnail JPEGInterchangeFormat')
-    if thumb_off:
-        f.seek(offset + thumb_off.values[0])
-        size = hdr.tags['Thumbnail JPEGInterchangeFormatLength'].values[0]
-        hdr.tags['JPEGThumbnail'] = f.read(size)
 
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
@@ -228,12 +217,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
     if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
         hdr.decode_maker_note()
 
-    # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
-    # since it's not allowed in a uncompressed TIFF IFD
-    if 'JPEGThumbnail' not in hdr.tags:
-        thumb_off = hdr.tags.get('MakerNote JPEGThumbnail')
-        if thumb_off:
-            f.seek(offset + thumb_off.values[0])
-            hdr.tags['JPEGThumbnail'] = f.read(thumb_off.field_length)
+    # extract thumbnails
+    if details and thumb_ifd:
+        hdr.extract_tiff_thumbnail(thumb_ifd)
+        hdr.extract_jpeg_thumbnail()
 
     return hdr.tags

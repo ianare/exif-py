@@ -112,13 +112,13 @@ def main():
             logger.info('File has JPEG thumbnail')
             del data['JPEGThumbnail']
         if 'TIFFThumbnail' in data:
-            del data['TIFFThumbnail']
             logger.info('File has TIFF thumbnail')
+            del data['TIFFThumbnail']
 
-        x = data.keys()
-        x.sort()
+        tag_keys = data.keys()
+        tag_keys.sort()
 
-        for i in x:
+        for i in tag_keys:
             try:
                 logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
             except:
