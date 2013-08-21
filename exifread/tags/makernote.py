@@ -1,6 +1,5 @@
 
-from .utils import make_string, make_string_uc
-from exifread.classes import Ratio
+from exifread.utils import make_string, make_string_uc, Ratio
 
 def nikon_ev_bias(seq):
     """
@@ -38,15 +37,15 @@ def nikon_ev_bias(seq):
         ret_str = "-"
     else:
         ret_str = "+"
-    b = seq[2]  # Assume third value means the step size
-    whole = a / b
-    a = a % b
+    step = seq[2]  # Assume third value means the step size
+    whole = a / step
+    a = a % step
     if whole != 0:
         ret_str = ret_str + str(whole) + " "
     if a == 0:
         ret_str = ret_str + "EV"
     else:
-        r = Ratio(a, b)
+        r = Ratio(a, step)
         ret_str = ret_str + r.__repr__() + " EV"
     return ret_str
 

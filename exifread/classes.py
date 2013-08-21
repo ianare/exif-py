@@ -1,54 +1,9 @@
 
 import logging
+from .utils import s2n_motorola, s2n_intel, Ratio
 from .tags import *
 
 logger = logging.getLogger('exifread')
-
-def s2n_motorola(str):
-    """Extract multibyte integer in Motorola format (little endian)."""
-    x = 0
-    for c in str:
-        x = (x << 8) | ord(c)
-    return x
-
-
-def s2n_intel(str):
-    """Extract multibyte integer in Intel format (big endian)."""
-    x = 0
-    y = 0
-    for c in str:
-        x = x | (ord(c) << y)
-        y = y + 8
-    return x
-
-
-class Ratio:
-    """
-    Ratio object that eventually will be able to reduce itself to lowest
-    common denominator for printing.
-    """
-    def __init__(self, num, den):
-        self.num = num
-        self.den = den
-
-    def __repr__(self):
-        self.reduce()
-        if self.den == 1:
-            return str(self.num)
-        return '%d/%d' % (self.num, self.den)
-
-    def _gcd(self, a, b):
-        if b == 0:
-            return a
-        else:
-            return self._gcd(b, a % b)
-
-    def reduce(self):
-        div = self._gcd(self.num, self.den)
-        if div > 1:
-            self.num = self.num // div
-            self.den = self.den // div
-
 
 class IfdTag:
     """
