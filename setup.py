@@ -13,7 +13,7 @@ setup(
     version = version,
     author = "Ianaré Sévi",
     author_email = "ianare@gmail.com",
-    packages = ["exifread"],
+    packages = ["exifread", "exifread.tags"],
     scripts = ["EXIF.py"],
     url = "https://github.com/ianare/exif-py",
     license = "BSD",
