@@ -1,5 +1,8 @@
 
 import logging
+import struct
+import re
+
 from .utils import s2n_motorola, s2n_intel, Ratio
 from .tags import *
 
@@ -199,7 +202,8 @@ class ExifHeader:
                             offset = offset + typelen
                     # The test above causes problems with tags that are
                     # supposed to have long values!  Fix up one important case.
-                    elif tag_name == 'MakerNote' :
+                    elif tag_name in ('MakerNote',
+                                      makernote.CANON_CAMERA_INFO_TAG_NAME):
                         for dummy in range(count):
                             value = self.s2n(offset, typelen, signed)
                             values.append(value)
@@ -420,11 +424,17 @@ class ExifHeader:
             for i in (('MakerNote Tag 0x0001', makernote.CANON_CAMERA_SETTINGS),
                       ('MakerNote Tag 0x0002', makernote.CANON_FOCAL_LENGTH),
                       ('MakerNote Tag 0x0004', makernote.CANON_SHOT_INFO),
-                      ('MakerNote Tag 0x0026', makernote.CANON_AF_INFO_2)):
+                      ('MakerNote Tag 0x0026', makernote.CANON_AF_INFO_2),
+                      ('MakerNote Tag 0x0093', makernote.CANON_FILE_INFO)):
                 if i[0] in self.tags:
                     logger.debug('Canon ' + i[0])
                     self.canon_decode_tag(self.tags[i[0]].values, i[1])
                     del self.tags[i[0]]
+            if makernote.CANON_CAMERA_INFO_TAG_NAME in self.tags:
+                tag = self.tags[makernote.CANON_CAMERA_INFO_TAG_NAME]
+                logger.debug('Canon CameraInfo')
+                self.canon_decode_camera_info(tag)
+                del self.tags[makernote.CANON_CAMERA_INFO_TAG_NAME]
             return
 
 
@@ -452,3 +462,46 @@ class ExifHeader:
             # happy. this will have a "proprietary" type
             self.tags['MakerNote ' + name] = IfdTag(str(val), None, 0, None,
                                                     None, None)
+
+    def canon_decode_camera_info(self, camera_info_tag):
+        """Decode the variable length encoded camera info section."""
+        model = self.tags.get('Image Model', None)
+        if not model:
+            return
+        model = str(model.values)
+
+        camera_info_tags = None
+        for (model_name_re, tag_desc) in \
+              makernote.CANON_CAMERA_INFO_MODEL_MAP.items():
+            if re.search(model_name_re, model):
+                camera_info_tags = tag_desc
+                break
+        else:
+            return
+
+        # We are assuming here that these are all unsigned bytes (Byte or
+        # Unknown)
+        if camera_info_tag.field_type not in (1, 7):
+            return
+        camera_info = struct.pack('<%dB' % len(camera_info_tag.values),
+                                  *camera_info_tag.values)
+
+        # Look for each data value and decode it appropriately.
+        for offset, tag in camera_info_tags.items():
+            tag_format = tag[1]
+            tag_size = struct.calcsize(tag_format)
+            if len(camera_info) < offset + tag_size:
+                continue
+            packed_tag_value = camera_info[offset:offset+tag_size]
+            tag_value = struct.unpack(tag_format, packed_tag_value)[0]
+
+            tag_name = tag[0]
+            if len(tag) > 2:
+                if callable(tag[2]):
+                    tag_value = tag[2](tag_value)
+                else:
+                    tag_value = tag[2].get(tag_value, tag_value)
+            logger.debug(" %s %s", tag_name, tag_value)
+
+            self.tags['MakerNote ' + tag_name] = IfdTag(str(tag_value), None,
+                                                        0, None, None, None)
