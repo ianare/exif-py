@@ -613,6 +613,7 @@ CANON = {
     0x0007: ('FirmwareVersion', ),
     0x0008: ('ImageNumber', ),
     0x0009: ('OwnerName', ),
+    0x000C: ('SerialNumber', ),
     0x0015: ('SerialNumberFormat', {
         0x90000000: 'Format 1',
         0xA0000000: 'Format 2'
@@ -845,7 +846,7 @@ CANON_SHOT_INFO = {
 }
 
 CANON_AF_INFO_2 = {
-     2: ('AFAreaMode', {
+    2: ('AFAreaMode', {
         0: 'Off (Manual Focus)',
         2: 'Single-point AF',
         4: 'Multi-point AF or AI AF',
@@ -860,4 +861,131 @@ CANON_AF_INFO_2 = {
     3: ('NumAFPoints', ),
     4: ('ValidAFPoints', ),
     5: ('CanonImageWidth', ),
+}
+
+# From http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html#FileInfo
+CANON_FILE_INFO = {
+    1: ('FileNumber', ),
+    3: ('BracketMode', {
+        0: 'Off',
+        1: 'AEB',
+        2: 'FEB',
+        3: 'ISO',
+        4: 'WB',
+    }),
+    4: ('BracketValue', ),
+    5: ('BracketShotNumber', ),
+    6: ('RawJpgQuality', {
+        0xFFFF: 'n/a',
+        1: 'Economy',
+        2: 'Normal',
+        3: 'Fine',
+        4: 'RAW',
+        5: 'Superfine',
+        130: 'Normal Movie'
+    }),
+    7: ('RawJpgSize', {
+        0: 'Large',
+        1: 'Medium',
+        2: 'Small',
+        5: 'Medium 1',
+        6: 'Medium 2',
+        7: 'Medium 3',
+        8: 'Postcard',
+        9: 'Widescreen',
+        10: 'Medium Widescreen',
+        14: 'Small 1',
+        15: 'Small 2',
+        16: 'Small 3',
+        128: '640x480 Movie',
+        129: 'Medium Movie',
+        130: 'Small Movie',
+        137: '1280x720 Movie',
+        142: '1920x1080 Movie',
+    }),
+    8: ('LongExposureNoiseReduction2', {
+        0: 'Off',
+        1: 'On (1D)',
+        2: 'On',
+        3: 'Auto'
+    }),
+    9: ('WBBracketMode', {
+        0: 'Off',
+        1: 'On (shift AB)',
+        2: 'On (shift GM)'
+    }),
+    12: ('WBBracketValueAB', ),
+    13: ('WBBracketValueGM', ),
+    14: ('FilterEffect', {
+        0: 'None',
+        1: 'Yellow',
+        2: 'Orange',
+        3: 'Red',
+        4: 'Green'
+    }),
+    15: ('ToningEffect', {
+        0: 'None',
+        1: 'Sepia',
+        2: 'Blue',
+        3: 'Purple',
+        4: 'Green',
+    }),
+    16: ('MacroMagnification', ),
+    19: ('LiveViewShooting', {
+        0: 'Off',
+        1: 'On'
+    }),
+    25: ('FlashExposureLock', {
+        0: 'Off',
+        1: 'On'
+    })
+}
+
+def add_one(value):
+    return value + 1
+
+def subtract_one(value):
+    return value - 1
+
+def convert_temp(value):
+    return '%d C' % (value - 128)
+
+# CameraInfo datastructures have variable sized members.  Each entry here is:
+#   byte offset: (item name, data item type, decoding map).
+# Note that the data item type is fed directly to struct.unpack at the
+# specified offset.
+CANON_CAMERA_INFO_TAG_NAME = 'MakerNote Tag 0x000D'
+
+CANON_CAMERA_INFO_5D = {
+    23: ('CameraTemperature', '<B', convert_temp),
+    204: ('DirectoryIndex', '<L', subtract_one),
+    208: ('FileIndex', '<H', add_one),
+}
+
+CANON_CAMERA_INFO_5DMKII = {
+    25: ('CameraTemperature', '<B', convert_temp),
+    443: ('FileIndex', '<L', add_one),
+    455: ('DirectoryIndex', '<L', subtract_one),
+}
+
+CANON_CAMERA_INFO_5DMKIII = {
+    27: ('CameraTemperature', '<B', convert_temp),
+    652: ('FileIndex', '<L', add_one),
+    656: ('FileIndex2', '<L', add_one),
+    664: ('DirectoryIndex', '<L', subtract_one),
+    668: ('DirectoryIndex2', '<L', subtract_one),
+}
+
+CANON_CAMERA_INFO_600D = {
+    25: ('CameraTemperature', '<B', convert_temp),
+    475: ('FileIndex', '<L', add_one),
+    487: ('DirectoryIndex', '<L', subtract_one),
+}
+
+# A map of regular expressions on 'Image Model' to the CameraInfo spec
+CANON_CAMERA_INFO_MODEL_MAP = {
+    r'EOS 5D$': CANON_CAMERA_INFO_5D,
+    r'EOS 5D Mark II$': CANON_CAMERA_INFO_5DMKII,
+    r'EOS 5D Mark III$': CANON_CAMERA_INFO_5DMKIII,
+    r'\b(600D|REBEL T3i|Kiss X5)\b': CANON_CAMERA_INFO_600D,
 }
