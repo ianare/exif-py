@@ -203,7 +203,7 @@ class ExifHeader:
                     # The test above causes problems with tags that are
                     # supposed to have long values!  Fix up one important case.
                     elif tag_name in ('MakerNote',
-                                      makernote.CANON_CAMERA_INFO_TAG_NAME):
+                                      makernote.canon.CAMERA_INFO_TAG_NAME):
                         for dummy in range(count):
                             value = self.s2n(offset, typelen, signed)
                             values.append(value)
@@ -420,21 +420,21 @@ class ExifHeader:
         # Canon
         if make == 'Canon':
             self.dump_IFD(note.field_offset, 'MakerNote',
-                          tag_dict=makernote.CANON)
-            for i in (('MakerNote Tag 0x0001', makernote.CANON_CAMERA_SETTINGS),
-                      ('MakerNote Tag 0x0002', makernote.CANON_FOCAL_LENGTH),
-                      ('MakerNote Tag 0x0004', makernote.CANON_SHOT_INFO),
-                      ('MakerNote Tag 0x0026', makernote.CANON_AF_INFO_2),
-                      ('MakerNote Tag 0x0093', makernote.CANON_FILE_INFO)):
+                          tag_dict=makernote.canon.TAGS)
+            for i in (('MakerNote Tag 0x0001', makernote.canon.CAMERA_SETTINGS),
+                      ('MakerNote Tag 0x0002', makernote.canon.FOCAL_LENGTH),
+                      ('MakerNote Tag 0x0004', makernote.canon.SHOT_INFO),
+                      ('MakerNote Tag 0x0026', makernote.canon.AF_INFO_2),
+                      ('MakerNote Tag 0x0093', makernote.canon.FILE_INFO)):
                 if i[0] in self.tags:
                     logger.debug('Canon ' + i[0])
                     self.canon_decode_tag(self.tags[i[0]].values, i[1])
                     del self.tags[i[0]]
-            if makernote.CANON_CAMERA_INFO_TAG_NAME in self.tags:
-                tag = self.tags[makernote.CANON_CAMERA_INFO_TAG_NAME]
+            if makernote.canon.CAMERA_INFO_TAG_NAME in self.tags:
+                tag = self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
                 logger.debug('Canon CameraInfo')
                 self.canon_decode_camera_info(tag)
-                del self.tags[makernote.CANON_CAMERA_INFO_TAG_NAME]
+                del self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
             return
 
 
@@ -472,7 +472,7 @@ class ExifHeader:
 
         camera_info_tags = None
         for (model_name_re, tag_desc) in \
-              makernote.CANON_CAMERA_INFO_MODEL_MAP.items():
+              makernote.canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
                 camera_info_tags = tag_desc
                 break

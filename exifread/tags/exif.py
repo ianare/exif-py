@@ -1,3 +1,6 @@
+"""
+Standard tag definitions.
+"""
 
 from exifread.utils import make_string, make_string_uc
 
