@@ -78,6 +78,20 @@ Note that the dictionary keys are the IFD name followed by the tag name. For exa
 'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
 
 
+****************
+Tag Descriptions
+****************
+
+Tags are divided into these main categories:
+
+- ``Image``: information related to the main image (IFD0 of the Exif data).
+- ``Thumbnail``: information related to the thumbnail image, if present (IFD1 of the Exif data).
+- ``EXIF``: Exif information (Exif sub-IFD).
+- ``MakerNote``: Manufacturer specific information. There are no official published references for these tags.
+
+In some cases there is also a GPS sub-IFD.
+
+
 ******************
 Processing Options
 ******************
@@ -111,17 +125,3 @@ Return an error on invalid tags instead of silently ignoring.
 Pass the ``-s`` or ``--strict`` argument, or as::
 
     tags = exifread.process_file(f, strict=True)
-
-
-****************
-Tag Descriptions
-****************
-
-Tags are divided into these main categories:
-
-- ``Image``: information related to the main image (IFD0 of the Exif data).
-- ``Thumbnail``: information related to the thumbnail image, if present (IFD1 of the Exif data).
-- ``EXIF``: Exif information (Exif sub-IFD).
-- ``MakerNote``: Manufacturer specific information. There are no official published references for these tags.
-
-In some cases there is also a GPS sub-IFD.
