@@ -37,10 +37,7 @@ def usage(exit_status):
 
 
 def show_version():
-    readme_file = open("README.rst", "rt").read()
-    v_index = readme_file.index(":Version:") + 10
-    version = readme_file[v_index:v_index + 5]
-    print('Version %s' % version)
+    print('Version %s' % '1.4.0')
     sys.exit(0)
 
 

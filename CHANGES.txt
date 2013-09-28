@@ -1,5 +1,5 @@
 ﻿
-2013-09-??
+2013-09-28
 Many new tags (big thanks to Rodolfo Puig, Paul Barton, Joe Beda)
 Do not extract thumbnail in quick mode (issue #19)
 put tag definitions in separate module
