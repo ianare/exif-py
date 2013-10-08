@@ -1,5 +1,8 @@
 *.py[co]
 
+# OS
+.directory
+
 # Packages
 *.egg
 *.egg-info
@@ -12,6 +15,7 @@ var
 sdist
 develop-eggs
 .installed.cfg
+MANIFEST
 
 # Installer logs
 pip-log.txt
@@ -39,3 +43,6 @@ pip-log.txt
 .project
 .pydevproject
 .settings
+
+# Misc
+*swp

@@ -1,11 +1,29 @@
-﻿~ EXIF.py Changelog ~
+﻿
+2013-09-28
+Many new tags (big thanks to Rodolfo Puig, Paul Barton, Joe Beda)
+Do not extract thumbnail in quick mode (issue #19)
+put tag definitions in separate module
+add more timing info & version info
 
-2013-06-18 Peter Reimer
-moved tags and makernotes to seperate files
-using setup tools for installation and creating commandline script 
-using argparse to preocess commandline arguments
+2013-08-02
+Add timing info in debug mode and nicer message format
+Fix for faster processing
 
-2013-02-?? - Ianaré Sévi
+2013-07-29
+Improve PyPI package
+fix for DeprecationWarning: classic int division
+Improvements to debug output
+Add some Nikon makernote tags
+
+2013-07-27
+Set default values in case not set (ortsed)
+PEP8 & PEP257 improvements
+Better score in pylint
+Ideas and some code from Samuele Santi's and Peter Reimer's forks
+Replace print with logging
+Package for PyPI
+
+2013-02-07
 Port to Python 3 (DarkRedman)
 Fix endless loop on broken images (Michael Bemmerl)
 Rewrite of README.md
@@ -15,7 +33,7 @@ Fixed incoherent copyright notices
 Overflow error fixes added (related to 2**31 size)
 GPS tags added.
 
-2012-09-26 - Ianaré Sévi
+2012-09-26
 Add GPS tags
 Add better endian debug info
 
@@ -23,7 +41,7 @@ Add better endian debug info
 Support malformed last IFD (fhats)
 Light source, Flash and Metering mode dictionaries (gryfik)
 
-2008-07-31 - Ianaré Sévi
+2008-07-31
 Wikipedia Commons hunt for suitable test case images,
 testing new code additions.
 
@@ -34,12 +52,12 @@ Add some more Nikon MakerNote tags.
 2008-07-08 - Stephen H. Olson
 An error check for large tags totally borked MakerNotes.
   With Nikon anyway, valid MakerNotes can be pretty big.
-Add error check for a crash caused by nikon_ev_bias being 
+Add error check for a crash caused by nikon_ev_bias being
   called with the wrong args.
 Drop any garbage after a null character in string
   (patch from Andrew McNabb <amcnabb@google.com>).
 
-2008-02-12 - Ianaré Sévi
+2008-02-12
 Fix crash on invalid MakerNote
 Fix crash on huge Makernote (temp fix)
 Add printIM tag 0xC4A5, needs decoding info
@@ -51,20 +69,20 @@ Add 'strict' variable and command line option
 2008-01-18 - Gunter Ohrner
 Add 'GPSDate' tag
 
-2007-12-12 - Ianaré Sévi
+2007-12-12
 Fix quick option on certain image types
 Add note on tag naming in documentation
 
-2007-11-30 - Ianaré Sévi
+2007-11-30
 Changed -s option to -t
 Put changelog into separate file
 
-2007-10-28 - Ianaré Sévi
+2007-10-28
 Merged changes from MoinMoin:ReimarBauer
 Added command line option for debug, stop
 processing on tag.
 
-2007-09-27 - Ianaré Sévi
+2007-09-27
 Add some Olympus Makernote tags.
 
 2007-09-26 - Stephen H. Olson
@@ -78,10 +96,10 @@ Improved Nikon MakerNote support
 2007-05-03 - Martin Stone <mj_stone@users.sourceforge.net>
 Fix for inverted detailed flag and Photoshop header
 
-2007-03-24 - Ianaré Sévi
+2007-03-24
 Can now ignore MakerNotes Tags for faster processing.
 
-2007-01-18 - Ianaré Sévi
+2007-01-18
 Fixed a couple errors and assuming maintenance of the library.
 
 2006-08-04 MoinMoin:ReimarBauer
@@ -112,7 +130,7 @@ using relative offsets, and a fix for Nikon D100.
             Commented everything.
             Made small code improvements.
             Reformatted for readability.
-            
+
 2002-01-19 CEC Added ability to read TIFFs and JFIF-format JPEGs.
             Added ability to extract JPEG formatted thumbnail.
             Added ability to read GPS IFD (not tested).
@@ -120,7 +138,7 @@ using relative offsets, and a fix for Nikon D100.
             tag name.
             Factored into library returning dictionary of IFDs plus
             thumbnail, if any.
-            
+
 2002-01-20 CEC Added MakerNote processing logic.
             Added Olympus MakerNote.
             Converted data structure to single-level dictionary, avoiding
@@ -132,8 +150,8 @@ using relative offsets, and a fix for Nikon D100.
 
 2002-01-26 CEC Added ability to extract TIFF thumbnails.
             Added Nikon, Fujifilm, Casio MakerNotes.
-            
+
 2003-11-30 CEC Fixed problem with canon_decode_tag() not creating an
             IFD_Tag() object.
-            
+
 2004-02-15 CEC Finally fixed bit shift warning by converting Y to 0L.

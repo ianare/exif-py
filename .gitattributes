@@ -1,0 +1,11 @@
+#
+# Git normalization
+#
+
+.gitattributes export-ignore  
+.gitignore export-ignore
+
+*.py text eol=lf diff=python whitespace=blank-at-eol,space-before-tab,tab-in-indent,tabwidth=4
+*.txt text eol=lf
+*.rst text eol=lf
+*.in text eol=lf

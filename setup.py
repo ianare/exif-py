@@ -1,27 +1,33 @@
-from setuptools import setup, find_packages
-import sys, os
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-version = '1.2'
+from distutils.core import setup
 
-setup(name='exif-py',
-      version=version,
-      description="for metadata",
-      long_description="""\
-""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='exif metadaten',
-      author='Peter Reimer',
-      author_email='peter@4pi.org',
-      url='',
-      license='',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=[
-          # -*- Extra requirements: -*-
-      ],
-      entry_points={
-        'console_scripts':[
-              'EXIF = exifread.EXIF:main',
-              ]},
-      )
+readme_file = open("README.rst", "rt").read()
+
+v_index = readme_file.index(":Version:") + 10
+version = readme_file[v_index:v_index + 5]
+
+setup(
+    name = "ExifRead",
+    version = version,
+    author = "Ianaré Sévi",
+    author_email = "ianare@gmail.com",
+    packages = ["exifread", "exifread.tags"],
+    scripts = ["EXIF.py"],
+    url = "https://github.com/ianare/exif-py",
+    license = "BSD",
+    keywords = "exif image metadata photo",
+    description = "Read Exif metadata from tiff and jpeg files.",
+    long_description = readme_file,
+    classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "Intended Audience :: End Users/Desktop",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Topic :: Utilities",
+    ],
+)

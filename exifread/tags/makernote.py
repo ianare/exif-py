@@ -1,8 +1,61 @@
-from utils import make_string, make_string_uc, nikon_ev_bias, olympus_special_mode
+"""
+Makernote tag definitions.
+"""
 
+from exifread.utils import make_string, make_string_uc, Ratio
+
+import makernote_canon as canon
+
+def nikon_ev_bias(seq):
+    """
+    First digit seems to be in steps of 1/6 EV.
+    Does the third value mean the step size?  It is usually 6,
+    but it is 12 for the ExposureDifference.
+    Check for an error condition that could cause a crash.
+    This only happens if something has gone really wrong in
+    reading the Nikon MakerNote.
+    http://tomtia.plala.jp/DigitalCamera/MakerNote/index.asp
+    """
+    if len( seq ) < 4 :
+        return ''
+    if seq == [252, 1, 6, 0]:
+        return "-2/3 EV"
+    if seq == [253, 1, 6, 0]:
+        return "-1/2 EV"
+    if seq == [254, 1, 6, 0]:
+        return "-1/3 EV"
+    if seq == [0, 1, 6, 0]:
+        return "0 EV"
+    if seq == [2, 1, 6, 0]:
+        return "+1/3 EV"
+    if seq == [3, 1, 6, 0]:
+        return "+1/2 EV"
+    if seq == [4, 1, 6, 0]:
+        return "+2/3 EV"
+    # Handle combinations not in the table.
+    a = seq[0]
+    # Causes headaches for the +/- logic, so special case it.
+    if a == 0:
+        return "0 EV"
+    if a > 127:
+        a = 256 - a
+        ret_str = "-"
+    else:
+        ret_str = "+"
+    step = seq[2]  # Assume third value means the step size
+    whole = a / step
+    a = a % step
+    if whole != 0:
+        ret_str = ret_str + str(whole) + " "
+    if a == 0:
+        ret_str = ret_str + "EV"
+    else:
+        r = Ratio(a, step)
+        ret_str = ret_str + r.__repr__() + " EV"
+    return ret_str
 
 # Nikon E99x MakerNote Tags
-MAKERNOTE_NIKON_NEWER_TAGS={
+NIKON_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
     0x0002: ('ISOSetting', make_string),
     0x0003: ('ColorMode', ),
@@ -18,6 +71,7 @@ MAKERNOTE_NIKON_NEWER_TAGS={
     # Nearly the same as the other EV vals, but step size is 1/12 EV (?)
     0x000E: ('ExposureDifference', nikon_ev_bias),
     0x000F: ('ISOSelection', ),
+    0x0010: ('DataDump', ),
     0x0011: ('NikonPreview', ),
     0x0012: ('FlashCompensation', nikon_ev_bias),
     0x0013: ('ISOSpeedRequested', ),
@@ -145,11 +199,14 @@ MAKERNOTE_NIKON_NEWER_TAGS={
     0x0202: ('PreviewImageLength', ),
     0x0213: ('PreviewYCbCrPositioning',
              {1: 'Centered',
-              2: 'Co-sited'}), 
-    0x0010: ('DataDump', ),
-    }
+              2: 'Co-sited'}),
+    0x0E09: ('NikonCaptureVersion', ),
+    0x0E0E: ('NikonCaptureOffsets', ),
+    0x0E10: ('NikonScan', ),
+    0x0E22: ('NEFBitDepth', ),
+}
 
-MAKERNOTE_NIKON_OLDER_TAGS = {
+NIKON_OLD = {
     0x0003: ('Quality',
              {1: 'VGA Basic',
               2: 'VGA Normal',
@@ -179,9 +236,26 @@ MAKERNOTE_NIKON_OLDER_TAGS = {
               4: 'Fluorescent',
               5: 'Cloudy',
               6: 'Speed Light'}),
-    }
+}
 
-MAKERNOTE_OLYMPUS_TAGS={
+def olympus_special_mode(v):
+    """decode Olympus SpecialMode tag in MakerNote"""
+    mode1 = {
+        0: 'Normal',
+        1: 'Unknown',
+        2: 'Fast',
+        3: 'Panorama'}
+    mode2 = {
+        0: 'Non-panoramic',
+        1: 'Left to right',
+        2: 'Right to left',
+        3: 'Bottom to top',
+        4: 'Top to bottom'}
+    if v[0] not in mode1 or v[2] not in mode2:
+        return v
+    return '%s - sequence %d - %s' % (mode1[v[0]], v[1], mode2[v[2]])
+
+OLYMPUS = {
     # ah HAH! those sneeeeeaky bastids! this is how they get past the fact
     # that a JPEG thumbnail is not allowed in an uncompressed TIFF file
     0x0100: ('JPEGThumbnail', ),
@@ -267,10 +341,10 @@ MAKERNOTE_OLYMPUS_TAGS={
     0x2040: ('ImageProcessing', ),
     0x2050: ('FocusInfo', ),
     0x3000: ('RawInfo ', ),
-    }
+}
 
 # 0x2020 CameraSettings
-MAKERNOTE_OLYMPUS_TAG_0x2020={
+OLYMPUS_TAG_0x2020 = {
     0x0100: ('PreviewImageValid',
              {0: 'No',
               1: 'Yes'}),
@@ -418,10 +492,9 @@ MAKERNOTE_OLYMPUS_TAG_0x2020={
               3: 'SHQ',
               4: 'RAW'}),
     0x0901: ('ManometerReading', ),
-    }
+}
 
-
-MAKERNOTE_CASIO_TAGS={
+CASIO = {
     0x0001: ('RecordingMode',
              {1: 'Single Shutter',
               2: 'Panorama',
@@ -473,9 +546,9 @@ MAKERNOTE_CASIO_TAGS={
               125: '+1.0',
               244: '+3.0',
               250: '+2.0'}),
-    }
+}
 
-MAKERNOTE_FUJIFILM_TAGS={
+FUJIFILM = {
     0x0000: ('NoteVersion', make_string),
     0x1000: ('Quality', ),
     0x1001: ('Sharpness',
@@ -538,152 +611,6 @@ MAKERNOTE_FUJIFILM_TAGS={
     0x1302: ('AEWarning',
              {0: 'Off',
               1: 'On'}),
-    }
+}
 
-MAKERNOTE_CANON_TAGS = {
-    0x0006: ('ImageType', ),
-    0x0007: ('FirmwareVersion', ),
-    0x0008: ('ImageNumber', ),
-    0x0009: ('OwnerName', ),
-    }
 
-# this is in element offset, name, optional value dictionary format
-MAKERNOTE_CANON_TAG_0x001 = {
-    1: ('Macromode',
-        {1: 'Macro',
-         2: 'Normal'}),
-    2: ('SelfTimer', ),
-    3: ('Quality',
-        {2: 'Normal',
-         3: 'Fine',
-         5: 'Superfine'}),
-    4: ('FlashMode',
-        {0: 'Flash Not Fired',
-         1: 'Auto',
-         2: 'On',
-         3: 'Red-Eye Reduction',
-         4: 'Slow Synchro',
-         5: 'Auto + Red-Eye Reduction',
-         6: 'On + Red-Eye Reduction',
-         16: 'external flash'}),
-    5: ('ContinuousDriveMode',
-        {0: 'Single Or Timer',
-         1: 'Continuous'}),
-    7: ('FocusMode',
-        {0: 'One-Shot',
-         1: 'AI Servo',
-         2: 'AI Focus',
-         3: 'MF',
-         4: 'Single',
-         5: 'Continuous',
-         6: 'MF'}),
-    10: ('ImageSize',
-         {0: 'Large',
-          1: 'Medium',
-          2: 'Small'}),
-    11: ('EasyShootingMode',
-         {0: 'Full Auto',
-          1: 'Manual',
-          2: 'Landscape',
-          3: 'Fast Shutter',
-          4: 'Slow Shutter',
-          5: 'Night',
-          6: 'B&W',
-          7: 'Sepia',
-          8: 'Portrait',
-          9: 'Sports',
-          10: 'Macro/Close-Up',
-          11: 'Pan Focus'}),
-    12: ('DigitalZoom',
-         {0: 'None',
-          1: '2x',
-          2: '4x'}),
-    13: ('Contrast',
-         {0xFFFF: 'Low',
-          0: 'Normal',
-          1: 'High'}),
-    14: ('Saturation',
-         {0xFFFF: 'Low',
-          0: 'Normal',
-          1: 'High'}),
-    15: ('Sharpness',
-         {0xFFFF: 'Low',
-          0: 'Normal',
-          1: 'High'}),
-    16: ('ISO',
-         {0: 'See ISOSpeedRatings Tag',
-          15: 'Auto',
-          16: '50',
-          17: '100',
-          18: '200',
-          19: '400'}),
-    17: ('MeteringMode',
-         {3: 'Evaluative',
-          4: 'Partial',
-          5: 'Center-weighted'}),
-    18: ('FocusType',
-         {0: 'Manual',
-          1: 'Auto',
-          3: 'Close-Up (Macro)',
-          8: 'Locked (Pan Mode)'}),
-    19: ('AFPointSelected',
-         {0x3000: 'None (MF)',
-          0x3001: 'Auto-Selected',
-          0x3002: 'Right',
-          0x3003: 'Center',
-          0x3004: 'Left'}),
-    20: ('ExposureMode',
-         {0: 'Easy Shooting',
-          1: 'Program',
-          2: 'Tv-priority',
-          3: 'Av-priority',
-          4: 'Manual',
-          5: 'A-DEP'}),
-    23: ('LongFocalLengthOfLensInFocalUnits', ),
-    24: ('ShortFocalLengthOfLensInFocalUnits', ),
-    25: ('FocalUnitsPerMM', ),
-    28: ('FlashActivity',
-         {0: 'Did Not Fire',
-          1: 'Fired'}),
-    29: ('FlashDetails',
-         {14: 'External E-TTL',
-          13: 'Internal Flash',
-          11: 'FP Sync Used',
-          7: '2nd("Rear")-Curtain Sync Used',
-          4: 'FP Sync Enabled'}),
-    32: ('FocusMode',
-         {0: 'Single',
-          1: 'Continuous'}),
-    }
-
-MAKERNOTE_CANON_TAG_0x004 = {
-    7: ('WhiteBalance',
-        {0: 'Auto',
-         1: 'Sunny',
-         2: 'Cloudy',
-         3: 'Tungsten',
-         4: 'Fluorescent',
-         5: 'Flash',
-         6: 'Custom'}),
-    9: ('SequenceNumber', ),
-    14: ('AFPointUsed', ),
-    15: ('FlashBias',
-         {0xFFC0: '-2 EV',
-          0xFFCC: '-1.67 EV',
-          0xFFD0: '-1.50 EV',
-          0xFFD4: '-1.33 EV',
-          0xFFE0: '-1 EV',
-          0xFFEC: '-0.67 EV',
-          0xFFF0: '-0.50 EV',
-          0xFFF4: '-0.33 EV',
-          0x0000: '0 EV',
-          0x000C: '0.33 EV',
-          0x0010: '0.50 EV',
-          0x0014: '0.67 EV',
-          0x0020: '1 EV',
-          0x002C: '1.33 EV',
-          0x0030: '1.50 EV',
-          0x0034: '1.67 EV',
-          0x0040: '2 EV'}),
-    19: ('SubjectDistance', ),
-    }
