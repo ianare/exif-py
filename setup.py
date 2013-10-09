@@ -13,12 +13,16 @@ setup(
     author = "Ianaré Sévi",
     author_email = "ianare@gmail.com",
     packages = ["exifread", "exifread.tags"],
-    scripts = ["EXIF.py"],
+    #scripts = ["EXIF.py"],
     url = "https://github.com/ianare/exif-py",
     license = "BSD",
     keywords = "exif image metadata photo",
     description = "Read Exif metadata from tiff and jpeg files.",
     long_description = readme_file,
+    entry_points={
+        'console_scripts':[
+              'EXIF = EXIF:main',
+              ]},
     classifiers = [
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
