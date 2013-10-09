@@ -1,8 +1,6 @@
 EXIF.py
 =======
 
-:Version: 1.4.0
-
 Python library to extract EXIF data from tiff and jpeg files.
 
 Originally written by Gene Cash / Thierry Bousch.
