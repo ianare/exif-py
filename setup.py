@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from distutils.core import setup
+from setuptools import setup, find_packages
+from exifread import __version__
 
 readme_file = open("README.rst", "rt").read()
 
-v_index = readme_file.index(":Version:") + 10
-version = readme_file[v_index:v_index + 5]
 
 setup(
     name = "ExifRead",
-    version = version,
+    version = __version__,
     author = "Ianaré Sévi",
     author_email = "ianare@gmail.com",
     packages = ["exifread", "exifread.tags"],

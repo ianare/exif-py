@@ -18,7 +18,7 @@ import getopt
 import logging
 import timeit
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
-from exifread import process_file
+from exifread import process_file, __version__
 
 logger = logging.getLogger('exifread')
 
@@ -37,7 +37,7 @@ def usage(exit_status):
 
 
 def show_version():
-    print('Version %s' % '1.4.0')
+    print('Version %s' % __version__)
     sys.exit(0)
 
 
