@@ -19,7 +19,7 @@ as it allows easily staying up to date.
 
     $ pip install exifread
 
-See the `pip documentation <https://pypi.python.org/pypi/pi>`_ for more info.
+See the `pip documentation <https://pypi.python.org/pypi/pip>`_ for more info.
 
 Archive
 *******
