@@ -1,8 +1,6 @@
 EXIF.py
 =======
 
-:Version: 1.4.0
-
 Python library to extract EXIF data from tiff and jpeg files.
 
 Originally written by Gene Cash / Thierry Bousch.
@@ -19,7 +17,7 @@ as it allows easily staying up to date.
 
     $ pip install exifread
 
-See the `pip documentation <https://pypi.python.org/pypi/pi>`_ for more info.
+See the `pip documentation <https://pypi.python.org/pypi/pip>`_ for more info.
 
 Archive
 *******
