@@ -1,7 +1,10 @@
 EXIF.py
 =======
 
-:Version: 1.4.0
+.. image:: https://badge.fury.io/py/ExifRead.png
+    :target: http://badge.fury.io/py/ExifRead
+.. image:: https://pypip.in/d/ExifRead/badge.png
+        :target: https://crate.io/packages/ExifRead
 
 Python library to extract EXIF data from tiff and jpeg files.
 
@@ -13,9 +16,7 @@ Installation
 
 PyPI
 ****
-The recomended process is to install the `PyPI package <https://pypi.python.org/pypi/ExifRead>`_,
-as it allows easily staying up to date.
-::
+The recomended process is to install the PyPI package, as it allows easily staying up to date::
 
     $ pip install exifread
 
