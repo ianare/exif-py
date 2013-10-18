@@ -20,7 +20,7 @@ The recomended process is to install the PyPI package, as it allows easily stayi
 
     $ pip install exifread
 
-See the `pip documentation <https://pypi.python.org/pypi/pip>`_ for more info.
+See the `pip documentation <http://www.pip-installer.org/en/latest/>`_ for more info.
 
 Archive
 *******
