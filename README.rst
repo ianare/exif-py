@@ -1,8 +1,8 @@
 EXIF.py
 =======
 
-.. image:: https://badge.fury.io/py/ExifRead.png
-    :target: http://badge.fury.io/py/ExifRead
+.. image:: https://pypip.in/v/ExifRead/badge.png
+        :target: https://crate.io/packages/ExifRead
 .. image:: https://pypip.in/d/ExifRead/badge.png
         :target: https://crate.io/packages/ExifRead
 
