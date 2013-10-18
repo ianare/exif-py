@@ -1,9 +1,11 @@
-
 import logging
 from .classes import *
 from .tags import *
 
+__version__ = '1.4.1'
+
 logger = logging.getLogger('exifread')
+
 
 def increment_base(data, base):
     return ord(data[base+2]) * 256 + ord(data[base+3]) + 2
