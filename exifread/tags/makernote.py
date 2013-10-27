@@ -4,7 +4,7 @@ Makernote tag definitions.
 
 from exifread.utils import make_string, make_string_uc, Ratio
 
-import makernote_canon as canon
+from . import makernote_canon as canon
 
 def nikon_ev_bias(seq):
     """
