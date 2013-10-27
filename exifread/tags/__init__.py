@@ -1,6 +1,5 @@
-
 from .exif import *
-import makernote
+from . import makernote
 
 """
 Tag definitions
