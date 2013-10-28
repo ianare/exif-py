@@ -1,5 +1,10 @@
 
 
+def ord_(dta):
+    if isinstance(dta, str):
+        return ord(dta)
+    return dta
+
 def make_string(seq):
     """
     Don't throw an exception when given an out of range character.
@@ -24,14 +29,14 @@ def make_string_uc(seq):
     seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
-    return make_string( make_string(seq) )
+    return make_string(seq)
 
 
 def s2n_motorola(str):
     """Extract multibyte integer in Motorola format (little endian)."""
     x = 0
     for c in str:
-        x = (x << 8) | ord(c)
+        x = (x << 8) | ord_(c)
     return x
 
 
@@ -40,7 +45,7 @@ def s2n_intel(str):
     x = 0
     y = 0
     for c in str:
-        x = x | (ord(c) << y)
+        x = x | (ord_(c) << y)
         y = y + 8
     return x
 
