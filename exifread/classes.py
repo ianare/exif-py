@@ -1,4 +1,3 @@
-
 import logging
 import struct
 import re
@@ -456,7 +455,7 @@ class ExifHeader:
                 val = tag[1].get(value[i], 'Unknown')
             else:
                 val = value[i]
-            logger.debug(" %s %s %s", i, name, hex(value[i]))
+            logger.debug(" %s %s %s", i, name, val)
 
             # it's not a real IFD Tag but we fake one to make everybody
             # happy. this will have a "proprietary" type
