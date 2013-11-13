@@ -112,7 +112,7 @@ def main():
             logger.info('File has TIFF thumbnail')
             del data['TIFFThumbnail']
 
-        tag_keys = data.keys()
+        tag_keys = list(data.keys())
         tag_keys.sort()
 
         for i in tag_keys:
