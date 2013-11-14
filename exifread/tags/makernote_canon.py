@@ -1,5 +1,7 @@
 """
 Makernote (proprietary) tag definitions for Canon.
+
+http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 """
 
 TAGS = {
@@ -8,6 +10,7 @@ TAGS = {
     0x0008: ('ImageNumber', ),
     0x0009: ('OwnerName', ),
     0x000C: ('SerialNumber', ),
+    0x000E: ('FileLength', ),
     0x0015: ('SerialNumberFormat', {
         0x90000000: 'Format 1',
         0xA0000000: 'Format 2'
@@ -17,11 +20,13 @@ TAGS = {
         1: 'On (1)',
         2: 'On (2)'
     }),
-    0x0009: ('OwnerName', ),
-    0x0009: ('OwnerName', ),
-    0x0009: ('OwnerName', ),
-    0x0009: ('OwnerName', ),
-
+    0x001C: ('DateStampMode', {
+        0: 'Off',
+        1: 'Date',
+        2: 'Date & Time',
+    }),
+    0x001E: ('FirmwareRevision', ),
+    0x0028: ('ImageUniqueID', ),
     0x0095: ('LensModel', ),
     0x0096: ('InternalSerialNumber ', ),
     0x0097: ('DustRemovalData ', ),
@@ -34,6 +39,7 @@ TAGS = {
 }
 
 # this is in element offset, name, optional value dictionary format
+# 0x0001
 CAMERA_SETTINGS = {
     1: ('Macromode', {
         1: 'Macro',
@@ -213,6 +219,7 @@ CAMERA_SETTINGS = {
     }),
 }
 
+# 0x0002
 FOCAL_LENGTH = {
     1: ('FocalType', {
         1: 'Fixed',
@@ -221,6 +228,7 @@ FOCAL_LENGTH = {
     2: ('FocalLength', ),
 }
 
+# 0x0004
 SHOT_INFO = {
     7: ('WhiteBalance', {
         0: 'Auto',
@@ -262,6 +270,7 @@ SHOT_INFO = {
     19: ('SubjectDistance', ),
 }
 
+# 0x0026
 AF_INFO_2 = {
     2: ('AFAreaMode', {
         0: 'Off (Manual Focus)',
@@ -280,7 +289,7 @@ AF_INFO_2 = {
     5: ('CanonImageWidth', ),
 }
 
-# From http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html#FileInfo
+# 0x0093
 FILE_INFO = {
     1: ('FileNumber', ),
     3: ('BracketMode', {
