@@ -2,7 +2,7 @@ import logging
 from .classes import *
 from .tags import *
 
-__version__ = '1.4.1'
+__version__ = '1.4.2'
 
 logger = logging.getLogger('exifread')
 
