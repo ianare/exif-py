@@ -16,7 +16,7 @@ Installation
 
 PyPI
 ****
-The recomended process is to install the PyPI package, as it allows easily staying up to date::
+The recommended process is to install the PyPI package, as it allows easily staying up to date::
 
     $ pip install exifread
 
@@ -101,7 +101,7 @@ These options can be used both in command line mode and within a script.
 
 Faster Processing
 *****************
-Don't process makernote tags, don't extract the tumbnail image (if any).
+Don't process makernote tags, don't extract the thumbnail image (if any).
 
 Pass the ``-q`` or ``--quick`` command line arguments, or as::
 

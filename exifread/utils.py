@@ -1,4 +1,6 @@
-
+"""
+Misc utilities.
+"""
 
 def make_string(seq):
     """

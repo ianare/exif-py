@@ -8,6 +8,7 @@ from .tags import *
 
 logger = logging.getLogger('exifread')
 
+
 class IfdTag:
     """
     Eases dealing with tags.

@@ -13,6 +13,10 @@
 # See CHANGES.txt file for all contributors and changes
 #
 
+"""
+Runs Exif tag extraction in command line.
+"""
+
 import sys
 import getopt
 import logging
@@ -21,6 +25,7 @@ from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
 from exifread import process_file, __version__
 
 logger = logging.getLogger('exifread')
+
 
 def usage(exit_status):
     """Show command line usage."""
@@ -37,14 +42,31 @@ def usage(exit_status):
 
 
 def show_version():
+    """Show the program version."""
     print('Version %s' % __version__)
     sys.exit(0)
 
 
+def setup_logger(debug):
+    """Configure the logger."""
+    if debug:
+        log_level = logging.DEBUG
+        log_format = '%(levelname)-5s  %(message)s'
+    else:
+        log_level = logging.INFO
+        log_format = '%(message)s'
+    stream = logging.StreamHandler()
+    stream.setFormatter(logging.Formatter(log_format))
+    logger.setLevel(log_level)
+    stream.setLevel(log_level)
+    logger.addHandler(stream)
+
+
 def main():
-    # parse command line options/arguments
+    """Parse command line options/arguments and execute."""
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hvqsdct:v", ["help", "version", "quick", "strict", "debug", "stop-tag="])
+        arg_names = ["help", "version", "quick", "strict", "debug", "stop-tag="]
+        opts, args = getopt.getopt(sys.argv[1:], "hvqsdct:v", arg_names)
     except getopt.GetoptError:
         usage(2)
 
@@ -52,44 +74,32 @@ def main():
     stop_tag = DEFAULT_STOP_TAG
     debug = False
     strict = False
-    color = False
 
-    for o, a in opts:
-        if o in ("-h", "--help"):
+    for option, arg in opts:
+        if option in ("-h", "--help"):
             usage(0)
-        if o in ("-v", "--version"):
+        if option in ("-v", "--version"):
             show_version()
-        if o in ("-q", "--quick"):
+        if option in ("-q", "--quick"):
             detailed = False
-        if o in ("-t", "--stop-tag"):
-            stop_tag = a
-        if o in ("-s", "--strict"):
+        if option in ("-t", "--stop-tag"):
+            stop_tag = arg
+        if option in ("-s", "--strict"):
             strict = True
-        if o in ("-d", "--debug"):
+        if option in ("-d", "--debug"):
             debug = True
 
     if args == []:
         usage(2)
 
-    ## Configure the logger
-    if debug:
-        log_level = logging.DEBUG
-        log_format = '%(levelname)-5s  %(message)s'
-    else:
-        log_level = logging.INFO
-        log_format = '%(message)s'
-    ch = logging.StreamHandler()
-    ch.setFormatter(logging.Formatter(log_format))
-    logger.setLevel(log_level)
-    ch.setLevel(log_level)
-    logger.addHandler(ch)
+    setup_logger(debug)
 
     # output info for each file
     for filename in args:
         file_start = timeit.default_timer()
         try:
-            file = open(str(filename), 'rb')
-        except:
+            img_file = open(str(filename), 'rb')
+        except IOError:
             logger.error("'%s' is unreadable", filename)
             continue
         logger.info("Opening: %s", filename)
@@ -97,7 +107,7 @@ def main():
         tag_start = timeit.default_timer()
 
         # get the tags
-        data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
+        data = process_file(img_file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
 
         tag_stop = timeit.default_timer()
 

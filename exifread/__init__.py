@@ -10,6 +10,7 @@ logger = logging.getLogger('exifread')
 def increment_base(data, base):
     return ord(data[base+2]) * 256 + ord(data[base+3]) + 2
 
+
 def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
     """
     Process an image file (expects an open file object).

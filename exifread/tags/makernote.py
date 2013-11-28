@@ -6,6 +6,7 @@ from exifread.utils import make_string, make_string_uc, Ratio
 
 from . import makernote_canon as canon
 
+
 def nikon_ev_bias(seq):
     """
     First digit seems to be in steps of 1/6 EV.
@@ -237,6 +238,7 @@ NIKON_OLD = {
               5: 'Cloudy',
               6: 'Speed Light'}),
 }
+
 
 def olympus_special_mode(v):
     """decode Olympus SpecialMode tag in MakerNote"""

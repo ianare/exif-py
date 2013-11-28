@@ -1,9 +1,9 @@
-from .exif import *
-from . import makernote
-
 """
 Tag definitions
 """
+
+from .exif import *
+from . import makernote
 
 DEFAULT_STOP_TAG = 'UNDEF'
 
