@@ -236,7 +236,7 @@ class ExifHeader:
                                                             field_type,
                                                             values, field_offset,
                                                             count * typelen)
-                logger.debug("%s: %s", tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
+                logger.debug(" %s: %s", tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
 
             if tag_name == stop_tag:
                 break
@@ -456,8 +456,11 @@ class ExifHeader:
                 val = tag[1].get(value[i], 'Unknown')
             else:
                 val = value[i]
-            logger.debug(" %s %s %s", i, name, hex(value[i]))
-
+            try:
+                logger.debug(" %s %s %s", i, name, hex(value[i]))
+            except TypeError:
+                logger.debug(" %s %s %s", i, name, value[i])
+            
             # it's not a real IFD Tag but we fake one to make everybody
             # happy. this will have a "proprietary" type
             self.tags['MakerNote ' + name] = IfdTag(str(val), None, 0, None,
