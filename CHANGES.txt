@@ -1,4 +1,9 @@
-﻿
+﻿2013-11-27
+A few new Canon tags
+Python3 fixes (velis74 and leprechaun)
+Fix for TypeError (issue #28)
+Pylint & PEP8 fixes
+
 2013-09-28
 Many new tags (big thanks to Rodolfo Puig, Paul Barton, Joe Beda)
 Do not extract thumbnail in quick mode (issue #19)
