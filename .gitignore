@@ -3,6 +3,16 @@
 # OS
 .directory
 
+# Images
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+
+# Archives
+*.gz
+*.zip
+
 # Packages
 *.egg
 *.egg-info
@@ -30,14 +40,8 @@ pip-log.txt
 # Mr Developer
 .mr.developer.cfg
 
-# Images
-*.jpg
-*.jpeg
-*.tif
-*.tiff
-
 # PyCharm
-/.idea
+.idea
 
 # Eclipse
 .project
