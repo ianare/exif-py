@@ -367,11 +367,14 @@ FILE_INFO = {
     })
 }
 
+
 def add_one(value):
     return value + 1
 
+
 def subtract_one(value):
     return value - 1
+
 
 def convert_temp(value):
     return '%d C' % (value - 128)

@@ -10,7 +10,7 @@ setup(
     version=exifread.__version__,
     author="Ianaré Sévi",
     author_email="ianare@gmail.com",
-    packages=["exifread", "exifread.tags"],
+    packages=find_packages(),
     scripts=["EXIF.py"],
     url="https://github.com/ianare/exif-py",
     license="BSD",

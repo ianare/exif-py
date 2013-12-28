@@ -2,10 +2,12 @@
 Misc utilities.
 """
 
+
 def ord_(dta):
     if isinstance(dta, str):
         return ord(dta)
     return dta
+
 
 def make_string(seq):
     """
@@ -16,7 +18,7 @@ def make_string(seq):
         # Screen out non-printing characters
         if 32 <= c and c < 256:
             string += chr(c)
-    # If no printing chars
+        # If no printing chars
     if not string:
         return str(seq)
     return string
@@ -57,6 +59,7 @@ class Ratio:
     Ratio object that eventually will be able to reduce itself to lowest
     common denominator for printing.
     """
+
     def __init__(self, num, den):
         self.num = num
         self.den = den

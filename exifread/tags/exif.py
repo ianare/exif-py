@@ -221,7 +221,7 @@ EXIF_TAGS = {
     # used by Windows Explorer
     0x9C9B: ('XPTitle', ),
     0x9C9C: ('XPComment', ),
-    0x9C9D: ('XPAuthor', ),  #(ignored by Windows Explorer if Artist exists)
+    0x9C9D: ('XPAuthor', ),  # (ignored by Windows Explorer if Artist exists)
     0x9C9E: ('XPKeywords', ),
     0x9C9F: ('XPSubject', ),
     0xA000: ('FlashPixVersion', make_string),
