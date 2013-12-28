@@ -1,9 +1,13 @@
+"""
+Read Exif metadata from tiff and jpeg files.
+"""
+
 import logging
 from .classes import *
 from .tags import *
 from .utils import ord_
 
-__version__ = '1.4.2'
+__version__ = '2.0.0'
 
 logger = logging.getLogger('exifread')
 
