@@ -3,7 +3,6 @@ Makernote tag definitions.
 """
 
 from exifread.utils import make_string, make_string_uc, Ratio
-
 from . import makernote_canon as canon
 
 

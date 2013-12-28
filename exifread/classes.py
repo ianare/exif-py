@@ -181,7 +181,9 @@ class ExifHeader:
                             values = self.file.read(count)
                             #print values
                             # Drop any garbage after a null.
-                            values = values.split('\x00', 1)[0]
+                            values = values.split(b'\x00', 1)[0]
+                            if isinstance(values, bytes):
+                                values = values.decode("utf-8")
                         except OverflowError:
                             values = ''
                 else:
