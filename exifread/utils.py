@@ -29,7 +29,6 @@ def make_string_uc(seq):
     Special version to deal with the code in the first 8 bytes of a user comment.
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
-    #code = seq[0:8]
     seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
@@ -37,7 +36,7 @@ def make_string_uc(seq):
 
 
 def s2n_motorola(str):
-    """Extract multibyte integer in Motorola format (little endian)."""
+    """Extract multi-byte integer in Motorola format (little endian)."""
     x = 0
     for c in str:
         x = (x << 8) | ord_(c)
@@ -45,12 +44,12 @@ def s2n_motorola(str):
 
 
 def s2n_intel(str):
-    """Extract multibyte integer in Intel format (big endian)."""
+    """Extract multi-byte integer in Intel format (big endian)."""
     x = 0
     y = 0
     for c in str:
         x = x | (ord_(c) << y)
-        y = y + 8
+        y += + 8
     return x
 
 

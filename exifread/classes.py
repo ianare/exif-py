@@ -70,16 +70,16 @@ class ExifHeader:
         to some other starting point.
         """
         self.file.seek(self.offset + offset)
-        slice = self.file.read(length)
+        sliced = self.file.read(length)
         if self.endian == 'I':
-            val = s2n_intel(slice)
+            val = s2n_intel(sliced)
         else:
-            val = s2n_motorola(slice)
+            val = s2n_motorola(sliced)
             # Sign extension ?
         if signed:
             msb = 1 << (8 * length - 1)
             if val & msb:
-                val = val - (msb << 1)
+                val -= (msb << 1)
         return val
 
     def n2s(self, offset, length):
@@ -87,17 +87,17 @@ class ExifHeader:
         s = ''
         for dummy in range(length):
             if self.endian == 'I':
-                s = s + chr(offset & 0xFF)
+                s += chr(offset & 0xFF)
             else:
                 s = chr(offset & 0xFF) + s
             offset = offset >> 8
         return s
 
-    def first_IFD(self):
+    def _first_ifd(self):
         """Return first IFD."""
         return self.s2n(4, 4)
 
-    def next_IFD(self, ifd):
+    def _next_ifd(self, ifd):
         """Return the pointer to next IFD."""
         entries = self.s2n(ifd, 2)
         next_ifd = self.s2n(ifd + 2 + 12 * entries, 4)
@@ -106,16 +106,16 @@ class ExifHeader:
         else:
             return next_ifd
 
-    def list_IFDs(self):
+    def list_ifd(self):
         """Return the list of IFDs in the header."""
-        i = self.first_IFD()
+        i = self._first_ifd()
         ifds = []
         while i:
             ifds.append(i)
-            i = self.next_IFD(i)
+            i = self._next_ifd(i)
         return ifds
 
-    def dump_IFD(self, ifd, ifd_name, tag_dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
+    def dump_ifd(self, ifd, ifd_name, tag_dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
         """Return a list of entries in the given IFD."""
         entries = self.s2n(ifd, 2)
         for i in range(entries):
@@ -265,17 +265,17 @@ class ExifHeader:
             entry = thumb_ifd + 2 + 12 * i
             tag = self.s2n(entry, 2)
             field_type = self.s2n(entry + 2, 2)
-            typelen = FIELD_TYPES[field_type][0]
+            type_length = FIELD_TYPES[field_type][0]
             count = self.s2n(entry + 4, 4)
-            oldoff = self.s2n(entry + 8, 4)
+            old_offset = self.s2n(entry + 8, 4)
             # start of the 4-byte pointer area in entry
             ptr = i * 12 + 18
             # remember strip offsets location
             if tag == 0x0111:
                 strip_off = ptr
-                strip_len = count * typelen
+                strip_len = count * type_length
                 # is it in the data area?
-            if count * typelen > 4:
+            if count * type_length > 4:
                 # update offset pointer (nasty "strings are immutable" crap)
                 # should be able to say "tiff[ptr:ptr+4]=newoff"
                 newoff = len(tiff)
@@ -284,9 +284,9 @@ class ExifHeader:
                 if tag == 0x0111:
                     strip_off = newoff
                     strip_len = 4
-                    # get original data and store it
-                self.file.seek(self.offset + oldoff)
-                tiff += self.file.read(count * typelen)
+                # get original data and store it
+                self.file.seek(self.offset + old_offset)
+                tiff += self.file.read(count * type_length)
 
         # add pixel strips and update strip offset info
         old_offsets = self.tags['Thumbnail StripOffsets'].values
@@ -363,7 +363,7 @@ class ExifHeader:
         if 'NIKON' in make:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
                 logger.debug("Looks like a type 1 Nikon MakerNote.")
-                self.dump_IFD(note.field_offset + 8, 'MakerNote',
+                self.dump_ifd(note.field_offset + 8, 'MakerNote',
                               tag_dict=makernote.NIKON_OLD)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
                 if self.debug:
@@ -371,18 +371,18 @@ class ExifHeader:
                 if note.values[12:14] != [0, 42] and note.values[12:14] != [42, 0]:
                     raise ValueError("Missing marker tag '42' in MakerNote.")
                     # skip the Makernote label and the TIFF header
-                self.dump_IFD(note.field_offset + 10 + 8, 'MakerNote',
+                self.dump_ifd(note.field_offset + 10 + 8, 'MakerNote',
                               tag_dict=makernote.NIKON_NEW, relative=1)
             else:
                 # E99x or D1
                 logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
-                self.dump_IFD(note.field_offset, 'MakerNote',
+                self.dump_ifd(note.field_offset, 'MakerNote',
                               tag_dict=makernote.NIKON_NEW)
             return
 
         # Olympus
         if make.startswith('OLYMPUS'):
-            self.dump_IFD(note.field_offset + 8, 'MakerNote',
+            self.dump_ifd(note.field_offset + 8, 'MakerNote',
                           tag_dict=makernote.OLYMPUS)
             # TODO
             #for i in (('MakerNote Tag 0x2020', makernote.OLYMPUS_TAG_0x2020),):
@@ -391,7 +391,7 @@ class ExifHeader:
 
         # Casio
         if 'CASIO' in make or 'Casio' in make:
-            self.dump_IFD(note.field_offset, 'MakerNote',
+            self.dump_ifd(note.field_offset, 'MakerNote',
                           tag_dict=makernote.CASIO)
             return
 
@@ -406,7 +406,7 @@ class ExifHeader:
             offset = self.offset
             self.offset += note.field_offset
             # process note with bogus values (note is actually at offset 12)
-            self.dump_IFD(12, 'MakerNote', tag_dict=makernote.FUJIFILM)
+            self.dump_ifd(12, 'MakerNote', tag_dict=makernote.FUJIFILM)
             # reset to correct values
             self.endian = endian
             self.offset = offset
@@ -414,7 +414,7 @@ class ExifHeader:
 
         # Canon
         if make == 'Canon':
-            self.dump_IFD(note.field_offset, 'MakerNote',
+            self.dump_ifd(note.field_offset, 'MakerNote',
                           tag_dict=makernote.canon.TAGS)
             for i in (('MakerNote Tag 0x0001', makernote.canon.CAMERA_SETTINGS),
                       ('MakerNote Tag 0x0002', makernote.canon.FOCAL_LENGTH),
@@ -460,15 +460,16 @@ class ExifHeader:
                                                     None, None)
 
     def canon_decode_camera_info(self, camera_info_tag):
-        """Decode the variable length encoded camera info section."""
+        """
+        Decode the variable length encoded camera info section.
+        """
         model = self.tags.get('Image Model', None)
         if not model:
             return
         model = str(model.values)
 
         camera_info_tags = None
-        for (model_name_re, tag_desc) in \
-            makernote.canon.CAMERA_INFO_MODEL_MAP.items():
+        for (model_name_re, tag_desc) in makernote.canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
                 camera_info_tags = tag_desc
                 break
