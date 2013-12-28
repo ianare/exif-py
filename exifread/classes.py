@@ -141,7 +141,7 @@ class ExifHeader:
                     else:
                         raise ValueError('unknown type %d in tag 0x%04X' % (field_type, tag))
 
-                typelen = FIELD_TYPES[field_type][0]
+                type_length = FIELD_TYPES[field_type][0]
                 count = self.s2n(entry + 4, 4)
                 # Adjust for tag id/type/count (2+2+4 bytes)
                 # Now we point at either the data or the 2nd level offset
@@ -149,7 +149,7 @@ class ExifHeader:
 
                 # If the value fits in 4 bytes, it is inlined, else we
                 # need to jump ahead again.
-                if count * typelen > 4:
+                if count * type_length > 4:
                     # offset is not the value; it's a pointer to the value
                     # if relative we set things up so s2n will seek to the right
                     # place when it adds self.offset.  Note that this 'relative'
@@ -160,7 +160,7 @@ class ExifHeader:
                         tmp_offset = self.s2n(offset, 4)
                         offset = tmp_offset + ifd - 8
                         if self.fake_exif:
-                            offset = offset + 18
+                            offset += 18
                     else:
                         offset = self.s2n(offset, 4)
 
@@ -170,7 +170,7 @@ class ExifHeader:
                     # special case: null-terminated ASCII string
                     # XXX investigate
                     # sometimes gets too big to fit in int value
-                    if count != 0: # and count < (2**31):  # 2E31 is hardware dependant. --gd
+                    if count != 0:  # and count < (2**31):  # 2E31 is hardware dependant. --gd
                         try:
                             self.file.seek(self.offset + offset)
                             values = self.file.read(count)
@@ -178,7 +178,10 @@ class ExifHeader:
                             # Drop any garbage after a null.
                             values = values.split(b'\x00', 1)[0]
                             if isinstance(values, bytes):
-                                values = values.decode("utf-8")
+                                try:
+                                    values = values.decode("utf-8")
+                                except UnicodeDecodeError:
+                                    logger.warning("Possibly corrupted field %s in %s IFD", tag_name, ifd_name)
                         except OverflowError:
                             values = ''
                 else:
@@ -195,19 +198,16 @@ class ExifHeader:
                                 value = Ratio(self.s2n(offset, 4, signed),
                                               self.s2n(offset + 4, 4, signed))
                             else:
-                                value = self.s2n(offset, typelen, signed)
+                                value = self.s2n(offset, type_length, signed)
                             values.append(value)
-                            offset = offset + typelen
+                            offset = offset + type_length
                     # The test above causes problems with tags that are
                     # supposed to have long values!  Fix up one important case.
-                    elif tag_name in ('MakerNote',
-                                      makernote.canon.CAMERA_INFO_TAG_NAME):
+                    elif tag_name in ('MakerNote', makernote.canon.CAMERA_INFO_TAG_NAME):
                         for dummy in range(count):
-                            value = self.s2n(offset, typelen, signed)
+                            value = self.s2n(offset, type_length, signed)
                             values.append(value)
-                            offset = offset + typelen
-                            #else :
-                            #    print "Warning: dropping large tag:", tag, tag_name
+                            offset = offset + type_length
 
                 # now 'values' is either a string or an array
                 if count == 1 and field_type != 2:
@@ -233,7 +233,7 @@ class ExifHeader:
                 self.tags[ifd_name + ' ' + tag_name] = IfdTag(printable, tag,
                                                               field_type,
                                                               values, field_offset,
-                                                              count * typelen)
+                                                              count * type_length)
                 logger.debug(" %s: %s", tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
 
             if tag_name == stop_tag:
