@@ -5,7 +5,7 @@ EXIF.py
         :target: https://crate.io/packages/ExifRead
 .. image:: https://pypip.in/d/ExifRead/badge.png
         :target: https://crate.io/packages/ExifRead
-.. image:: https://travis-ci.org/ianare/exif-py.png?branch=develop
+.. image:: https://travis-ci.org/ianare/exif-py.png
         :target: https://travis-ci.org/ianare/exif-py
 
 Python library to extract EXIF data from tiff and jpeg files.
