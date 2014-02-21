@@ -30,6 +30,14 @@ Download an archive from the project's `releases page <https://github.com/ianare
 
 Extract and enjoy.
 
+
+*************
+Compatibility
+*************
+
+This version of the library 
+
+
 *****
 Usage
 *****
