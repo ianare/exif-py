@@ -1,6 +1,12 @@
 ﻿Change Log
 ==========
 
+Development
+    * Drop support for Python 2.5
+    * Add support for Python 3.2 and 3.3 (velis74)
+    * Add Travis testing
+    * Cleanup some tag definitions
+
 2013-11-27
     * A few new Canon tags
     * Python3 fixes (velis74 and leprechaun)
