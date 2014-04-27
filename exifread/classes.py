@@ -178,10 +178,18 @@ class ExifHeader:
                     if count != 0: # and count < (2**31):  # 2E31 is hardware dependant. --gd
                         try:
                             self.file.seek(self.offset + offset)
-                            values = self.file.read(count)
+                            readbytes = 0
+                            values = []
+                            while readbytes < count:
+                                readbyte = self.file.read(1)
+                                if readbyte == 0:
+                                    # Drop any garbage after a null.
+                                    break
+                                values.append(readbyte)
+                                readbytes = readbytes + 1
+                            values = ''.join(values)
+                            self.file.seek(self.offset + offset + count)
                             #print values
-                            # Drop any garbage after a null.
-                            values = values.split('\x00', 1)[0]
                         except OverflowError:
                             values = ''
                 else:
