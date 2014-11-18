@@ -56,7 +56,7 @@ def nikon_ev_bias(seq):
 
 # Nikon E99x MakerNote Tags
 NIKON_NEW = {
-    0x0001: ('MakernoteVersion', make_string), # Sometimes binary
+    0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
     0x0002: ('ISOSetting', make_string),
     0x0003: ('ColorMode', ),
     0x0004: ('Quality', ),
@@ -81,7 +81,7 @@ NIKON_NEW = {
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
     0x001B: ('CropHiSpeed', ),
-    0x001D: ('SerialNumber', ), # Conflict with 0x00A0 ?
+    0x001D: ('SerialNumber', ),  # Conflict with 0x00A0 ?
     0x001E: ('ColorSpace', ),
     0x001F: ('VRInfo', ),
     0x0020: ('ImageAuthentication', ),
@@ -123,11 +123,11 @@ NIKON_NEW = {
     }),
     0x008A: ('AutoBracketRelease', ),
     0x008B: ('LensFStops', ),
-    0x008C: ('NEFCurve1', ), # ExifTool calls this 'ContrastCurve'
+    0x008C: ('NEFCurve1', ),  # ExifTool calls this 'ContrastCurve'
     0x008D: ('ColorMode', ),
     0x008F: ('SceneMode', ),
     0x0090: ('LightingType', ),
-    0x0091: ('ShotInfo', ), # First 4 bytes are a version number in ASCII
+    0x0091: ('ShotInfo', ),  # First 4 bytes are a version number in ASCII
     0x0092: ('HueAdjustment', ),
     # ExifTool calls this 'NEFCompression', should be 1-4
     0x0093: ('Compression', ),
@@ -140,9 +140,9 @@ NIKON_NEW = {
         2: '2',
     }),
     0x0095: ('NoiseReduction', ),
-    0x0096: ('NEFCurve2', ), # ExifTool calls this 'LinearizationTable'
-    0x0097: ('ColorBalance', ), # First 4 bytes are a version number in ASCII
-    0x0098: ('LensData', ), # First 4 bytes are a version number in ASCII
+    0x0096: ('NEFCurve2', ),  # ExifTool calls this 'LinearizationTable'
+    0x0097: ('ColorBalance', ),  # First 4 bytes are a version number in ASCII
+    0x0098: ('LensData', ),  # First 4 bytes are a version number in ASCII
     0x0099: ('RawImageCenter', ),
     0x009A: ('SensorPixelSize', ),
     0x009C: ('Scene Assist', ),
@@ -161,7 +161,7 @@ NIKON_NEW = {
     0x00AA: ('Saturation', ),
     0x00AB: ('DigitalVariProgram', ),
     0x00AC: ('ImageStabilization', ),
-    0x00AD: ('Responsive AF', ), # 'AFResponse'
+    0x00AD: ('Responsive AF', ),  # 'AFResponse'
     0x00B0: ('MultiExposure', ),
     0x00B1: ('HighISONoiseReduction', ),
     0x00B7: ('AFInfo', ),
@@ -294,7 +294,7 @@ OLYMPUS = {
     0x0206: ('LensDistortionParams', ),
     0x0207: ('SoftwareRelease', ),
     0x0208: ('PictureInfo', ),
-    0x0209: ('CameraID', make_string), # print as string
+    0x0209: ('CameraID', make_string),  # print as string
     0x0F00: ('DataDump', ),
     0x0300: ('PreCaptureFrames', ),
     0x0404: ('SerialNumber', ),
@@ -302,7 +302,6 @@ OLYMPUS = {
     0x1001: ('ISOValue', ),
     0x1002: ('ApertureValue', ),
     0x1003: ('BrightnessValue', ),
-    0x1004: ('FlashMode', ),
     0x1004: ('FlashMode', {
         2: 'On',
         3: 'Off'
@@ -438,7 +437,7 @@ OLYMPUS_TAG_0x2020 = {
     }),
     0x0501: ('WhiteBalanceTemperature', ),
     0x0502: ('WhiteBalanceBracket', ),
-    0x0503: ('CustomSaturation', ), # (3 numbers: 1. CS Value, 2. Min, 3. Max)
+    0x0503: ('CustomSaturation', ),  # (3 numbers: 1. CS Value, 2. Min, 3. Max)
     0x0504: ('ModifiedSaturation', {
         0: 'Off',
         1: 'CM1 (Red Enhance)',
@@ -446,8 +445,8 @@ OLYMPUS_TAG_0x2020 = {
         3: 'CM3 (Blue Enhance)',
         4: 'CM4 (Skin Tones)',
     }),
-    0x0505: ('ContrastSetting', ), # (3 numbers: 1. Contrast, 2. Min, 3. Max)
-    0x0506: ('SharpnessSetting', ), # (3 numbers: 1. Sharpness, 2. Min, 3. Max)
+    0x0505: ('ContrastSetting', ),  # (3 numbers: 1. Contrast, 2. Min, 3. Max)
+    0x0506: ('SharpnessSetting', ),  # (3 numbers: 1. Sharpness, 2. Min, 3. Max)
     0x0507: ('ColorSpace', {
         0: 'sRGB',
         1: 'Adobe RGB',
@@ -529,8 +528,8 @@ OLYMPUS_TAG_0x2020 = {
         4: 'Purple',
         5: 'Green'
     }),
-    0x0600: ('Sequence', ), # 2 or 3 numbers: 1. Mode, 2. Shot number, 3. Mode bits
-    0x0601: ('PanoramaMode', ), # (2 numbers: 1. Mode, 2. Shot number)
+    0x0600: ('Sequence', ),  # 2 or 3 numbers: 1. Mode, 2. Shot number, 3. Mode bits
+    0x0601: ('PanoramaMode', ),  # (2 numbers: 1. Mode, 2. Shot number)
     0x0603: ('ImageQuality2', {
         1: 'SQ',
         2: 'HQ',

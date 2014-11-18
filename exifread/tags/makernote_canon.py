@@ -379,7 +379,7 @@ def subtract_one(value):
 def convert_temp(value):
     return '%d C' % (value - 128)
 
-# CameraInfo datastructures have variable sized members.  Each entry here is:
+# CameraInfo data structures have variable sized members. Each entry here is:
 #   byte offset: (item name, data item type, decoding map).
 # Note that the data item type is fed directly to struct.unpack at the
 # specified offset.

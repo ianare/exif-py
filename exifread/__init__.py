@@ -86,7 +86,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 logger.debug("  Code: %s", data[base + 4:base + 8])
                 increment = increment_base(data, base)
                 logger.debug(" Increment base by %s", increment)
-                base +=  increment
+                base += increment
             elif data[base:base + 2] == b'\xFF\xE2':
                 # APP2
                 logger.debug("  APP2 at base 0x%X", base)

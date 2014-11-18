@@ -64,7 +64,7 @@ class ExifHeader:
         """
         Convert slice to integer, based on sign and endian flags.
 
-        Usually this offset is assumed to be relative to the begining of the
+        Usually this offset is assumed to be relative to the beginning of the
         start of the EXIF information.
         For some cameras that use relative tags, this offset may be relative
         to some other starting point.
@@ -123,7 +123,7 @@ class ExifHeader:
         try:
             entries = self.s2n(ifd, 2)
         except TypeError:
-            logger.warning("Possibly corrupted IFD: %s" %ifd)
+            logger.warning("Possibly corrupted IFD: %s"  % ifd)
             return
 
         for i in range(entries):
