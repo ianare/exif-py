@@ -116,8 +116,16 @@ class ExifHeader:
         return ifds
 
     def dump_ifd(self, ifd, ifd_name, tag_dict=EXIF_TAGS, relative=0, stop_tag=DEFAULT_STOP_TAG):
-        """Return a list of entries in the given IFD."""
-        entries = self.s2n(ifd, 2)
+        """
+        Return a list of entries in the given IFD.
+        """
+        # make sure we can process the entries
+        try:
+            entries = self.s2n(ifd, 2)
+        except TypeError:
+            logger.warning("Possibly corrupted IFD: %s" %ifd)
+            return
+
         for i in range(entries):
             # entry is index of start of this IFD in the file
             entry = ifd + 2 + 12 * i

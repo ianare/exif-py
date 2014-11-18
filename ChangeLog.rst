@@ -6,6 +6,7 @@ Development
     * Add support for Python 3.2 and 3.3 (velis74)
     * Add Travis testing
     * Cleanup some tag definitions
+    * Fix bug #30 (TypeError on invalid IFD)
 
 2013-11-27
     * A few new Canon tags
