@@ -55,7 +55,7 @@ def setup_logger(debug):
     else:
         log_level = logging.INFO
         log_format = '%(message)s'
-    stream = logging.StreamHandler()
+    stream = logging.StreamHandler(sys.stdout)
     stream.setFormatter(logging.Formatter(log_format))
     logger.setLevel(log_level)
     stream.setLevel(log_level)
