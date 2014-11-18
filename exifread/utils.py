@@ -16,8 +16,11 @@ def make_string(seq):
     string = ''
     for c in seq:
         # Screen out non-printing characters
-        if 32 <= c and c < 256:
-            string += chr(c)
+        try:
+            if 32 <= c and c < 256:
+                string += chr(c)
+        except TypeError:
+          pass
         # If no printing chars
     if not string:
         return str(seq)
