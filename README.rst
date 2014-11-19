@@ -35,7 +35,12 @@ Extract and enjoy.
 Compatibility
 *************
 
-This version of the library 
+EXIF.py is tested on the following Python versions:
+- 2.6
+- 2.7
+- 3.2
+- 3.3
+- 3.4
 
 
 *****
@@ -97,10 +102,10 @@ Tags are divided into these main categories:
 
 - ``Image``: information related to the main image (IFD0 of the Exif data).
 - ``Thumbnail``: information related to the thumbnail image, if present (IFD1 of the Exif data).
-- ``EXIF``: Exif information (Exif sub-IFD).
+- ``EXIF``: Exif information (sub-IFD).
+- ``GPS``: GPS information (sub-IFD).
+- ``Interoperability``: Interoperability information (sub-IFD).
 - ``MakerNote``: Manufacturer specific information. There are no official published references for these tags.
-
-In some cases there is also a GPS sub-IFD.
 
 
 ******************
