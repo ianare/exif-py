@@ -50,7 +50,8 @@ class ExifHeader:
     Handle an EXIF header.
     """
 
-    def __init__(self, file, endian, offset, fake_exif, strict, debug=0, detailed=True):
+    def __init__(self, file, endian, offset, fake_exif, strict,
+                 debug=False, detailed=True):
         self.file = file
         self.endian = endian
         self.offset = offset
@@ -75,7 +76,7 @@ class ExifHeader:
             val = s2n_intel(sliced)
         else:
             val = s2n_motorola(sliced)
-            # Sign extension ?
+            # Sign extension?
         if signed:
             msb = 1 << (8 * length - 1)
             if val & msb:
@@ -123,7 +124,7 @@ class ExifHeader:
         try:
             entries = self.s2n(ifd, 2)
         except TypeError:
-            logger.warning("Possibly corrupted IFD: %s"  % ifd)
+            logger.warning("Possibly corrupted IFD: %s" % ifd)
             return
 
         for i in range(entries):
