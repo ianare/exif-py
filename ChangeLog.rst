@@ -3,7 +3,7 @@
 
 Development
     * Drop support for Python 2.5
-    * Add support for Python 3.2 and 3.3 (velis74)
+    * Add support for Python 3.2, 3.3 and 3.4 (velis74)
     * Add Travis testing
     * Cleanup some tag definitions
     * Fix bug #30 (TypeError on invalid IFD)
