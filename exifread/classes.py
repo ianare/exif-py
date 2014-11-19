@@ -1,11 +1,11 @@
-import logging
 import struct
 import re
 
+from .exif_log import get_logger
 from .utils import s2n_motorola, s2n_intel, Ratio
 from .tags import *
 
-logger = logging.getLogger('exifread')
+logger = get_logger()
 
 
 class IfdTag:

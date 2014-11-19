@@ -22,9 +22,9 @@ import getopt
 import logging
 import timeit
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
-from exifread import process_file, __version__
+from exifread import process_file, exif_log, __version__
 
-logger = logging.getLogger('exifread')
+logger = exif_log.get_logger()
 
 
 def usage(exit_status):
@@ -37,6 +37,7 @@ def usage(exit_status):
     msg += '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
     msg += '-s --strict             Run in strict mode (stop on errors).\n'
     msg += '-d --debug              Run in debug mode (display extra info).\n'
+    msg += '-c --color              Output in color (only works with debug on POSIX).\n'
     print(msg)
     sys.exit(exit_status)
 
@@ -45,21 +46,6 @@ def show_version():
     """Show the program version."""
     print('Version %s on Python%s' % (__version__, sys.version_info[0]))
     sys.exit(0)
-
-
-def setup_logger(debug):
-    """Configure the logger."""
-    if debug:
-        log_level = logging.DEBUG
-        log_format = '%(levelname)-5s  %(message)s'
-    else:
-        log_level = logging.INFO
-        log_format = '%(message)s'
-    stream = logging.StreamHandler(sys.stdout)
-    stream.setFormatter(logging.Formatter(log_format))
-    logger.setLevel(log_level)
-    stream.setLevel(log_level)
-    logger.addHandler(stream)
 
 
 def main():
@@ -74,6 +60,7 @@ def main():
     stop_tag = DEFAULT_STOP_TAG
     debug = False
     strict = False
+    color = False
 
     for option, arg in opts:
         if option in ("-h", "--help"):
@@ -88,11 +75,13 @@ def main():
             strict = True
         if option in ("-d", "--debug"):
             debug = True
+        if option in ("-c", "--color"):
+            color = True
 
     if args == []:
         usage(2)
 
-    setup_logger(debug)
+    exif_log.setup_logger(debug, color)
 
     # output info for each file
     for filename in args:

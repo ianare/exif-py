@@ -2,14 +2,14 @@
 Read Exif metadata from tiff and jpeg files.
 """
 
-import logging
+from .exif_log import get_logger
 from .classes import *
 from .tags import *
 from .utils import ord_
 
 __version__ = '2.0.0'
 
-logger = logging.getLogger('exifread')
+logger = get_logger()
 
 
 def increment_base(data, base):
