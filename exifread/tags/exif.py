@@ -165,7 +165,7 @@ EXIF_TAGS = {
         2: 'Co-sited'
     }),
     0x0214: ('ReferenceBlackWhite', ),
-    0x02BC: ('ApplicationNotes', ),
+    0x02BC: ('ApplicationNotes', ),  # XPM Info
     0x4746: ('Rating', ),
     0x828D: ('CFARepeatPatternDim', ),
     0x828E: ('CFAPattern', ),

@@ -9,7 +9,7 @@ DEFAULT_STOP_TAG = 'UNDEF'
 
 # field type descriptions as (length, abbreviation, full name) tuples
 FIELD_TYPES = (
-    (0, 'X', 'Proprietary'), # no such type
+    (0, 'X', 'Proprietary'),  # no such type
     (1, 'B', 'Byte'),
     (1, 'A', 'ASCII'),
     (2, 'S', 'Short'),
@@ -22,7 +22,9 @@ FIELD_TYPES = (
     (8, 'SR', 'Signed Ratio'),
 )
 
-# Ignore these tags when quick processing
-# 0x927C is MakerNote Tags
-# 0x9286 is user comment
-IGNORE_TAGS = (0x9286, 0x927C)
+# To ignore when quick processing
+IGNORE_TAGS = (
+    0x9286,  # user comment
+    0x927C,  # MakerNote Tags
+    0x02BC,  # XPM
+)
