@@ -12,6 +12,7 @@ Development
     * Add finding XMP tags (experimental, debug only)
     * Add some missing Exif tags
     * Use stdout for log output
+    * Experimental support for dumping XMP data
 
 2013-11-27
     * A few new Canon tags

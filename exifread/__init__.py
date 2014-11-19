@@ -144,7 +144,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                     logger.debug("  Got 0x%X and 0x%X instead",
                                  ord_(data[base]),
                                  ord_(data[base + 1]))
-                except:
+                except IndexError:
                     logger.debug("  Unexpected/unhandled segment type or file content.")
                     return {}
                 else:
@@ -231,18 +231,32 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         else:
             logger.debug('XMP not in Exif, searching file for XMP info ...')
             xml_started = False
+            xml_finished = False
             for line in f:
-                if line.find(b'<x:xmpmeta') != -1:
+                open_tag = line.find(b'<x:xmpmeta')
+                close_tag = line.find(b'</x:xmpmeta>')
+
+                if open_tag != -1:
                     xml_started = True
-                    logger.debug('XMP found start')
+                    line = line[open_tag:]
+                    logger.debug('XMP found opening tag at line position %s' % open_tag)
+
+                if close_tag != -1:
+                    logger.debug('XMP found closing tag at line position %s' % close_tag)
+                    line_offset = 0
+                    if open_tag != -1:
+                        line_offset = open_tag
+                    line = line[:(close_tag - line_offset) + 12]
+                    xml_finished = True
+
                 if xml_started:
                     xmp_string += line
-                if line.find(b'</x:xmpmeta>') != -1:
-                    logger.debug('XMP reached end')
+
+                if xml_finished:
                     break
+
             logger.debug('XMP Finished searching for info')
         if xmp_string:
-            xmp_tags = XmpTags(xmp_string)
-            xmp_tags.parse_xml()
+            hdr.parse_xmp(xmp_string)
 
     return hdr.tags
