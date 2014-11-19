@@ -6,6 +6,23 @@ from exifread.utils import make_string, make_string_uc
 
 # Main Exif tag names
 EXIF_TAGS = {
+    0x00FE: ('SubfileType', {
+        0x0: 'Full-resolution Image',
+        0x1: 'Reduced-resolution image',
+        0x2: 'Single page of multi-page image',
+        0x3: 'Single page of multi-page reduced-resolution image',
+        0x4: 'Transparency mask',
+        0x5: 'Transparency mask of reduced-resolution image',
+        0x6: 'Transparency mask of multi-page image',
+        0x7: 'Transparency mask of reduced-resolution multi-page image',
+        0x10001: 'Alternate reduced-resolution image',
+        0xffffffff: 'invalid ',
+    }),
+    0x00FF: ('OldSubfileType', {
+        1: 'Full-resolution image',
+        2: 'Reduced-resolution image',
+        3: 'Single page of multi-page image',
+    }),
     0x0100: ('ImageWidth', ),
     0x0101: ('ImageLength', ),
     0x0102: ('BitsPerSample', ),
@@ -148,6 +165,7 @@ EXIF_TAGS = {
         2: 'Co-sited'
     }),
     0x0214: ('ReferenceBlackWhite', ),
+    0x02BC: ('ApplicationNotes', make_string),
     0x4746: ('Rating', ),
     0x828D: ('CFARepeatPatternDim', ),
     0x828E: ('CFAPattern', ),
@@ -272,7 +290,7 @@ EXIF_TAGS = {
     # used by Windows Explorer
     0x9C9B: ('XPTitle', ),
     0x9C9C: ('XPComment', ),
-    0x9C9D: ('XPAuthor', ),  # (ignored by Windows Explorer if Artist exists)
+    0x9C9D: ('XPAuthor', make_string),  # (ignored by Windows Explorer if Artist exists)
     0x9C9E: ('XPKeywords', ),
     0x9C9F: ('XPSubject', ),
     0xA000: ('FlashPixVersion', make_string),
