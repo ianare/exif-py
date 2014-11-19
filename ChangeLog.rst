@@ -8,6 +8,10 @@ Development
     * Cleanup some tag definitions
     * Fix bug #30 (TypeError on invalid IFD)
     * Fix bug #33 (TypeError on invalid output characters)
+    * Add basic coloring for debug mode
+    * Add finding XMP tags (experimental, debug only)
+    * Add some missing Exif tags
+    * Use stdout for log output
 
 2013-11-27
     * A few new Canon tags
