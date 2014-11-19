@@ -510,3 +510,18 @@ class ExifHeader:
 
             self.tags['MakerNote ' + tag_name] = IfdTag(str(tag_value), None,
                                                         0, None, None, None)
+
+
+class XmpTags():
+    def __init__(self, xmp_string):
+        self.xmp_string = xmp_string.strip()
+
+    def parse_xml(self):
+        import xml.dom.minidom
+        xml = xml.dom.minidom.parseString(self.xmp_string)
+        pretty = xml.toprettyxml()
+        cleaned = []
+        for line in pretty.splitlines():
+            if line.strip():
+                cleaned.append(line)
+        print('\n'.join(cleaned))
