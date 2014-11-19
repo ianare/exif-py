@@ -232,4 +232,29 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
+    # parse XMP tags (experimental)
+    if debug and details:
+        xmp_string = b''
+        # Easy we already have them
+        if 'Image ApplicationNotes' in hdr.tags:
+            logger.debug('XMP present in Exif')
+            xmp_string = make_string(hdr.tags['Image ApplicationNotes'].values)
+        # We need to look in the entire file for the XML
+        else:
+            logger.debug('XMP not in Exif, searching file for XMP info ...')
+            xml_started = False
+            for line in f:
+                if line.find(b'<x:xmpmeta') != -1:
+                    xml_started = True
+                    logger.debug('XMP found start')
+                if xml_started:
+                    xmp_string += line
+                if line.find(b'</x:xmpmeta>') != -1:
+                    logger.debug('XMP reached end')
+                    break
+            logger.debug('XMP Finished searching for info')
+        if xmp_string:
+            xmp_tags = XmpTags(xmp_string)
+            xmp_tags.parse_xml()
+
     return hdr.tags
