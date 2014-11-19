@@ -147,7 +147,7 @@ class ExifHeader:
                     if not self.strict:
                         continue
                     else:
-                        raise ValueError('unknown type %d in tag 0x%04X' % (field_type, tag))
+                        raise ValueError('Unknown type %d in tag 0x%04X' % (field_type, tag))
 
                 type_length = FIELD_TYPES[field_type][0]
                 count = self.s2n(entry + 4, 4)
@@ -246,7 +246,7 @@ class ExifHeader:
                                                               field_type,
                                                               values, field_offset,
                                                               count * type_length)
-                logger.debug(" %s: %s", tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
+                logger.debug(' %s: %s', tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
 
             if tag_name == stop_tag:
                 break

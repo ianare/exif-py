@@ -38,7 +38,7 @@ class Formatter(logging.Formatter):
         self.color = color
         self.debug = debug
         if self.debug:
-            log_format = '%(levelname)-5s %(message)s'
+            log_format = '%(levelname)-6s %(message)s'
         else:
             log_format = '%(message)s'
         logging.Formatter.__init__(self, log_format)
