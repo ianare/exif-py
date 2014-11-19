@@ -165,7 +165,7 @@ EXIF_TAGS = {
         2: 'Co-sited'
     }),
     0x0214: ('ReferenceBlackWhite', ),
-    0x02BC: ('ApplicationNotes', make_string),
+    0x02BC: ('ApplicationNotes', ),
     0x4746: ('Rating', ),
     0x828D: ('CFARepeatPatternDim', ),
     0x828E: ('CFAPattern', ),
@@ -174,7 +174,7 @@ EXIF_TAGS = {
     0x829A: ('ExposureTime', ),
     0x829D: ('FNumber', ),
     0x83BB: ('IPTC/NAA', ),
-    0x8769: ('ExifOffset', ),
+    0x8769: ('ExifOffset', ),  # Exif Tags
     0x8773: ('InterColorProfile', ),
     0x8822: ('ExposureProgram', {
         0: 'Unidentified',
@@ -188,7 +188,7 @@ EXIF_TAGS = {
         8: 'Landscape Mode'
     }),
     0x8824: ('SpectralSensitivity', ),
-    0x8825: ('GPSInfo', ),
+    0x8825: ('GPSInfo', ),  # GPS tags
     0x8827: ('ISOSpeedRatings', ),
     0x8828: ('OECF', ),
     0x8830: ('SensitivityType', {

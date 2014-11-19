@@ -356,12 +356,7 @@ class ExifHeader:
 
         # Some apps use MakerNote tags but do not use a format for which we
         # have a description, so just do a raw dump for these.
-        #if self.tags.has_key('Image Make'):
         make = self.tags['Image Make'].printable
-        #else:
-        #    make = ''
-
-        # model = self.tags['Image Model'].printable # unused
 
         # Nikon
         # The maker note usually starts with the word Nikon, followed by the

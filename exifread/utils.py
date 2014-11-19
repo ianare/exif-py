@@ -20,7 +20,7 @@ def make_string(seq):
             if 32 <= c and c < 256:
                 string += chr(c)
         except TypeError:
-          pass
+            pass
         # If no printing chars
     if not string:
         return str(seq)
