@@ -210,7 +210,7 @@ class ExifHeader:
                             values.append(value)
                             offset = offset + type_length
                     # The test above causes problems with tags that are
-                    # supposed to have long values!  Fix up one important case.
+                    # supposed to have long values! Fix up one important case.
                     elif tag_name in ('MakerNote', makernote.canon.CAMERA_INFO_TAG_NAME):
                         for dummy in range(count):
                             value = self.s2n(offset, type_length, signed)
@@ -227,11 +227,15 @@ class ExifHeader:
 
                 # compute printable version of values
                 if tag_entry:
+                    # optional 2nd tag element is present
                     if len(tag_entry) != 1:
-                        # optional 2nd tag element is present
                         if callable(tag_entry[1]):
                             # call mapping function
                             printable = tag_entry[1](values)
+                        elif type(tag_entry[1]) is tuple:
+                            ifd_info = tag_entry[1]
+                            logger.debug('  %s SubIFD at offset %d:', ifd_info[0], values[0])
+                            self.dump_ifd(values[0], ifd_info[0], tag_dict=ifd_info[1], stop_tag=stop_tag)
                         else:
                             printable = ''
                             for i in values:

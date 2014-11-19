@@ -4,6 +4,58 @@ Standard tag definitions.
 
 from exifread.utils import make_string, make_string_uc
 
+# Interoperability tags
+INTEROP_TAGS = {
+    0x0001: ('InteroperabilityIndex', ),
+    0x0002: ('InteroperabilityVersion', ),
+    0x1000: ('RelatedImageFileFormat', ),
+    0x1001: ('RelatedImageWidth', ),
+    0x1002: ('RelatedImageLength', ),
+}
+INTEROP_INFO = (
+    'EXIF Interoperability',
+    INTEROP_TAGS
+)
+
+# GPS tags
+GPS_TAGS = {
+    0x0000: ('GPSVersionID', ),
+    0x0001: ('GPSLatitudeRef', ),
+    0x0002: ('GPSLatitude', ),
+    0x0003: ('GPSLongitudeRef', ),
+    0x0004: ('GPSLongitude', ),
+    0x0005: ('GPSAltitudeRef', ),
+    0x0006: ('GPSAltitude', ),
+    0x0007: ('GPSTimeStamp', ),
+    0x0008: ('GPSSatellites', ),
+    0x0009: ('GPSStatus', ),
+    0x000A: ('GPSMeasureMode', ),
+    0x000B: ('GPSDOP', ),
+    0x000C: ('GPSSpeedRef', ),
+    0x000D: ('GPSSpeed', ),
+    0x000E: ('GPSTrackRef', ),
+    0x000F: ('GPSTrack', ),
+    0x0010: ('GPSImgDirectionRef', ),
+    0x0011: ('GPSImgDirection', ),
+    0x0012: ('GPSMapDatum', ),
+    0x0013: ('GPSDestLatitudeRef', ),
+    0x0014: ('GPSDestLatitude', ),
+    0x0015: ('GPSDestLongitudeRef', ),
+    0x0016: ('GPSDestLongitude', ),
+    0x0017: ('GPSDestBearingRef', ),
+    0x0018: ('GPSDestBearing', ),
+    0x0019: ('GPSDestDistanceRef', ),
+    0x001A: ('GPSDestDistance', ),
+    0x001B: ('GPSProcessingMethod', ),
+    0x001C: ('GPSAreaInformation', ),
+    0x001D: ('GPSDate', ),
+    0x001E: ('GPSDifferential', ),
+}
+GPS_INFO = (
+    'EXIF GPS',
+    GPS_TAGS
+)
+
 # Main Exif tag names
 EXIF_TAGS = {
     0x00FE: ('SubfileType', {
@@ -188,7 +240,7 @@ EXIF_TAGS = {
         8: 'Landscape Mode'
     }),
     0x8824: ('SpectralSensitivity', ),
-    0x8825: ('GPSInfo', ),  # GPS tags
+    0x8825: ('GPSInfo', GPS_INFO),  # GPS tags
     0x8827: ('ISOSpeedRatings', ),
     0x8828: ('OECF', ),
     0x8830: ('SensitivityType', {
@@ -302,7 +354,7 @@ EXIF_TAGS = {
     0xA002: ('ExifImageWidth', ),
     0xA003: ('ExifImageLength', ),
     0xA004: ('RelatedSoundFile', ),
-    0xA005: ('InteroperabilityOffset', ),
+    0xA005: ('InteroperabilityOffset', INTEROP_INFO),
     0xA20B: ('FlashEnergy', ),               # 0x920B in TIFF/EP
     0xA20C: ('SpatialFrequencyResponse', ),  # 0x920C
     0xA20E: ('FocalPlaneXResolution', ),     # 0x920E
@@ -386,48 +438,4 @@ EXIF_TAGS = {
     0xEA1D: ('OffsetSchema', ),
     0xFDE8: ('OwnerName', ),
     0xFDE9: ('SerialNumber', ),
-}
-
-# Interoperability tags
-INTEROP_TAGS = {
-    0x0001: ('InteroperabilityIndex', ),
-    0x0002: ('InteroperabilityVersion', ),
-    0x1000: ('RelatedImageFileFormat', ),
-    0x1001: ('RelatedImageWidth', ),
-    0x1002: ('RelatedImageLength', ),
-}
-
-# GPS tags
-GPS_TAGS = {
-    0x0000: ('GPSVersionID', ),
-    0x0001: ('GPSLatitudeRef', ),
-    0x0002: ('GPSLatitude', ),
-    0x0003: ('GPSLongitudeRef', ),
-    0x0004: ('GPSLongitude', ),
-    0x0005: ('GPSAltitudeRef', ),
-    0x0006: ('GPSAltitude', ),
-    0x0007: ('GPSTimeStamp', ),
-    0x0008: ('GPSSatellites', ),
-    0x0009: ('GPSStatus', ),
-    0x000A: ('GPSMeasureMode', ),
-    0x000B: ('GPSDOP', ),
-    0x000C: ('GPSSpeedRef', ),
-    0x000D: ('GPSSpeed', ),
-    0x000E: ('GPSTrackRef', ),
-    0x000F: ('GPSTrack', ),
-    0x0010: ('GPSImgDirectionRef', ),
-    0x0011: ('GPSImgDirection', ),
-    0x0012: ('GPSMapDatum', ),
-    0x0013: ('GPSDestLatitudeRef', ),
-    0x0014: ('GPSDestLatitude', ),
-    0x0015: ('GPSDestLongitudeRef', ),
-    0x0016: ('GPSDestLongitude', ),
-    0x0017: ('GPSDestBearingRef', ),
-    0x0018: ('GPSDestBearing', ),
-    0x0019: ('GPSDestDistanceRef', ),
-    0x001A: ('GPSDestDistance', ),
-    0x001B: ('GPSProcessingMethod', ),
-    0x001C: ('GPSAreaInformation', ),
-    0x001D: ('GPSDate', ),
-    0x001E: ('GPSDifferential', ),
 }

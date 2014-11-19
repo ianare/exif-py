@@ -203,22 +203,10 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         logger.debug('IFD %d (%s) at offset %d:', ctr, ifd_name, ifd)
         hdr.dump_ifd(ifd, ifd_name, stop_tag=stop_tag)
         # EXIF IFD
-        exif_off = hdr.tags.get(ifd_name + ' ExifOffset')
+        exif_off = hdr.tags.get('Image ExifOffset')
         if exif_off:
             logger.debug(' Exif SubIFD at offset %d:', exif_off.values[0])
             hdr.dump_ifd(exif_off.values[0], 'EXIF', stop_tag=stop_tag)
-            # Interoperability IFD contained in EXIF IFD
-            intr_off = hdr.tags.get('EXIF InteroperabilityOffset')
-            if intr_off:
-                logger.debug('  EXIF Interoperability SubSubIFD at offset %d:',
-                             intr_off.values[0])
-                hdr.dump_ifd(intr_off.values[0], 'EXIF Interoperability',
-                             tag_dict=INTEROP_TAGS, stop_tag=stop_tag)
-        # GPS IFD
-        gps_off = hdr.tags.get(ifd_name + ' GPSInfo')
-        if gps_off:
-            logger.debug(' GPS SubIFD at offset %d:', gps_off.values[0])
-            hdr.dump_ifd(gps_off.values[0], 'GPS', tag_dict=GPS_TAGS, stop_tag=stop_tag)
         ctr += 1
 
     # deal with MakerNote contained in EXIF IFD
