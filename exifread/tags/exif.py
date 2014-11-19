@@ -64,11 +64,21 @@ EXIF_TAGS = {
     0x0115: ('SamplesPerPixel', ),
     0x0116: ('RowsPerStrip', ),
     0x0117: ('StripByteCounts', ),
+    0x0118: ('MinSampleValue', ),
+    0x0119: ('MaxSampleValue', ),
     0x011A: ('XResolution', ),
     0x011B: ('YResolution', ),
     0x011C: ('PlanarConfiguration', ),
     0x011D: ('PageName', make_string),
-    0x0122: ('GrayResponseUnit', ),
+    0x011E: ('XPosition', ),
+    0x011F: ('YPosition', ),
+    0x0122: ('GrayResponseUnit', {
+        1: '0.1',
+        2: '0.001',
+        3: '0.0001',
+        4: '1e-05',
+        5: '1e-06',
+    }),
     0x0123: ('GrayResponseCurve', ),
     0x0124: ('T4Options', ),
     0x0125: ('T6Options', ),
@@ -77,17 +87,57 @@ EXIF_TAGS = {
         2: 'Pixels/Inch',
         3: 'Pixels/Centimeter'
     }),
+    0x0129: ('PageNumber', ),
+    0x012C: ('ColorResponseUnit', ),
     0x012D: ('TransferFunction', ),
     0x0131: ('Software', ),
     0x0132: ('DateTime', ),
     0x013B: ('Artist', ),
     0x013C: ('HostComputer', ),
-    0x013D: ('Predictor', ),
+    0x013D: ('Predictor', {
+        1: 'None',
+        2: 'Horizontal differencing'
+    }),
     0x013E: ('WhitePoint', ),
     0x013F: ('PrimaryChromaticities', ),
     0x0140: ('ColorMap', ),
     0x0141: ('HalftoneHints', ),
+    0x0142: ('TileWidth', ),
+    0x0143: ('TileLength', ),
+    0x0144: ('TileOffsets', ),
+    0x0145: ('TileByteCounts', ),
+    0x0146: ('BadFaxLines', ),
+    0x0147: ('CleanFaxData', {
+        0: 'Clean',
+        1: 'Regenerated',
+        2: 'Unclean'
+    }),
+    0x0148: ('ConsecutiveBadFaxLines', ),
+    0x014C: ('InkSet', {
+        1: 'CMYK',
+        2: 'Not CMYK'
+    }),
+    0x014D: ('InkNames', ),
+    0x014E: ('NumberofInks', ),
+    0x0150: ('DotRange', ),
+    0x0151: ('TargetPrinter', ),
+    0x0152: ('ExtraSamples', {
+        0: 'Unspecified',
+        1: 'Associated Alpha',
+        2: 'Unassociated Alpha'
+    }),
+    0x0153: ('SampleFormat', {
+        1: 'Unsigned',
+        2: 'Signed',
+        3: 'Float',
+        4: 'Undefined',
+        5: 'Complex int',
+        6: 'Complex float'
+    }),
+    0x0154: ('SMinSampleValue', ),
+    0x0155: ('SMaxSampleValue', ),
     0x0156: ('TransferRange', ),
+    0x0157: ('ClipPath', ),
     0x0200: ('JPEGProc', ),
     0x0201: ('JPEGInterchangeFormat', ),
     0x0202: ('JPEGInterchangeFormatLength', ),
@@ -134,6 +184,7 @@ EXIF_TAGS = {
         7: 'Standard Output Sensitivity, Recommended Exposure Index and ISO Speed'
     }),
     0x8832: ('RecommendedExposureIndex', ),
+    0x8833: ('ISOSpeed', ),
     0x9000: ('ExifVersion', make_string),
     0x9003: ('DateTimeOriginal', ),
     0x9004: ('DateTimeDigitized', ),
@@ -232,6 +283,7 @@ EXIF_TAGS = {
     }),
     0xA002: ('ExifImageWidth', ),
     0xA003: ('ExifImageLength', ),
+    0xA004: ('RelatedSoundFile', ),
     0xA005: ('InteroperabilityOffset', ),
     0xA20B: ('FlashEnergy', ),               # 0x920B in TIFF/EP
     0xA20C: ('SpatialFrequencyResponse', ),  # 0x920C
@@ -313,10 +365,13 @@ EXIF_TAGS = {
     0xA500: ('Gamma', ),
     0xC4A5: ('PrintIM', ),
     0xEA1C: ('Padding', ),
+    0xEA1D: ('OffsetSchema', ),
+    0xFDE8: ('OwnerName', ),
+    0xFDE9: ('SerialNumber', ),
 }
 
 # Interoperability tags
-INTR_TAGS = {
+INTEROP_TAGS = {
     0x0001: ('InteroperabilityIndex', ),
     0x0002: ('InteroperabilityVersion', ),
     0x1000: ('RelatedImageFileFormat', ),
