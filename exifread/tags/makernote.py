@@ -19,39 +19,39 @@ def nikon_ev_bias(seq):
     if len(seq) < 4:
         return ''
     if seq == [252, 1, 6, 0]:
-        return "-2/3 EV"
+        return '-2/3 EV'
     if seq == [253, 1, 6, 0]:
-        return "-1/2 EV"
+        return '-1/2 EV'
     if seq == [254, 1, 6, 0]:
-        return "-1/3 EV"
+        return '-1/3 EV'
     if seq == [0, 1, 6, 0]:
-        return "0 EV"
+        return '0 EV'
     if seq == [2, 1, 6, 0]:
-        return "+1/3 EV"
+        return '+1/3 EV'
     if seq == [3, 1, 6, 0]:
-        return "+1/2 EV"
+        return '+1/2 EV'
     if seq == [4, 1, 6, 0]:
-        return "+2/3 EV"
+        return '+2/3 EV'
         # Handle combinations not in the table.
     a = seq[0]
     # Causes headaches for the +/- logic, so special case it.
     if a == 0:
-        return "0 EV"
+        return '0 EV'
     if a > 127:
         a = 256 - a
-        ret_str = "-"
+        ret_str = '-'
     else:
-        ret_str = "+"
+        ret_str = '+'
     step = seq[2]  # Assume third value means the step size
     whole = a / step
     a = a % step
     if whole != 0:
-        ret_str = ret_str + str(whole) + " "
+        ret_str = '%s%s ' % (ret_str, str(whole))
     if a == 0:
-        ret_str += "EV"
+        ret_str += 'EV'
     else:
         r = Ratio(a, step)
-        ret_str = ret_str + r.__repr__() + " EV"
+        ret_str = ret_str + r.__repr__() + ' EV'
     return ret_str
 
 # Nikon E99x MakerNote Tags
@@ -76,11 +76,12 @@ NIKON_NEW = {
     0x0012: ('FlashCompensation', nikon_ev_bias),
     0x0013: ('ISOSpeedRequested', ),
     0x0016: ('PhotoCornerCoordinates', ),
-    # 0x0017: Unknown, but most likely an EV value
+    0x0017: ('ExternalFlashExposureComp', nikon_ev_bias),
     0x0018: ('FlashBracketCompensationApplied', nikon_ev_bias),
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
     0x001B: ('CropHiSpeed', ),
+    0x001C: ('ExposureTuning', ),
     0x001D: ('SerialNumber', ),  # Conflict with 0x00A0 ?
     0x001E: ('ColorSpace', ),
     0x001F: ('VRInfo', ),
@@ -161,12 +162,13 @@ NIKON_NEW = {
     0x00AA: ('Saturation', ),
     0x00AB: ('DigitalVariProgram', ),
     0x00AC: ('ImageStabilization', ),
-    0x00AD: ('Responsive AF', ),  # 'AFResponse'
+    0x00AD: ('AFResponse', ),
     0x00B0: ('MultiExposure', ),
     0x00B1: ('HighISONoiseReduction', ),
-    0x00B7: ('AFInfo', ),
+    0x00B6: ('PowerUpTime', ),
+    0x00B7: ('AFInfo2', ),
     0x00B8: ('FileInfo', ),
-    # 00B9: unknown
+    0x00B9: ('AFTune', ),
     0x0100: ('DigitalICE', ),
     0x0103: ('PreviewCompression', {
         1: 'Uncompressed',
