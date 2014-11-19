@@ -36,6 +36,7 @@ Compatibility
 *************
 
 EXIF.py is tested on the following Python versions:
+
 - 2.6
 - 2.7
 - 3.2
