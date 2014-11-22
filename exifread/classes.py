@@ -431,20 +431,20 @@ class ExifHeader:
                       ('MakerNote Tag 0x0093', makernote.canon.FILE_INFO)):
                 if i[0] in self.tags:
                     logger.debug('Canon ' + i[0])
-                    self.canon_decode_tag(self.tags[i[0]].values, i[1])
+                    self._canon_decode_tag(self.tags[i[0]].values, i[1])
                     del self.tags[i[0]]
             if makernote.canon.CAMERA_INFO_TAG_NAME in self.tags:
                 tag = self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
                 logger.debug('Canon CameraInfo')
-                self.canon_decode_camera_info(tag)
+                self._canon_decode_camera_info(tag)
                 del self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
             return
 
-    def olympus_decode_tag(self, value, mn_tags):
+    def _olympus_decode_tag(self, value, mn_tags):
         """ TODO Decode Olympus MakerNote tag based on offset within tag."""
         pass
 
-    def canon_decode_tag(self, value, mn_tags):
+    def _canon_decode_tag(self, value, mn_tags):
         """
         Decode Canon MakerNote tag based on offset within tag.
 
@@ -467,7 +467,7 @@ class ExifHeader:
             self.tags['MakerNote ' + name] = IfdTag(str(val), None, 0, None,
                                                     None, None)
 
-    def canon_decode_camera_info(self, camera_info_tag):
+    def _canon_decode_camera_info(self, camera_info_tag):
         """
         Decode the variable length encoded camera info section.
         """
