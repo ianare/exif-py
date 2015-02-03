@@ -235,8 +235,11 @@ class ExifHeader:
                             printable = tag_entry[1](values)
                         elif type(tag_entry[1]) is tuple:
                             ifd_info = tag_entry[1]
-                            logger.debug('%s SubIFD at offset %d:', ifd_info[0], values[0])
-                            self.dump_ifd(values[0], ifd_info[0], tag_dict=ifd_info[1], stop_tag=stop_tag)
+                            try:
+                                logger.debug('%s SubIFD at offset %d:', ifd_info[0], values[0])
+                                self.dump_ifd(values[0], ifd_info[0], tag_dict=ifd_info[1], stop_tag=stop_tag)
+                            except IndexError:
+                                logger.warn('No values found for %s SubIFD', ifd_info[0])
                         else:
                             printable = ''
                             for i in values:
