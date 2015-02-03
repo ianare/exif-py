@@ -13,3 +13,4 @@ before_script:
   - "tar -xzf master.tar.gz"
 script:
   - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py"
+  - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py -dc"
