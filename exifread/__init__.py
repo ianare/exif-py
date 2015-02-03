@@ -200,13 +200,13 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
             thumb_ifd = ifd
         else:
             ifd_name = 'IFD %d' % ctr
-        logger.debug('IFD %d (%s) at offset %d:', ctr, ifd_name, ifd)
+        logger.debug('IFD %d (%s) at offset %s:', ctr, ifd_name, ifd)
         hdr.dump_ifd(ifd, ifd_name, stop_tag=stop_tag)
         ctr += 1
     # EXIF IFD
     exif_off = hdr.tags.get('Image ExifOffset')
     if exif_off:
-        logger.debug('Exif SubIFD at offset %d:', exif_off.values[0])
+        logger.debug('Exif SubIFD at offset %s:', exif_off.values[0])
         hdr.dump_ifd(exif_off.values[0], 'EXIF', stop_tag=stop_tag)
 
     # deal with MakerNote contained in EXIF IFD
