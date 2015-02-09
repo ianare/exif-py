@@ -2,7 +2,8 @@
 ==========
 
 Development
-    * Represent the IFD as a string to fix formatting errors
+    * Represent the IFD as a string to fix formatting errors (issue #45)
+    * Fix unicode errors in python2 (issue #46)
 
 2.0.0 — 2014-11-27
     * Drop support for Python 2.5

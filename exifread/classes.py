@@ -224,7 +224,11 @@ class ExifHeader:
                 elif count > 50 and len(values) > 20:
                     printable = str(values[0:20])[0:-1] + ", ... ]"
                 else:
-                    printable = str(values)
+                    try:
+                        printable = str(values)
+                    # fix for python2's handling of unicode values
+                    except UnicodeEncodeError:
+                        printable = unicode(values)
 
                 # compute printable version of values
                 if tag_entry:
@@ -250,7 +254,12 @@ class ExifHeader:
                                                               field_type,
                                                               values, field_offset,
                                                               count * type_length)
-                logger.debug(' %s: %s', tag_name, repr(self.tags[ifd_name + ' ' + tag_name]))
+                try:
+                    tag_value = repr(self.tags[ifd_name + ' ' + tag_name])
+                # fix for python2's handling of unicode values
+                except UnicodeEncodeError:
+                    tag_value = unicode(self.tags[ifd_name + ' ' + tag_name])
+                logger.debug(' %s: %s', tag_name, tag_value)
 
             if tag_name == stop_tag:
                 break
