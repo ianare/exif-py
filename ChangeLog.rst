@@ -1,7 +1,7 @@
 ﻿Change Log
 ==========
 
-Development
+2.0.1 — 2014-02-09
     * Represent the IFD as a string to fix formatting errors (issue #45)
     * Fix unicode errors in python2 (issue #46)
     * Fix for tag name backwards compatibility with 1.X series
