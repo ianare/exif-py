@@ -2,6 +2,9 @@
 ==========
 
 Development
+    * Represent the IFD as a string to fix formatting errors
+
+2.0.0 — 2014-11-27
     * Drop support for Python 2.5
     * Add support for Python 3.2, 3.3 and 3.4 (velis74)
     * Add Travis testing
@@ -14,29 +17,37 @@ Development
     * Use stdout for log output
     * Experimental support for dumping XMP data
 
-2013-11-27
+1.4.2 — 2013-11-28
     * A few new Canon tags
     * Python3 fixes (velis74 and leprechaun)
     * Fix for TypeError (issue #28)
     * Pylint & PEP8 fixes
 
-2013-09-28
+1.4.1 — 2013-10-19
+    * Better version handling
+    * Better PyPI packaging
+
+1.4.0 — 2013-09-28
     * Many new tags (big thanks to Rodolfo Puig, Paul Barton, Joe Beda)
     * Do not extract thumbnail in quick mode (issue #19)
     * Put tag definitions in separate module
     * Add more timing info & version info
 
-2013-08-02
+1.3.3 — 2013-08-03
     * Add timing info in debug mode and nicer message format
     * Fix for faster processing
 
-2013-07-29
+1.3.2 — 2013-07-31
     * Improve PyPI package
     * fix for DeprecationWarning: classic int division
     * Improvements to debug output
     * Add some Nikon makernote tags
 
-2013-07-27
+1.3.1 — 2013-07-29
+    * More PEP8 & PEP257 improvements
+    * Better logging
+
+1.3.0 — 2013-07-27
     * Set default values in case not set (ortsed)
     * PEP8 & PEP257 improvements
     * Better score in pylint
@@ -44,17 +55,17 @@ Development
     * Replace print with logging
     * Package for PyPI
 
-2013-02-07
+1.2.0 — 2013-02-08
     * Port to Python 3 (DarkRedman)
     * Fix endless loop on broken images (Michael Bemmerl)
     * Rewrite of README.md
     * Fixed incoherent copyright notices
 
-2012-11-30 - Gregory Dudek
+1.1.0 — 2012-11-30 - Gregory Dudek
     * Overflow error fixes added (related to 2**31 size)
     * GPS tags added.
 
-2012-09-26
+1.0.10 — 2012-09-26
     * Add GPS tags
     * Add better endian debug info
 
