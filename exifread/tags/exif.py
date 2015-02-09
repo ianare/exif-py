@@ -13,7 +13,7 @@ INTEROP_TAGS = {
     0x1002: ('RelatedImageLength', ),
 }
 INTEROP_INFO = (
-    'EXIF Interoperability',
+    'Interoperability',
     INTEROP_TAGS
 )
 
@@ -52,7 +52,7 @@ GPS_TAGS = {
     0x001E: ('GPSDifferential', ),
 }
 GPS_INFO = (
-    'EXIF GPS',
+    'GPS',
     GPS_TAGS
 )
 
