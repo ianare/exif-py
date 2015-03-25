@@ -2,7 +2,7 @@
 Standard tag definitions.
 """
 
-from exifread.utils import make_string, make_string_uc
+from ..utils import make_string, make_string_uc
 
 # Interoperability tags
 INTEROP_TAGS = {
