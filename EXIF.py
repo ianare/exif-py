@@ -29,15 +29,16 @@ logger = exif_log.get_logger()
 
 def usage(exit_status):
     """Show command line usage."""
-    msg = 'Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
-    msg += 'Extract EXIF information from digital camera image files.\n\nOptions:\n'
-    msg += '-h --help               Display usage information and exit.\n'
-    msg += '-v --version            Display version information and exit.\n'
-    msg += '-q --quick              Do not process MakerNotes.\n'
-    msg += '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
-    msg += '-s --strict             Run in strict mode (stop on errors).\n'
-    msg += '-d --debug              Run in debug mode (display extra info).\n'
-    msg += '-c --color              Output in color (only works with debug on POSIX).\n'
+    msg = ('Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
+           'Extract EXIF information from digital camera image files.\n\nOptions:\n'
+           '-h --help               Display usage information and exit.\n'
+           '-v --version            Display version information and exit.\n'
+           '-q --quick              Do not process MakerNotes.\n'
+           '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
+           '-s --strict             Run in strict mode (stop on errors).\n'
+           '-d --debug              Run in debug mode (display extra info).\n'
+           '-c --color              Output in color (only works with debug on POSIX).\n'
+    )
     print(msg)
     sys.exit(exit_status)
 

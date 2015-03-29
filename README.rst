@@ -8,7 +8,7 @@ EXIF.py
 .. image:: https://travis-ci.org/ianare/exif-py.png
         :target: https://travis-ci.org/ianare/exif-py
 
-Python library to extract EXIF data from tiff and jpeg files.
+Python library to extract Exif data from tiff and jpeg files.
 
 Originally written by Gene Cash & Thierry Bousch.
 
@@ -52,11 +52,11 @@ Command line
 ************
 ::
 
-$ EXIF.py image.jpg
+    $ EXIF.py image.jpg
 
 Show command line options::
 
-$ EXIF.py
+    $ EXIF.py
 
 Python Script
 *************
@@ -69,11 +69,7 @@ Python Script
     # Return Exif tags
     tags = exifread.process_file(f)
 
-*Note:* if you use this library in your project as a Git submodule, you may need to do::
-
-    from <submodule_folder> import EXIF
-
-or::
+*Note:* To use this library in your project as a Git submodule, you should::
 
     from <submodule_folder> import exifread
 
@@ -92,7 +88,7 @@ Makernotes used by some cameras, for which we have a good specification.
 
 Note that the dictionary keys are the IFD name followed by the tag name. For example::
 
-'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
+    'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
 
 
 ****************

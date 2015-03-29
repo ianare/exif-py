@@ -229,7 +229,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
             xmp_string = make_string(hdr.tags['Image ApplicationNotes'].values)
         # We need to look in the entire file for the XML
         else:
-            logger.debug('XMP not in Exif, searching file for XMP info ...')
+            logger.debug('XMP not in Exif, searching file for XMP info...')
             xml_started = False
             xml_finished = False
             for line in f:

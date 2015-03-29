@@ -1,6 +1,9 @@
 ﻿Change Log
 ==========
 
+2.0.2 — 2015-03-29
+    * Fixed bug when importing as a module (issue #31)
+
 2.0.1 — 2014-02-09
     * Represent the IFD as a string to fix formatting errors (issue #45)
     * Fix unicode errors in python2 (issue #46)
