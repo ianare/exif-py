@@ -381,7 +381,8 @@ CAMERA_SETTINGS = {
         8: 'Portrait',
         9: 'Sports',
         10: 'Macro/Close-Up',
-        11: 'Pan Focus'
+        11: 'Pan Focus',
+        51: 'High Dynamic Range',
     }),
     12: ('DigitalZoom', {
         0: 'None',
