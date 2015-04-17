@@ -432,6 +432,17 @@ class ExifHeader:
             self.offset = offset
             return
 
+        # Apple
+        if (make == 'Apple') and \
+                (note.values[0:10] == \
+                    [65, 112, 112, 108, 101, 32, 105, 79, 83, 0]):
+            t = self.offset
+            self.offset += note.field_offset+14
+            self.dump_ifd(0, 'MakerNote',
+                          tag_dict=makernote.apple.TAGS)
+            self.offset = t
+            return
+
         # Canon
         if make == 'Canon':
             # This is needed for some Canon models.
