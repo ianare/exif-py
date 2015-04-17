@@ -435,7 +435,7 @@ class ExifHeader:
         # Canon
         if make == 'Canon':
             # This is needed for some Canon models.
-            # For instance Canon Powersot SX60
+            # For instance Canon Powershot SX60
             offset = note.values[-4:]
             if (self.endian == 'I') and \
                 (note.values[-8:-4] == [73, 73, 42, 0]) :
