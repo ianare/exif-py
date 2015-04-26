@@ -4,6 +4,7 @@ Makernote tag definitions.
 
 from ..utils import make_string, make_string_uc, Ratio
 from . import makernote_canon as canon
+from . import makernote_apple as apple
 
 
 def nikon_ev_bias(seq):
