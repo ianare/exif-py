@@ -1,8 +1,9 @@
 ﻿Change Log
 ==========
 
-develop
+2.1.0 — TBD
     * Bypass empty/unreadable Olympus MakerNote info (issue #42)
+    * Suport Apple Makernote and Apple HDR details (Jesus Cea)
     * Correcty process the Makernote of some Canon models (Jesus Cea)
     * Support HDR in Canon cameras (Jesus Cea)
 

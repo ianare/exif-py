@@ -7,7 +7,7 @@ from .classes import *
 from .tags import *
 from .utils import ord_
 
-__version__ = '2.0.2'
+__version__ = '2.1.0'
 
 logger = get_logger()
 
