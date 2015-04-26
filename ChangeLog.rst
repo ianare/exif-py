@@ -1,6 +1,10 @@
 ﻿Change Log
 ==========
 
+dev
+    * Correcty process the Makernote of some Canon models (jcea)
+    * Support HDR in Canon cameras (jcea)
+
 2.0.2 — 2015-03-29
     * Fixed bug when importing as a module (issue #31)
 
