@@ -268,7 +268,7 @@ def olympus_special_mode(v):
         3: 'Bottom to top',
         4: 'Top to bottom',
     }
-    if v[0] not in mode1 or v[2] not in mode2:
+    if not v or (v[0] not in mode1 or v[2] not in mode2):
         return v
     return '%s - sequence %d - %s' % (mode1[v[0]], v[1], mode2[v[2]])
 
