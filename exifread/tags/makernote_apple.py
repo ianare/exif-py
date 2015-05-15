@@ -11,4 +11,3 @@ TAGS = {
         4: 'Original Image',
     }),
 }
-

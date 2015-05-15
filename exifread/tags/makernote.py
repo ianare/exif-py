@@ -5,6 +5,7 @@ Makernote tag definitions.
 from ..utils import make_string, make_string_uc, Ratio
 from . import makernote_canon as canon
 from . import makernote_apple as apple
+from . import makernote_fujifilm as fujifilm
 
 
 def nikon_ev_bias(seq):
@@ -603,83 +604,5 @@ CASIO = {
         125: '+1.0',
         244: '+3.0',
         250: '+2.0'
-    }),
-}
-
-FUJIFILM = {
-    0x0000: ('NoteVersion', make_string),
-    0x1000: ('Quality', ),
-    0x1001: ('Sharpness', {
-        1: 'Soft',
-        2: 'Soft',
-        3: 'Normal',
-        4: 'Hard',
-        5: 'Hard'
-    }),
-    0x1002: ('WhiteBalance', {
-        0: 'Auto',
-        256: 'Daylight',
-        512: 'Cloudy',
-        768: 'DaylightColor-Fluorescent',
-        769: 'DaywhiteColor-Fluorescent',
-        770: 'White-Fluorescent',
-        1024: 'Incandescent',
-        3840: 'Custom'
-    }),
-    0x1003: ('Color', {
-        0: 'Normal',
-        256: 'High',
-        512: 'Low'
-    }),
-    0x1004: ('Tone', {
-        0: 'Normal',
-        256: 'High',
-        512: 'Low'
-    }),
-    0x1010: ('FlashMode', {
-        0: 'Auto',
-        1: 'On',
-        2: 'Off',
-        3: 'Red Eye Reduction'
-    }),
-    0x1011: ('FlashStrength', ),
-    0x1020: ('Macro', {
-        0: 'Off',
-        1: 'On'
-    }),
-    0x1021: ('FocusMode', {
-        0: 'Auto',
-        1: 'Manual'
-    }),
-    0x1030: ('SlowSync', {
-        0: 'Off',
-        1: 'On'
-    }),
-    0x1031: ('PictureMode', {
-        0: 'Auto',
-        1: 'Portrait',
-        2: 'Landscape',
-        4: 'Sports',
-        5: 'Night',
-        6: 'Program AE',
-        256: 'Aperture Priority AE',
-        512: 'Shutter Priority AE',
-        768: 'Manual Exposure'
-    }),
-    0x1100: ('MotorOrBracket', {
-        0: 'Off',
-        1: 'On'
-    }),
-    0x1300: ('BlurWarning', {
-        0: 'Off',
-        1: 'On'
-    }),
-    0x1301: ('FocusWarning', {
-        0: 'Off',
-        1: 'On'
-    }),
-    0x1302: ('AEWarning', {
-        0: 'Off',
-        1: 'On'
     }),
 }

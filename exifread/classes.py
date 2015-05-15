@@ -426,7 +426,7 @@ class ExifHeader:
             offset = self.offset
             self.offset += note.field_offset
             # process note with bogus values (note is actually at offset 12)
-            self.dump_ifd(12, 'MakerNote', tag_dict=makernote.FUJIFILM)
+            self.dump_ifd(12, 'MakerNote', tag_dict=makernote.fujifilm.TAGS)
             # reset to correct values
             self.endian = endian
             self.offset = offset
