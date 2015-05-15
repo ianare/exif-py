@@ -19,11 +19,12 @@ Installation
 
 PyPI
 ====
-The recommended process is to install the PyPI package, as it allows easily staying up to date::
+The recommended process is to install the `PyPI package <https://pypi.python.org/pypi/ExifRead>`_,
+as it allows easily staying up to date::
 
     $ pip install exifread
 
-See the `pip documentation <http://www.pip-installer.org/en/latest/>`_ for more info.
+See the `pip documentation <https://pip.pypa.io/en/latest/user_guide.html>`_ for more info.
 
 Archive
 =======
