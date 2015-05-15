@@ -1,5 +1,9 @@
-﻿Change Log
-==========
+﻿**********
+Change Log
+**********
+
+develop
+    * Add a CONTRIBUTING file for Github.
 
 2.1.0 — 2015-05-15
     * Bypass empty/unreadable Olympus MakerNote info (issue #42)

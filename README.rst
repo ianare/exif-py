@@ -1,5 +1,6 @@
+*******
 EXIF.py
-=======
+*******
 
 .. image:: https://pypip.in/v/ExifRead/badge.png
         :target: https://crate.io/packages/ExifRead
@@ -12,12 +13,12 @@ Easy to use Python module to extract Exif metadata from tiff and jpeg files.
 
 Originally written by Gene Cash & Thierry Bousch.
 
-************
+
 Installation
 ************
 
 PyPI
-****
+====
 The recommended process is to install the PyPI package, as it allows easily staying up to date::
 
     $ pip install exifread
@@ -25,13 +26,12 @@ The recommended process is to install the PyPI package, as it allows easily stay
 See the `pip documentation <http://www.pip-installer.org/en/latest/>`_ for more info.
 
 Archive
-*******
+=======
 Download an archive from the project's `releases page <https://github.com/ianare/exif-py/releases>`_.
 
 Extract and enjoy.
 
 
-*************
 Compatibility
 *************
 
@@ -44,22 +44,24 @@ EXIF.py is tested on the following Python versions:
 - 3.4
 
 
-*****
 Usage
 *****
 
 Command line
-************
-::
+============
 
-    $ EXIF.py image.jpg
+Some examples::
+
+    $ EXIF.py image1.jpg
+    $ EXIF.py image1.jpg image2.tiff
+    $ find ~/Pictures -name "*.jpg" -name "*.tiff" | xargs EXIF.py
 
 Show command line options::
 
     $ EXIF.py
 
 Python Script
-*************
+=============
 ::
 
     import exifread
@@ -91,7 +93,6 @@ Note that the dictionary keys are the IFD name followed by the tag name. For exa
     'EXIF DateTimeOriginal', 'Image Orientation', 'MakerNote FocusMode'
 
 
-****************
 Tag Descriptions
 ****************
 
@@ -105,22 +106,23 @@ Tags are divided into these main categories:
 - ``MakerNote``: Manufacturer specific information. There are no official published references for these tags.
 
 
-******************
 Processing Options
 ******************
 
 These options can be used both in command line mode and within a script.
 
 Faster Processing
-*****************
+=================
+
 Don't process makernote tags, don't extract the thumbnail image (if any).
 
 Pass the ``-q`` or ``--quick`` command line arguments, or as::
 
     tags = exifread.process_file(f, details=False)
 
-Stop at Given Tag
-*****************
+Stop at a Given Tag
+===================
+
 To stop processing the file after a specified tag is retrieved.
 
 Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as::
@@ -132,41 +134,10 @@ where ``TAG`` is a valid tag name, ex ``'DateTimeOriginal'``.
 *The two above options are useful to speed up processing of large numbers of files.*
 
 Strict Processing
-*****************
+=================
+
 Return an error on invalid tags instead of silently ignoring.
 
 Pass the ``-s`` or ``--strict`` argument, or as::
 
     tags = exifread.process_file(f, strict=True)
-
-
-************
-Contributing
-************
-
-All contributions are welcome!
-
-Bug reports, feature requests, bug fixes, documentation updates, sample images, etc ...
-Nothing is too small or too big ;-)
-
-Please be aware that this is a purely spare time project, so don't be offended if it
-takes some time to answer.
-
-Code Contributions
-******************
-
-Please start from the ``develop`` branch for any code or documentation contributions.
-You may even find the work has already been done...
-
-Normally the ``master`` branch is only for stable, released code.
-
-Sample Images
-*************
-
-Sample images are very important, allowing for validating new features and limiting regressions.
-On every build, the library is run on all images.
-
-The samples are kept in a separate repository for space and bandwidth concerns:
-
-https://github.com/ianare/exif-samples
-
