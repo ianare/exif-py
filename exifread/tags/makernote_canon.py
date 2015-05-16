@@ -10,8 +10,8 @@ TAGS = {
     0x0007: ('FirmwareVersion', ),
     0x0008: ('ImageNumber', ),
     0x0009: ('OwnerName', ),
-    0x000C: ('SerialNumber', ),
-    0x000E: ('FileLength', ),
+    0x000c: ('SerialNumber', ),
+    0x000e: ('FileLength', ),
     0x0010: ('ModelID', {
         0x1010000: 'PowerShot A30',
         0x1040000: 'PowerShot S300 / Digital IXUS 300 / IXY Digital 300',
@@ -161,9 +161,8 @@ TAGS = {
         0x3090000: 'PowerShot SX150 IS',
         0x3100000: 'PowerShot ELPH 510 HS / IXUS 1100 HS / IXY 51S',
         0x3110000: 'PowerShot S100 (new)',
-        0x3120000: 'PowerShot ELPH 310 HS / IXUS 230 HS / IXY 600F',
         0x3130000: 'PowerShot SX40 HS',
-        0x3140000: 'IXY 32S',
+        0x3120000: 'PowerShot ELPH 310 HS / IXUS 230 HS / IXY 600F',
         0x3160000: 'PowerShot A1300',
         0x3170000: 'PowerShot A810',
         0x3180000: 'PowerShot ELPH 320 HS / IXUS 240 HS / IXY 420F',
@@ -204,13 +203,22 @@ TAGS = {
         0x3650000: 'PowerShot D30',
         0x3660000: 'PowerShot SX700 HS',
         0x3670000: 'PowerShot SX600 HS',
-        0x3680000: 'PowerShot ELPH 140 IS / IXUS 150',
+        0x3680000: 'PowerShot ELPH 140 IS / IXUS 150 / IXY 130',
         0x3690000: 'PowerShot ELPH 135 / IXUS 145 / IXY 120',
         0x3700000: 'PowerShot ELPH 340 HS / IXUS 265 HS / IXY 630',
         0x3710000: 'PowerShot ELPH 150 IS / IXUS 155 / IXY 140',
+        0x3740000: 'EOS M3',
         0x3750000: 'PowerShot SX60 HS',
         0x3760000: 'PowerShot SX520 HS',
+        0x3770000: 'PowerShot SX400 IS',
         0x3780000: 'PowerShot G7 X',
+        0x3790000: 'PowerShot N2',
+        0x3800000: 'PowerShot SX530 HS',
+        0x3820000: 'PowerShot SX710 HS',
+        0x3830000: 'PowerShot SX610 HS',
+        0x3870000: 'PowerShot ELPH 160 / IXUS 160',
+        0x3890000: 'PowerShot ELPH 170 IS / IXUS 170',
+        0x3910000: 'PowerShot SX410 IS',
         0x4040000: 'PowerShot G1',
         0x6040000: 'PowerShot S100 / Digital IXUS / IXY Digital',
         0x4007d673: 'DC19/DC21/DC22',
@@ -285,31 +293,35 @@ TAGS = {
         0x80000326: 'EOS Rebel T5i / 700D / Kiss X7i',
         0x80000327: 'EOS Rebel T5 / 1200D / Kiss X70',
         0x80000331: 'EOS M',
+        0x80000355: 'EOS M2',
         0x80000346: 'EOS Rebel SL1 / 100D / Kiss X7',
-        0x80000355: 'EOS M2'
+        0x80000347: 'EOS Rebel T6s / 760D / 8000D',
+        0x80000382: 'EOS 5DS',
+        0x80000393: 'EOS Rebel T6i / 750D / Kiss X8i',
+        0x80000401: 'EOS 5DS R',
     }),
     0x0013: ('ThumbnailImageValidArea', ),
     0x0015: ('SerialNumberFormat', {
         0x90000000: 'Format 1',
         0xA0000000: 'Format 2'
     }),
-    0x001A: ('SuperMacro', {
+    0x001a: ('SuperMacro', {
         0: 'Off',
         1: 'On (1)',
         2: 'On (2)'
     }),
-    0x001C: ('DateStampMode', {
+    0x001c: ('DateStampMode', {
         0: 'Off',
         1: 'Date',
         2: 'Date & Time',
     }),
-    0x001E: ('FirmwareRevision', ),
+    0x001e: ('FirmwareRevision', ),
     0x0028: ('ImageUniqueID', ),
     0x0095: ('LensModel', ),
     0x0096: ('InternalSerialNumber ', ),
     0x0097: ('DustRemovalData ', ),
     0x0098: ('CropInfo ', ),
-    0x009A: ('AspectInfo', ),
+    0x009a: ('AspectInfo', ),
     0x00b4: ('ColorSpace', {
         1: 'sRGB',
         2: 'Adobe RGB'
@@ -494,7 +506,7 @@ CAMERA_SETTINGS = {
         0x500: 'Full',
         0x502: 'Medium',
         0x504: 'Low',
-        0x7FFF: 'n/a'
+        0x7fff: 'n/a'
     }),
 }
 
@@ -537,11 +549,11 @@ SHOT_INFO = {
         0xFFF0: '-0.50 EV',
         0xFFF4: '-0.33 EV',
         0x0000: '0 EV',
-        0x000C: '0.33 EV',
+        0x000c: '0.33 EV',
         0x0010: '0.50 EV',
         0x0014: '0.67 EV',
         0x0020: '1 EV',
-        0x002C: '1.33 EV',
+        0x002c: '1.33 EV',
         0x0030: '1.50 EV',
         0x0034: '1.67 EV',
         0x0040: '2 EV'

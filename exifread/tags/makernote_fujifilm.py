@@ -61,6 +61,13 @@ TAGS = {
         0x200: 'Low',
         0x8000: 'Film Simulation'
     }),
+    0x1005: ('ColorTemperature', ),
+    0x1006: ('Contrast', {
+        0x0: 'Normal',
+        0x100: 'High',
+        0x300: 'Low'
+    }),
+    0x100a: ('WhiteBalanceFineTune', ),
     0x1010: ('FlashMode', {
         0: 'Auto',
         1: 'On',
