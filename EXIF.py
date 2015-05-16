@@ -79,7 +79,7 @@ def main():
         if option in ("-c", "--color"):
             color = True
 
-    if args == []:
+    if not args:
         usage(2)
 
     exif_log.setup_logger(debug, color)
