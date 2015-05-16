@@ -2,9 +2,10 @@
 Change Log
 **********
 
-develop
+2.1.1 — 2015-05-16
     * Add a CONTRIBUTING file for Github.
     * Add some FujiFilm tags.
+    * Revert Canon Makernote processing modifications
 
 2.1.0 — 2015-05-15
     * Bypass empty/unreadable Olympus MakerNote info (issue #42)

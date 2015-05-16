@@ -445,27 +445,8 @@ class ExifHeader:
 
         # Canon
         if make == 'Canon':
-            # This is needed for some Canon models.
-            # For instance Canon Powershot SX60
-            offset = note.values[-4:]
-            if (self.endian == 'I') and \
-                (note.values[-8:-4] == [73, 73, 42, 0]) :
-                offset = note.field_offset - \
-                        (offset[0] + offset[1]*256 + \
-                        offset[2]*65536 + offset[3]*16777216)
-            elif (self.endian == 'M') and \
-                    (note.values[-8:-4] == [77, 77, 0, 42]) :
-                offset = note.field_offset - \
-                        (offset[0]*16777216 + offset[1]*65536 + \
-                        offset[2]*256 + offset[3])
-            else:
-                offset = 0
-
-            t = self.offset
-            self.offset += offset
-            self.dump_ifd(note.field_offset-self.offset, 'MakerNote',
+            self.dump_ifd(note.field_offset, 'MakerNote',
                           tag_dict=makernote.canon.TAGS)
-            self.offset = t
 
             for i in (('MakerNote Tag 0x0001', makernote.canon.CAMERA_SETTINGS),
                       ('MakerNote Tag 0x0002', makernote.canon.FOCAL_LENGTH),
