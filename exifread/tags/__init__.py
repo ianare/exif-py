@@ -3,7 +3,7 @@ Tag definitions
 """
 
 from .exif import *
-from . import makernote
+from .makernote import *
 
 DEFAULT_STOP_TAG = 'UNDEF'
 

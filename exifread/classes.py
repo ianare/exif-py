@@ -384,7 +384,7 @@ class ExifHeader:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
                 logger.debug("Looks like a type 1 Nikon MakerNote.")
                 self.dump_ifd(note.field_offset + 8, 'MakerNote',
-                              tag_dict=makernote.NIKON_OLD)
+                              tag_dict=makernote.nikon.TAGS_OLD)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
                 if self.debug:
                     logger.debug("Looks like a labeled type 2 Nikon MakerNote")
@@ -392,18 +392,18 @@ class ExifHeader:
                     raise ValueError("Missing marker tag '42' in MakerNote.")
                     # skip the Makernote label and the TIFF header
                 self.dump_ifd(note.field_offset + 10 + 8, 'MakerNote',
-                              tag_dict=makernote.NIKON_NEW, relative=1)
+                              tag_dict=makernote.nikon.TAGS_NEW, relative=1)
             else:
                 # E99x or D1
                 logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
                 self.dump_ifd(note.field_offset, 'MakerNote',
-                              tag_dict=makernote.NIKON_NEW)
+                              tag_dict=makernote.nikon.TAGS_NEW)
             return
 
         # Olympus
         if make.startswith('OLYMPUS'):
             self.dump_ifd(note.field_offset + 8, 'MakerNote',
-                          tag_dict=makernote.OLYMPUS)
+                          tag_dict=makernote.olympus.TAGS)
             # TODO
             #for i in (('MakerNote Tag 0x2020', makernote.OLYMPUS_TAG_0x2020),):
             #    self.decode_olympus_tag(self.tags[i[0]].values, i[1])
@@ -412,7 +412,7 @@ class ExifHeader:
         # Casio
         if 'CASIO' in make or 'Casio' in make:
             self.dump_ifd(note.field_offset, 'MakerNote',
-                          tag_dict=makernote.CASIO)
+                          tag_dict=makernote.casio.TAGS)
             return
 
         # Fujifilm
@@ -433,9 +433,8 @@ class ExifHeader:
             return
 
         # Apple
-        if (make == 'Apple') and \
-                (note.values[0:10] == \
-                    [65, 112, 112, 108, 101, 32, 105, 79, 83, 0]):
+        if make == 'Apple' and \
+                note.values[0:10] == [65, 112, 112, 108, 101, 32, 105, 79, 83, 0]:
             t = self.offset
             self.offset += note.field_offset+14
             self.dump_ifd(0, 'MakerNote',
