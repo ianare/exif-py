@@ -180,10 +180,11 @@ class ExifHeader:
                     # XXX investigate
                     # sometimes gets too big to fit in int value
                     if count != 0:  # and count < (2**31):  # 2E31 is hardware dependant. --gd
+                        file_position = self.offset + offset
                         try:
-                            self.file.seek(self.offset + offset)
+                            self.file.seek(file_position)
                             values = self.file.read(count)
-                            #print values
+                            #print(values)
                             # Drop any garbage after a null.
                             values = values.split(b'\x00', 1)[0]
                             if isinstance(values, bytes):
@@ -192,6 +193,10 @@ class ExifHeader:
                                 except UnicodeDecodeError:
                                     logger.warning("Possibly corrupted field %s in %s IFD", tag_name, ifd_name)
                         except OverflowError:
+                            logger.warn('OverflowError at position: %s, length: %s', file_position, count)
+                            values = ''
+                        except MemoryError:
+                            logger.warn('MemoryError at position: %s, length: %s', file_position, count)
                             values = ''
                 else:
                     values = []
@@ -386,8 +391,7 @@ class ExifHeader:
                 self.dump_ifd(note.field_offset + 8, 'MakerNote',
                               tag_dict=makernote.nikon.TAGS_OLD)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
-                if self.debug:
-                    logger.debug("Looks like a labeled type 2 Nikon MakerNote")
+                logger.debug("Looks like a labeled type 2 Nikon MakerNote")
                 if note.values[12:14] != [0, 42] and note.values[12:14] != [42, 0]:
                     raise ValueError("Missing marker tag '42' in MakerNote.")
                     # skip the Makernote label and the TIFF header
