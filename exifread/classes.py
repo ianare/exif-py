@@ -2,7 +2,7 @@ import struct
 import re
 
 from .exif_log import get_logger
-from .utils import s2n_motorola, s2n_intel, Ratio
+from .utils import Ratio
 from .tags import *
 
 logger = get_logger()
@@ -61,7 +61,7 @@ class ExifHeader:
         self.detailed = detailed
         self.tags = {}
 
-    def s2n(self, offset, length, signed=0):
+    def s2n(self, offset, length, signed=False):
         """
         Convert slice to integer, based on sign and endian flags.
 
@@ -71,17 +71,24 @@ class ExifHeader:
         to some other starting point.
         """
         self.file.seek(self.offset + offset)
-        sliced = self.file.read(length)
-        if self.endian == 'I':
-            val = s2n_intel(sliced)
-        else:
-            val = s2n_motorola(sliced)
-            # Sign extension?
-        if signed:
-            msb = 1 << (8 * length - 1)
-            if val & msb:
-                val -= (msb << 1)
-        return val
+        # Little-endian if Intel, big-endian if Motorola
+        fmt = '<' if self.endian == 'I' else '>'
+        # Construct a format string from the requested length and signedness;
+        # raise a ValueError if length is something silly like 3
+        try:
+            fmt += {
+                (1, False): 'B',
+                (1, True):  'b',
+                (2, False): 'H',
+                (2, True):  'h',
+                (4, False): 'I',
+                (4, True):  'i',
+                (8, False): 'L',
+                (8, True):  'l',
+                }[(length, signed)]
+        except KeyError:
+            raise ValueError('unexpected unpacking length: %d' % length)
+        return struct.unpack(fmt, self.file.read(length))[0]
 
     def n2s(self, offset, length):
         """Convert offset to string."""
