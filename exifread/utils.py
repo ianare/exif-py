@@ -38,24 +38,6 @@ def make_string_uc(seq):
     return make_string(seq)
 
 
-def s2n_motorola(string):
-    """Extract multi-byte integer in Motorola format (little endian)."""
-    x = 0
-    for c in string:
-        x = (x << 8) | ord_(c)
-    return x
-
-
-def s2n_intel(string):
-    """Extract multi-byte integer in Intel format (big endian)."""
-    x = 0
-    y = 0
-    for c in string:
-        x = x | (ord_(c) << y)
-        y += + 8
-    return x
-
-
 class Ratio:
     """
     Ratio object that eventually will be able to reduce itself to lowest
