@@ -2,6 +2,11 @@
 Change Log
 **********
 
+2.1.2 — 2015-09-14
+    * Fix 90 CW (6) and Rotated 90 CCW (8) which were swapped with each other (Mark Hahnenberg)
+    * Catch memory and overflow errors on file seek, print a warning
+    * Put manufacturers' makernote definitions in separate files
+
 2.1.1 — 2015-05-16
     * Add a CONTRIBUTING file for Github.
     * Add some FujiFilm tags.
