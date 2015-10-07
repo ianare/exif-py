@@ -230,7 +230,7 @@ class ExifHeader:
                 elif count > 50 and len(values) > 20:
                     encoded_values = []
                     encoded_values[:0] = values[0:20]
-                    encoded_values[:20] = ',...'
+                    encoded_values[:20] = ', ... ]'
                 else:
                     encoded_values = values
 
