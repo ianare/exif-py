@@ -224,22 +224,15 @@ class ExifHeader:
                             offset = offset + type_length
 
                 # now 'values' is either a string or an array
-                encoded_values = None
                 if count == 1 and field_type != 2:
-                    encoded_values = values[0]
-                elif count > 50 and len(values) > 20:
-                    encoded_values = []
-                    encoded_values[:0] = values[0:20]
-                    encoded_values[20:] = ', ... ]'
-                    encoded_values = ''.join(chr(encoded_values))
+                    printable = str(values[0])
+                elif count > 50 and len(values) > 20 and not isinstance(values, basestring) :
+                    printable = str(values[0:20])[0:-1] + ", ... ]"
                 else:
-                    encoded_values = values
-
-                try:
-                    printable = str(encoded_values)
-                # fix for python2's handling of unicode values
-                except UnicodeEncodeError:
-                    printable = unicode(values)
+		    try:
+                    	printable = str(values)
+		    except:
+			printable = unicode(values)
 
                 # compute printable version of values
                 if tag_entry:
