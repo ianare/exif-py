@@ -229,11 +229,10 @@ class ExifHeader:
                 elif count > 50 and len(values) > 20 and not isinstance(values, basestring) :
                     printable = str(values[0:20])[0:-1] + ", ... ]"
                 else:
-		    try:
-                    	printable = str(values)
-		    except:
-			printable = unicode(values)
-
+                    try:
+                        printable = str(values)
+                    except UnicodeEncodeError:
+                        printable = unicode(values)
                 # compute printable version of values
                 if tag_entry:
                     # optional 2nd tag element is present
