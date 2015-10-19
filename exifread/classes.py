@@ -231,7 +231,7 @@ class ExifHeader:
                     encoded_values = []
                     encoded_values[:0] = values[0:20]
                     encoded_values[20:] = ', ... ]'
-                    encoded_values = ''.join(encoded_values)
+                    encoded_values = ''.join(chr(encoded_values))
                 else:
                     encoded_values = values
 
