@@ -7,6 +7,10 @@ from .tags import *
 
 logger = get_logger()
 
+try:
+    basestring
+except NameError:
+    basestring = str
 
 class IfdTag:
     """
