@@ -7,6 +7,10 @@ from .tags import *
 
 logger = get_logger()
 
+try:
+    basestring
+except NameError:
+    basestring = str
 
 class IfdTag:
     """
@@ -226,15 +230,13 @@ class ExifHeader:
                 # now 'values' is either a string or an array
                 if count == 1 and field_type != 2:
                     printable = str(values[0])
-                elif count > 50 and len(values) > 20:
+                elif count > 50 and len(values) > 20 and not isinstance(values, basestring) :
                     printable = str(values[0:20])[0:-1] + ", ... ]"
                 else:
                     try:
                         printable = str(values)
-                    # fix for python2's handling of unicode values
                     except UnicodeEncodeError:
                         printable = unicode(values)
-
                 # compute printable version of values
                 if tag_entry:
                     # optional 2nd tag element is present
