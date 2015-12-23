@@ -126,9 +126,9 @@ EXIF_TAGS = {
         3: 'Rotated 180',
         4: 'Mirrored vertical',
         5: 'Mirrored horizontal then rotated 90 CCW',
-        6: 'Rotated 90 CCW',
+        6: 'Rotated 90 CW',
         7: 'Mirrored horizontal then rotated 90 CW',
-        8: 'Rotated 90 CW'
+        8: 'Rotated 90 CCW'
     }),
     0x0115: ('SamplesPerPixel', ),
     0x0116: ('RowsPerStrip', ),

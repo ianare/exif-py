@@ -7,6 +7,10 @@ from .tags import *
 
 logger = get_logger()
 
+try:
+    basestring
+except NameError:
+    basestring = str
 
 class IfdTag:
     """
@@ -221,6 +225,20 @@ class ExifHeader:
                                 # a ratio
                                 value = Ratio(self.s2n(offset, 4, signed),
                                               self.s2n(offset + 4, 4, signed))
+                            elif field_type in (11,12):
+                                # a float or double
+                                unpack_format = ""
+                                if self.endian == 'I':
+                                    unpack_format += "<"
+                                else:
+                                    unpack_format += ">"
+                                if field_type == 11:
+                                    unpack_format += "f"
+                                else:
+                                    unpack_format += "d"
+                                self.file.seek(self.offset + offset)
+                                byte_str = self.file.read(type_length)
+                                value = struct.unpack(unpack_format,byte_str)
                             else:
                                 value = self.s2n(offset, type_length, signed)
                             values.append(value)
@@ -236,15 +254,13 @@ class ExifHeader:
                 # now 'values' is either a string or an array
                 if count == 1 and field_type != 2:
                     printable = str(values[0])
-                elif count > 50 and len(values) > 20:
+                elif count > 50 and len(values) > 20 and not isinstance(values, basestring) :
                     printable = str(values[0:20])[0:-1] + ", ... ]"
                 else:
                     try:
                         printable = str(values)
-                    # fix for python2's handling of unicode values
                     except UnicodeEncodeError:
                         printable = unicode(values)
-
                 # compute printable version of values
                 if tag_entry:
                     # optional 2nd tag element is present

@@ -20,6 +20,8 @@ FIELD_TYPES = (
     (2, 'SS', 'Signed Short'),
     (4, 'SL', 'Signed Long'),
     (8, 'SR', 'Signed Ratio'),
+    (4, 'F32', 'Single-Precision Floating Point (32-bit)'),
+    (8, 'F64', 'Double-Precision Floating Point (64-bit)'),
 )
 
 # To ignore when quick processing
