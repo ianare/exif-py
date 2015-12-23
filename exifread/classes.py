@@ -215,6 +215,20 @@ class ExifHeader:
                                 # a ratio
                                 value = Ratio(self.s2n(offset, 4, signed),
                                               self.s2n(offset + 4, 4, signed))
+                            elif field_type in (11,12):
+                                # a float or double
+                                unpack_format = ""
+                                if self.endian == 'I':
+                                    unpack_format += "<"
+                                else:
+                                    unpack_format += ">"
+                                if field_type == 11:
+                                    unpack_format += "f"
+                                else:
+                                    unpack_format += "d"
+                                self.file.seek(self.offset + offset)
+                                byte_str = self.file.read(type_length)
+                                value = struct.unpack(unpack_format,byte_str)
                             else:
                                 value = self.s2n(offset, type_length, signed)
                             values.append(value)
