@@ -16,7 +16,7 @@ def increment_base(data, base):
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
-def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False):
+def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False, truncate_tags=True):
     """
     Process an image file (expects an open file object).
 
@@ -188,7 +188,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         'd': 'XMP/Adobe unknown'
     }[endian])
 
-    hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug, details)
+    hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
     thumb_ifd = False
     ctr = 0
