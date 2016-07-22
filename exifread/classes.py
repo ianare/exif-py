@@ -53,9 +53,8 @@ class ExifHeader:
     """
     Handle an EXIF header.
     """
-
     def __init__(self, file, endian, offset, fake_exif, strict,
-                 debug=False, detailed=True):
+                 debug=False, detailed=True, truncate_tags=True):
         self.file = file
         self.endian = endian
         self.offset = offset
@@ -63,6 +62,7 @@ class ExifHeader:
         self.strict = strict
         self.debug = debug
         self.detailed = detailed
+        self.truncate_tags = truncate_tags
         self.tags = {}
 
     def s2n(self, offset, length, signed=0):
@@ -231,7 +231,10 @@ class ExifHeader:
                 if count == 1 and field_type != 2:
                     printable = str(values[0])
                 elif count > 50 and len(values) > 20 and not isinstance(values, basestring) :
-                    printable = str(values[0:20])[0:-1] + ", ... ]"
+                    if self.truncate_tags :
+                        printable = str(values[0:20])[0:-1] + ", ... ]"
+                    else:
+                        printable = str(values[0:-1])
                 else:
                     try:
                         printable = str(values)
