@@ -53,6 +53,9 @@ class Ratio:
         if self.den == 1:
             return str(self.num)
         return '%d/%d' % (self.num, self.den)
+    
+    def __float__(self):
+        return ((1.0*self.num)/self.den)
 
     def _gcd(self, a, b):
         if b == 0:
