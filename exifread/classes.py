@@ -188,7 +188,7 @@ class ExifHeader:
                         try:
                             self.file.seek(file_position)
                             values = self.file.read(count)
-                            #print(values)
+
                             # Drop any garbage after a null.
                             values = values.split(b'\x00', 1)[0]
                             if isinstance(values, bytes):
@@ -202,6 +202,8 @@ class ExifHeader:
                         except MemoryError:
                             logger.warn('MemoryError at position: %s, length: %s', file_position, count)
                             values = ''
+                    else:
+                        values = ''
                 else:
                     values = []
                     signed = (field_type in [6, 8, 9, 10])
