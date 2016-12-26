@@ -43,6 +43,7 @@ EXIF.py is tested on the following Python versions:
 - 3.2
 - 3.3
 - 3.4
+- 3.5
 
 
 Usage

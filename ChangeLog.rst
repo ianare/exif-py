@@ -4,6 +4,7 @@ Change Log
 
 UNRELEASED
     * Test on Python 3.5
+    * Fix for string count equals 0 (issue #67)
 
 2.1.2 — 2015-09-14
     * Fix 90 CW (6) and Rotated 90 CCW (8) which were swapped with each other (Mark Hahnenberg)
