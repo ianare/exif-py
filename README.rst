@@ -2,10 +2,6 @@
 EXIF.py
 *******
 
-.. image:: https://pypip.in/v/ExifRead/badge.png
-        :target: https://crate.io/packages/ExifRead
-.. image:: https://pypip.in/d/ExifRead/badge.png
-        :target: https://crate.io/packages/ExifRead
 .. image:: https://travis-ci.org/ianare/exif-py.png
         :target: https://travis-ci.org/ianare/exif-py
 
