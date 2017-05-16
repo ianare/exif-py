@@ -55,6 +55,32 @@ def s2n_intel(string):
         y += + 8
     return x
 
+def get_gps_coords(tags):
+
+    lng_ref_tag_name = "GPS GPSLongitudeRef"
+    lng_tag_name = "GPS GPSLongitude"
+    lat_ref_tag_name = "GPS GPSLatitudeRef"
+    lat_tag_name = "GPS GPSLatitude"
+
+    # Check if these tags are present
+    gps_tags = [lng_ref_tag_name,lng_tag_name,lat_tag_name,lat_tag_name]
+    for tag in gps_tags:
+        if not tag in tags.keys():
+            return None
+
+    lng_ref_val = tags[lng_ref_tag_name].values
+    lng_coord_val = [c.decimal() for c in tags[lng_tag_name].values]
+
+    lat_ref_val = tags[lat_ref_tag_name].values
+    lat_coord_val = [c.decimal() for c in tags[lat_tag_name].values]
+
+    lng_coord = sum([c/60**i for i,c in enumerate(lng_coord_val)])
+    lng_coord *= (-1)**(lng_ref_val=="W")
+
+    lat_coord = sum([c/60**i for i,c in enumerate(lat_coord_val)])
+    lat_coord *= (-1)**(lat_ref_val=="S")
+
+    return (lat_coord, lng_coord)
 
 class Ratio:
     """
@@ -84,3 +110,5 @@ class Ratio:
             self.num = self.num // div
             self.den = self.den // div
 
+    def decimal(self):
+        return float(self.num)/float(self.den)
