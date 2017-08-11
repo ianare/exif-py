@@ -91,9 +91,9 @@ class Ratio(Fraction):
     """
 
     # We're immutable, so use __new__ not __init__
-    def __new__(cls, numerator=0, denominator=None, _normalize=True):
+    def __new__(cls, numerator=0, denominator=None):
         try:
-            self = super(Ratio, cls).__new__(cls, numerator, denominator, _normalize)
+            self = super(Ratio, cls).__new__(cls, numerator, denominator)
         except ZeroDivisionError:
             self = super(Ratio, cls).__new__(cls)
             self._numerator = numerator
