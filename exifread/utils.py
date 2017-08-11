@@ -2,6 +2,8 @@
 Misc utilities.
 """
 
+from fractions import Fraction
+
 
 def ord_(dta):
     if isinstance(dta, str):
@@ -82,33 +84,33 @@ def get_gps_coords(tags):
 
     return (lat_coord, lng_coord)
 
-class Ratio:
+class Ratio(Fraction):
     """
     Ratio object that eventually will be able to reduce itself to lowest
     common denominator for printing.
     """
 
-    def __init__(self, num, den):
-        self.num = num
-        self.den = den
+    # We're immutable, so use __new__ not __init__
+    def __new__(cls, numerator=0, denominator=None, _normalize=True):
+        try:
+            self = super(Ratio, cls).__new__(cls, numerator, denominator, _normalize)
+        except ZeroDivisionError:
+            self = super(Ratio, cls).__new__(cls)
+            self._numerator = numerator
+            self._denominator = denominator
+            return self
+    __new__.doc = Fraction.__new__.__doc__
 
     def __repr__(self):
-        self.reduce()
-        if self.den == 1:
-            return str(self.num)
-        return '%d/%d' % (self.num, self.den)
+        return str(self)
 
-    def _gcd(self, a, b):
-        if b == 0:
-            return a
-        else:
-            return self._gcd(b, a % b)
+    @property
+    def num(self):
+        return self.numerator
 
-    def reduce(self):
-        div = self._gcd(self.num, self.den)
-        if div > 1:
-            self.num = self.num // div
-            self.den = self.den // div
+    @property
+    def den(self):
+        return self.denominator
 
     def decimal(self):
-        return float(self.num)/float(self.den)
+        return float(self)
