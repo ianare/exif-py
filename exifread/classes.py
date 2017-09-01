@@ -179,7 +179,7 @@ class ExifHeader:
                     # special case: null-terminated ASCII string
                     # XXX investigate
                     # sometimes gets too big to fit in int value
-                    if count != 0:  # and count < (2**31):  # 2E31 is hardware dependant. --gd
+                    if count != 0:  # and count < (2**31):  # 2E31 is hardware dependent. --gd
                         file_position = self.offset + offset
                         try:
                             self.file.seek(file_position)
