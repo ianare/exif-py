@@ -399,7 +399,7 @@ EXIF_TAGS = {
         0: 'Standard',
         1: 'Landscape',
         2: 'Portrait',
-        3: 'Night)'
+        3: 'Night'
     }),
     0xA407: ('GainControl', {
         0: 'None',
