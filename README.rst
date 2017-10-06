@@ -138,3 +138,41 @@ Return an error on invalid tags instead of silently ignoring.
 Pass the ``-s`` or ``--strict`` argument, or as::
 
     tags = exifread.process_file(f, strict=True)
+
+Usage Example
+=============
+
+This example shows how to use the library to correct the orientation of an image (using PIL for the transformation) before e.g. displaying it.
+
+::
+
+    import exifread
+    from PIL import Image
+    
+    def _read_img_and_correct_exif_orientation(path):
+        im = Image.open(path)
+        tags = {}
+        with open(path, 'rb') as f:
+            tags = exifread.process_file(f, details=False)
+        if "Image Orientation" in tags.keys():
+            orientation = tags["Image Orientation"]
+            logging.debug("Orientation: %s (%s)", orientation, orientation.values)
+            val = orientation.values
+            if 5 in val:
+                val += [4,8]
+            if 7 in val:
+                val += [4, 6]
+            if 3 in val:
+                logging.debug("Rotating by 180 degrees.")
+                im = im.transpose(Image.ROTATE_180)
+            if 4 in val:
+                logging.debug("Mirroring horizontally.")
+                im = im.transpose(Image.FLIP_TOP_BOTTOM)
+            if 6 in val:
+                logging.debug("Rotating by 270 degrees.")
+                im = im.transpose(Image.ROTATE_270)
+            if 8 in val:
+                logging.debug("Rotating by 90 degrees.")
+                im = im.transpose(Image.ROTATE_90)
+
+        return im
