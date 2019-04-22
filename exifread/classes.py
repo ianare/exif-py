@@ -2,7 +2,7 @@ import struct
 import re
 
 from .exif_log import get_logger
-from .utils import s2n_motorola, s2n_intel, Ratio
+from .utils import Ratio
 from .tags import *
 
 logger = get_logger()
@@ -65,7 +65,7 @@ class ExifHeader:
         self.truncate_tags = truncate_tags
         self.tags = {}
 
-    def s2n(self, offset, length, signed=0):
+    def s2n(self, offset, length, signed=False):
         """
         Convert slice to integer, based on sign and endian flags.
 
@@ -74,18 +74,28 @@ class ExifHeader:
         For some cameras that use relative tags, this offset may be relative
         to some other starting point.
         """
+        # Little-endian if Intel, big-endian if Motorola
+        fmt = '<' if self.endian == 'I' else '>'
+        # Construct a format string from the requested length and signedness;
+        # raise a ValueError if length is something silly like 3
+        try:
+            fmt += {
+                (1, False): 'B',
+                (1, True):  'b',
+                (2, False): 'H',
+                (2, True):  'h',
+                (4, False): 'I',
+                (4, True):  'i',
+                (8, False): 'L',
+                (8, True):  'l',
+                }[(length, signed)]
+        except KeyError:
+            raise ValueError('unexpected unpacking length: %d' % length)
         self.file.seek(self.offset + offset)
-        sliced = self.file.read(length)
-        if self.endian == 'I':
-            val = s2n_intel(sliced)
-        else:
-            val = s2n_motorola(sliced)
-            # Sign extension?
-        if signed:
-            msb = 1 << (8 * length - 1)
-            if val & msb:
-                val -= (msb << 1)
-        return val
+        buf = self.file.read(length)
+        if buf:
+            return struct.unpack(fmt, buf)[0]
+        return 0
 
     def n2s(self, offset, length):
         """Convert offset to string."""
@@ -217,6 +227,20 @@ class ExifHeader:
                                 # a ratio
                                 value = Ratio(self.s2n(offset, 4, signed),
                                               self.s2n(offset + 4, 4, signed))
+                            elif field_type in (11,12):
+                                # a float or double
+                                unpack_format = ""
+                                if self.endian == 'I':
+                                    unpack_format += "<"
+                                else:
+                                    unpack_format += ">"
+                                if field_type == 11:
+                                    unpack_format += "f"
+                                else:
+                                    unpack_format += "d"
+                                self.file.seek(self.offset + offset)
+                                byte_str = self.file.read(type_length)
+                                value = struct.unpack(unpack_format,byte_str)
                             else:
                                 value = self.s2n(offset, type_length, signed)
                             values.append(value)
