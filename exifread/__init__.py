@@ -29,9 +29,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
 
     # determine whether it's a JPEG or TIFF
     data = f.read(12)
-    if data[0:4] in [b'II*\x00', b'MM\x00*']:
+    if data[0:2] in [b'II', b'MM']:
         # it's a TIFF file
-        logger.debug("TIFF format recognized in data[0:4]")
+        logger.debug("TIFF format recognized in data[0:2]")
         f.seek(0)
         endian = f.read(1)
         f.read(1)
