@@ -32,13 +32,13 @@ Extract and enjoy.
 Compatibility
 *************
 
-EXIF.py is tested on the following Python versions:
+EXIF.py is tested and officially supported on the following Python versions:
 
-- 2.6
 - 2.7
-- 3.3
 - 3.4
 - 3.5
+- 3.6
+- 3.7
 
 
 Usage
