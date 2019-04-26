@@ -2,9 +2,12 @@
 Change Log
 **********
 
-UNRELEASED
-    * Test on Python 3.5
+2.2.0 — UNRELEASED
+    * Add support for Python 3.5, 3.6, 3.7
+    * Drop official support for Python 2.6, 3.2, 3.3
     * Fix for string count equals 0 (issue #67)
+    * Rebasing of struct pull requests: closes #54, closes #60 (Christopher Chavez)
+    * Raw images support by changing Tiff detection (xaumex)
 
 2.1.2 — 2015-09-14
     * Fix 90 CW (6) and Rotated 90 CCW (8) which were swapped with each other (Mark Hahnenberg)

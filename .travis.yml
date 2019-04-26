@@ -1,22 +1,22 @@
 language: python
+dist: xenial
+
 python:
-  - "2.6"
   - "2.7"
-  - "3.3"
   - "3.4"
   - "3.5"
   - "3.6"
-matrix:
-  include:
-    - python: "3.7"
-      dist: xenial
-      sudo: true
+  - "3.7"
+
 install:
   - "pip install ."
+
 # get the test images
 before_script:
   - "wget https://github.com/ianare/exif-samples/archive/master.tar.gz"
   - "tar -xzf master.tar.gz"
+
+# could be much improved ...
 script:
   - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py"
   - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py -dc"

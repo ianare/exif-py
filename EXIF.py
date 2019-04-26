@@ -10,7 +10,7 @@
 # Copyright (c) 2007-2014 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
-# See CHANGES.txt file for all contributors and changes
+# See ChangeLog.rst file for all contributors and changes
 #
 
 """
