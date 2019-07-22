@@ -16,14 +16,17 @@ def increment_base(data, base):
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
-def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False, truncate_tags=True):
+def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False, truncate_tags=True, auto_seek=True):
     """
     Process an image file (expects an open file object).
 
     This is the function that has to deal with all the arbitrary nasty bits
     of the EXIF standard.
     """
-
+    
+    if auto_seek:
+        f.seek(0)
+    
     # by default do not fake an EXIF beginning
     fake_exif = 0
 
