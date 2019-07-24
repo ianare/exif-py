@@ -81,7 +81,7 @@ class Ratio(Fraction):
             self = super(Ratio, cls).__new__(cls)
             self._numerator = numerator
             self._denominator = denominator
-            return self
+        return self
     __new__.doc = Fraction.__new__.__doc__
 
     def __repr__(self):
