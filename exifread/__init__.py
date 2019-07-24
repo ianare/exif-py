@@ -6,6 +6,7 @@ from .exif_log import get_logger
 from .classes import *
 from .tags import *
 from .utils import ord_
+from .heic import HEICExifFinder
 
 __version__ = '2.1.2'
 
@@ -39,6 +40,10 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         endian = f.read(1)
         f.read(1)
         offset = 0
+    elif data[4:12] == b'ftypheic':
+        f.seek(0)
+        heic = HEICExifFinder (f)
+        offset, endian = heic.find_exif()
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
         logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1]))
