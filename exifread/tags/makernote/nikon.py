@@ -41,7 +41,7 @@ def ev_bias(seq):
     whole = a / step
     a = a % step
     if whole != 0:
-        ret_str = '%s%s ' % (ret_str, str(whole))
+        ret_str = '{}{} '.format(ret_str, str(whole))
     if a == 0:
         ret_str += 'EV'
     else:

@@ -45,7 +45,7 @@ def usage(exit_status):
 
 def show_version():
     """Show the program version."""
-    print('Version %s on Python%s' % (__version__, sys.version_info[0]))
+    print('Version {} on Python{}'.format(__version__, sys.version_info[0]))
     sys.exit(0)
 
 

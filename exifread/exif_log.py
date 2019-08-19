@@ -57,7 +57,7 @@ class Formatter(logging.Formatter):
                 color = TEXT_CYAN
             else:
                 color = TEXT_NORMAL
-            record.levelname = "\x1b[%sm%s\x1b[%sm" % (color, record.levelname, TEXT_NORMAL)
+            record.levelname = "\x1b[{}m{}\x1b[{}m".format(color, record.levelname, TEXT_NORMAL)
         return logging.Formatter.format(self, record)
 
 

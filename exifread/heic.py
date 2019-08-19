@@ -32,7 +32,7 @@ class Box:
         self.name = name
 
     def __repr__ (self):
-        return "<box '%s'>" % (self.name,)
+        return "<box '{}'>".format(self.name)
 
 class HEICExifFinder:
 
@@ -121,7 +121,7 @@ class HEICExifFinder:
             raise WrongBox (name, b.name)
 
     def get_parser (self, box):
-        method = 'parse_%s' % (box.name,)
+        method = 'parse_{}'.format(box.name)
         return getattr (self, method, None)
 
     def parse_box (self, b):
@@ -154,7 +154,7 @@ class HEICExifFinder:
                 psub (box)
                 meta.subs[box.name] = box
             else:
-                logger.debug("HEIC: skipping %r" % (box,))
+                logger.debug("HEIC: skipping {!r}".format(box))
             # skip any unparsed data
             self.skip (box)
 

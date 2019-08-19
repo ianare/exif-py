@@ -42,7 +42,7 @@ class IfdTag:
                                          self.printable,
                                          self.field_offset)
         except:
-            s = '(%s) %s=%s @ %s' % (str(self.tag),
+            s = '({}) {}={} @ {}'.format(str(self.tag),
                                      FIELD_TYPES[self.field_type][2],
                                      self.printable,
                                      str(self.field_offset))
