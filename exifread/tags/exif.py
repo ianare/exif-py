@@ -438,4 +438,6 @@ EXIF_TAGS = {
     0xEA1D: ('OffsetSchema', ),
     0xFDE8: ('OwnerName', ),
     0xFDE9: ('SerialNumber', ),
+    0xC61A: ('BlackLevel', ),
+
 }
