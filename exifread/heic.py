@@ -237,8 +237,14 @@ class HEICExifFinder:
         pos, size = extents[0]
         # looks like there's a kind of pseudo-box here.
         self.file.seek (pos)
-        size1 = self.get32()
-        assert self.get(size1)[0:4] == b'Exif'
+        # the payload of "Exif" item may be start with either
+        # b'\xFF\xE1\xSS\xSSExif\x00\x00' (with APP1 marker, e.g. Android Q)
+        # or
+        # b'Exif\x00\x00' (without APP1 marker, e.g. iOS)
+        # according to "ISO/IEC 23008-12, 2017-12", both of them are legal
+        exif_tiff_header_offset = self.get32()
+        assert exif_tiff_header_offset >= 6
+        assert self.get(exif_tiff_header_offset)[-6:] == b'Exif\x00\x00'
         offset = self.file.tell()
         endian = self.file.read(1)
         return offset, endian
