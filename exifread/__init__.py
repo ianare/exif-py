@@ -2,6 +2,8 @@
 Read Exif metadata from tiff and jpeg files.
 """
 
+import struct
+
 from .exif_log import get_logger
 from .classes import *
 from .tags import *
@@ -44,6 +46,27 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         f.seek(0)
         heic = HEICExifFinder (f)
         offset, endian = heic.find_exif()
+    elif data[0:4] == b'RIFF' and data[8:12] == b'WEBP':
+        # file specification: https://developers.google.com/speed/webp/docs/riff_container
+        data = f.read(5)
+        if data[0:4] == b'VP8X' and data[4] & 8:
+            # https://developers.google.com/speed/webp/docs/riff_container#extended_file_format
+            f.seek(13, 1)
+            while True:
+                data = f.read(8)  # Chunk FourCC (32 bits) and Chunk Size (32 bits)
+                if len(data) != 8:
+                    logger.debug("Invalid webp file chunk header.")
+                    return {}
+
+                if data[0:4] == b'EXIF':
+                    offset = f.tell()
+                    endian = f.read(1)
+                    break
+                size = struct.unpack('<L', data[4:8])[0]
+                f.seek(size, 1)
+        else:
+            logger.debug("Webp file does not have exif data.")
+            return {}
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
         logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1]))
