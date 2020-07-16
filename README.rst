@@ -59,7 +59,8 @@ Show command line options::
 
 Python Script
 =============
-::
+
+.. code-block:: python
 
     import exifread
     # Open image file for reading (binary mode)
@@ -74,7 +75,9 @@ Python Script
 
 Returned tags will be a dictionary mapping names of Exif tags to their
 values in the file named by path_name.
-You can process the tags as you wish. In particular, you can iterate through all the tags with::
+You can process the tags as you wish. In particular, you can iterate through all the tags with:
+
+.. code-block:: python
 
     for tag in tags.keys():
         if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
@@ -113,7 +116,9 @@ Faster Processing
 
 Don't process makernote tags, don't extract the thumbnail image (if any).
 
-Pass the ``-q`` or ``--quick`` command line arguments, or as::
+Pass the ``-q`` or ``--quick`` command line arguments, or as:
+
+.. code-block:: python
 
     tags = exifread.process_file(f, details=False)
 
@@ -122,7 +127,9 @@ Stop at a Given Tag
 
 To stop processing the file after a specified tag is retrieved.
 
-Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as::
+Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as:
+
+.. code-block:: python
 
     tags = exifread.process_file(f, stop_tag='TAG')
 
@@ -135,7 +142,9 @@ Strict Processing
 
 Return an error on invalid tags instead of silently ignoring.
 
-Pass the ``-s`` or ``--strict`` argument, or as::
+Pass the ``-s`` or ``--strict`` argument, or as:
+
+.. code-block:: python
 
     tags = exifread.process_file(f, strict=True)
 
@@ -144,7 +153,7 @@ Usage Example
 
 This example shows how to use the library to correct the orientation of an image (using PIL for the transformation) before e.g. displaying it.
 
-::
+.. code-block:: python
 
     import exifread
     from PIL import Image
