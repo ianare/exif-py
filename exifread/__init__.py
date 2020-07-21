@@ -291,6 +291,8 @@ def process_file(fh, stop_tag=DEFAULT_STOP_TAG,
     # have a description, do not process these).
     if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
         hdr.decode_maker_note()
+    elif details and 'EXIF MakerNote' in hdr.tags:
+        hdr.decode_cryptic_maker_note()
 
     # extract thumbnails
     if details and thumb_ifd:
