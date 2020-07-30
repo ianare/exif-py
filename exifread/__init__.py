@@ -8,7 +8,7 @@ from .tags import *
 from .utils import ord_
 from .heic import HEICExifFinder
 
-__version__ = '2.2.0'
+__version__ = '2.2.1'
 
 logger = get_logger()
 
