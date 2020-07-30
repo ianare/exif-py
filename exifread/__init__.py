@@ -3,9 +3,9 @@ Read Exif metadata from tiff and jpeg files.
 """
 
 from .exif_log import get_logger
-from .classes import *
-from .tags import *
-from .utils import ord_
+from .classes import ExifHeader
+from .tags import DEFAULT_STOP_TAG
+from .utils import ord_, make_string
 from .heic import HEICExifFinder
 
 __version__ = '2.2.0'
@@ -17,32 +17,34 @@ def increment_base(data, base):
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
-def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug=False, truncate_tags=True, auto_seek=True):
+def process_file(fh, stop_tag=DEFAULT_STOP_TAG, details=True,
+                 strict=False, debug=False, truncate_tags=True,
+                 auto_seek=True):
     """
     Process an image file (expects an open file object).
 
     This is the function that has to deal with all the arbitrary nasty bits
     of the EXIF standard.
     """
-    
+
     if auto_seek:
-        f.seek(0)
-    
+        fh.seek(0)
+
     # by default do not fake an EXIF beginning
     fake_exif = 0
 
     # determine whether it's a JPEG or TIFF
-    data = f.read(12)
+    data = fh.read(12)
     if data[0:2] in [b'II', b'MM']:
         # it's a TIFF file
         logger.debug("TIFF format recognized in data[0:2]")
-        f.seek(0)
-        endian = f.read(1)
-        f.read(1)
+        fh.seek(0)
+        endian = fh.read(1)
+        fh.read(1)
         offset = 0
     elif data[4:12] == b'ftypheic':
-        f.seek(0)
-        heic = HEICExifFinder (f)
+        fh.seek(0)
+        heic = HEICExifFinder(fh)
         offset, endian = heic.find_exif()
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
@@ -53,10 +55,10 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         while ord_(data[2]) == 0xFF and data[6:10] in (b'JFIF', b'JFXX', b'OLYM', b'Phot'):
             length = ord_(data[4]) * 256 + ord_(data[5])
             logger.debug(" Length offset is %s", length)
-            f.read(length - 8)
+            fh.read(length - 8)
             # fake an EXIF beginning of file
             # I don't think this is used. --gd
-            data = b'\xFF\x00' + f.read(10)
+            data = b'\xFF\x00' + fh.read(10)
             fake_exif = 1
             if base > 2:
                 logger.debug(" Added to base")
@@ -67,9 +69,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
             logger.debug(" Set segment base to 0x%X", base)
 
         # Big ugly patch to deal with APP2 (or other) data coming before APP1
-        f.seek(0)
+        fh.seek(0)
         # in theory, this could be insufficient since 64K is the maximum size--gd
-        data = f.read(base + 4000)
+        data = fh.read(base + 4000)
         # base = 2
         while 1:
             logger.debug(" Segment base 0x%X", base)
@@ -80,7 +82,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                              ord_(data[base + 3]))
                 logger.debug("  Code: %s", data[base + 4:base + 8])
                 if data[base + 4:base + 8] == b"Exif":
-                    logger.debug("  Decrement base by 2 to get to pre-segment header (for compatibility with later code)")
+                    logger.debug(
+                        "  Decrement base by 2 to get to pre-segment header (for compatibility with later code)"
+                    )
                     base -= 2
                     break
                 increment = increment_base(data, base)
@@ -145,7 +149,9 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 logger.debug("  Increment base by %s", increment)
                 base += increment
                 logger.debug(
-                    "  There is useful EXIF-like data here (quality, comment, copyright), but we have no parser for it.")
+                    "  There is useful EXIF-like data here (quality, comment, copyright), "
+                    "but we have no parser for it."
+                )
             else:
                 try:
                     increment = increment_base(data, base)
@@ -158,24 +164,24 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
                 else:
                     logger.debug("  Increment base by %s", increment)
                     base += increment
-        f.seek(base + 12)
+        fh.seek(base + 12)
         if ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base] == b'Exif':
             # detected EXIF header
-            offset = f.tell()
-            endian = f.read(1)
+            offset = fh.tell()
+            endian = fh.read(1)
             #HACK TEST:  endian = 'M'
         elif ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base + 1] == b'Ducky':
             # detected Ducky header.
             logger.debug("EXIF-like header (normally 0xFF and code): 0x%X and %s",
                          ord_(data[2 + base]), data[6 + base:10 + base + 1])
-            offset = f.tell()
-            endian = f.read(1)
+            offset = fh.tell()
+            endian = fh.read(1)
         elif ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base + 1] == b'Adobe':
             # detected APP14 (Adobe)
             logger.debug("EXIF-like header (normally 0xFF and code): 0x%X and %s",
                          ord_(data[2 + base]), data[6 + base:10 + base + 1])
-            offset = f.tell()
-            endian = f.read(1)
+            offset = fh.tell()
+            endian = fh.read(1)
         else:
             # no EXIF information
             logger.debug("No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)")
@@ -196,7 +202,7 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
         'd': 'XMP/Adobe unknown'
     }[endian])
 
-    hdr = ExifHeader(f, endian, offset, fake_exif, strict, debug, details, truncate_tags)
+    hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
     thumb_ifd = False
     ctr = 0
@@ -240,17 +246,17 @@ def process_file(f, stop_tag=DEFAULT_STOP_TAG, details=True, strict=False, debug
             logger.debug('XMP not in Exif, searching file for XMP info...')
             xml_started = False
             xml_finished = False
-            for line in f:
+            for line in fh:
                 open_tag = line.find(b'<x:xmpmeta')
                 close_tag = line.find(b'</x:xmpmeta>')
 
                 if open_tag != -1:
                     xml_started = True
                     line = line[open_tag:]
-                    logger.debug('XMP found opening tag at line position %s' % open_tag)
+                    logger.debug('XMP found opening tag at line position %s', open_tag)
 
                 if close_tag != -1:
-                    logger.debug('XMP found closing tag at line position %s' % close_tag)
+                    logger.debug('XMP found closing tag at line position %s', close_tag)
                     line_offset = 0
                     if open_tag != -1:
                         line_offset = open_tag

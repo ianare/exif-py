@@ -1,8 +1,8 @@
 
 from ...utils import make_string
 
-def special_mode(v):
-    """decode Olympus SpecialMode tag in MakerNote"""
+def special_mode(val):
+    """Decode Olympus SpecialMode tag in MakerNote"""
     mode1 = {
         0: 'Normal',
         1: 'Unknown',
@@ -16,13 +16,13 @@ def special_mode(v):
         3: 'Bottom to top',
         4: 'Top to bottom',
     }
-    if not v or (v[0] not in mode1 or v[2] not in mode2):
-        return v
-    return '%s - sequence %d - %s' % (mode1[v[0]], v[1], mode2[v[2]])
+    if not val or (val[0] not in mode1 or val[2] not in mode2):
+        return val
+    return '%s - sequence %d - %s' % (mode1[val[0]], val[1], mode2[val[2]])
 
 
 TAGS = {
-    # ah HAH! those sneeeeeaky bastids! this is how they get past the fact
+    # Ah HAH! those sneeeeeaky bastids! this is how they get past the fact
     # that a JPEG thumbnail is not allowed in an uncompressed TIFF file
     0x0100: ('JPEGThumbnail', ),
     0x0200: ('SpecialMode', special_mode),

@@ -35,10 +35,10 @@ Compatibility
 EXIF.py is tested and officially supported on the following Python versions:
 
 - 2.7
-- 3.4
 - 3.5
 - 3.6
 - 3.7
+- 3.8
 
 
 Usage
