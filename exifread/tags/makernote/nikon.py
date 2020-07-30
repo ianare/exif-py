@@ -27,26 +27,26 @@ def ev_bias(seq):
         return '+1/2 EV'
     if seq == [4, 1, 6, 0]:
         return '+2/3 EV'
-        # Handle combinations not in the table.
-    a = seq[0]
+    # Handle combinations not in the table.
+    i = seq[0]
     # Causes headaches for the +/- logic, so special case it.
-    if a == 0:
+    if i == 0:
         return '0 EV'
-    if a > 127:
-        a = 256 - a
+    if i > 127:
+        i = 256 - i
         ret_str = '-'
     else:
         ret_str = '+'
     step = seq[2]  # Assume third value means the step size
-    whole = a / step
-    a = a % step
+    whole = i / step
+    i = i % step
     if whole != 0:
         ret_str = '%s%s ' % (ret_str, str(whole))
-    if a == 0:
+    if i == 0:
         ret_str += 'EV'
     else:
-        r = Ratio(a, step)
-        ret_str = ret_str + r.__repr__() + ' EV'
+        ratio = Ratio(i, step)
+        ret_str = ret_str + str(ratio) + ' EV'
     return ret_str
 
 # Nikon E99x MakerNote Tags
