@@ -6,6 +6,11 @@ Misc utilities.
 
 from fractions import Fraction
 
+try:
+    StringCls = basestring
+except NameError:
+    StringCls = str
+
 
 def ord_(dta):
     if isinstance(dta, str):
@@ -36,7 +41,8 @@ def make_string_uc(seq):
     Special version to deal with the code in the first 8 bytes of a user comment.
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
-    seq = seq[8:]
+    if not isinstance(seq, StringCls):
+        seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
     return make_string(seq)
