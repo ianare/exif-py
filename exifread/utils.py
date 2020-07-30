@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Misc utilities.
 """
@@ -8,6 +10,11 @@ except NameError:
     basestring = str
 
 from fractions import Fraction
+
+try:
+    StringCls = basestring
+except NameError:
+    StringCls = str
 
 
 def ord_(dta):
@@ -21,11 +28,11 @@ def make_string(seq):
     Don't throw an exception when given an out of range character.
     """
     string = ''
-    for c in seq:
+    for char in seq:
         # Screen out non-printing characters
         try:
-            if 32 <= c and c < 256:
-                string += chr(c)
+            if 32 <= char < 256:
+                string += chr(char)
         except TypeError:
             pass
         # If no printing chars
@@ -39,7 +46,7 @@ def make_string_uc(seq):
     Special version to deal with the code in the first 8 bytes of a user comment.
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
-    if not isinstance(seq, basestring):
+    if not isinstance(seq, StringCls):
         seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
@@ -54,7 +61,7 @@ def get_gps_coords(tags):
     lat_tag_name = "GPS GPSLatitude"
 
     # Check if these tags are present
-    gps_tags = [lng_ref_tag_name,lng_tag_name,lat_tag_name,lat_tag_name]
+    gps_tags = [lng_ref_tag_name, lng_tag_name, lat_tag_name, lat_tag_name]
     for tag in gps_tags:
         if not tag in tags.keys():
             return None
@@ -65,13 +72,14 @@ def get_gps_coords(tags):
     lat_ref_val = tags[lat_ref_tag_name].values
     lat_coord_val = [c.decimal() for c in tags[lat_tag_name].values]
 
-    lng_coord = sum([c/60**i for i,c in enumerate(lng_coord_val)])
-    lng_coord *= (-1)**(lng_ref_val=="W")
+    lng_coord = sum([c/60**i for i, c in enumerate(lng_coord_val)])
+    lng_coord *= (-1) ** (lng_ref_val == "W")
 
-    lat_coord = sum([c/60**i for i,c in enumerate(lat_coord_val)])
-    lat_coord *= (-1)**(lat_ref_val=="S")
+    lat_coord = sum([c/60**i for i, c in enumerate(lat_coord_val)])
+    lat_coord *= (-1) ** (lat_ref_val == "S")
 
     return (lat_coord, lng_coord)
+
 
 class Ratio(Fraction):
     """

@@ -2,8 +2,8 @@
 Tag definitions
 """
 
-from .exif import *
-from .makernote import *
+from .exif import EXIF_TAGS
+from .makernote import apple, canon, casio, fujifilm, nikon, olympus
 
 DEFAULT_STOP_TAG = 'UNDEF'
 
@@ -22,6 +22,7 @@ FIELD_TYPES = (
     (8, 'SR', 'Signed Ratio'),
     (4, 'F32', 'Single-Precision Floating Point (32-bit)'),
     (8, 'F64', 'Double-Precision Floating Point (64-bit)'),
+    (4, 'L', 'IFD'),
 )
 
 # To ignore when quick processing

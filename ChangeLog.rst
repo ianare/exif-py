@@ -2,11 +2,25 @@
 Change Log
 **********
 
+NEXT — 2020-xx-xx
+    * Add linting
+    * Added missing IFD data type; correct spelling mistake #119 (Piero Toffanin)
+    * Add syntax highlight for README #117 (John Lin)
+    * Add Python 3.8 to CI #113 (2*yo)
+    * make HEIC exif extractor much more compatible #109 (Tony Guo)
+    * Add black level tag (#108)
+    * Use list instead of tuple for classifiers #107 (Florian Preinstorfer)
+
+2.2.1 — 2020-07-31
+    * Very minor corrections.
+
 2.2.0 — 2019-07-24
     * Add support for Python 3.5, 3.6, 3.7
     * Drop official support for Python 2.6, 3.2, 3.3
     * Fix for string count equals 0 (issue #67)
     * Rebasing of struct pull requests: closes #54, closes #60 (Christopher Chavez)
+    * Refactor to use Python's struct module for packing/unpacking credited to Dave Jones (waveform80)
+    * Support floating point fields" credited to Reed Nightingale (reedbn)
     * Raw images support by changing Tiff detection (xaumex)
     * Fix GPS information erroneously None #96 (Christopher Chavez)
     * Initial HEIC support (Sam Rushing)

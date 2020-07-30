@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Custom log output
 """
@@ -16,11 +18,13 @@ TEXT_CYAN = 36
 
 
 def get_logger():
+    """Use this from all files needing to log."""
     return logging.getLogger('exifread')
 
 
 def setup_logger(debug, color):
     """Configure the logger."""
+
     if debug:
         log_level = logging.DEBUG
     else:
@@ -33,6 +37,9 @@ def setup_logger(debug, color):
 
 
 class Formatter(logging.Formatter):
+    """
+    Custom formatter, we like colors!
+    """
 
     def __init__(self, debug=False, color=False):
         self.color = color
@@ -69,8 +76,7 @@ class Handler(logging.StreamHandler):
         logging.StreamHandler.__init__(self, sys.stdout)
         self.setFormatter(Formatter(debug, color))
         self.setLevel(log_level)
-"""
-    def emit(self, record):
-        record.msg = "\x1b[%sm%s\x1b[%sm" % (TEXT_BOLD, record.msg, TEXT_NORMAL)
-        logging.StreamHandler.emit(self, record)
-"""
+
+#    def emit(self, record):
+#        record.msg = "\x1b[%sm%s\x1b[%sm" % (TEXT_BOLD, record.msg, TEXT_NORMAL)
+#        logging.StreamHandler.emit(self, record)
