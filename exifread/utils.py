@@ -4,11 +4,6 @@
 Misc utilities.
 """
 
-try:
-    basestring
-except NameError:
-    basestring = str
-
 from fractions import Fraction
 
 try:
