@@ -2,6 +2,15 @@
 Change Log
 **********
 
+NEXT — 2020-xx-xx
+    * Add linting
+    * Added missing IFD data type; correct spelling mistake #119 (Piero Toffanin)
+    * Add syntax highlight for README #117 (John Lin)
+    * Add Python 3.8 to CI #113 (2*yo)
+    * make HEIC exif extractor much more compatible #109 (Tony Guo)
+    * Add black level tag (#108)
+    * Use list instead of tuple for classifiers #107 (Florian Preinstorfer)
+
 2.2.1 — 2020-07-31
     * Very minor corrections.
 
