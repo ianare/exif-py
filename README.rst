@@ -40,7 +40,7 @@ EXIF.py is tested and officially supported on the following Python versions:
 - 3.7
 - 3.8
 
-**!! This will be the last version of EXIF.py to support Python2 !!**
+**!! Version 2.x of EXIF.py will be the last to support Python2 !!**
 
 https://pythonclock.org/
 

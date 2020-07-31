@@ -30,5 +30,7 @@ script:
   - "wget https://github.com/ianare/exif-samples/archive/master.tar.gz"
   - "tar -xzf master.tar.gz"
   # could be much improved ...
-  - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py"
+  - "find exif-samples-master -name *.tiff -o -name *.jpg | sort -f | xargs EXIF.py > exif-samples-master/dump_test"
+  - "diff -y --suppress-common-lines exif-samples-master/dump exif-samples-master/dump_test"
+  # test colors
   - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py -dc"

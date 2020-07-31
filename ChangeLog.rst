@@ -2,7 +2,7 @@
 Change Log
 **********
 
-NEXT — 2020-xx-xx
+NEXT — 2020-08-xx
     * Added support for webp file format (#116) by Grzegorz Ruciński
     * Add linting
     * Added missing IFD data type; correct spelling mistake (#119) by Piero Toffanin
