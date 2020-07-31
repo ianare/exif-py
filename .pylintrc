@@ -132,9 +132,7 @@ disable=parameter-unpacking,
         fixme,
         too-many-arguments,
         too-many-branches,
-        too-many-nested-blocks,
         too-many-statements,
-        too-many-locals,
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -540,7 +538,7 @@ max-bool-expr=5
 max-branches=12
 
 # Maximum number of locals for function / method body.
-max-locals=15
+max-locals=20
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
