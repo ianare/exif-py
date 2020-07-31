@@ -5,9 +5,30 @@ EXIF.py
 .. image:: https://travis-ci.org/ianare/exif-py.png
         :target: https://travis-ci.org/ianare/exif-py
 
-Easy to use Python module to extract Exif metadata from tiff and jpeg files.
+Easy to use Python module to extract Exif metadata from digital image files.
 
-Originally written by Gene Cash & Thierry Bousch.
+Supported formats:
+
+- Python2 & Python3: TIFF, JPEG
+- Python3 only: WebP, HEIC
+
+
+Compatibility
+*************
+
+EXIF.py is tested on the following Python versions:
+
+- 2.7
+- 3.5
+- 3.6
+- 3.7
+- 3.8
+
+As of version 2.3.0, Python2 is no longer offcially supported.
+
+**!! Version 2.x of EXIF.py will be the last to work with Python2 !!**
+
+https://pythonclock.org/
 
 
 Installation
@@ -27,22 +48,6 @@ Archive
 Download an archive from the project's `releases page <https://github.com/ianare/exif-py/releases>`_.
 
 Extract and enjoy.
-
-
-Compatibility
-*************
-
-EXIF.py is tested and officially supported on the following Python versions:
-
-- 2.7
-- 3.5
-- 3.6
-- 3.7
-- 3.8
-
-**!! Version 2.x of EXIF.py will be the last to support Python2 !!**
-
-https://pythonclock.org/
 
 
 Usage
@@ -189,3 +194,11 @@ This example shows how to use the library to correct the orientation of an image
                 im = im.transpose(Image.ROTATE_90)
 
         return im
+
+
+Credit
+******
+
+A huge thanks to all the contributors over the years!
+
+Originally written by Gene Cash & Thierry Bousch.
