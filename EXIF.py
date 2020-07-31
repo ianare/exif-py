@@ -18,7 +18,7 @@ Runs Exif tag extraction in command line.
 """
 
 import sys
-import getopt
+import argparse
 import logging
 import timeit
 from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
@@ -27,77 +27,74 @@ from exifread import process_file, exif_log, __version__
 logger = exif_log.get_logger()
 
 
-def usage(exit_status):
-    """Show command line usage."""
-    msg = ('Usage: EXIF.py [OPTIONS] file1 [file2 ...]\n'
-           'Extract EXIF information from digital camera image files.\n\nOptions:\n'
-           '-h --help               Display usage information and exit.\n'
-           '-v --version            Display version information and exit.\n'
-           '-q --quick              Do not process MakerNotes.\n'
-           '-t TAG --stop-tag TAG   Stop processing when this tag is retrieved.\n'
-           '-s --strict             Run in strict mode (stop on errors).\n'
-           '-d --debug              Run in debug mode (display extra info).\n'
-           '-c --color              Output in color (only works with debug on POSIX).\n'
+def get_args():
+    parser = argparse.ArgumentParser(
+        prog='EXIF.py',
+        description='Extract EXIF information from digital image files.'
     )
-    print(msg)
-    sys.exit(exit_status)
-
-
-def show_version():
-    """Show the program version."""
-    print('Version %s on Python%s' % (__version__, sys.version_info[0]))
-    sys.exit(0)
+    parser.add_argument(
+        'files', metavar='FILE', type=str, nargs='+',
+        help='files to process',
+    )
+    parser.add_argument(
+        '-v', '--version', action='version',
+        version='EXIF.py Version %s on Python%s' % (__version__, sys.version_info[0]),
+        help='Display version information and exit'
+    )
+    parser.add_argument(
+        '-q', '--quick', action='store_false', dest='detailed',
+        help='Do not process MakerNotes',
+    )
+    parser.add_argument(
+        '-t', '--tag', type=str, dest='stop_tag',
+        help='Stop processing when this tag is retrieved.',
+    )
+    parser.add_argument(
+        '-s', '--strict', action='store_true', dest='strict',
+        help='Run in strict mode (stop on errors).',
+    )
+    parser.add_argument(
+        '-d', '--debug', action='store_true', dest='debug',
+        help='Run in debug mode (display extra info).',
+    )
+    parser.add_argument(
+        '-c', '--color', action='store_true', dest='color',
+        help='Output in color (only works with debug on POSIX).',
+    )
+    args = parser.parse_args()
+    return args
 
 
 def main():
     """Parse command line options/arguments and execute."""
-    try:
-        arg_names = ["help", "version", "quick", "strict", "debug", "stop-tag="]
-        opts, args = getopt.getopt(sys.argv[1:], "hvqsdct:v", arg_names)
-    except getopt.GetoptError:
-        usage(2)
+    args = get_args()
 
-    detailed = True
-    stop_tag = DEFAULT_STOP_TAG
-    debug = False
-    strict = False
-    color = False
-
-    for option, arg in opts:
-        if option in ("-h", "--help"):
-            usage(0)
-        if option in ("-v", "--version"):
-            show_version()
-        if option in ("-q", "--quick"):
-            detailed = False
-        if option in ("-t", "--stop-tag"):
-            stop_tag = arg
-        if option in ("-s", "--strict"):
-            strict = True
-        if option in ("-d", "--debug"):
-            debug = True
-        if option in ("-c", "--color"):
-            color = True
-
-    if not args:
-        usage(2)
-
-    exif_log.setup_logger(debug, color)
+    exif_log.setup_logger(args.debug, args.color)
 
     # output info for each file
-    for filename in args:
+    for filename in args.files:
+        try:
+            escaped_fn = escaped_fn = filename.encode(
+                sys.getfilesystemencoding(), 'surrogateescape'
+            ).decode()
+        except UnicodeDecodeError:
+            #TODO: Python2 specific, remove
+            escaped_fn = filename
+
         file_start = timeit.default_timer()
         try:
-            img_file = open(str(filename), 'rb')
+            img_file = open(escaped_fn, 'rb')
         except IOError:
-            logger.error("'%s' is unreadable", filename)
+            logger.error("'%s' is unreadable", escaped_fn)
             continue
-        logger.info("Opening: %s", filename)
+        logger.info('Opening: %s', escaped_fn)
 
         tag_start = timeit.default_timer()
 
         # get the tags
-        data = process_file(img_file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
+        data = process_file(
+            img_file, stop_tag=args.stop_tag, details=args.detailed, strict=args.strict, debug=args.debug
+        )
 
         tag_stop = timeit.default_timer()
 

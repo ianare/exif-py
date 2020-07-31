@@ -9,6 +9,7 @@ from .tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makerno
 
 logger = get_logger()
 
+#TODO: Python2 specific, remove
 try:
     StringCls = basestring
 except NameError:
@@ -250,6 +251,7 @@ class ExifHeader:
             else:
                 printable = str(values[0:-1])
         else:
+            #TODO: Python2 specific, remove
             try:
                 printable = str(values)
             except UnicodeEncodeError:
@@ -279,7 +281,7 @@ class ExifHeader:
         )
         try:
             tag_value = repr(self.tags[ifd_name + ' ' + tag_name])
-        # fix for python2's handling of unicode values
+        #TODO: Python2 specific, remove
         except UnicodeEncodeError:
             tag_value = unicode(  # pylint: disable=undefined-variable
                 self.tags[ifd_name + ' ' + tag_name]

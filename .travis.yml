@@ -7,6 +7,11 @@ matrix:
   - python: 2.7
     before_install: ""
     before_script: ""
+    script:
+      - "wget https://github.com/ianare/exif-samples/archive/master.tar.gz"
+      - "tar -xzf master.tar.gz"
+      - "find exif-samples-master -name *.tiff -o -name *.jpg | sort -f | xargs EXIF.py"
+      - "find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py -dc"
   - python: 3.5
     before_install: ""
     before_script: ""
