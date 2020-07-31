@@ -155,7 +155,7 @@ class HEICExifFinder:
                 psub(box)
                 meta.subs[box.name] = box
             else:
-                logger.debug("HEIC: skipping %r", box)
+                logger.debug('HEIC: skipping %r', box)
             # skip any unparsed data
             self.skip(box)
 
@@ -199,7 +199,7 @@ class HEICExifFinder:
         else:
             raise BoxVersion(2, box.version)
         box.locs = {}
-        logger.debug("HEIC: %d iloc items", box.item_count)
+        logger.debug('HEIC: %d iloc items', box.item_count)
         for _ in range(box.item_count):
             if box.version < 2:
                 item_id = self.get16()
@@ -229,7 +229,7 @@ class HEICExifFinder:
         meta = self.expect_parse('meta')
         item_id = meta.subs['iinf'].exif_infe.item_ID
         extents = meta.subs['iloc'].locs[item_id]
-        logger.debug("HEIC: found Exif location.")
+        logger.debug('HEIC: found Exif location.')
         # we expect the Exif data to be in one piece.
         assert len(extents) == 1
         pos, _ = extents[0]

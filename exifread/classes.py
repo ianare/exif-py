@@ -14,13 +14,13 @@ try:
 except NameError:
     StringCls = str
 
+
 class IfdTag:
     """
     Eases dealing with tags.
     """
 
-    def __init__(self, printable, tag, field_type, values, field_offset,
-                 field_length):
+    def __init__(self, printable, tag, field_type, values, field_offset, field_length):
         # printable version of data
         self.printable = printable
         # tag ID number
@@ -151,15 +151,15 @@ class ExifHeader:
                     )
                 elif field_type in (11, 12):
                     # a float or double
-                    unpack_format = ""
+                    unpack_format = ''
                     if self.endian == 'I':
-                        unpack_format += "<"
+                        unpack_format += '<'
                     else:
-                        unpack_format += ">"
+                        unpack_format += '>'
                     if field_type == 11:
-                        unpack_format += "f"
+                        unpack_format += 'f'
                     else:
-                        unpack_format += "d"
+                        unpack_format += 'd'
                     self.file_handle.seek(self.offset + offset)
                     byte_str = self.file_handle.read(type_length)
                     value = struct.unpack(unpack_format, byte_str)
@@ -191,9 +191,9 @@ class ExifHeader:
                 values = values.split(b'\x00', 1)[0]
                 if isinstance(values, bytes):
                     try:
-                        values = values.decode("utf-8")
+                        values = values.decode('utf-8')
                     except UnicodeDecodeError:
-                        logger.warning("Possibly corrupted field %s in %s IFD", tag_name, ifd_name)
+                        logger.warning('Possibly corrupted field %s in %s IFD', tag_name, ifd_name)
             except OverflowError:
                 logger.warning('OverflowError at position: %s, length: %s', file_position, count)
                 values = ''
@@ -246,7 +246,7 @@ class ExifHeader:
             printable = str(values[0])
         elif count > 50 and len(values) > 20 and not isinstance(values, StringCls):
             if self.truncate_tags:
-                printable = str(values[0:20])[0:-1] + ", ... ]"
+                printable = str(values[0:20])[0:-1] + ', ... ]'
             else:
                 printable = str(values[0:-1])
         else:
@@ -296,7 +296,7 @@ class ExifHeader:
         try:
             entries = self.s2n(ifd, 2)
         except TypeError:
-            logger.warning("Possibly corrupted IFD: %s", ifd)
+            logger.warning('Possibly corrupted IFD: %s', ifd)
             return
 
         for i in range(entries):
@@ -436,19 +436,19 @@ class ExifHeader:
         # cameras work that way.
         if 'NIKON' in make:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
-                logger.debug("Looks like a type 1 Nikon MakerNote.")
+                logger.debug('Looks like a type 1 Nikon MakerNote.')
                 self.dump_ifd(note.field_offset + 8, 'MakerNote',
                               tag_dict=makernote.nikon.TAGS_OLD)
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
-                logger.debug("Looks like a labeled type 2 Nikon MakerNote")
+                logger.debug('Looks like a labeled type 2 Nikon MakerNote')
                 if note.values[12:14] != [0, 42] and note.values[12:14] != [42, 0]:
-                    raise ValueError("Missing marker tag '42' in MakerNote.")
+                    raise ValueError('Missing marker tag 42 in MakerNote.')
                     # skip the Makernote label and the TIFF header
                 self.dump_ifd(note.field_offset + 10 + 8, 'MakerNote',
                               tag_dict=makernote.nikon.TAGS_NEW, relative=1)
             else:
                 # E99x or D1
-                logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
+                logger.debug('Looks like an unlabeled type 2 Nikon MakerNote')
                 self.dump_ifd(note.field_offset, 'MakerNote',
                               tag_dict=makernote.nikon.TAGS_NEW)
             return

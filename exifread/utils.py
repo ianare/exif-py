@@ -50,10 +50,10 @@ def make_string_uc(seq):
 
 def get_gps_coords(tags):
 
-    lng_ref_tag_name = "GPS GPSLongitudeRef"
-    lng_tag_name = "GPS GPSLongitude"
-    lat_ref_tag_name = "GPS GPSLatitudeRef"
-    lat_tag_name = "GPS GPSLatitude"
+    lng_ref_tag_name = 'GPS GPSLongitudeRef'
+    lng_tag_name = 'GPS GPSLongitude'
+    lat_ref_tag_name = 'GPS GPSLatitudeRef'
+    lat_tag_name = 'GPS GPSLatitude'
 
     # Check if these tags are present
     gps_tags = [lng_ref_tag_name, lng_tag_name, lat_tag_name, lat_tag_name]
@@ -68,10 +68,10 @@ def get_gps_coords(tags):
     lat_coord_val = [c.decimal() for c in tags[lat_tag_name].values]
 
     lng_coord = sum([c/60**i for i, c in enumerate(lng_coord_val)])
-    lng_coord *= (-1) ** (lng_ref_val == "W")
+    lng_coord *= (-1) ** (lng_ref_val == 'W')
 
     lat_coord = sum([c/60**i for i, c in enumerate(lat_coord_val)])
-    lat_coord *= (-1) ** (lat_ref_val == "S")
+    lat_coord *= (-1) ** (lat_ref_val == 'S')
 
     return (lat_coord, lng_coord)
 
