@@ -7,7 +7,7 @@
 #
 #
 # Copyright (c) 2002-2007 Gene Cash
-# Copyright (c) 2007-2014 Ianaré Sévi and contributors
+# Copyright (c) 2007-2020 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
 # See ChangeLog.rst file for all contributors and changes
