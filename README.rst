@@ -59,12 +59,12 @@ Command line
 Some examples::
 
     $ EXIF.py image1.jpg
-    $ EXIF.py image1.jpg image2.tiff
-    $ find ~/Pictures -name "*.jpg" -name "*.tiff" | xargs EXIF.py
+    $ EXIF.py -dc image1.jpg image2.tiff
+    $ find ~/Pictures -name "*.jpg" -o -name "*.tiff" | xargs EXIF.py
 
 Show command line options::
 
-    $ EXIF.py
+    $ EXIF.py -h
 
 Python Script
 =============
