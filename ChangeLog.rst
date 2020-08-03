@@ -2,7 +2,9 @@
 Change Log
 **********
 
-2.3.0 — 2020-08-xx
+2.3.0 — 2020-08-03
+    * Add notice on Python2 EOL
+    * Modernize code and improve testing, split up some huge functions
     * Added support for webp file format (#116) by Grzegorz Ruciński
     * Add linting
     * Added missing IFD data type; correct spelling mistake (#119) by Piero Toffanin
