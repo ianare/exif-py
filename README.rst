@@ -7,26 +7,21 @@ EXIF.py
 
 Easy to use Python module to extract Exif metadata from digital image files.
 
-Supported formats:
-
-- Python2 & Python3: TIFF, JPEG
-- Python3 only: WebP, HEIC
+Supported formats: TIFF, JPEG, Webp, HEIC
 
 
 Compatibility
 *************
 
-EXIF.py is tested on the following Python versions:
+EXIF.py is tested and officially supported on the following Python versions:
 
-- 2.7
 - 3.5
 - 3.6
 - 3.7
 - 3.8
 
-As of version 2.3.0, Python2 is no longer offcially supported.
-
-**!! Version 2.x of EXIF.py will be the last to work with Python2 !!**
+Starting with version ``3.0.0``, Python2 compatibility is dropped *completely*
+(syntax errors due to type hinting).
 
 https://pythonclock.org/
 
@@ -72,7 +67,7 @@ Python Script
 .. code-block:: python
 
     import exifread
-    # Open image file for reading (binary mode)
+    # Open image file for reading (must be in binary mode)
     f = open(path_name, 'rb')
 
     # Return Exif tags

@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 #
 #
 # Library to extract Exif information from digital camera image files.
@@ -65,21 +64,17 @@ def get_args():
     return args
 
 
-def main():
-    """Parse command line options/arguments and execute."""
-    args = get_args()
+def main(args) -> None:
+    """Extract tags based on options (args)."""
 
     exif_log.setup_logger(args.debug, args.color)
 
     # output info for each file
     for filename in args.files:
-        try:
-            escaped_fn = escaped_fn = filename.encode(
-                sys.getfilesystemencoding(), 'surrogateescape'
-            ).decode()
-        except UnicodeDecodeError:
-            #TODO: Python2 specific, remove
-            escaped_fn = filename
+        # avoid errors when printing to console
+        escaped_fn = escaped_fn = filename.encode(
+            sys.getfilesystemencoding(), 'surrogateescape'
+        ).decode()
 
         file_start = timeit.default_timer()
         try:
@@ -99,7 +94,8 @@ def main():
         tag_stop = timeit.default_timer()
 
         if not data:
-            logger.warning("No EXIF information found\n")
+            logger.warning('No EXIF information found')
+            print()
             continue
 
         if 'JPEGThumbnail' in data:
@@ -122,8 +118,9 @@ def main():
 
         logger.debug("Tags processed in %s seconds", tag_stop - tag_start)
         logger.debug("File processed in %s seconds", file_stop - file_start)
-        print("")
+        print()
 
 
 if __name__ == '__main__':
-    main()
+    args = get_args()
+    main(args)
