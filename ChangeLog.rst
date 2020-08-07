@@ -2,6 +2,9 @@
 Change Log
 **********
 
+2.3.1 — 2020-08-07
+    * Fix bug introduced with v2.3.0 in HEIC processing.
+
 2.3.0 — 2020-08-03
     * Add notice on Python2 EOL
     * Modernize code and improve testing, split up some huge functions

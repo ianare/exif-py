@@ -8,8 +8,8 @@
 
 # We parse just enough of the ISO format to locate the Exif data in the file.
 # Inside the 'meta' box are two directories we need:
-#   1) the 'iinf' box contains 'infe' records, we look for the item_ID for 'Exif'.
-#   2) once we have the item_ID, we find a matching entry in the 'iloc' box, which
+#   1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
+#   2) once we have the item_id, we find a matching entry in the 'iloc' box, which
 #      gives us position and size information.
 
 import struct
@@ -227,7 +227,7 @@ class HEICExifFinder:
         assert ftyp.major_brand == b'heic'
         assert ftyp.minor_version == 0
         meta = self.expect_parse('meta')
-        item_id = meta.subs['iinf'].exif_infe.item_ID
+        item_id = meta.subs['iinf'].exif_infe.item_id
         extents = meta.subs['iloc'].locs[item_id]
         logger.debug('HEIC: found Exif location.')
         # we expect the Exif data to be in one piece.
