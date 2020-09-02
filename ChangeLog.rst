@@ -2,17 +2,37 @@
 Change Log
 **********
 
+2.3.1 — 2020-08-07
+    * Fix bug introduced with v2.3.0 in HEIC processing.
+
+2.3.0 — 2020-08-03
+    * Add notice on Python2 EOL
+    * Modernize code and improve testing, split up some huge functions
+    * Added support for webp file format (#116) by Grzegorz Ruciński
+    * Add linting
+    * Added missing IFD data type; correct spelling mistake (#119) by Piero Toffanin
+    * Add syntax highlight for README (#117) by John Lin
+    * Add Python 3.8 to CI (#113) by 2*yo
+    * make HEIC exif extractor much more compatible (#109) by Tony Guo
+    * Add black level tag (#108)
+    * Use list instead of tuple for classifiers (#107) by Florian Preinstorfer
+
+2.2.1 — 2020-07-31
+    * Very minor corrections.
+
 2.2.0 — 2019-07-24
     * Add support for Python 3.5, 3.6, 3.7
     * Drop official support for Python 2.6, 3.2, 3.3
     * Fix for string count equals 0 (issue #67)
-    * Rebasing of struct pull requests: closes #54, closes #60 (Christopher Chavez)
-    * Raw images support by changing Tiff detection (xaumex)
-    * Fix GPS information erroneously None #96 (Christopher Chavez)
+    * Rebasing of struct pull requests: closes #54, closes #60 by Christopher Chavez
+    * Refactor to use Python's struct module for packing/unpacking by Dave Jones (waveform80)
+    * Support floating point fields" by Reed Nightingale (reedbn)
+    * Raw images support by changing Tiff detection by xaumex
+    * Fix GPS information erroneously None (#96) by Christopher Chavez
     * Initial HEIC support (Sam Rushing)
 
 2.1.2 — 2015-09-14
-    * Fix 90 CW (6) and Rotated 90 CCW (8) which were swapped with each other (Mark Hahnenberg)
+    * Fix 90 CW (6) and Rotated 90 CCW (8) which were swapped with each other by Mark Hahnenberg
     * Catch memory and overflow errors on file seek, print a warning
     * Put manufacturers' makernote definitions in separate files
 
@@ -23,9 +43,9 @@ Change Log
 
 2.1.0 — 2015-05-15
     * Bypass empty/unreadable Olympus MakerNote info (issue #42)
-    * Suport Apple Makernote and Apple HDR details (Jesus Cea)
-    * Correcty process the Makernote of some Canon models (Jesus Cea)
-    * Support HDR in Canon cameras (Jesus Cea)
+    * Suport Apple Makernote and Apple HDR details by Jesus Cea
+    * Correcty process the Makernote of some Canon models by Jesus Cea
+    * Support HDR in Canon cameras by Jesus Cea
 
 2.0.2 — 2015-03-29
     * Fixed bug when importing as a module (issue #31)
@@ -37,7 +57,7 @@ Change Log
 
 2.0.0 — 2014-11-27
     * Drop support for Python 2.5
-    * Add support for Python 3.2, 3.3 and 3.4 (velis74)
+    * Add support for Python 3.2, 3.3 and 3.4 by velis74
     * Add Travis testing
     * Cleanup some tag definitions
     * Fix bug #30 (TypeError on invalid IFD)
@@ -50,7 +70,7 @@ Change Log
 
 1.4.2 — 2013-11-28
     * A few new Canon tags
-    * Python3 fixes (velis74 and leprechaun)
+    * Python3 fixes by velis74 and leprechaun
     * Fix for TypeError (issue #28)
     * Pylint & PEP8 fixes
 
@@ -59,7 +79,7 @@ Change Log
     * Better PyPI packaging
 
 1.4.0 — 2013-09-28
-    * Many new tags (big thanks to Rodolfo Puig, Paul Barton, Joe Beda)
+    * Many new tags big thanks to Rodolfo Puig, Paul Barton, Joe Beda
     * Do not extract thumbnail in quick mode (issue #19)
     * Put tag definitions in separate module
     * Add more timing info & version info
@@ -87,12 +107,12 @@ Change Log
     * Package for PyPI
 
 1.2.0 — 2013-02-08
-    * Port to Python 3 (DarkRedman)
-    * Fix endless loop on broken images (Michael Bemmerl)
+    * Port to Python 3 by DarkRedman
+    * Fix endless loop on broken images by Michael Bemmerl
     * Rewrite of README.md
     * Fixed incoherent copyright notices
 
-1.1.0 — 2012-11-30 - Gregory Dudek
+1.1.0 — 2012-11-30 - all by Gregory Dudek
     * Overflow error fixes added (related to 2**31 size)
     * GPS tags added.
 
@@ -101,18 +121,18 @@ Change Log
     * Add better endian debug info
 
 2012-06-13
-    * Support malformed last IFD (fhats)
-    * Light source, Flash and Metering mode dictionaries (gryfik)
+    * Support malformed last IFD by fhats
+    * Light source, Flash and Metering mode dictionaries by gryfik
 
 2008-07-31
     * Wikipedia Commons hunt for suitable test case images,
     * testing new code additions.
 
-2008-07-09 - Stephen H. Olson
+2008-07-09 - all by Stephen H. Olson
     * Fix a problem with reading MakerNotes out of NEF files.
     * Add some more Nikon MakerNote tags.
 
-2008-07-08 - Stephen H. Olson
+2008-07-08 - all by Stephen H. Olson
     * An error check for large tags totally borked MakerNotes.
       With Nikon anyway, valid MakerNotes can be pretty big.
     * Add error check for a crash caused by nikon_ev_bias being
@@ -129,7 +149,7 @@ Change Log
       http://owl.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html
     * Add 'strict' variable and command line option
 
-2008-01-18 - Gunter Ohrner
+2008-01-18 - all by Gunter Ohrner
     * Add ``GPSDate`` tag
 
 2007-12-12
@@ -148,15 +168,15 @@ Change Log
 2007-09-27
     * Add some Olympus Makernote tags.
 
-2007-09-26 - Stephen H. Olson
+2007-09-26 - all by Stephen H. Olson
     * Don't error out on invalid Olympus 'SpecialMode'.
     * Add a few more Olympus/Minolta tags.
 
-2007-09-22 - Stephen H. Olson
+2007-09-22 - all by Stephen H. Olson
     * Don't error on invalid string
     * Improved Nikon MakerNote support
 
-2007-05-03 - Martin Stone
+2007-05-03 - all by Martin Stone
     * Fix for inverted detailed flag and Photoshop header
 
 2007-03-24
@@ -165,7 +185,7 @@ Change Log
 2007-01-18
     * Fixed a couple errors and assuming maintenance of the library.
 
-2006-08-04 Reimar Bauer
+2006-08-04 all by Reimar Bauer
     * Added an optional parameter name to process_file and dump_IFD. Using this
       parameter the loop is breaked after that tag_name is processed.
     * some PEP8 changes
