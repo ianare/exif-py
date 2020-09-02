@@ -520,6 +520,8 @@ class ExifHeader:
     # def _olympus_decode_tag(self, value, mn_tags):
         # pass
 
+    # TODO currently hard-coded for reconyx.  Make this more generic for
+    # any situation where make is unknown.
     def decode_cryptic_maker_note(self):
         """
         This is simply a rewrite of decode_maker_note to accommodate 
@@ -527,7 +529,7 @@ class ExifHeader:
         """
         note = self.tags['EXIF MakerNote']
         self.dump_ifd(note.field_offset, 'MakerNote',
-                        tag_dict=makernote.reconyx.TAGS_MAIN)
+                        tag_dict=makernote.reconyx.TAGS_HYPERFIRE)
         return
 
     def _canon_decode_tag(self, value, mn_tags):
