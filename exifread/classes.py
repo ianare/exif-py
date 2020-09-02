@@ -516,6 +516,10 @@ class ExifHeader:
                 del self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
             return
 
+    # TODO Decode Olympus MakerNote tag based on offset within tag.
+    # def _olympus_decode_tag(self, value, mn_tags):
+        # pass
+
     def decode_cryptic_maker_note(self):
         """
         This is simply a rewrite of decode_maker_note to accommodate 
@@ -525,10 +529,6 @@ class ExifHeader:
         self.dump_ifd(note.field_offset, 'MakerNote',
                         tag_dict=makernote.reconyx.TAGS_MAIN)
         return
-
-    def _olympus_decode_tag(self, value, mn_tags):
-        """ TODO Decode Olympus MakerNote tag based on offset within tag."""
-        pass
 
     def _canon_decode_tag(self, value, mn_tags):
         """
