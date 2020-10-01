@@ -51,3 +51,6 @@ exif-samples*
 
 # Misc
 *swp
+
+#macOS
+.DS_Store
