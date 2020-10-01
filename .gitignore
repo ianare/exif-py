@@ -2,6 +2,7 @@
 
 # OS
 .directory
+.DS_Store
 
 # Images
 *.jpg
