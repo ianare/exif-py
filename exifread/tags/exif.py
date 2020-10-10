@@ -258,6 +258,9 @@ EXIF_TAGS = {
     0x9000: ('ExifVersion', make_string),
     0x9003: ('DateTimeOriginal', ),
     0x9004: ('DateTimeDigitized', ),
+    0x9010: ('OffsetTime', ),
+    0x9011: ('OffsetTimeOriginal', ),
+    0x9012: ('OffsetTimeDigitized', ),
     0x9101: ('ComponentsConfiguration', {
         0: '',
         1: 'Y',
