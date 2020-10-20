@@ -49,6 +49,9 @@ class HEICExifFinder:
         read = self.file_handle.read(nbytes)
         if not read:
             raise EOFError
+        if len(read) != nbytes:
+            print(f'current pos={self.file_handle.tell()}')
+            raise ValueError(f'get(nbytes={nbytes}) found {len(read)} bytes')
         return read
 
     def get16(self):
