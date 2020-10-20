@@ -214,7 +214,9 @@ class HEICExifFinder:
                 raise BoxVersion(2, box.version)
             if box.version in (1, 2):
                 # ignore construction_method
-                _ = self.get16()
+                self.get16()
+            # ignore data_reference_index
+            self.get16()
             box.base_offset = self.get_int(box.base_offset_size)
             extent_count = self.get16()
             extents = []
