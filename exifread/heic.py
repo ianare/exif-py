@@ -120,10 +120,11 @@ class HEICExifFinder:
         self.file_handle.seek(box.after)
 
     def expect_parse(self, name):
-        box = self.next_box()
-        if box.name == name:
-            return self.parse_box(box)
-        raise WrongBox(name, box.name)
+        while True:
+            box = self.next_box()
+            if box.name == name:
+                return self.parse_box(box)
+            self.skip(box)
 
     def get_parser(self, box):
         method = 'parse_%s' % box.name
