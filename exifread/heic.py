@@ -50,8 +50,12 @@ class HEICExifFinder:
         if not read:
             raise EOFError
         if len(read) != nbytes:
-            print(f'current pos={self.file_handle.tell()}')
-            raise ValueError(f'get(nbytes={nbytes}) found {len(read)} bytes')
+            msg = "get(nbytes={nbytes}) found {read} bytes at postion {pos}".format(
+                nbytes=nbytes,
+                read=len(read),
+                pos=self.file_handle.tell()
+            )
+            raise BadSize(msg)
         return read
 
     def get16(self):
