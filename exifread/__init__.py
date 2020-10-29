@@ -10,7 +10,7 @@ from .tags import DEFAULT_STOP_TAG
 from .utils import ord_, make_string
 from .heic import HEICExifFinder
 
-__version__ = '2.3.1'
+__version__ = '2.3.2'
 
 logger = get_logger()
 

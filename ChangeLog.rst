@@ -2,6 +2,10 @@
 Change Log
 **********
 
+2.3.2 — 2020-10-29
+    * Fixes for HEIC files from Note10+ (#127) by Drew Perttula
+    * Add missing EXIF OffsetTime tags (#126) by Étienne Pelletier
+
 2.3.1 — 2020-08-07
     * Fix bug introduced with v2.3.0 in HEIC processing.
 

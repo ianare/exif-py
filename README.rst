@@ -160,12 +160,13 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 Usage Example
 =============
 
-This example shows how to use the library to correct the orientation of an image (using PIL for the transformation) before e.g. displaying it.
+This example shows how to use the library to correct the orientation of an image
+(using Pillow for the transformation) before e.g. displaying it.
 
 .. code-block:: python
 
     import exifread
-    from PIL import Image
+    from Pillow import Image
     
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
@@ -192,9 +193,7 @@ This example shows how to use the library to correct the orientation of an image
             if 8 in val:
                 logging.debug("Rotating by 90 degrees.")
                 im = im.transpose(Image.ROTATE_90)
-
         return im
-
 
 Credit
 ******
