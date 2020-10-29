@@ -49,6 +49,13 @@ class HEICExifFinder:
         read = self.file_handle.read(nbytes)
         if not read:
             raise EOFError
+        if len(read) != nbytes:
+            msg = "get(nbytes={nbytes}) found {read} bytes at postion {pos}".format(
+                nbytes=nbytes,
+                read=len(read),
+                pos=self.file_handle.tell()
+            )
+            raise BadSize(msg)
         return read
 
     def get16(self):
@@ -117,10 +124,11 @@ class HEICExifFinder:
         self.file_handle.seek(box.after)
 
     def expect_parse(self, name):
-        box = self.next_box()
-        if box.name == name:
-            return self.parse_box(box)
-        raise WrongBox(name, box.name)
+        while True:
+            box = self.next_box()
+            if box.name == name:
+                return self.parse_box(box)
+            self.skip(box)
 
     def get_parser(self, box):
         method = 'parse_%s' % box.name
@@ -210,7 +218,9 @@ class HEICExifFinder:
                 raise BoxVersion(2, box.version)
             if box.version in (1, 2):
                 # ignore construction_method
-                _ = self.get16()
+                self.get16()
+            # ignore data_reference_index
+            self.get16()
             box.base_offset = self.get_int(box.base_offset_size)
             extent_count = self.get16()
             extents = []
