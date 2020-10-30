@@ -1,7 +1,7 @@
 
 from ...utils import make_string, Ratio
 
-def ev_bias(seq):
+def ev_bias(seq) -> str:
     """
     First digit seems to be in steps of 1/6 EV.
     Does the third value mean the step size?  It is usually 6,

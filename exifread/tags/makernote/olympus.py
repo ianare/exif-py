@@ -1,6 +1,7 @@
 
 from ...utils import make_string
 
+
 def special_mode(val):
     """Decode Olympus SpecialMode tag in MakerNote"""
     mode1 = {

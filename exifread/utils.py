@@ -1,15 +1,8 @@
-# -*- coding: utf-8 -*-
-
 """
 Misc utilities.
 """
 
 from fractions import Fraction
-
-try:
-    StringCls = basestring
-except NameError:
-    StringCls = str
 
 
 def ord_(dta):
@@ -18,7 +11,7 @@ def ord_(dta):
     return dta
 
 
-def make_string(seq):
+def make_string(seq: bytes) -> str:
     """
     Don't throw an exception when given an out of range character.
     """
@@ -30,25 +23,25 @@ def make_string(seq):
                 string += chr(char)
         except TypeError:
             pass
-        # If no printing chars
+    # If no printing chars
     if not string:
         return str(seq)
     return string
 
 
-def make_string_uc(seq):
+def make_string_uc(seq) -> str:
     """
     Special version to deal with the code in the first 8 bytes of a user comment.
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
-    if not isinstance(seq, StringCls):
+    if not isinstance(seq, str):
         seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
     return make_string(seq)
 
 
-def get_gps_coords(tags):
+def get_gps_coords(tags: dict) -> tuple:
 
     lng_ref_tag_name = 'GPS GPSLongitudeRef'
     lng_tag_name = 'GPS GPSLongitude'
@@ -59,7 +52,7 @@ def get_gps_coords(tags):
     gps_tags = [lng_ref_tag_name, lng_tag_name, lat_tag_name, lat_tag_name]
     for tag in gps_tags:
         if not tag in tags.keys():
-            return None
+            return ()
 
     lng_ref_val = tags[lng_ref_tag_name].values
     lng_coord_val = [c.decimal() for c in tags[lng_tag_name].values]
@@ -91,9 +84,8 @@ class Ratio(Fraction):
             self._numerator = numerator
             self._denominator = denominator
         return self
-    __new__.doc = Fraction.__new__.__doc__
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self)
 
     @property
@@ -104,5 +96,5 @@ class Ratio(Fraction):
     def den(self):
         return self.denominator
 
-    def decimal(self):
+    def decimal(self) -> float:
         return float(self)

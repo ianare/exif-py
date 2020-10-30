@@ -3,6 +3,7 @@ Read Exif metadata from tiff and jpeg files.
 """
 
 import struct
+from typing import BinaryIO
 
 from .exif_log import get_logger
 from .classes import ExifHeader
@@ -10,7 +11,7 @@ from .tags import DEFAULT_STOP_TAG
 from .utils import ord_, make_string
 from .heic import HEICExifFinder
 
-__version__ = '2.3.2'
+__version__ = '3.0.0'
 
 logger = get_logger()
 
@@ -25,7 +26,7 @@ def increment_base(data, base):
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
-def _find_tiff_exif(fh):
+def _find_tiff_exif(fh: BinaryIO) -> tuple:
     logger.debug("TIFF format recognized in data[0:2]")
     fh.seek(0)
     endian = fh.read(1)
@@ -34,7 +35,7 @@ def _find_tiff_exif(fh):
     return offset, endian
 
 
-def _find_webp_exif(fh):
+def _find_webp_exif(fh: BinaryIO) -> tuple:
     logger.debug("WebP format recognized in data[0:4], data[8:12]")
     # file specification: https://developers.google.com/speed/webp/docs/riff_container
     data = fh.read(5)
@@ -44,19 +45,17 @@ def _find_webp_exif(fh):
         while True:
             data = fh.read(8)  # Chunk FourCC (32 bits) and Chunk Size (32 bits)
             if len(data) != 8:
-                logger.debug("Invalid webp file chunk header.")
-                raise InvalidExif()
+                raise InvalidExif("Invalid webp file chunk header.")
             if data[0:4] == b'EXIF':
                 offset = fh.tell()
                 endian = fh.read(1)
                 return offset, endian
             size = struct.unpack('<L', data[4:8])[0]
             fh.seek(size, 1)
-    logger.debug("Webp file does not have exif data.")
-    raise ExifNotFound()
+    raise ExifNotFound("Webp file does not have exif data.")
 
 
-def _find_jpeg_exif(fh, data, fake_exif):
+def _find_jpeg_exif(fh: BinaryIO, data, fake_exif) -> tuple:
     logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1]))
     base = 2
     logger.debug("data[2]=0x%X data[3]=0x%X data[6:10]=%s", ord_(data[2]), ord_(data[3]), data[6:10])
@@ -154,8 +153,7 @@ def _find_jpeg_exif(fh, data, fake_exif):
                 increment = increment_base(data, base)
                 logger.debug("  Got 0x%X and 0x%X instead", ord_(data[base]), ord_(data[base + 1]))
             except IndexError:
-                logger.debug("  Unexpected/unhandled segment type or file content.")
-                raise InvalidExif()
+                raise InvalidExif("Unexpected/unhandled segment type or file content.")
             else:
                 logger.debug("  Increment base by %s", increment)
                 base += increment
@@ -183,14 +181,14 @@ def _find_jpeg_exif(fh, data, fake_exif):
         endian = fh.read(1)
     else:
         # no EXIF information
-        logger.debug("No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)")
-        logger.debug("Did get 0x%X and %s", ord_(data[2 + base]), data[6 + base:10 + base + 1])
-        raise ExifNotFound()
+        msg = "No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)"
+        msg += "Did get 0x%X and %s" % (ord_(data[2 + base]), data[6 + base:10 + base + 1])
+        raise InvalidExif(msg)
     return offset, endian, fake_exif
 
 
-def _get_xmp(fh):
-    xmp_string = b''
+def _get_xmp(fh: BinaryIO) -> bytes:
+    xmp_bytes = b''
     logger.debug('XMP not in Exif, searching file for XMP info...')
     xml_started = False
     xml_finished = False
@@ -209,29 +207,17 @@ def _get_xmp(fh):
             line = line[:(close_tag - line_offset) + 12]
             xml_finished = True
         if xml_started:
-            xmp_string += line
+            xmp_bytes += line
         if xml_finished:
             break
     logger.debug('XMP Finished searching for info')
-    return xmp_string
+    return xmp_bytes
 
 
-def process_file(fh, stop_tag=DEFAULT_STOP_TAG,
-                 details=True, strict=False, debug=False,
-                 truncate_tags=True, auto_seek=True):
-    """
-    Process an image file (expects an open file object).
-
-    This is the function that has to deal with all the arbitrary nasty bits
-    of the EXIF standard.
-    """
+def _determine_type(fh: BinaryIO) -> tuple:
     # by default do not fake an EXIF beginning
     fake_exif = 0
 
-    if auto_seek:
-        fh.seek(0)
-
-    # determine the file type
     data = fh.read(12)
     if data[0:2] in [b'II', b'MM']:
         # it's a TIFF file
@@ -241,19 +227,36 @@ def process_file(fh, stop_tag=DEFAULT_STOP_TAG,
         heic = HEICExifFinder(fh)
         offset, endian = heic.find_exif()
     elif data[0:4] == b'RIFF' and data[8:12] == b'WEBP':
-        try:
-            offset, endian = _find_webp_exif(fh)
-        except (InvalidExif, ExifNotFound):
-            return {}
+        offset, endian = _find_webp_exif(fh)
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
-        try:
-            offset, endian, fake_exif = _find_jpeg_exif(fh, data, fake_exif)
-        except (InvalidExif, ExifNotFound):
-            return {}
+        offset, endian, fake_exif = _find_jpeg_exif(fh, data, fake_exif)
     else:
         # file format not recognized
-        logger.debug("File format not recognized.")
+        raise ExifNotFound("File format not recognized.")
+    return offset, endian, fake_exif
+
+
+def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
+                 details=True, strict=False, debug=False,
+                 truncate_tags=True, auto_seek=True):
+    """
+    Process an image file (expects an open file object).
+
+    This is the function that has to deal with all the arbitrary nasty bits
+    of the EXIF standard.
+    """
+
+    if auto_seek:
+        fh.seek(0)
+
+    try:
+        offset, endian, fake_exif = _determine_type(fh)
+    except ExifNotFound as err:
+        logger.warning(err)
+        return {}
+    except InvalidExif as err:
+        logger.debug(err)
         return {}
 
     endian = chr(ord_(endian[0]))
@@ -267,7 +270,7 @@ def process_file(fh, stop_tag=DEFAULT_STOP_TAG,
 
     hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
-    thumb_ifd = False
+    thumb_ifd = 0
     ctr = 0
     for ifd in ifd_list:
         if ctr == 0:
@@ -299,15 +302,15 @@ def process_file(fh, stop_tag=DEFAULT_STOP_TAG,
 
     # parse XMP tags (experimental)
     if debug and details:
-        xmp_string = b''
+        xmp_bytes = b''
         # Easy we already have them
-        if 'Image ApplicationNotes' in hdr.tags:
+        xmp_tag = hdr.tags.get('Image ApplicationNotes')
+        if xmp_tag:
             logger.debug('XMP present in Exif')
-            xmp_string = make_string(hdr.tags['Image ApplicationNotes'].values)
+            xmp_bytes = bytes(xmp_tag.values)
         # We need to look in the entire file for the XML
         else:
-            xmp_string = _get_xmp(fh)
-        if xmp_string:
-            hdr.parse_xmp(xmp_string)
-
+            xmp_bytes = _get_xmp(fh)
+        if xmp_bytes:
+            hdr.parse_xmp(xmp_bytes)
     return hdr.tags

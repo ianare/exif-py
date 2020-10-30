@@ -2,6 +2,9 @@
 Change Log
 **********
 
+3.0.0 — 2020-xx-xx
+    * **BREAKING CHANGE:** Add type hints, which removes Python2 compatibility
+
 2.3.2 — 2020-10-29
     * Fixes for HEIC files from Note10+ (#127) by Drew Perttula
     * Add missing EXIF OffsetTime tags (#126) by Étienne Pelletier

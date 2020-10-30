@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Custom log output
 """
@@ -64,7 +62,7 @@ class Formatter(logging.Formatter):
                 color = TEXT_CYAN
             else:
                 color = TEXT_NORMAL
-            record.levelname = "\x1b[%sm%s\x1b[%sm" % (color, record.levelname, TEXT_NORMAL)
+            record.levelname = '\x1b[%sm%s\x1b[%sm' % (color, record.levelname, TEXT_NORMAL)
         return logging.Formatter.format(self, record)
 
 
