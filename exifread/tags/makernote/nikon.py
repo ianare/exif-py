@@ -52,7 +52,7 @@ def ev_bias(seq) -> str:
 # Nikon E99x MakerNote Tags
 TAGS_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
-    0x0002: ('ISOSetting', make_string),
+    0x0002: ('ISOSetting', ),
     0x0003: ('ColorMode', ),
     0x0004: ('Quality', ),
     0x0005: ('Whitebalance', ),

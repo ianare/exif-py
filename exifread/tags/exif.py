@@ -437,10 +437,9 @@ EXIF_TAGS = {
     0xA435: ('LensSerialNumber', ),
     0xA500: ('Gamma', ),
     0xC4A5: ('PrintIM', ),
+    0xC61A: ('BlackLevel', ),
     0xEA1C: ('Padding', ),
     0xEA1D: ('OffsetSchema', ),
     0xFDE8: ('OwnerName', ),
     0xFDE9: ('SerialNumber', ),
-    0xC61A: ('BlackLevel', ),
-
 }

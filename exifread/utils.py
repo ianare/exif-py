@@ -3,6 +3,7 @@ Misc utilities.
 """
 
 from fractions import Fraction
+from typing import Union
 
 
 def ord_(dta):
@@ -11,7 +12,7 @@ def ord_(dta):
     return dta
 
 
-def make_string(seq: bytes) -> str:
+def make_string(seq: Union[bytes, list]) -> str:
     """
     Don't throw an exception when given an out of range character.
     """
@@ -23,10 +24,19 @@ def make_string(seq: bytes) -> str:
                 string += chr(char)
         except TypeError:
             pass
+
     # If no printing chars
     if not string:
-        return str(seq)
-    return string
+        if isinstance(seq, list):
+            string = ''.join(map(str, seq))
+            # Some UserComment lists only contain null bytes, nothing valueable to return
+            if set(string) == {'0'}:
+                return ''
+        else:
+            string = str(seq)
+
+    # Clean undesirable characters on any end
+    return string.strip(' \x00')
 
 
 def make_string_uc(seq) -> str:
