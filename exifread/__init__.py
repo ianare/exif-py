@@ -39,6 +39,7 @@ def _find_webp_exif(fh: BinaryIO) -> tuple:
             if len(data) != 8:
                 raise InvalidExif("Invalid webp file chunk header.")
             if data[0:4] == b'EXIF':
+                fh.seek(6, 1)
                 offset = fh.tell()
                 endian = fh.read(1)
                 return offset, endian
