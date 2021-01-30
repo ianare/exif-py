@@ -181,6 +181,7 @@ EXIF_TAGS = {
         1: 'Regenerated',
         2: 'Unclean'
     }),
+    0x014A: ('SubIFDs', ),
     0x0148: ('ConsecutiveBadFaxLines', ),
     0x014C: ('InkSet', {
         1: 'CMYK',
@@ -207,9 +208,10 @@ EXIF_TAGS = {
     0x0155: ('SMaxSampleValue', ),
     0x0156: ('TransferRange', ),
     0x0157: ('ClipPath', ),
+    0x015B: ('JPEGTables', ),
     0x0200: ('JPEGProc', ),
-    0x0201: ('JPEGInterchangeFormat', ),
-    0x0202: ('JPEGInterchangeFormatLength', ),
+    0x0201: ('JPEGInterchangeFormat', ),    # JpegIFOffset
+    0x0202: ('JPEGInterchangeFormatLength', ),  # JpegIFByteCount
     0x0211: ('YCbCrCoefficients', ),
     0x0212: ('YCbCrSubSampling', ),
     0x0213: ('YCbCrPositioning', {
@@ -243,6 +245,9 @@ EXIF_TAGS = {
     0x8825: ('GPSInfo', GPS_INFO),  # GPS tags
     0x8827: ('ISOSpeedRatings', ),
     0x8828: ('OECF', ),
+    0x8829: ('Interlace', ),
+    0x882A: ('TimeZoneOffset', ),
+    0x882B: ('SelfTimerMode', ),
     0x8830: ('SensitivityType', {
         0: 'Unknown',
         1: 'Standard Output Sensitivity',
@@ -335,7 +340,15 @@ EXIF_TAGS = {
         95: 'Flash fired, auto mode, return light detected, red-eye reduction mode'
     }),
     0x920A: ('FocalLength', ),
+    0x920B: ('FlashEnergy', ),
+    0x920C: ('SpatialFrequencyResponse', ),
+    0x920D: ('Noise', ),
+    0x9211: ('ImageNumber', ),
+    0x9212: ('SecurityClassification', ),
+    0x9213: ('ImageHistory', ),
     0x9214: ('SubjectArea', ),
+    0x9215: ('ExposureIndex', ),
+    0x9216: ('TIFF/EPStandardID', ),
     0x927C: ('MakerNote', ),
     0x9286: ('UserComment', make_string_uc),
     0x9290: ('SubSecTime', ),
