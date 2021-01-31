@@ -1,6 +1,7 @@
 
 from ...utils import make_string, Ratio
 
+
 def ev_bias(seq) -> str:
     """
     First digit seems to be in steps of 1/6 EV.
@@ -49,6 +50,7 @@ def ev_bias(seq) -> str:
         ret_str = ret_str + str(ratio) + ' EV'
     return ret_str
 
+
 # Nikon E99x MakerNote Tags
 TAGS_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
@@ -60,6 +62,7 @@ TAGS_NEW = {
     0x0007: ('FocusMode', ),
     0x0008: ('FlashSetting', ),
     0x0009: ('AutoFlashMode', ),
+    0x000A: ('LensMount', ),    # According to LibRAW
     0x000B: ('WhiteBalanceBias', ),
     0x000C: ('WhiteBalanceRBCoeff', ),
     0x000D: ('ProgramShift', ev_bias),
@@ -70,6 +73,7 @@ TAGS_NEW = {
     0x0011: ('NikonPreview', ),
     0x0012: ('FlashCompensation', ev_bias),
     0x0013: ('ISOSpeedRequested', ),
+    0x0014: ('ColorBalance', ),     # According to LibRAW
     0x0016: ('PhotoCornerCoordinates', ),
     0x0017: ('ExternalFlashExposureComp', ev_bias),
     0x0018: ('FlashBracketCompensationApplied', ev_bias),
@@ -81,10 +85,41 @@ TAGS_NEW = {
     0x001E: ('ColorSpace', ),
     0x001F: ('VRInfo', ),
     0x0020: ('ImageAuthentication', ),
+    0x0021: ('FaceDetect', ),
     0x0022: ('ActiveDLighting', ),
     0x0023: ('PictureControl', ),
     0x0024: ('WorldTime', ),
     0x0025: ('ISOInfo', ),
+    0x002A: ('VignetteControl', ),
+    0x002B: ('DistortInfo', ),
+    0x002C: ('UnknownInfo', ),      # Using what ExifTool uses
+    0x0032: ('UnknownInfo2', ),     # Using what ExifTool uses
+    0x0034: ('ShutterMode', ),
+    0x0035: ('HDRInfo', ),
+    0x0037: ('MechanicalShutterCount', ),
+    0x0039: ('LocationInfo', ),
+    # 0x003A: unknown
+    0x003B: ('MultiExposureWhiteBalance', ),
+    # 0x003C: unknown
+    0x003D: ('BlackLevel', ),
+    # 0x003E: unknown
+    # 0x003F: unknown
+    # 0x0040: unknown
+    # 0x0041: unknown
+    # 0x0042: unknown
+    # 0x0043: unknown
+    # 0x0044: unknown
+    0x0045: ('CropArea', ),     # (left, top, width, height) / left pixel (x,y), size (width,length)
+    # 0x0046: unknown
+    # 0x0047: unknown
+    # 0x0048: unknown
+    # 0x0049: unknown
+    # 0x004A: unknown
+    # 0x004B: unknown
+    # 0x004C: unknown
+    # 0x004D: unknown
+    0x004E: ('NikonSettings', ),
+    0x004F: ('ColorTemperatureAuto', ),
     0x0080: ('ImageAdjustment', ),
     0x0081: ('ToneCompensation', ),
     0x0082: ('AuxiliaryLens', ),
@@ -142,6 +177,7 @@ TAGS_NEW = {
     0x0099: ('RawImageCenter', ),
     0x009A: ('SensorPixelSize', ),
     0x009C: ('Scene Assist', ),
+    0x009D: ('DateStampMode', ),
     0x009E: ('RetouchHistory', ),
     0x00A0: ('SerialNumber', ),
     0x00A2: ('ImageDataSize', ),
@@ -160,10 +196,17 @@ TAGS_NEW = {
     0x00AD: ('AFResponse', ),
     0x00B0: ('MultiExposure', ),
     0x00B1: ('HighISONoiseReduction', ),
+    0x00B3: ('ToningEffect', ),
     0x00B6: ('PowerUpTime', ),
     0x00B7: ('AFInfo2', ),
     0x00B8: ('FileInfo', ),
     0x00B9: ('AFTune', ),
+    0x00BB: ('RetouchInfo', ),
+    # 0x00BC: unknown
+    0x00BD: ('PictureControlData', ),
+    # 0x00BF: unknown
+    # 0x00C0: unknown
+    0x00C3: ('BarometerInfo', ),
     0x0100: ('DigitalICE', ),
     0x0103: ('PreviewCompression', {
         1: 'Uncompressed',
@@ -203,9 +246,14 @@ TAGS_NEW = {
         1: 'Centered',
         2: 'Co-sited',
     }),
+    0x0E00: ('PrintIM', ),
+    0x0E01: ('InCameraEditNote', ),
     0x0E09: ('NikonCaptureVersion', ),
     0x0E0E: ('NikonCaptureOffsets', ),
     0x0E10: ('NikonScan', ),
+    0x0E13: ('NikonCaptureEditVersions', ),
+    0x0E1D: ('NikonICCProfile', ),
+    0x0E1E: ('NikonCaptureOutput', ),
     0x0E22: ('NEFBitDepth', ),
 }
 
