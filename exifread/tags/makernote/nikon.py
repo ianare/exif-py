@@ -79,22 +79,62 @@ TAGS_NEW = {
     0x0018: ('FlashBracketCompensationApplied', ev_bias),
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
+    # CropHiSpeed is a list of values. Not sure what effects the last 4. The cropped width
+    # and height in all photos checked was the same as the sensor width and height, which
+    # is slightly larger than the image resolution height and width.
+    #
+    # * Crop style
+    # * Sensor resolution width
+    # * Sensor resolution height
+    # * Cropped width cropped
+    # * Cropped height cropped
+    # * Pixel X position
+    # * Pixel Y position
     0x001B: ('CropHiSpeed', ),
     0x001C: ('ExposureTuning', ),
     0x001D: ('SerialNumber', ),  # Conflict with 0x00A0 ?
-    0x001E: ('ColorSpace', ),
+    0x001E: ('ColorSpace', {
+        1: 'sRGB',
+        2: 'Adobe RGB'
+    }),
     0x001F: ('VRInfo', ),
-    0x0020: ('ImageAuthentication', ),
+    0x0020: ('ImageAuthentication', {
+        0: 'Off',
+        1: 'On'
+    }),
     0x0021: ('FaceDetect', ),
-    0x0022: ('ActiveDLighting', ),
+    0x0022: ('ActiveDLighting', {
+        0: 'Off',
+        1: 'Low',
+        3: 'Normal',
+        5: 'High',
+        7: 'Extra High',
+        8: 'Extra High 1',
+        9: 'Extra High 2',
+        10: 'Extra High 3',
+        11: 'Extra High 4',
+        65535: 'Auto'
+    }),
     0x0023: ('PictureControl', ),
     0x0024: ('WorldTime', ),
     0x0025: ('ISOInfo', ),
-    0x002A: ('VignetteControl', ),
+    0x002A: ('VignetteControl', {
+        0: 'Off',
+        1: 'Low',
+        3: 'Normal',
+        5: 'High'
+    }),
     0x002B: ('DistortInfo', ),
     0x002C: ('UnknownInfo', ),      # Using what ExifTool uses
     0x0032: ('UnknownInfo2', ),     # Using what ExifTool uses
-    0x0034: ('ShutterMode', ),
+    0x0034: ('ShutterMode', {
+        0: 'Mechanical',
+        16: 'Electronic',
+        48: 'Electronic Front Curtain',
+        64: 'Electronic (Movie)',
+        80: 'Auto (Mechanical)',
+        81: 'Auto (Electronic Front Curtain)',
+    }),
     0x0035: ('HDRInfo', ),
     0x0037: ('MechanicalShutterCount', ),
     0x0039: ('LocationInfo', ),
@@ -130,6 +170,7 @@ TAGS_NEW = {
     0x0087: ('FlashMode', {
         0x00: 'Did Not Fire',
         0x01: 'Fired, Manual',
+        0x03: 'Not Ready',
         0x07: 'Fired, External',
         0x08: 'Fired, Commander Mode ',
         0x09: 'Fired, TTL Mode',
@@ -161,7 +202,18 @@ TAGS_NEW = {
     0x0091: ('ShotInfo', ),  # First 4 bytes are a version number in ASCII
     0x0092: ('HueAdjustment', ),
     # ExifTool calls this 'NEFCompression', should be 1-4
-    0x0093: ('Compression', ),
+    0x0093: ('Compression', {
+        1: 'Lossy (type 1)',
+        2: 'Uncompressed',
+        3: 'Lossless',
+        4: 'Lossy (type 2)',
+        5: 'Striped packed 12 bits',
+        6: 'Uncompressed (reduced to 12 bit)',
+        7: 'Unpacked 12 bits',
+        8: 'Small',
+        9: 'Packed 12 bits',
+        10: 'Packed 14 bits',
+    }),
     0x0094: ('Saturation', {
         -3: 'B&W',
         -2: '-2',
@@ -177,8 +229,57 @@ TAGS_NEW = {
     0x0099: ('RawImageCenter', ),
     0x009A: ('SensorPixelSize', ),
     0x009C: ('Scene Assist', ),
-    0x009D: ('DateStampMode', ),
-    0x009E: ('RetouchHistory', ),
+    0x009D: ('DateStampMode', {
+        0: 'Off',
+        1: 'Date & Time',
+        2: 'Date',
+        3: 'Date Counter'
+    }),
+    0x009E: ('RetouchHistory', {
+        0: 'None',
+        3: 'B & W',
+        4: 'Sepia',
+        5: 'Trim',
+        6: 'Small Picture',
+        7: 'D-Lighting',
+        8: 'Red Eye',
+        9: 'Cyanotype',
+        10: 'Sky Light',
+        11: 'Warm Tone',
+        12: 'Color Custom',
+        13: 'Image Overlay',
+        14: 'Red Intensifier',
+        15: 'Green Intensifier',
+        16: 'Blue Intensifier',
+        17: 'Cross Screen',
+        18: 'Quick Retouch',
+        19: 'NEF Processing',
+        23: 'Distortion Control',
+        25: 'Fisheye',
+        26: 'Straighten',
+        29: 'Perspective Control',
+        30: 'Color Outline',
+        31: 'Soft Filter',
+        32: 'Resize',
+        33: 'Miniature Effect',
+        34: 'Skin Softening',
+        35: 'Selected Frame',
+        37: 'Color Sketch',
+        38: 'Selective Color',
+        39: 'Glamour',
+        40: 'Drawing',
+        44: 'Pop',
+        45: 'Toy Camera Effect 1',
+        46: 'Toy Camera Effect 2',
+        47: 'Cross Process (red)',
+        48: 'Cross Process (blue)',
+        49: 'Cross Process (green)',
+        50: 'Cross Process (yellow)',
+        51: 'Super Vivid',
+        52: 'High-contrast Monochrome',
+        53: 'High Key',
+        54: 'Low Key'
+    }),
     0x00A0: ('SerialNumber', ),
     0x00A2: ('ImageDataSize', ),
     # 00A3: unknown - a single byte 0
@@ -195,7 +296,15 @@ TAGS_NEW = {
     0x00AC: ('ImageStabilization', ),
     0x00AD: ('AFResponse', ),
     0x00B0: ('MultiExposure', ),
-    0x00B1: ('HighISONoiseReduction', ),
+    0x00B1: ('HighISONoiseReduction', {
+        0: 'Off',
+        1: 'Minimal',
+        2: 'Low',
+        3: 'Medium Low',
+        4: 'Normal',
+        5: 'Medium High',
+        6: 'High',
+    }),
     0x00B3: ('ToningEffect', ),
     0x00B6: ('PowerUpTime', ),
     0x00B7: ('AFInfo2', ),
