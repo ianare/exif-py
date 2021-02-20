@@ -250,6 +250,7 @@ class ExifHeader:
                 printable = str(values[0:-1])
         else:
             printable = str(values)
+
         # compute printable version of values
         if tag_entry:
             # optional 2nd tag element is present
@@ -257,6 +258,7 @@ class ExifHeader:
                 if callable(tag_entry[1]):
                     # call mapping function
                     printable = tag_entry[1](values)
+                # Tag with SubIFDs
                 elif isinstance(tag_entry[1], tuple):
                     ifd_info = tag_entry[1]
                     try:
@@ -264,11 +266,26 @@ class ExifHeader:
                         self.dump_ifd(values[0], ifd_info[0], tag_dict=ifd_info[1], stop_tag=stop_tag)
                     except IndexError:
                         logger.warning('No values found for %s SubIFD', ifd_info[0])
-                else:
-                    printable = ''
+                elif isinstance(values, list):
+                    pretty_values = []
                     for val in values:
-                        # use lookup table for this tag
-                        printable += tag_entry[1].get(val, repr(val))
+                        pretty_values.append(tag_entry[1].get(val, repr(val)))
+
+                    # FIXME: with the exception of ASCII fields `values` will always be a list.
+                    # We have no way of knowing if the field is a single value or list of
+                    # values. Also not sure if we know the difference between an empty list and
+                    # an empty field value. We just do our best here.
+                    if len(pretty_values) > 1:
+                        printable = str(pretty_values)
+                    elif len(pretty_values) == 1:
+                        printable = str(pretty_values[0])
+                    else:
+                        printable = ''
+
+                else:
+                    # NOTE: We shouldn't make it here. This would mean we received an ASCII
+                    # value to be used in a lookup table it is possible.
+                    printable = tag_entry[1].get(val, repr(values))
 
         self.tags[ifd_name + ' ' + tag_name] = IfdTag(
             printable, tag, field_type, values, field_offset, count * type_length
