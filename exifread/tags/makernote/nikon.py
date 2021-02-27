@@ -52,6 +52,9 @@ def ev_bias(seq) -> str:
 
 
 # Nikon E99x MakerNote Tags
+#
+# NOTE: Byte field values are actually integer representations in this module so keys should
+# be integers.
 TAGS_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
     0x0002: ('ISOSetting', ),
@@ -187,12 +190,12 @@ TAGS_NEW = {
     0x0085: ('ManualFocusDistance', ),
     0x0086: ('DigitalZoomFactor', ),
     0x0087: ('FlashMode', {
-        0x00: 'Did Not Fire',
-        0x01: 'Fired, Manual',
-        0x03: 'Not Ready',
-        0x07: 'Fired, External',
-        0x08: 'Fired, Commander Mode ',
-        0x09: 'Fired, TTL Mode',
+        0: 'Did Not Fire',
+        1: 'Fired, Manual',
+        3: 'Not Ready',
+        7: 'Fired, External',
+        8: 'Fired, Commander Mode ',
+        9: 'Fired, TTL Mode',
     }),
     0x0088: ('AFInfo', ),   # FIXME: This is a list where each position has a different meaning
     0x0089: ('ShootingMode', {  # FIXME: We should form the string instead of listing every possible combo
