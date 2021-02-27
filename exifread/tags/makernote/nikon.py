@@ -163,7 +163,27 @@ TAGS_NEW = {
     0x0080: ('ImageAdjustment', ),
     0x0081: ('ToneCompensation', ),
     0x0082: ('AuxiliaryLens', ),
-    0x0083: ('LensType', ),
+    # About the table below:
+    # * All G lenses are also D lenses but not vice versa.
+    # * G lens names do not include the D
+    # * All G and D lenses are also AF
+    # * G and D don't even refer to related feature or lens characteristics
+    # * Nikon doesn't differentiate AF, AF-I, or AF-S lenses but does with AF-P
+    # * AF-{I,S,P} are autofocus technology types
+    # * But sometimes Nikon likes to write AF-D or AF-G too in documentation
+    # * VR is an additional lens feature.
+    0x0083: ('LensType', {  # FIXME: We should form the string instead of listing every possible combo
+
+        0: 'AF',
+        1: 'MF',
+        2: 'AF D',
+        6: 'AF G',
+        8: 'VR',
+        10: 'AF D VR',
+        14: 'AF G VR',
+        128: 'AF-P',
+        142: 'AF-P G VR'
+    }),
     0x0084: ('LensMinMaxFocalMaxAperture', ),
     0x0085: ('ManualFocusDistance', ),
     0x0086: ('DigitalZoomFactor', ),
