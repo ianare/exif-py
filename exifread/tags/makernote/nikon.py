@@ -173,7 +173,6 @@ TAGS_NEW = {
     # * But sometimes Nikon likes to write AF-D or AF-G too in documentation
     # * VR is an additional lens feature.
     0x0083: ('LensType', {  # FIXME: We should form the string instead of listing every possible combo
-
         0: 'AF',
         1: 'MF',
         2: 'AF D',
@@ -195,23 +194,24 @@ TAGS_NEW = {
         0x08: 'Fired, Commander Mode ',
         0x09: 'Fired, TTL Mode',
     }),
-    0x0088: ('AFFocusPosition', {
-        0x0000: 'Center',
-        0x0100: 'Top',
-        0x0200: 'Bottom',
-        0x0300: 'Left',
-        0x0400: 'Right',
-    }),
-    0x0089: ('BracketingMode', {
-        0x00: 'Single frame, no bracketing',
-        0x01: 'Continuous, no bracketing',
-        0x02: 'Timer, no bracketing',
-        0x10: 'Single frame, exposure bracketing',
-        0x11: 'Continuous, exposure bracketing',
-        0x12: 'Timer, exposure bracketing',
-        0x40: 'Single frame, white balance bracketing',
-        0x41: 'Continuous, white balance bracketing',
-        0x42: 'Timer, white balance bracketing'
+    0x0088: ('AFInfo', ),   # FIXME: This is a list where each position has a different meaning
+    0x0089: ('ShootingMode', {  # FIXME: We should form the string instead of listing every possible combo
+        0: 'Single frame',
+        1: 'Continuous',
+        2: 'Delay',
+        8: 'b3 ???',
+        10: 'b3 ???, Delay',
+        16: 'Exposure Bracketing',
+        17: 'Exposure Bracketing, Continuous',
+        18: 'Exposure Bracketing, Delay',
+        32: 'Auto ISO',
+        33: 'Auto ISO, Continuous',
+        34: 'Auto ISO, Delay',
+        40: 'Auto ISO, b3 ???',
+        48: 'Auto ISO, Exposure Bracketing',
+        128: 'IR Control',
+        256: 'b8 ???',
+        272: 'b8 ???, Exposure Bracketing'
     }),
     0x008A: ('AutoBracketRelease', ),
     0x008B: ('LensFStops', ),
@@ -327,7 +327,7 @@ TAGS_NEW = {
     }),
     0x00B3: ('ToningEffect', ),
     0x00B6: ('PowerUpTime', ),
-    0x00B7: ('AFInfo2', ),
+    0x00B7: ('AFInfo2', ),  # FIXME: This is a list where each position has a different meaning
     0x00B8: ('FileInfo', ),
     0x00B9: ('AFTune', ),
     0x00BB: ('RetouchInfo', ),
