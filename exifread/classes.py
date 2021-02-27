@@ -267,9 +267,16 @@ class ExifHeader:
                     except IndexError:
                         logger.warning('No values found for %s SubIFD', ifd_info[0])
                 elif isinstance(values, list):
+                    # A list can be a list of the same type of value or a list of values with a
+                    # different meaning by position.
+
                     pretty_values = []
-                    for val in values:
-                        pretty_values.append(tag_entry[1].get(val, repr(val)))
+                    if isinstance(tag_entry[1], list):
+                        for _i in range(len(values)):
+                            pretty_values.append(tag_entry[1][_i].get(values[_i], repr(values[_i])))
+                    else:
+                        for val in values:
+                            pretty_values.append(tag_entry[1].get(val, repr(val)))
 
                     # FIXME: with the exception of ASCII fields `values` will always be a list.
                     # We have no way of knowing if the field is a single value or list of
