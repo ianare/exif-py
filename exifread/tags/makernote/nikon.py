@@ -82,18 +82,29 @@ TAGS_NEW = {
     0x0018: ('FlashBracketCompensationApplied', ev_bias),
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
-    # CropHiSpeed is a list of values. Not sure what effects the last 4. The cropped width
-    # and height in all photos checked was the same as the sensor width and height, which
-    # is slightly larger than the image resolution height and width.
-    #
-    # * Crop style
-    # * Sensor resolution width
-    # * Sensor resolution height
-    # * Cropped width cropped
-    # * Cropped height cropped
-    # * Pixel X position
-    # * Pixel Y position
-    0x001B: ('CropHiSpeed', ),
+    0x001B: ('CropHiSpeed', [
+        {
+            0: 'Off',
+            1: '1.3x',
+            2: 'DX',
+            3: '5:4',
+            4: '3:2',
+            6: '16:9',
+            8: '2.7x',
+            9: 'DX Movie',
+            10: '1.3x Movie',
+            11: 'FX Uncropper',
+            12: 'DX Uncropped',
+            15: '1.5x Movie',
+            17: '1:1'
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+    ]),
     0x001C: ('ExposureTuning', ),
     0x001D: ('SerialNumber', ),  # Conflict with 0x00A0 ?
     0x001E: ('ColorSpace', {
