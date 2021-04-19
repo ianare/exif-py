@@ -83,7 +83,7 @@ class HEICExifFinder:
         if not read:
             raise EOFError
         if len(read) != nbytes:
-            msg = "get(nbytes={nbytes}) found {read} bytes at postion {pos}".format(
+            msg = "get(nbytes={nbytes}) found {read} bytes at position {pos}".format(
                 nbytes=nbytes,
                 read=len(read),
                 pos=self.file_handle.tell()

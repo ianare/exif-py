@@ -29,7 +29,7 @@ def make_string(seq: Union[bytes, list]) -> str:
     if not string:
         if isinstance(seq, list):
             string = ''.join(map(str, seq))
-            # Some UserComment lists only contain null bytes, nothing valueable to return
+            # Some UserComment lists only contain null bytes, nothing valuable to return
             if set(string) == {'0'}:
                 return ''
         else:

@@ -581,7 +581,7 @@ class ExifHeader:
         logger.debug('XMP cleaning data')
 
         # Pray that it's encoded in UTF-8
-        # TODO: allow user to specifiy encoding
+        # TODO: allow user to specify encoding
         xmp_string = xmp_bytes.decode('utf-8')
 
         pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
