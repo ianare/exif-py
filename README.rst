@@ -161,11 +161,13 @@ This example shows how to use the library to correct the orientation of an image
 .. code-block:: python
 
     import exifread
-    from Pillow import Image
+    from PIL import Image
+    import logging
     
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
         tags = {}
+        logging.basicConfig(level=logging.DEBUG)
         with open(path, 'rb') as f:
             tags = exifread.process_file(f, details=False)
         if "Image Orientation" in tags.keys():
