@@ -167,11 +167,11 @@ This example shows how to use the library to correct the orientation of an image
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
         tags = {}
-        logging.basicConfig(level=logging.DEBUG)
         with open(path, 'rb') as f:
             tags = exifread.process_file(f, details=False)
         if "Image Orientation" in tags.keys():
             orientation = tags["Image Orientation"]
+            logging.basicConfig(level=logging.DEBUG)
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)
             val = orientation.values
             if 5 in val:
