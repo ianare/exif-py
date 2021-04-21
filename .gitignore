@@ -12,6 +12,7 @@
 # Archives
 *.gz
 *.zip
+*.gz.1
 
 # Packages
 *.egg
