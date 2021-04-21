@@ -51,3 +51,7 @@ exif-samples*
 
 # Misc
 *swp
+
+# Venv
+/venv
+/.venv
