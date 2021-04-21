@@ -93,8 +93,8 @@ class ExifHeader:
                 (8, False): 'L',
                 (8, True):  'l',
                 }[(length, signed)]
-        except KeyError:
-            raise ValueError('unexpected unpacking length: %d' % length)
+        except KeyError as err:
+            raise ValueError('unexpected unpacking length: %d' % length) from err
         self.file_handle.seek(self.offset + offset)
         buf = self.file_handle.read(length)
         if buf:
