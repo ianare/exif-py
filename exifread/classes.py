@@ -160,7 +160,12 @@ class ExifHeader:
                         unpack_format += 'd'
                     self.file_handle.seek(self.offset + offset)
                     byte_str = self.file_handle.read(type_length)
-                    value = struct.unpack(unpack_format, byte_str)
+                    try:
+                        value = struct.unpack(unpack_format, byte_str)
+                    except struct.error:
+                        logger.warning('Possibly corrupted field %s', tag_name)
+                        # -1 means corrupted
+                        value = -1
                 else:
                     value = self.s2n(offset, type_length, signed)
                 values.append(value)
@@ -238,7 +243,6 @@ class ExifHeader:
             values = self._process_field2(ifd_name, tag_name, count, offset)
         else:
             values = self._process_field(tag_name, count, field_type, type_length, offset)
-
         # now 'values' is either a string or an array
         # TODO: use only one type
         if count == 1 and field_type != 2:
