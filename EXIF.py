@@ -18,15 +18,14 @@ Runs Exif tag extraction in command line.
 
 import sys
 import argparse
-import logging
 import timeit
-from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
+from exifread.tags import FIELD_TYPES
 from exifread import process_file, exif_log, __version__
 
 logger = exif_log.get_logger()
 
 
-def get_args():
+def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog='EXIF.py',
         description='Extract EXIF information from digital image files.'
