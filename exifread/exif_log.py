@@ -15,12 +15,12 @@ TEXT_MAGENTA = 35
 TEXT_CYAN = 36
 
 
-def get_logger():
+def get_logger() -> logging.Logger:
     """Use this from all files needing to log."""
     return logging.getLogger('exifread')
 
 
-def setup_logger(debug, color):
+def setup_logger(debug, color) -> None:
     """Configure the logger."""
 
     if debug:
@@ -39,7 +39,7 @@ class Formatter(logging.Formatter):
     Custom formatter, we like colors!
     """
 
-    def __init__(self, debug=False, color=False):
+    def __init__(self, debug=False, color=False) -> None:
         self.color = color
         self.debug = debug
         if self.debug:
@@ -48,7 +48,7 @@ class Formatter(logging.Formatter):
             log_format = '%(message)s'
         logging.Formatter.__init__(self, log_format)
 
-    def format(self, record):
+    def format(self, record) -> str:
         if self.debug and self.color:
             if record.levelno >= logging.CRITICAL:
                 color = TEXT_RED
@@ -68,7 +68,7 @@ class Formatter(logging.Formatter):
 
 class Handler(logging.StreamHandler):
 
-    def __init__(self, log_level, debug=False, color=False):
+    def __init__(self, log_level, debug=False, color=False) -> None:
         self.color = color
         self.debug = debug
         logging.StreamHandler.__init__(self, sys.stdout)
