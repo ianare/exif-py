@@ -175,9 +175,9 @@ This example shows how to use the library to correct the orientation of an image
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)
             val = orientation.values
             if 5 in val:
-                val += [4,8]
-            if 7 in val:
                 val += [4, 6]
+            if 7 in val:
+                val += [4, 8]
             if 3 in val:
                 logging.debug("Rotating by 180 degrees.")
                 im = im.transpose(Image.ROTATE_180)
