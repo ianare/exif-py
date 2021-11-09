@@ -97,9 +97,13 @@ class ExifHeader:
             raise ValueError('unexpected unpacking length: %d' % length) from err
         self.file_handle.seek(self.offset + offset)
         buf = self.file_handle.read(length)
+    
         if buf:
-            return struct.unpack(fmt, buf)[0]
+            if len(buf) >= 2:
+                return struct.unpack(fmt, buf)[0]
+            return 0
         return 0
+    
 
     def n2b(self, offset, length) -> bytes:
         """Convert offset to bytes."""
