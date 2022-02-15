@@ -132,7 +132,12 @@ class ExifHeader:
         """Return the list of IFDs in the header."""
         i = self._first_ifd()
         ifds = []
+        set_ifds = set()
         while i:
+            if i in set_ifds:
+                logger.warning('IFD loop detected.')
+                break
+            set_ifds.add(i)
             ifds.append(i)
             i = self._next_ifd(i)
         return ifds
