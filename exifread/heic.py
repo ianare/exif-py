@@ -169,7 +169,7 @@ class HEICExifFinder:
         }
         try:
             return defs[box.name]
-        except IndexError as err:
+        except (IndexError, KeyError) as err:
             raise NoParser(box.name) from err
 
     def parse_box(self, box: Box) -> Box:
