@@ -187,6 +187,28 @@ def _find_jpeg_exif(fh: BinaryIO, data, fake_exif) -> tuple:
     return offset, endian, fake_exif
 
 
+def _find_png_exif(fh: BinaryIO, data: bytes) -> tuple:
+    logger.debug("PNG format recognized in data[0:8]=%s", data[:8].hex())
+    fh.seek(8)
+
+    while True:
+        data = fh.read(8)
+        chunk = data[4:8]
+        logger.debug("PNG found chunk %s", chunk.decode("ascii"))
+
+        if chunk == b"" or chunk == b"IEND":
+            break
+
+        if chunk == b"eXIf":
+            offset = fh.tell()
+            return offset, fh.read(1)
+
+        chunk_size = int.from_bytes(data[:4], "big")
+        fh.seek(fh.tell() + chunk_size + 4)
+
+    raise ExifNotFound("PNG file does not have exif data.")
+
+
 def _get_xmp(fh: BinaryIO) -> bytes:
     xmp_bytes = b''
     logger.debug('XMP not in Exif, searching file for XMP info...')
@@ -231,6 +253,8 @@ def _determine_type(fh: BinaryIO) -> tuple:
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
         offset, endian, fake_exif = _find_jpeg_exif(fh, data, fake_exif)
+    elif data[0:8] == b'\x89PNG\r\n\x1a\n':
+        offset, endian = _find_png_exif(fh, data)
     else:
         # file format not recognized
         raise ExifNotFound("File format not recognized.")
