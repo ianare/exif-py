@@ -6,7 +6,7 @@
 #
 #
 # Copyright (c) 2002-2007 Gene Cash
-# Copyright (c) 2007-2020 Ianaré Sévi and contributors
+# Copyright (c) 2007-2022 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
 # See ChangeLog.rst file for all contributors and changes
@@ -18,9 +18,8 @@ Runs Exif tag extraction in command line.
 
 import sys
 import argparse
-import logging
 import timeit
-from exifread.tags import DEFAULT_STOP_TAG, FIELD_TYPES
+from exifread.tags import FIELD_TYPES
 from exifread import process_file, exif_log, __version__
 
 logger = exif_log.get_logger()
@@ -122,5 +121,4 @@ def main(args) -> None:
 
 
 if __name__ == '__main__':
-    args = get_args()
-    main(args)
+    main(get_args())

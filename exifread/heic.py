@@ -13,7 +13,7 @@
 import struct
 from typing import List, Dict, Callable, BinaryIO, Optional
 
-from .exif_log import get_logger
+from exifread.exif_log import get_logger
 
 logger = get_logger()
 
