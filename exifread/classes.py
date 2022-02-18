@@ -2,9 +2,9 @@ import re
 import struct
 from typing import BinaryIO, Dict, Any
 
-from .exif_log import get_logger
-from .utils import Ratio
-from .tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makernote
+from exifread.exif_log import get_logger
+from exifread.utils import Ratio
+from exifread.tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makernote
 
 logger = get_logger()
 
@@ -97,13 +97,13 @@ class ExifHeader:
             raise ValueError('unexpected unpacking length: %d' % length) from err
         self.file_handle.seek(self.offset + offset)
         buf = self.file_handle.read(length)
-    
+
         if buf:
-            if len(buf) >= 2:
-                return struct.unpack(fmt, buf)[0]
-            return 0
+            # https://github.com/ianare/exif-py/pull/158
+            # had to revert as this certain fields to be empty
+            # please provide test images
+            return struct.unpack(fmt, buf)[0]
         return 0
-    
 
     def n2b(self, offset, length) -> bytes:
         """Convert offset to bytes."""
@@ -553,7 +553,7 @@ class ExifHeader:
             return
         model = str(model.values)
 
-        camera_info_tags = None
+        camera_info_tags = {}
         for (model_name_re, tag_desc) in makernote.canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
                 camera_info_tags = tag_desc
@@ -591,13 +591,18 @@ class ExifHeader:
 
         import xml.dom.minidom  # pylint: disable=import-outside-toplevel
 
-        logger.debug('XMP cleaning data')
+        logger.debug("XMP cleaning data")
 
         # Pray that it's encoded in UTF-8
         # TODO: allow user to specify encoding
-        xmp_string = xmp_bytes.decode('utf-8')
+        xmp_string = xmp_bytes.decode("utf-8")
 
-        pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
+        try:
+            pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
+        except xml.parsers.expat.ExpatError:
+            logger.warning("XMP: XML is not well formed")
+            self.tags['Image ApplicationNotes'] = IfdTag(xmp_string, 0, 1, xmp_bytes, 0, 0)
+            return
         cleaned = []
         for line in pretty.splitlines():
             if line.strip():

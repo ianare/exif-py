@@ -24,15 +24,15 @@ lint: ## Run linting (pylint)
 	$(PYLINT_BIN) -f colorized ./exifread
 
 mypy: ## Run mypy
-	$(MYPY_BIN) --show-error-context ./exifread
+	$(MYPY_BIN) --show-error-context ./exifread ./EXIF.py
 
 #test: ## Run all tests
 #	$(PYTHON_BIN) -m unittest discover -v -s ./tests
 
 analyze: lint mypy ## Run all static analysis tools
 
-reqs-install: ## Install requirements
-	$(PIP_INSTALL) pylint==2.6.2 mypy==0.782
+reqs-install: ## Install with all requirements
+	$(PIP_INSTALL) .[dev]
 
 samples-download: ## Install sample files used for testing.
 	wget https://github.com/ianare/exif-samples/archive/master.tar.gz

@@ -1,9 +1,12 @@
-# -*- coding: utf-8 -*-
-
 from setuptools import setup, find_packages
 import exifread
 
 readme_file = open("README.rst", "rt").read()
+
+dev_requirements = [
+    "mypy==0.931",
+    "pylint==2.12.2",
+]
 
 setup(
     name="ExifRead",
@@ -30,4 +33,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Topic :: Utilities",
     ],
+    extras_require={
+        "dev": dev_requirements,
+    },
 )
