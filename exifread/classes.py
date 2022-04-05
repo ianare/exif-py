@@ -97,6 +97,8 @@ class ExifHeader:
             raise ValueError('unexpected unpacking length: %d' % length) from err
         self.file_handle.seek(self.offset + offset)
         buf = self.file_handle.read(length)
+        if len(buf) != length:
+            raise ValueError("cannot read enough bytes, something elsewhere is wrong")
 
         if buf:
             # https://github.com/ianare/exif-py/pull/158
