@@ -145,47 +145,36 @@ class ExifHeader:
     def _process_field(self, tag_name, count, field_type, type_length, offset):
         values = []
         signed = (field_type in [6, 8, 9, 10])
-        # XXX investigate
-        # some entries get too big to handle could be malformed
-        # file or problem with self.s2n
-        if count < 1000:
-            for _ in range(count):
-                if field_type in (5, 10):
-                    # a ratio
-                    value = Ratio(
-                        self.s2n(offset, 4, signed),
-                        self.s2n(offset + 4, 4, signed)
-                    )
-                elif field_type in (11, 12):
-                    # a float or double
-                    unpack_format = ''
-                    if self.endian == 'I':
-                        unpack_format += '<'
-                    else:
-                        unpack_format += '>'
-                    if field_type == 11:
-                        unpack_format += 'f'
-                    else:
-                        unpack_format += 'd'
-                    self.file_handle.seek(self.offset + offset)
-                    byte_str = self.file_handle.read(type_length)
-                    try:
-                        value = struct.unpack(unpack_format, byte_str)
-                    except struct.error:
-                        logger.warning('Possibly corrupted field %s', tag_name)
-                        # -1 means corrupted
-                        value = -1
+        for _ in range(count):
+            if field_type in (5, 10):
+                # a ratio
+                value = Ratio(
+                    self.s2n(offset, 4, signed),
+                    self.s2n(offset + 4, 4, signed)
+                )
+            elif field_type in (11, 12):
+                # a float or double
+                unpack_format = ''
+                if self.endian == 'I':
+                    unpack_format += '<'
                 else:
-                    value = self.s2n(offset, type_length, signed)
-                values.append(value)
-                offset = offset + type_length
-        # The test above causes problems with tags that are
-        # supposed to have long values! Fix up one important case.
-        elif tag_name in ('MakerNote', makernote.canon.CAMERA_INFO_TAG_NAME):
-            for _ in range(count):
+                    unpack_format += '>'
+                if field_type == 11:
+                    unpack_format += 'f'
+                else:
+                    unpack_format += 'd'
+                self.file_handle.seek(self.offset + offset)
+                byte_str = self.file_handle.read(type_length)
+                try:
+                    value = struct.unpack(unpack_format, byte_str)
+                except struct.error:
+                    logger.warning('Possibly corrupted field %s', tag_name)
+                    # -1 means corrupted
+                    value = -1
+            else:
                 value = self.s2n(offset, type_length, signed)
-                values.append(value)
-                offset = offset + type_length
+            values.append(value)
+            offset = offset + type_length
         return values
 
     def _process_field2(self, ifd_name, tag_name, count, offset):
@@ -212,6 +201,15 @@ class ExifHeader:
             except MemoryError:
                 logger.warning('MemoryError at position: %s, length: %s', file_position, count)
                 values = ''
+        return values
+
+    def _process_field7(self, ifd_name, tag_name, count, offset):
+        # undefined types e.g. MakerNote/UserComment
+        values = []
+        for _ in range(count):
+            value = self.s2n(offset, 1, signed=False)
+            values.append(value)
+            offset += 1
         return values
 
     def _process_tag(self, ifd, ifd_name: str, tag_entry, entry, tag: int, tag_name, relative, stop_tag) -> None:
@@ -248,9 +246,11 @@ class ExifHeader:
 
         field_offset = offset
         values = None
-        if field_type == 2:
+        if field_type == 2:  # ascii strings
             values = self._process_field2(ifd_name, tag_name, count, offset)
-        else:
+        elif field_type == 7:  # undefined
+            values = self._process_field7(ifd_name, tag_name, count, offset)
+        else:  # numbers
             values = self._process_field(tag_name, count, field_type, type_length, offset)
         # now 'values' is either a string or an array
         # TODO: use only one type
