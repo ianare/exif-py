@@ -4,8 +4,8 @@ import exifread
 readme_file = open("README.rst", "rt").read()
 
 dev_requirements = [
-    "mypy==0.931",
-    "pylint==2.12.2",
+    "mypy==0.950",
+    "pylint==2.13.8",
 ]
 
 setup(

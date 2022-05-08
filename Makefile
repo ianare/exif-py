@@ -4,6 +4,7 @@ ifneq (,$(wildcard /.dockerenv))
 	PIP_BIN := /usr/local/bin/pip3
 	PYLINT_BIN := ~/.local/bin/pylint
 	MYPY_BIN := ~/.local/bin/mypy
+	TWINE_BIN := ~/.local/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off --user
 else
 	VENV_DIR := ./.venv
@@ -11,6 +12,7 @@ else
 	PIP_BIN := $(VENV_DIR)/bin/pip3
 	PYLINT_BIN := $(VENV_DIR)/bin/pylint
 	MYPY_BIN := $(VENV_DIR)/bin/mypy
+	TWINE_BIN := $(VENV_DIR)/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off
 endif
 
@@ -37,6 +39,13 @@ reqs-install: ## Install with all requirements
 samples-download: ## Install sample files used for testing.
 	wget https://github.com/ianare/exif-samples/archive/master.tar.gz
 	tar -xzf master.tar.gz
+
+build:  ## build distribution
+	rm -fr ./dist
+	$(PYTHON_BIN) setup.py sdist
+
+publish: build ## Publish to PyPI
+	$(TWINE_BIN) upload --repository testpypi dist/*
 
 help: Makefile
 	@echo

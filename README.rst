@@ -2,12 +2,9 @@
 EXIF.py
 *******
 
-.. image:: https://travis-ci.org/ianare/exif-py.png
-        :target: https://travis-ci.org/ianare/exif-py
-
 Easy to use Python module to extract Exif metadata from digital image files.
 
-Supported formats: TIFF, JPEG, Webp, HEIC
+Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 
 
 Compatibility
@@ -15,8 +12,7 @@ Compatibility
 
 EXIF.py is tested and officially supported on Python 3.5 to 3.10
 
-Starting with version ``3.0.0``, Python2 compatibility is dropped *completely*
-(syntax errors due to type hinting).
+Starting with version ``3.0.0``, Python2 compatibility is dropped *completely* (syntax errors due to type hinting).
 
 https://pythonclock.org/
 
@@ -32,6 +28,8 @@ as it allows easily staying up to date::
     $ pip install exifread
 
 See the `pip documentation <https://pip.pypa.io/en/latest/user_guide.html>`_ for more info.
+
+EXIF.py is mature software and strives for stability.
 
 Development Version
 ===================
