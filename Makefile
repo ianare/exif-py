@@ -42,7 +42,7 @@ samples-download: ## Install sample files used for testing.
 
 build:  ## build distribution
 	rm -fr ./dist
-	$(PYTHON_BIN) setup.py sdist
+	$(PYTHON_BIN) setup.py sdist bdist_wheel
 
 publish: build ## Publish to PyPI
 	$(TWINE_BIN) upload --repository testpypi dist/*
