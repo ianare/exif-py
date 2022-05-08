@@ -171,6 +171,8 @@ This example shows how to use the library to correct the orientation of an image
             logging.basicConfig(level=logging.DEBUG)
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)
             val = orientation.values
+            if 2 in val:
+                val += [4, 3]
             if 5 in val:
                 val += [4, 6]
             if 7 in val:
