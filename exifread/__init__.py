@@ -122,7 +122,7 @@ def _determine_type(fh: BinaryIO) -> tuple:
 
 def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
                  details=True, strict=False, debug=False,
-                 truncate_tags=True, auto_seek=True):
+                 truncate_tags=True, auto_seek=True, extract_thumbnail=True):
     """
     Process an image file (expects an open file object).
 
@@ -179,7 +179,7 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
         hdr.decode_maker_note()
 
     # extract thumbnails
-    if details and thumb_ifd:
+    if details and thumb_ifd and extract_thumbnail:
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
