@@ -124,6 +124,7 @@ Pass the ``-q`` or ``--quick`` command line arguments, or as:
 To process makernotes only, without extracting the thumbnail image (if any):
 
 .. code-block:: python
+
     tags = exifread.process_file(f, details=True, extract_thumbnail=False)
 
 Stop at a Given Tag
