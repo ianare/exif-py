@@ -5,6 +5,7 @@ Based on https://github.com/exiftool/exiftool/blob/master/lib/Image/ExifTool/DJI
 """
 
 TAGS = {
+    0x01: ('Make', ),
     0x03: ('SpeedX', ),
     0x04: ('SpeedY', ),
     0x05: ('SpeedZ', ),
