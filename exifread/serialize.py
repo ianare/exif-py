@@ -2,7 +2,7 @@
 Enable conversion of Exif IfdTags to native Python types
 """
 
-from .tags import FIELD_TYPES
+from exifread.tags import FIELD_TYPES
 
 def convert_hdr_tags(hdr_tags: dict) -> dict:
     """
