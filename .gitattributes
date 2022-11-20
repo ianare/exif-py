@@ -9,3 +9,4 @@
 *.txt text eol=lf whitespace=blank-at-eol
 *.rst text eol=lf whitespace=blank-at-eol
 *.in text eol=lf whitespace=blank-at-eol
+*.cgi text eol=lf whitespace=blank-at-eol

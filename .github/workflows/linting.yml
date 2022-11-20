@@ -1,0 +1,43 @@
+#
+# Run static code analysis.
+#
+name: Static Analysis
+
+on:
+  - push
+
+jobs:
+  static-check:
+    name: Run Static Analysis
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-dev-${{ hashFiles('setup.py') }}
+        restore-keys: |
+          ${{ runner.os }}-dev-
+
+    - name: Install dependencies
+      run: |
+        pip install virtualenv
+        make venv reqs-install
+
+    - name: Analysing the code with mypy
+      run: |
+        make mypy
+
+    - name: Analysing the code with pylint
+      run: |
+        make lint

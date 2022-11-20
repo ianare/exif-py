@@ -29,7 +29,7 @@ def make_string(seq: Union[bytes, list]) -> str:
     if not string:
         if isinstance(seq, list):
             string = ''.join(map(str, seq))
-            # Some UserComment lists only contain null bytes, nothing valueable to return
+            # Some UserComment lists only contain null bytes, nothing valuable to return
             if set(string) == {'0'}:
                 return ''
         else:
@@ -45,7 +45,9 @@ def make_string_uc(seq) -> str:
     First 8 bytes gives coding system e.g. ASCII vs. JIS vs Unicode.
     """
     if not isinstance(seq, str):
-        seq = seq[8:]
+        # Remove code from sequence only if it is valid
+        if make_string(seq[:8]).upper() in ('ASCII', 'UNICODE', 'JIS', ''):
+            seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
     return make_string(seq)

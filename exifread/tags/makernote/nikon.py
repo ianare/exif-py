@@ -1,5 +1,6 @@
 
-from ...utils import make_string, Ratio
+from exifread.utils import make_string, Ratio
+
 
 def ev_bias(seq) -> str:
     """
@@ -48,6 +49,7 @@ def ev_bias(seq) -> str:
         ratio = Ratio(i, step)
         ret_str = ret_str + str(ratio) + ' EV'
     return ret_str
+
 
 # Nikon E99x MakerNote Tags
 TAGS_NEW = {

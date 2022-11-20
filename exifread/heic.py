@@ -13,7 +13,7 @@
 import struct
 from typing import List, Dict, Callable, BinaryIO, Optional
 
-from .exif_log import get_logger
+from exifread.exif_log import get_logger
 
 logger = get_logger()
 
@@ -83,7 +83,7 @@ class HEICExifFinder:
         if not read:
             raise EOFError
         if len(read) != nbytes:
-            msg = "get(nbytes={nbytes}) found {read} bytes at postion {pos}".format(
+            msg = "get(nbytes={nbytes}) found {read} bytes at position {pos}".format(
                 nbytes=nbytes,
                 read=len(read),
                 pos=self.file_handle.tell()
@@ -169,8 +169,8 @@ class HEICExifFinder:
         }
         try:
             return defs[box.name]
-        except IndexError:
-            raise NoParser(box.name)
+        except (IndexError, KeyError) as err:
+            raise NoParser(box.name) from err
 
     def parse_box(self, box: Box) -> Box:
         probe = self.get_parser(box)
