@@ -52,6 +52,10 @@ def get_args():
         help='Run in strict mode (stop on errors).',
     )
     parser.add_argument(
+        '-n', '--native', action='store_true', dest='native',
+        help='Convert IfdTags to native python types.',
+    )
+    parser.add_argument(
         '-d', '--debug', action='store_true', dest='debug',
         help='Run in debug mode (display extra info).',
     )
@@ -87,7 +91,12 @@ def main(args) -> None:
 
         # get the tags
         data = process_file(
-            img_file, stop_tag=args.stop_tag, details=args.detailed, strict=args.strict, debug=args.debug
+            img_file,
+            stop_tag=args.stop_tag,
+            details=args.detailed,
+            strict=args.strict,
+            convert_ifdtags=args.native,
+            debug=args.debug,
         )
 
         tag_stop = timeit.default_timer()
@@ -104,14 +113,15 @@ def main(args) -> None:
             logger.info('File has TIFF thumbnail')
             del data['TIFFThumbnail']
 
-        tag_keys = list(data.keys())
-        tag_keys.sort()
-
-        for i in tag_keys:
+        for field in sorted(data):
+            value = data[field]
             try:
-                logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
+                if args.native:
+                    logger.info('%s: %s', field, value)
+                else:
+                    logger.info('%s (%s): %s', field, FIELD_TYPES[value.field_type][2], value.printable)
             except:
-                logger.error("%s : %s", i, str(data[i]))
+                logger.error("%s : %s", field, str(value))
 
         file_stop = timeit.default_timer()
 

@@ -15,7 +15,7 @@ class IfdTag:
     """
 
     def __init__(self, printable: str, tag: int, field_type: int, values,
-                 field_offset: int, field_length: int):
+                 field_offset: int, field_length: int, prefer_printable: bool = True):
         # printable version of data
         self.printable = printable
         # tag ID number
@@ -29,6 +29,8 @@ class IfdTag:
         # either string, bytes or list of data items
         # TODO: sort out this type mess!
         self.values = values
+        # indication if printable version should be used upon serialization
+        self.prefer_printable = prefer_printable
 
     def __str__(self) -> str:
         return self.printable
@@ -263,10 +265,15 @@ class ExifHeader:
                 printable = str(values[0:-1])
         else:
             printable = str(values)
+
+        prefer_printable = False
+
         # compute printable version of values
         if tag_entry:
             # optional 2nd tag element is present
             if len(tag_entry) != 1:
+                prefer_printable = True
+
                 if callable(tag_entry[1]):
                     # call mapping function
                     printable = tag_entry[1](values)
@@ -284,7 +291,7 @@ class ExifHeader:
                         printable += tag_entry[1].get(val, repr(val))
 
         self.tags[ifd_name + ' ' + tag_name] = IfdTag(
-            printable, tag, field_type, values, field_offset, count * type_length
+            printable, tag, field_type, values, field_offset, count * type_length, prefer_printable
         )
         tag_value = repr(self.tags[ifd_name + ' ' + tag_name])
         logger.debug(' %s: %s', tag_name, tag_value)
