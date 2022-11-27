@@ -192,11 +192,12 @@ class HEICExifFinder:
         self.get_full(meta)
         while self.file_handle.tell() < meta.after:
             box = self.next_box()
-            psub = self.get_parser(box)
-            if psub is not None:
+
+            try:
+                psub = self.get_parser(box)
                 psub(box)
                 meta.subs[box.name] = box
-            else:
+            except NoParser as e:
                 logger.debug('HEIC: skipping %r', box)
             # skip any unparsed data
             self.skip(box)
