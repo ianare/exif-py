@@ -79,34 +79,3 @@ def get_gps_coords(tags: dict) -> tuple:
     lat_coord *= (-1) ** (lat_ref_val == 'S')
 
     return (lat_coord, lng_coord)
-
-
-class Ratio(Fraction):
-    """
-    Ratio object that eventually will be able to reduce itself to lowest
-    common denominator for printing.
-    """
-
-    # We're immutable, so use __new__ not __init__
-    def __new__(cls, numerator=0, denominator=None):
-        try:
-            self = super(Ratio, cls).__new__(cls, numerator, denominator)
-        except ZeroDivisionError:
-            self = super(Ratio, cls).__new__(cls)
-            self._numerator = numerator
-            self._denominator = denominator
-        return self
-
-    def __repr__(self) -> str:
-        return str(self)
-
-    @property
-    def num(self):
-        return self.numerator
-
-    @property
-    def den(self):
-        return self.denominator
-
-    def decimal(self) -> float:
-        return float(self)
