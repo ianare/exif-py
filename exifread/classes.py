@@ -152,10 +152,14 @@ class ExifHeader:
             for _ in range(count):
                 if field_type in (5, 10):
                     # a ratio
-                    value = Fraction(
+                    value = [
                         self.s2n(offset, 4, signed),
                         self.s2n(offset + 4, 4, signed)
-                    )
+                    ]
+                    try:
+                        value = Fraction(*value)
+                    except ZeroDivisionError:
+                        pass
                 elif field_type in (11, 12):
                     # a float or double
                     unpack_format = ''
@@ -512,47 +516,43 @@ class ExifHeader:
             self.dump_ifd(note.field_offset, 'MakerNote',
                           tag_dict=makernote.canon.TAGS)
 
-            for i in (('MakerNote Tag 0x0001', makernote.canon.CAMERA_SETTINGS),
-                      ('MakerNote Tag 0x0002', makernote.canon.FOCAL_LENGTH),
-                      ('MakerNote Tag 0x0004', makernote.canon.SHOT_INFO),
-                      ('MakerNote Tag 0x0026', makernote.canon.AF_INFO_2),
-                      ('MakerNote Tag 0x0093', makernote.canon.FILE_INFO)):
-                if i[0] in self.tags:
-                    logger.debug('Canon %s', i[0])
-                    self._canon_decode_tag(self.tags[i[0]].values, i[1])
-                    del self.tags[i[0]]
-            if makernote.canon.CAMERA_INFO_TAG_NAME in self.tags:
-                tag = self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
+            for tag_name, tag_def in (('MakerNote CameraSettings', makernote.canon.CAMERA_SETTINGS),
+                      ('MakerNote FocalLength', makernote.canon.FOCAL_LENGTH),
+                      ('MakerNote ShotInfo', makernote.canon.SHOT_INFO),
+                      ('MakerNote AFInfo2', makernote.canon.AF_INFO_2),
+                      ('MakerNote FileInfo', makernote.canon.FILE_INFO)):
+                if tag_name in self.tags:
+                    logger.debug('Canon %s', tag_name)
+                    self._canon_decode_tag(tag_name, self.tags[tag_name].values, tag_def)
+                    del self.tags[tag_name]
+            ccitn = makernote.canon.CAMERA_INFO_TAG_NAME
+            if tag := self.tags.get(ccitn):
                 logger.debug('Canon CameraInfo')
-                self._canon_decode_camera_info(tag)
-                del self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
+                if self._canon_decode_camera_info(tag):
+                    del self.tags[ccitn]
+
             return
 
 #    TODO Decode Olympus MakerNote tag based on offset within tag.
 #    def _olympus_decode_tag(self, value, mn_tags):
 #        pass
 
-    def _canon_decode_tag(self, value, mn_tags):
+    def _canon_decode_tag(self, tag_name, value, mn_tags):
         """
         Decode Canon MakerNote tag based on offset within tag.
 
         See http://www.burren.cx/david/canon.html by David Burren
         """
-        for i in range(1, len(value)):
-            tag = mn_tags.get(i, ('Unknown', ))
-            name = tag[0]
-            if len(tag) > 1:
-                val = tag[1].get(value[i], 'Unknown')
-            else:
-                val = value[i]
-            try:
-                logger.debug(" %s %s %s", i, name, hex(value[i]))
-            except TypeError:
-                logger.debug(" %s %s %s", i, name, value[i])
-
+        for i, val in enumerate(value):
+            if not i:
+                # skip id 0
+                continue
+            name, *enum = mn_tags.get(i + 1, (f'Unknown {i+1:3d}', ))
+            if enum:
+                val = enum[0].get(val, f'Unknown 0x{val:x}')
             # It's not a real IFD Tag but we fake one to make everybody happy.
             # This will have a "proprietary" type
-            self.tags['MakerNote ' + name] = IfdTag(str(val), 0, 0, val, 0, 0)
+            self.tags[f'{tag_name} {name}'] = IfdTag(str(val), 0, 0, val, 0, 0)
 
     def _canon_decode_camera_info(self, camera_info_tag):
         """
@@ -594,7 +594,8 @@ class ExifHeader:
                     tag_value = tag[2].get(tag_value, tag_value)
             logger.debug(" %s %s", tag_name, tag_value)
 
-            self.tags['MakerNote ' + tag_name] = IfdTag(str(tag_value), 0, 0, tag_value, 0, 0)
+            self.tags[f'MakerNote CanonCameraInfo {tag_name}'] = IfdTag(str(tag_value), 0, 0, tag_value, 0, 0)
+        return True
 
     def parse_xmp(self, xmp_bytes: bytes):
         """Adobe's Extensible Metadata Platform, just dump the pretty XML."""
