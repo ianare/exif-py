@@ -1,9 +1,9 @@
 import re
 import struct
+from fractions import Fraction
 from typing import BinaryIO, Dict, Any
 
 from exifread.exif_log import get_logger
-from exifread.utils import Ratio
 from exifread.tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makernote
 
 logger = get_logger()
@@ -152,7 +152,7 @@ class ExifHeader:
             for _ in range(count):
                 if field_type in (5, 10):
                     # a ratio
-                    value = Ratio(
+                    value = Fraction(
                         self.s2n(offset, 4, signed),
                         self.s2n(offset + 4, 4, signed)
                     )
