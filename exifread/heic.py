@@ -164,6 +164,12 @@ class HEICExifFinder:
             'infe': self._parse_infe,
             'iinf': self._parse_iinf,
             'iloc': self._parse_iloc,
+            'hdlr': self._parse_hdlr,  # HEIC/AVIF hdlr = Handler
+            'pitm': self._parse_pitm,  # HEIC/AVIF pitm = Primary Item
+            'iref': self._parse_iref,  # HEIC/AVIF idat = Item Reference
+            'idat': self._parse_idat,  # HEIC/AVIF idat = Item Data Box
+            'dinf': self._parse_dinf,  # HEIC/AVIF dinf = Data Information Box
+            'iprp': self._parse_iprp,  # HEIC/AVIF iprp = Item Protection Box
         }
         return defs.get(box.name)
 
@@ -256,6 +262,40 @@ class HEICExifFinder:
                 extent_length = self.get_int(box.length_size)
                 extents.append((extent_offset, extent_length))
             box.locs[item_id] = extents
+
+    """ Added a few box names, which as unhandled aborted data extraction:
+          hdlr, pitm, dinf, iprp, idat, iref
+        Handling is initially NONE.
+        They were found in .heif photo files produced by Nokia 8.3 5G.
+        They are part of the standrd, referring to:
+            - ISO/IEC 14496-12 fifth edition 2015-02-20 (chapter 8.10 Metadata)
+              found in: https://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition
+              (The newest is ISO/IEC 14496-12:2022, but would cost 208 Swiss Francs at iso.org)
+            - A C++ example: https://exiv2.org/book/#BMFF
+    """
+    def _parse_hdlr(self, box: Box):
+        logger.debug("HEIC: encountered 'hdlr' Box, did nothing")
+        pass
+
+    def _parse_pitm(self, box: Box):
+        logger.debug("HEIC: encountered 'pitm' Box, did nothing")
+        pass
+
+    def _parse_dinf(self, box: Box):
+        logger.debug("HEIC: encountered 'dinf' Box, did nothing")
+        pass
+
+    def _parse_iprp(self, box: Box):
+        logger.debug("HEIC: encountered 'iprp' Box, did nothing")
+        pass
+
+    def _parse_idat(self, box: Box):
+        logger.debug("HEIC: encountered 'idat' Box, did nothing")
+        pass
+
+    def _parse_iref(self, box: Box):
+        logger.debug("HEIC: encountered 'iref' Box, did nothing")
+        pass
 
     def find_exif(self) -> tuple:
         ftyp = self.expect_parse('ftyp')
