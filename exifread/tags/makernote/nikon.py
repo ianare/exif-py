@@ -14,6 +14,8 @@ def ev_bias(seq) -> str:
     """
     if len(seq) < 4:
         return ''
+    if type(seq) == str:
+        return ''
     if seq == [252, 1, 6, 0]:
         return '-2/3 EV'
     if seq == [253, 1, 6, 0]:
