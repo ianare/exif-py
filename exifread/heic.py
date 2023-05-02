@@ -263,39 +263,36 @@ class HEICExifFinder:
                 extents.append((extent_offset, extent_length))
             box.locs[item_id] = extents
 
-    """ Added a few box names, which as unhandled aborted data extraction:
-          hdlr, pitm, dinf, iprp, idat, iref
-        Handling is initially NONE.
-        They were found in .heif photo files produced by Nokia 8.3 5G.
-        They are part of the standard, referring to:
-            - ISO/IEC 14496-12 fifth edition 2015-02-20 (chapter 8.10 Metadata)
-              found in: https://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition
-              (The newest is ISO/IEC 14496-12:2022, but would cost 208 Swiss Francs at iso.org)
-            - A C++ example: https://exiv2.org/book/#BMFF
-    """
+    # Added a few box names, which as unhandled aborted data extraction:
+    # hdlr, pitm, dinf, iprp, idat, iref
+    #
+    # Handling is initially `None`.
+    # They were found in .heif photo files produced by Nokia 8.3 5G.
+    #
+    # They are part of the standard, referring to:
+    #   - ISO/IEC 14496-12 fifth edition 2015-02-20 (chapter 8.10 Metadata)
+    #     found in:
+    #     https://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition
+    #     (The newest is ISO/IEC 14496-12:2022, but would cost 208 Swiss Francs at iso.org)
+    #   - A C++ example: https://exiv2.org/book/#BMFF
+
     def _parse_hdlr(self, box: Box):
-        logger.debug("HEIC: found 'hdlr' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'hdlr' Box %s, skipped", box.name)
 
     def _parse_pitm(self, box: Box):
-        logger.debug("HEIC: found 'pitm' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'pitm' Box %s, skipped", box.name)
 
     def _parse_dinf(self, box: Box):
-        logger.debug("HEIC: found 'dinf' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'dinf' Box %s, skipped", box.name)
 
     def _parse_iprp(self, box: Box):
-        logger.debug("HEIC: found 'iprp' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'iprp' Box %s, skipped", box.name)
 
     def _parse_idat(self, box: Box):
-        logger.debug("HEIC: found 'idat' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'idat' Box %s, skipped", box.name)
 
     def _parse_iref(self, box: Box):
-        logger.debug("HEIC: found 'iref' Box, skipped")
-        pass
+        logger.debug("HEIC: found 'iref' Box %s, skipped", box.name)
 
     def find_exif(self) -> tuple:
         ftyp = self.expect_parse('ftyp')
@@ -304,7 +301,7 @@ class HEICExifFinder:
         meta = self.expect_parse('meta')
         assert meta.subs['iinf'].exif_infe is not None
         item_id = meta.subs['iinf'].exif_infe.item_id
-        extents = meta.subs['iloc'].locs[item_id]       
+        extents = meta.subs['iloc'].locs[item_id]
         logger.debug('HEIC: found Exif location.')
         # we expect the Exif data to be in one piece.
         assert len(extents) == 1
@@ -319,15 +316,15 @@ class HEICExifFinder:
         exif_tiff_header_offset = self.get32()
 
         if exif_tiff_header_offset == 0:
-            """ This case was found in HMD Nokia 8.3 5G heic photos.
-                The TIFF header just sits there without any 'Exif'.
-            """    
+            # This case was found in HMD Nokia 8.3 5G heic photos.
+            # The TIFF header just sits there without any 'Exif'.
+
             offset = 0
             endian = '?' # Haven't got Endian info yet
-        else:    
+        else:
             assert exif_tiff_header_offset >= 6
-            assert self.get(exif_tiff_header_offset)[-6:] == b'Exif\x00\x00'            
+            assert self.get(exif_tiff_header_offset)[-6:] == b'Exif\x00\x00'
             offset = self.file_handle.tell()
-            endian = self.file_handle.read(1)
-            
+            endian = str(self.file_handle.read(1))
+
         return offset, endian

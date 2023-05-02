@@ -34,11 +34,12 @@ def _find_heic_tiff(fh: BinaryIO) -> tuple:
         offset = fh.tell() - 4
         fh.seek(offset)
         endian = data[0:2]
-        asterisk = data[2:4]
         offset = fh.tell()
-        logger.debug(f'Found TIFF header in Exif, offset = {offset:0x}H')
+        logger.debug('Found TIFF header in Exif, offset = %0xH', offset)
     else:
-        raise InvalidExif("Exif pointer to zeros, but found {data} instead of a TIFF header.")
+        raise InvalidExif(
+            "Exif pointer to zeros, but found " + str(data) + " instead of a TIFF header."
+        )
 
     return offset, endian
 
