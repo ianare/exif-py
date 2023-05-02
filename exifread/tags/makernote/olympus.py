@@ -1,5 +1,6 @@
 
-from ...utils import make_string
+from exifread.utils import make_string
+
 
 def special_mode(val):
     """Decode Olympus SpecialMode tag in MakerNote"""
@@ -16,9 +17,13 @@ def special_mode(val):
         3: 'Bottom to top',
         4: 'Top to bottom',
     }
-    if not val or (val[0] not in mode1 or val[2] not in mode2):
+
+    if not val:
         return val
-    return '%s - sequence %d - %s' % (mode1[val[0]], val[1], mode2[val[2]])
+
+    mode1_val = mode1.get(val[0], "Unknown")
+    mode2_val = mode2.get(val[2], "Unknown")
+    return '%s - Sequence %d - %s' % (mode1_val, val[1], mode2_val)
 
 
 TAGS = {

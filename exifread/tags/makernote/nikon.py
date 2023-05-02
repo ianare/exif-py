@@ -1,7 +1,8 @@
 
-from ...utils import make_string, Ratio
+from exifread.utils import make_string, Ratio
 
-def ev_bias(seq):
+
+def ev_bias(seq) -> str:
     """
     First digit seems to be in steps of 1/6 EV.
     Does the third value mean the step size?  It is usually 6,
@@ -49,10 +50,11 @@ def ev_bias(seq):
         ret_str = ret_str + str(ratio) + ' EV'
     return ret_str
 
+
 # Nikon E99x MakerNote Tags
 TAGS_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
-    0x0002: ('ISOSetting', make_string),
+    0x0002: ('ISOSetting', ),
     0x0003: ('ColorMode', ),
     0x0004: ('Quality', ),
     0x0005: ('Whitebalance', ),

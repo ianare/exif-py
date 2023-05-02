@@ -2,8 +2,10 @@
 Tag definitions
 """
 
-from .exif import EXIF_TAGS
-from .makernote import apple, canon, casio, fujifilm, nikon, olympus
+from exifread.tags.exif import EXIF_TAGS
+from exifread.tags.makernote import (
+    apple, canon, casio, fujifilm, nikon, olympus, dji
+)
 
 DEFAULT_STOP_TAG = 'UNDEF'
 
@@ -27,7 +29,7 @@ FIELD_TYPES = (
 
 # To ignore when quick processing
 IGNORE_TAGS = (
-    0x9286,  # user comment
-    0x927C,  # MakerNote Tags
     0x02BC,  # XPM
+    0x927C,  # MakerNote Tags
+    0x9286,  # user comment
 )

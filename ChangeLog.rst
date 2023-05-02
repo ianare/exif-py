@@ -2,6 +2,21 @@
 Change Log
 **********
 
+3.0.0 — 2022-05-08
+    * **BREAKING CHANGE:** Add type hints, which removes Python2 compatibility
+    * Update make_string util to clean up bad values (#128) by Étienne Pelletier
+    * Fix Olympus SpecialMode Unknown Values (#143) by Paul Barton
+    * Remove coding system from UserComment sequence only if it is valid (#147) by Grzegorz Ruciński
+    * Fixes to orientation by Mark
+    * Add some EXIF tags
+    * Add support for PNG files (#159) by Marco
+    * Fix for HEIC Unknown Parsers (#153) by Paul Barton
+    * Handle images that has corrupted headers/tags (#152) by Mahmoud Harmouch
+
+2.3.2 — 2020-10-29
+    * Fixes for HEIC files from Note10+ (#127) by Drew Perttula
+    * Add missing EXIF OffsetTime tags (#126) by Étienne Pelletier
+
 2.3.1 — 2020-08-07
     * Fix bug introduced with v2.3.0 in HEIC processing.
 
@@ -43,7 +58,7 @@ Change Log
 
 2.1.0 — 2015-05-15
     * Bypass empty/unreadable Olympus MakerNote info (issue #42)
-    * Suport Apple Makernote and Apple HDR details by Jesus Cea
+    * Support Apple Makernote and Apple HDR details by Jesus Cea
     * Correcty process the Makernote of some Canon models by Jesus Cea
     * Support HDR in Canon cameras by Jesus Cea
 
@@ -245,14 +260,3 @@ Patch Contributors:
 
 1999-08-21 TB
     * Last update by Thierry Bousch to his code.
-
-
-
-
-
-
-
-
-
-
-

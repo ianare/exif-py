@@ -13,6 +13,7 @@
 # Archives
 *.gz
 *.zip
+*.gz.1
 
 # Packages
 *.egg
@@ -52,3 +53,7 @@ exif-samples*
 
 # Misc
 *swp
+
+# Venv
+/venv
+/.venv
