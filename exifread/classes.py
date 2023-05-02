@@ -498,10 +498,13 @@ class ExifHeader:
             return
         
         if make == 'DJI':
+            endian = self.endian
+            self.endian = 'I'
             offset = self.offset
             self.offset += note.field_offset
             self.dump_ifd(0, 'MakerNote', tag_dict=makernote.dji.TAGS)
             self.offset = offset
+            self.endian = endian
             return
         
         # Canon
