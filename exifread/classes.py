@@ -496,7 +496,7 @@ class ExifHeader:
             self.dump_ifd(0, 'MakerNote', tag_dict=makernote.apple.TAGS)
             self.offset = offset
             return
-        
+
         if make == 'DJI':
             endian = self.endian
             self.endian = 'I'
@@ -506,7 +506,7 @@ class ExifHeader:
             self.offset = offset
             self.endian = endian
             return
-        
+
         # Canon
         if make == 'Canon':
             self.dump_ifd(note.field_offset, 'MakerNote',
