@@ -2,9 +2,9 @@ import re
 import struct
 from typing import BinaryIO, Dict, Any, List
 
-from .exif_log import get_logger
-from .utils import Ratio
-from .tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makernote
+from exifread.exif_log import get_logger
+from exifread.utils import Ratio
+from exifread.tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS, makernote
 
 logger = get_logger()
 
@@ -97,7 +97,11 @@ class ExifHeader:
             raise ValueError('unexpected unpacking length: %d' % length) from err
         self.file_handle.seek(self.offset + offset)
         buf = self.file_handle.read(length)
+
         if buf:
+            # https://github.com/ianare/exif-py/pull/158
+            # had to revert as this certain fields to be empty
+            # please provide test images
             return struct.unpack(fmt, buf)[0]
         return 0
 
@@ -128,7 +132,12 @@ class ExifHeader:
         """Return the list of IFDs in the header."""
         i = self._first_ifd()
         ifds = []
+        set_ifds = set()
         while i:
+            if i in set_ifds:
+                logger.warning('IFD loop detected.')
+                break
+            set_ifds.add(i)
             ifds.append(i)
             i = self._next_ifd(i)
         return ifds
@@ -160,7 +169,12 @@ class ExifHeader:
                         unpack_format += 'd'
                     self.file_handle.seek(self.offset + offset)
                     byte_str = self.file_handle.read(type_length)
-                    value = struct.unpack(unpack_format, byte_str)
+                    try:
+                        value = struct.unpack(unpack_format, byte_str)
+                    except struct.error:
+                        logger.warning('Possibly corrupted field %s', tag_name)
+                        # -1 means corrupted
+                        value = -1
                 else:
                     value = self.s2n(offset, type_length, signed)
                 values.append(value)
@@ -238,7 +252,6 @@ class ExifHeader:
             values = self._process_field2(ifd_name, tag_name, count, offset)
         else:
             values = self._process_field(tag_name, count, field_type, type_length, offset)
-
         # now 'values' is either a string or an array
         # TODO: use only one type
         if count == 1 and field_type != 2:
@@ -484,6 +497,16 @@ class ExifHeader:
             self.offset = offset
             return
 
+        if make == 'DJI':
+            endian = self.endian
+            self.endian = 'I'
+            offset = self.offset
+            self.offset += note.field_offset
+            self.dump_ifd(0, 'MakerNote', tag_dict=makernote.dji.TAGS)
+            self.offset = offset
+            self.endian = endian
+            return
+
         # Canon
         if make == 'Canon':
             self.dump_ifd(note.field_offset, 'MakerNote',
@@ -540,7 +563,7 @@ class ExifHeader:
             return
         model = str(model.values)
 
-        camera_info_tags = None
+        camera_info_tags = {}
         for (model_name_re, tag_desc) in makernote.canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
                 camera_info_tags = tag_desc
@@ -578,13 +601,18 @@ class ExifHeader:
 
         import xml.dom.minidom  # pylint: disable=import-outside-toplevel
 
-        logger.debug('XMP cleaning data')
+        logger.debug("XMP cleaning data")
 
         # Pray that it's encoded in UTF-8
         # TODO: allow user to specify encoding
-        xmp_string = xmp_bytes.decode('utf-8')
+        xmp_string = xmp_bytes.decode("utf-8")
 
-        pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
+        try:
+            pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
+        except xml.parsers.expat.ExpatError:
+            logger.warning("XMP: XML is not well formed")
+            self.tags['Image ApplicationNotes'] = IfdTag(xmp_string, 0, 1, xmp_bytes, 0, 0)
+            return
         cleaned = []
         for line in pretty.splitlines():
             if line.strip():

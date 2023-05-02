@@ -2,26 +2,17 @@
 EXIF.py
 *******
 
-.. image:: https://travis-ci.org/ianare/exif-py.png
-        :target: https://travis-ci.org/ianare/exif-py
-
 Easy to use Python module to extract Exif metadata from digital image files.
 
-Supported formats: TIFF, JPEG, Webp, HEIC
+Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 
 
 Compatibility
 *************
 
-EXIF.py is tested and officially supported on the following Python versions:
+EXIF.py is tested and officially supported on Python 3.5 to 3.11
 
-- 3.5
-- 3.6
-- 3.7
-- 3.8
-
-Starting with version ``3.0.0``, Python2 compatibility is dropped *completely*
-(syntax errors due to type hinting).
+Starting with version ``3.0.0``, Python2 compatibility is dropped *completely* (syntax errors due to type hinting).
 
 https://pythonclock.org/
 
@@ -29,8 +20,8 @@ https://pythonclock.org/
 Installation
 ************
 
-PyPI
-====
+Stable Version
+==============
 The recommended process is to install the `PyPI package <https://pypi.python.org/pypi/ExifRead>`_,
 as it allows easily staying up to date::
 
@@ -38,12 +29,16 @@ as it allows easily staying up to date::
 
 See the `pip documentation <https://pip.pypa.io/en/latest/user_guide.html>`_ for more info.
 
-Archive
-=======
-Download an archive from the project's `releases page <https://github.com/ianare/exif-py/releases>`_.
+EXIF.py is mature software and strives for stability.
 
-Extract and enjoy.
+Development Version
+===================
 
+After cloning the repo, use the provided Makefile::
+
+  make venv reqs-install
+
+Which will install a virtual environment and install development dependencies.
 
 Usage
 *****
@@ -53,13 +48,13 @@ Command line
 
 Some examples::
 
-    $ EXIF.py image1.jpg
-    $ EXIF.py -dc image1.jpg image2.tiff
-    $ find ~/Pictures -name "*.jpg" -o -name "*.tiff" | xargs EXIF.py
+    EXIF.py image1.jpg
+    EXIF.py -dc image1.jpg image2.tiff
+    find ~/Pictures -name "*.jpg" -o -name "*.tiff" | xargs EXIF.py
 
 Show command line options::
 
-    $ EXIF.py -h
+    EXIF.py -h
 
 Python Script
 =============
@@ -126,6 +121,12 @@ Pass the ``-q`` or ``--quick`` command line arguments, or as:
 
     tags = exifread.process_file(f, details=False)
 
+To process makernotes only, without extracting the thumbnail image (if any):
+
+.. code-block:: python
+
+    tags = exifread.process_file(f, details=True, extract_thumbnail=False)
+
 Stop at a Given Tag
 ===================
 
@@ -174,10 +175,12 @@ This example shows how to use the library to correct the orientation of an image
             logging.basicConfig(level=logging.DEBUG)
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)
             val = orientation.values
+            if 2 in val:
+                val += [4, 3]
             if 5 in val:
-                val += [4,8]
-            if 7 in val:
                 val += [4, 6]
+            if 7 in val:
+                val += [4, 8]
             if 3 in val:
                 logging.debug("Rotating by 180 degrees.")
                 im = im.transpose(Image.ROTATE_180)

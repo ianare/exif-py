@@ -2,8 +2,10 @@
 Tag definitions
 """
 
-from .exif import EXIF_TAGS
-from .makernote import apple, canon, casio, fujifilm, nikon, olympus
+from exifread.tags.exif import EXIF_TAGS
+from exifread.tags.makernote import (
+    apple, canon, casio, fujifilm, nikon, olympus, dji
+)
 
 DEFAULT_STOP_TAG = 'UNDEF'
 

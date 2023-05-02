@@ -5,25 +5,17 @@ Read Exif metadata from tiff and jpeg files.
 import struct
 from typing import BinaryIO
 
-from .exif_log import get_logger
-from .classes import ExifHeader
-from .tags import DEFAULT_STOP_TAG
-from .utils import ord_, make_string
-from .heic import HEICExifFinder
+from exifread.exif_log import get_logger
+from exifread.classes import ExifHeader
+from exifread.tags import DEFAULT_STOP_TAG
+from exifread.utils import ord_, make_string
+from exifread.heic import HEICExifFinder
+from exifread.jpeg import find_jpeg_exif
+from exifread.exceptions import InvalidExif, ExifNotFound
 
 __version__ = '3.0.0'
 
 logger = get_logger()
-
-
-class InvalidExif(Exception):
-    pass
-
-class ExifNotFound(Exception):
-    pass
-
-def increment_base(data, base):
-    return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
 def _find_tiff_exif(fh: BinaryIO) -> tuple:
@@ -47,6 +39,7 @@ def _find_webp_exif(fh: BinaryIO) -> tuple:
             if len(data) != 8:
                 raise InvalidExif("Invalid webp file chunk header.")
             if data[0:4] == b'EXIF':
+                fh.seek(6, 1)
                 offset = fh.tell()
                 endian = fh.read(1)
                 return offset, endian
@@ -55,136 +48,25 @@ def _find_webp_exif(fh: BinaryIO) -> tuple:
     raise ExifNotFound("Webp file does not have exif data.")
 
 
-def _find_jpeg_exif(fh: BinaryIO, data, fake_exif) -> tuple:
-    logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1]))
-    base = 2
-    logger.debug("data[2]=0x%X data[3]=0x%X data[6:10]=%s", ord_(data[2]), ord_(data[3]), data[6:10])
-    while ord_(data[2]) == 0xFF and data[6:10] in (b'JFIF', b'JFXX', b'OLYM', b'Phot'):
-        length = ord_(data[4]) * 256 + ord_(data[5])
-        logger.debug(" Length offset is %s", length)
-        fh.read(length - 8)
-        # fake an EXIF beginning of file
-        # I don't think this is used. --gd
-        data = b'\xFF\x00' + fh.read(10)
-        fake_exif = 1
-        if base > 2:
-            logger.debug(" Added to base")
-            base = base + length + 4 - 2
-        else:
-            logger.debug(" Added to zero")
-            base = length + 4
-        logger.debug(" Set segment base to 0x%X", base)
+def _find_png_exif(fh: BinaryIO, data: bytes) -> tuple:
+    logger.debug("PNG format recognized in data[0:8]=%s", data[:8].hex())
+    fh.seek(8)
 
-    # Big ugly patch to deal with APP2 (or other) data coming before APP1
-    fh.seek(0)
-    # in theory, this could be insufficient since 64K is the maximum size--gd
-    data = fh.read(base + 4000)
-    # base = 2
     while True:
-        logger.debug(" Segment base 0x%X", base)
-        if data[base:base + 2] == b'\xFF\xE1':
-            # APP1
-            logger.debug("  APP1 at base 0x%X", base)
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug("  Code: %s", data[base + 4:base + 8])
-            if data[base + 4:base + 8] == b"Exif":
-                logger.debug(
-                    "  Decrement base by 2 to get to pre-segment header (for compatibility with later code)"
-                )
-                base -= 2
-                break
-            increment = increment_base(data, base)
-            logger.debug(" Increment base by %s", increment)
-            base += increment
-        elif data[base:base + 2] == b'\xFF\xE0':
-            # APP0
-            logger.debug("  APP0 at base 0x%X", base)
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug("  Code: %s", data[base + 4:base + 8])
-            increment = increment_base(data, base)
-            logger.debug(" Increment base by %s", increment)
-            base += increment
-        elif data[base:base + 2] == b'\xFF\xE2':
-            # APP2
-            logger.debug("  APP2 at base 0x%X", base)
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug(" Code: %s", data[base + 4:base + 8])
-            increment = increment_base(data, base)
-            logger.debug(" Increment base by %s", increment)
-            base += increment
-        elif data[base:base + 2] == b'\xFF\xEE':
-            # APP14
-            logger.debug("  APP14 Adobe segment at base 0x%X", base)
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug("  Code: %s", data[base + 4:base + 8])
-            increment = increment_base(data, base)
-            logger.debug(" Increment base by %s", increment)
-            base += increment
-            logger.debug("  There is useful EXIF-like data here, but we have no parser for it.")
-        elif data[base:base + 2] == b'\xFF\xDB':
-            logger.debug("  JPEG image data at base 0x%X No more segments are expected.", base)
+        data = fh.read(8)
+        chunk = data[4:8]
+        logger.debug("PNG found chunk %s", chunk.decode("ascii"))
+
+        if chunk in (b'', b'IEND'):
             break
-        elif data[base:base + 2] == b'\xFF\xD8':
-            # APP12
-            logger.debug("  FFD8 segment at base 0x%X", base)
-            logger.debug(
-                "  Got 0x%X 0x%X and %s instead", ord_(data[base]), ord_(data[base + 1]), data[4 + base:10 + base]
-            )
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug("  Code: %s", data[base + 4:base + 8])
-            increment = increment_base(data, base)
-            logger.debug("  Increment base by %s", increment)
-            base += increment
-        elif data[base:base + 2] == b'\xFF\xEC':
-            # APP12
-            logger.debug("  APP12 XMP (Ducky) or Pictureinfo segment at base 0x%X", base)
-            logger.debug("  Got 0x%X and 0x%X instead", ord_(data[base]), ord_(data[base + 1]))
-            logger.debug("  Length: 0x%X 0x%X", ord_(data[base + 2]), ord_(data[base + 3]))
-            logger.debug("Code: %s", data[base + 4:base + 8])
-            increment = increment_base(data, base)
-            logger.debug("  Increment base by %s", increment)
-            base += increment
-            logger.debug(
-                "  There is useful EXIF-like data here (quality, comment, copyright), "
-                "but we have no parser for it."
-            )
-        else:
-            try:
-                increment = increment_base(data, base)
-                logger.debug("  Got 0x%X and 0x%X instead", ord_(data[base]), ord_(data[base + 1]))
-            except IndexError as err:
-                raise InvalidExif("Unexpected/unhandled segment type or file content.") from err
-            else:
-                logger.debug("  Increment base by %s", increment)
-                base += increment
-    fh.seek(base + 12)
-    if ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base] == b'Exif':
-        # detected EXIF header
-        offset = fh.tell()
-        endian = fh.read(1)
-        #HACK TEST:  endian = 'M'
-    elif ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base + 1] == b'Ducky':
-        # detected Ducky header.
-        logger.debug(
-            "EXIF-like header (normally 0xFF and code): 0x%X and %s",
-            ord_(data[2 + base]), data[6 + base:10 + base + 1]
-        )
-        offset = fh.tell()
-        endian = fh.read(1)
-    elif ord_(data[2 + base]) == 0xFF and data[6 + base:10 + base + 1] == b'Adobe':
-        # detected APP14 (Adobe)
-        logger.debug(
-            "EXIF-like header (normally 0xFF and code): 0x%X and %s",
-            ord_(data[2 + base]), data[6 + base:10 + base + 1]
-        )
-        offset = fh.tell()
-        endian = fh.read(1)
-    else:
-        # no EXIF information
-        msg = "No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)"
-        msg += "Did get 0x%X and %s" % (ord_(data[2 + base]), data[6 + base:10 + base + 1])
-        raise InvalidExif(msg)
-    return offset, endian, fake_exif
+        if chunk == b'eXIf':
+            offset = fh.tell()
+            return offset, fh.read(1)
+
+        chunk_size = int.from_bytes(data[:4], "big")
+        fh.seek(fh.tell() + chunk_size + 4)
+
+    raise ExifNotFound("PNG file does not have exif data.")
 
 
 def _get_xmp(fh: BinaryIO) -> bytes:
@@ -230,7 +112,9 @@ def _determine_type(fh: BinaryIO) -> tuple:
         offset, endian = _find_webp_exif(fh)
     elif data[0:2] == b'\xFF\xD8':
         # it's a JPEG file
-        offset, endian, fake_exif = _find_jpeg_exif(fh, data, fake_exif)
+        offset, endian, fake_exif = find_jpeg_exif(fh, data, fake_exif)
+    elif data[0:8] == b'\x89PNG\r\n\x1a\n':
+        offset, endian = _find_png_exif(fh, data)
     else:
         # file format not recognized
         raise ExifNotFound("File format not recognized.")
@@ -239,7 +123,7 @@ def _determine_type(fh: BinaryIO) -> tuple:
 
 def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
                  details=True, strict=False, debug=False,
-                 truncate_tags=True, auto_seek=True):
+                 truncate_tags=True, auto_seek=True, extract_thumbnail=True):
     """
     Process an image file (expects an open file object).
 
@@ -296,13 +180,12 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
         hdr.decode_maker_note()
 
     # extract thumbnails
-    if details and thumb_ifd:
+    if details and thumb_ifd and extract_thumbnail:
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
     # parse XMP tags (experimental)
     if debug and details:
-        xmp_bytes = b''
         # Easy we already have them
         xmp_tag = hdr.tags.get('Image ApplicationNotes')
         if xmp_tag:

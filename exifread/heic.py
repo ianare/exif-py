@@ -13,14 +13,12 @@
 import struct
 from typing import List, Dict, Callable, BinaryIO, Optional, Tuple
 
-from .exif_log import get_logger
+from exifread.exif_log import get_logger
 
 logger = get_logger()
 
 
 class WrongBox(Exception):
-    pass
-class NoParser(Exception):
     pass
 class BoxVersion(Exception):
     pass
@@ -167,10 +165,7 @@ class HEICExifFinder:
             'iinf': self._parse_iinf,
             'iloc': self._parse_iloc,
         }
-        try:
-            return defs[box.name]
-        except IndexError as err:
-            raise NoParser(box.name) from err
+        return defs.get(box.name)
 
     def parse_box(self, box: Box) -> Box:
         probe = self.get_parser(box)
