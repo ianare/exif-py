@@ -543,7 +543,6 @@ class ExifHeader:
             'MakerNote',
             tag_dict=makernote.reconyx.TAGS_HYPERFIRE
         )
-        return
 
     def _canon_decode_tag(self, value, mn_tags):
         """
