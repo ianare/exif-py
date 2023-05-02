@@ -472,7 +472,7 @@ max-bool-expr=5
 max-branches=10
 
 # Maximum number of locals for function / method body.
-max-locals=20
+max-locals=25
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
@@ -484,7 +484,7 @@ max-public-methods=20
 max-returns=10
 
 # Maximum number of statements in function / method body.
-max-statements=50
+max-statements=60
 
 # Minimum number of public methods for a class (see R0903).
 min-public-methods=2
