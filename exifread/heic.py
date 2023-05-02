@@ -20,8 +20,6 @@ logger = get_logger()
 
 class WrongBox(Exception):
     pass
-class NoParser(Exception):
-    pass
 class BoxVersion(Exception):
     pass
 class BadSize(Exception):
@@ -167,10 +165,7 @@ class HEICExifFinder:
             'iinf': self._parse_iinf,
             'iloc': self._parse_iloc,
         }
-        try:
-            return defs[box.name]
-        except (IndexError, KeyError) as err:
-            raise NoParser(box.name) from err
+        return defs.get(box.name)
 
     def parse_box(self, box: Box) -> Box:
         probe = self.get_parser(box)
