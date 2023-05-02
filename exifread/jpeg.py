@@ -96,9 +96,10 @@ def _get_base(base, data) -> int:
             increment = _increment_base(data, base)
             logger.debug("  Increment base by %s", increment)
             base += increment
-            logger.debug(
-                "  There is useful EXIF-like data here (quality, comment, copyright), " "but we have no parser for it."
-            )
+            logger.debug((
+                "  There is useful EXIF-like data here (quality, comment, copyright), "
+                "but we have no parser for it."
+            ))
         else:
             try:
                 increment = _increment_base(data, base)

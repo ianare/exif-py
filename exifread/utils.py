@@ -72,10 +72,10 @@ def get_gps_coords(tags: dict) -> tuple:
     lat_ref_val = tags[lat_ref_tag_name].values
     lat_coord_val = [c.decimal() for c in tags[lat_tag_name].values]
 
-    lng_coord = sum([c/60**i for i, c in enumerate(lng_coord_val)])
+    lng_coord = sum(c / 60**i for (i, c) in enumerate(lng_coord_val))
     lng_coord *= (-1) ** (lng_ref_val == 'W')
 
-    lat_coord = sum([c/60**i for i, c in enumerate(lat_coord_val)])
+    lat_coord = sum(c / 60**i for (i, c) in enumerate(lat_coord_val))
     lat_coord *= (-1) ** (lat_ref_val == 'S')
 
     return (lat_coord, lng_coord)
