@@ -11,7 +11,7 @@
 #      gives us position and size information.
 
 import struct
-from typing import List, Dict, Callable, BinaryIO, Optional
+from typing import Any, List, Dict, Callable, BinaryIO, Optional
 
 from exifread.exif_log import get_logger
 
@@ -157,7 +157,7 @@ class HEICExifFinder:
                 return self.parse_box(box)
             self.skip(box)
 
-    def get_parser(self, box: Box) -> Callable:
+    def get_parser(self, box: Box) -> Optional[Callable[[Box], Any]]:
         defs = {
             'ftyp': self._parse_ftyp,
             'meta': self._parse_meta,
@@ -169,7 +169,8 @@ class HEICExifFinder:
 
     def parse_box(self, box: Box) -> Box:
         probe = self.get_parser(box)
-        probe(box)
+        if probe is not None:
+            probe(box)
         # in case anything is left unread
         self.file_handle.seek(box.after)
         return box
