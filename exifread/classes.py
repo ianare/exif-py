@@ -205,7 +205,7 @@ class ExifHeader:
                 values = ''
         return values
 
-    def _process_field7(self, ifd_name, tag_name, count, offset):
+    def _process_field7(self, count, offset):
         # undefined types e.g. MakerNote/UserComment
         values = []
         for _ in range(count):
@@ -251,7 +251,7 @@ class ExifHeader:
         if field_type == 2:  # ascii strings
             values = self._process_field2(ifd_name, tag_name, count, offset)
         elif field_type == 7:  # undefined
-            values = self._process_field7(ifd_name, tag_name, count, offset)
+            values = self._process_field7(count, offset)
         else:  # numbers
             values = self._process_field(tag_name, count, field_type, type_length, offset)
         # now 'values' is either a string or an array
