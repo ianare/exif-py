@@ -116,7 +116,6 @@ def _determine_type(fh: BinaryIO) -> tuple:
     elif data[0:8] == b'\x89PNG\r\n\x1a\n':
         offset, endian = _find_png_exif(fh, data)
     else:
-        # file format not recognized
         raise ExifNotFound("File format not recognized.")
     return offset, endian, fake_exif
 
@@ -180,7 +179,7 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
         hdr.decode_maker_note()
 
     # extract thumbnails
-    if details and thumb_ifd and extract_thumbnail:
+    if details or (thumb_ifd and extract_thumbnail):
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
