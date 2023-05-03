@@ -116,7 +116,6 @@ def _determine_type(fh: BinaryIO) -> tuple:
     elif data[0:8] == b'\x89PNG\r\n\x1a\n':
         offset, endian = _find_png_exif(fh, data)
     else:
-        # file format not recognized
         raise ExifNotFound("File format not recognized.")
     return offset, endian, fake_exif
 
