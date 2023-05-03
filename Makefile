@@ -37,6 +37,7 @@ reqs-install: ## Install with all requirements
 	$(PIP_INSTALL) .[dev]
 
 samples-download: ## Install sample files used for testing.
+	rm -fr master.tar.gz exif-samples-master
 	wget https://github.com/ianare/exif-samples/archive/master.tar.gz
 	tar -xzf master.tar.gz
 

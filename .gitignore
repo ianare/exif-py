@@ -2,6 +2,7 @@
 
 # OS
 .directory
+.DS_Store
 
 # Images
 *.jpg
@@ -30,6 +31,7 @@ MANIFEST
 
 # Installer logs
 pip-log.txt
+pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 .coverage
@@ -39,20 +41,30 @@ exif-samples*
 # Translations
 *.mo
 
-# Mr Developer
-.mr.developer.cfg
-
-# PyCharm
+# IDE
+.vscode/
 .idea
-
-# Eclipse
+.mr.developer.cfg
 .project
 .pydevproject
 .settings
 
-# Misc
-*swp
+# Temp files
+*.swp
+*-swp
 
-# Venv
-/venv
-/.venv
+# Environments
+.env
+.venv
+.venv*
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mypy
+.mypy_cache/
+.mypy_cache
+.dmypy.json
+dmypy.json

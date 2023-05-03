@@ -1,6 +1,14 @@
-﻿**********
-Change Log
-**********
+﻿EXIF.py Change Log
+##################
+
+3.1.0 — 2023-05-??
+    * Add DJI makernotes, extract_thumbnail parameter (#168) by Piero Toffanin
+    * Fix endianess bug while reading DJI makernotes, add Make tag (#169) by Piero Toffanin
+    * Make CI pass (#178) by Nick Dimitroff
+    * update pylint and mypy
+    * fix webp for file conversion by magick (#132) by Marcelo
+    * Ignore unknown parsers, fix for #160 (#175) by Herbert Poul
+    * Allow extracting thumbnails with details=False (#170)
 
 3.0.0 — 2022-05-08
     * **BREAKING CHANGE:** Add type hints, which removes Python2 compatibility
