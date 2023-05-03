@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.5"
           - "3.6"
           - "3.7"
           - "3.8"
@@ -51,5 +50,5 @@ jobs:
 
     - name: Compare image processing output
       run: |
-        find exif-samples-master -name *.tiff -o -name *.jpg | sort -f | xargs EXIF.py > exif-samples-master/dump_test
+        find exif-samples-master -name *.tiff -o -name *.jpg -o -name *.heif | sort -f | xargs EXIF.py > exif-samples-master/dump_test
         diff -Z --side-by-side --suppress-common-lines exif-samples-master/dump exif-samples-master/dump_test
