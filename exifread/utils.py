@@ -3,20 +3,20 @@ Misc utilities.
 """
 
 from fractions import Fraction
-from typing import Tuple, Union
+from typing import Optional, Tuple, Union
 
 
-def ord_(dta):
+def ord_(dta) -> int:
     if isinstance(dta, str):
         return ord(dta)
     return dta
 
 
-def make_string(seq: Union[bytes, list]) -> str:
+def make_string(seq) -> str:
     """
     Don't throw an exception when given an out of range character.
     """
-    string = ''
+    string = ""
     for char in seq:
         # Screen out non-printing characters
         try:
@@ -28,15 +28,15 @@ def make_string(seq: Union[bytes, list]) -> str:
     # If no printing chars
     if not string:
         if isinstance(seq, list):
-            string = ''.join(map(str, seq))
+            string = "".join(map(str, seq))
             # Some UserComment lists only contain null bytes, nothing valuable to return
-            if set(string) == {'0'}:
-                return ''
+            if set(string) == {"0"}:
+                return ""
         else:
             string = str(seq)
 
     # Clean undesirable characters on any end
-    return string.strip(' \x00')
+    return string.strip(" \x00")
 
 
 def make_string_uc(seq) -> str:
@@ -46,7 +46,7 @@ def make_string_uc(seq) -> str:
     """
     if not isinstance(seq, str):
         # Remove code from sequence only if it is valid
-        if make_string(seq[:8]).upper() in ('ASCII', 'UNICODE', 'JIS', ''):
+        if make_string(seq[:8]).upper() in ("ASCII", "UNICODE", "JIS", ""):
             seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
@@ -102,8 +102,11 @@ class Ratio(Fraction):
     common denominator for printing.
     """
 
+    _numerator: Optional[int]
+    _denominator: Optional[int]
+
     # We're immutable, so use __new__ not __init__
-    def __new__(cls, numerator=0, denominator=None):
+    def __new__(cls, numerator: int = 0, denominator: Optional[int] = None):
         try:
             self = super(Ratio, cls).__new__(cls, numerator, denominator)
         except ZeroDivisionError:
