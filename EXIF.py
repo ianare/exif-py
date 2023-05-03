@@ -6,7 +6,7 @@
 #
 #
 # Copyright (c) 2002-2007 Gene Cash
-# Copyright (c) 2007-2022 Ianaré Sévi and contributors
+# Copyright (c) 2007-2023 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
 # See ChangeLog.rst file for all contributors and changes
@@ -41,7 +41,7 @@ def get_args() -> argparse.Namespace:
     )
     parser.add_argument(
         '-q', '--quick', action='store_false', dest='detailed',
-        help='Do not process MakerNotes',
+        help='Do not process MakerNotes and do not extract thumbnails',
     )
     parser.add_argument(
         '-t', '--tag', type=str, dest='stop_tag',
@@ -87,7 +87,12 @@ def main(args) -> None:
 
         # get the tags
         data = process_file(
-            img_file, stop_tag=args.stop_tag, details=args.detailed, strict=args.strict, debug=args.debug
+            img_file,
+            stop_tag=args.stop_tag,
+            details=args.detailed,
+            strict=args.strict,
+            debug=args.debug,
+            extract_thumbnail=args.detailed
         )
 
         tag_stop = timeit.default_timer()
