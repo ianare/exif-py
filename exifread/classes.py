@@ -1,6 +1,6 @@
 import re
 import struct
-from typing import BinaryIO, Dict, Any
+from typing import BinaryIO, Dict, Any, List, Union
 
 from exifread.exif_log import get_logger
 from exifread.utils import Ratio
@@ -14,8 +14,15 @@ class IfdTag:
     Eases dealing with tags.
     """
 
-    def __init__(self, printable: str, tag: int, field_type: int, values,
-                 field_offset: int, field_length: int):
+    def __init__(
+        self,
+        printable: str,
+        tag: int,
+        field_type: int,
+        values,
+        field_offset: int,
+        field_length: int,
+    ) -> None:
         # printable version of data
         self.printable = printable
         # tag ID number
@@ -56,8 +63,17 @@ class ExifHeader:
     Handle an EXIF header.
     """
 
-    def __init__(self, file_handle: BinaryIO, endian, offset, fake_exif, strict: bool,
-                 debug=False, detailed=True, truncate_tags=True):
+    def __init__(
+        self,
+        file_handle: BinaryIO,
+        endian: str,
+        offset: int,
+        fake_exif,
+        strict: bool,
+        debug=False,
+        detailed=True,
+        truncate_tags=True,
+    ) -> None:
         self.file_handle = file_handle
         self.endian = endian
         self.offset = offset
@@ -66,10 +82,9 @@ class ExifHeader:
         self.debug = debug
         self.detailed = detailed
         self.truncate_tags = truncate_tags
-        # TODO: get rid of 'Any' type
-        self.tags = {}  # type: Dict[str, Any]
+        self.tags: Dict[str, Any] = {}
 
-    def s2n(self, offset, length: int, signed=False) -> int:
+    def s2n(self, offset: int, length: int, signed=False) -> int:
         """
         Convert slice to integer, based on sign and endian flags.
 
@@ -105,7 +120,7 @@ class ExifHeader:
             return struct.unpack(fmt, buf)[0]
         return 0
 
-    def n2b(self, offset, length) -> bytes:
+    def n2b(self, offset: int, length: int) -> bytes:
         """Convert offset to bytes."""
         s = b''
         for _ in range(length):
@@ -120,7 +135,7 @@ class ExifHeader:
         """Return first IFD."""
         return self.s2n(4, 4)
 
-    def _next_ifd(self, ifd) -> int:
+    def _next_ifd(self, ifd: int) -> int:
         """Return the pointer to next IFD."""
         entries = self.s2n(ifd, 2)
         next_ifd = self.s2n(ifd + 2 + 12 * entries, 4)
@@ -128,7 +143,7 @@ class ExifHeader:
             return 0
         return next_ifd
 
-    def list_ifd(self) -> list:
+    def list_ifd(self) -> List[int]:
         """Return the list of IFDs in the header."""
         i = self._first_ifd()
         ifds = []
@@ -142,8 +157,15 @@ class ExifHeader:
             i = self._next_ifd(i)
         return ifds
 
-    def _process_field(self, tag_name, count, field_type, type_length, offset):
-        values = []
+    def _process_field(
+        self,
+        tag_name: str,
+        count: int,
+        field_type: int,
+        type_length: int,
+        offset: int,
+    ) -> list:
+        values: List[Any] = []
         signed = (field_type in [6, 8, 9, 10])
         # XXX investigate
         # some entries get too big to handle could be malformed
@@ -152,13 +174,14 @@ class ExifHeader:
             for _ in range(count):
                 if field_type in (5, 10):
                     # a ratio
-                    value = Ratio(
+                    ratio_value = Ratio(
                         self.s2n(offset, 4, signed),
                         self.s2n(offset + 4, 4, signed)
                     )
+                    values.append(ratio_value)
                 elif field_type in (11, 12):
                     # a float or double
-                    unpack_format = ''
+                    unpack_format = ""
                     if self.endian == 'I':
                         unpack_format += '<'
                     else:
@@ -170,14 +193,14 @@ class ExifHeader:
                     self.file_handle.seek(self.offset + offset)
                     byte_str = self.file_handle.read(type_length)
                     try:
-                        value = struct.unpack(unpack_format, byte_str)
+                        values.append(struct.unpack(unpack_format, byte_str))
                     except struct.error:
                         logger.warning('Possibly corrupted field %s', tag_name)
-                        # -1 means corrupted
-                        value = -1
+
                 else:
                     value = self.s2n(offset, type_length, signed)
-                values.append(value)
+                    values.append(value)
+
                 offset = offset + type_length
         # The test above causes problems with tags that are
         # supposed to have long values! Fix up one important case.
@@ -188,8 +211,8 @@ class ExifHeader:
                 offset = offset + type_length
         return values
 
-    def _process_field2(self, ifd_name, tag_name, count, offset):
-        values = ''
+    def _process_field2(self, ifd_name, tag_name, count: int, offset: int):
+        values: Union[str, bytes] = ''
         # special case: null-terminated ASCII string
         # XXX investigate
         # sometimes gets too big to fit in int value
@@ -214,7 +237,17 @@ class ExifHeader:
                 values = ''
         return values
 
-    def _process_tag(self, ifd, ifd_name: str, tag_entry, entry, tag: int, tag_name, relative, stop_tag) -> None:
+    def _process_tag(
+        self,
+        ifd: int,
+        ifd_name: str,
+        tag_entry,
+        entry: int,
+        tag: int,
+        tag_name: str,
+        relative,
+        stop_tag,
+    ) -> None:
         field_type = self.s2n(entry + 2, 2)
 
         # unknown field type
@@ -289,10 +322,16 @@ class ExifHeader:
         tag_value = repr(self.tags[ifd_name + ' ' + tag_name])
         logger.debug(' %s: %s', tag_name, tag_value)
 
-    def dump_ifd(self, ifd, ifd_name: str, tag_dict=None, relative=0, stop_tag=DEFAULT_STOP_TAG) -> None:
-        """
-        Return a list of entries in the given IFD.
-        """
+    def dump_ifd(
+        self,
+        ifd: int,
+        ifd_name: str,
+        tag_dict = None,
+        relative = 0,
+        stop_tag = DEFAULT_STOP_TAG,
+    ) -> None:
+        """Return a list of entries in the given IFD."""
+
         # make sure we can process the entries
         if tag_dict is None:
             tag_dict = EXIF_TAGS
@@ -532,7 +571,7 @@ class ExifHeader:
 #    def _olympus_decode_tag(self, value, mn_tags):
 #        pass
 
-    def _canon_decode_tag(self, value, mn_tags):
+    def _canon_decode_tag(self, value, mn_tags) -> None:
         """
         Decode Canon MakerNote tag based on offset within tag.
 
@@ -554,7 +593,7 @@ class ExifHeader:
             # This will have a "proprietary" type
             self.tags['MakerNote ' + name] = IfdTag(str(val), 0, 0, val, 0, 0)
 
-    def _canon_decode_camera_info(self, camera_info_tag):
+    def _canon_decode_camera_info(self, camera_info_tag) -> None:
         """
         Decode the variable length encoded camera info section.
         """
@@ -563,7 +602,7 @@ class ExifHeader:
             return
         model = str(model.values)
 
-        camera_info_tags = {}
+        camera_info_tags: Dict[int, Any] = {}
         for (model_name_re, tag_desc) in makernote.canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
                 camera_info_tags = tag_desc
@@ -589,9 +628,9 @@ class ExifHeader:
             tag_name = tag[0]
             if len(tag) > 2:
                 if callable(tag[2]):
-                    tag_value = tag[2](tag_value)
+                    tag_value = tag[2](tag_value)  # type: ignore
                 else:
-                    tag_value = tag[2].get(tag_value, tag_value)
+                    tag_value = tag[2].get(tag_value, tag_value)  # type: ignore
             logger.debug(" %s %s", tag_name, tag_value)
 
             self.tags['MakerNote ' + tag_name] = IfdTag(str(tag_value), 0, 0, tag_value, 0, 0)

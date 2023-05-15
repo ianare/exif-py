@@ -10,7 +10,7 @@ Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 Compatibility
 *************
 
-EXIF.py is tested and officially supported on Python 3.5 to 3.11
+EXIF.py is tested and officially supported on Python 3.6 to 3.11
 
 Starting with version ``3.0.0``, Python2 compatibility is dropped *completely* (syntax errors due to type hinting).
 

@@ -3,22 +3,30 @@ Read Exif metadata from tiff and jpeg files.
 """
 
 import struct
-from typing import BinaryIO
+from typing import BinaryIO, Dict, Tuple
 
-from exifread.exif_log import get_logger
 from exifread.classes import ExifHeader
-from exifread.tags import DEFAULT_STOP_TAG
-from exifread.utils import ord_, make_string
+from exifread.exceptions import ExifNotFound, InvalidExif
+from exifread.exif_log import get_logger
 from exifread.heic import HEICExifFinder
 from exifread.jpeg import find_jpeg_exif
-from exifread.exceptions import InvalidExif, ExifNotFound
+from exifread.tags import DEFAULT_STOP_TAG
+from exifread.utils import make_string, ord_
 
 __version__ = '3.1.0'
 
 logger = get_logger()
 
 
-def _find_tiff_exif(fh: BinaryIO) -> tuple:
+ENDIAN_TYPES: Dict[str, str] = {
+    'I': 'Intel',
+    'M': 'Motorola',
+    '\x01': 'Adobe Ducky',
+    'd': 'XMP/Adobe unknown'
+}
+
+
+def _find_tiff_exif(fh: BinaryIO) -> Tuple[int, bytes]:
     logger.debug("TIFF format recognized in data[0:2]")
     fh.seek(0)
     endian = fh.read(1)
@@ -27,7 +35,7 @@ def _find_tiff_exif(fh: BinaryIO) -> tuple:
     return offset, endian
 
 
-def _find_webp_exif(fh: BinaryIO) -> tuple:
+def _find_webp_exif(fh: BinaryIO) -> Tuple[int, bytes]:
     logger.debug("WebP format recognized in data[0:4], data[8:12]")
     # file specification: https://developers.google.com/speed/webp/docs/riff_container
     data = fh.read(5)
@@ -48,7 +56,7 @@ def _find_webp_exif(fh: BinaryIO) -> tuple:
     raise ExifNotFound("Webp file does not have exif data.")
 
 
-def _find_png_exif(fh: BinaryIO, data: bytes) -> tuple:
+def _find_png_exif(fh: BinaryIO, data: bytes) -> Tuple[int, bytes]:
     logger.debug("PNG format recognized in data[0:8]=%s", data[:8].hex())
     fh.seek(8)
 
@@ -120,9 +128,16 @@ def _determine_type(fh: BinaryIO) -> tuple:
     return offset, endian, fake_exif
 
 
-def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
-                 details=True, strict=False, debug=False,
-                 truncate_tags=True, auto_seek=True, extract_thumbnail=True):
+def process_file(
+        fh: BinaryIO,
+        stop_tag=DEFAULT_STOP_TAG,
+        details=True,
+        strict=False,
+        debug=False,
+        truncate_tags=True,
+        auto_seek=True,
+        extract_thumbnail=True
+    ):
     """
     Process an image file (expects an open file object).
 
@@ -144,12 +159,7 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
 
     endian = chr(ord_(endian[0]))
     # deal with the EXIF info we found
-    logger.debug("Endian format is %s (%s)", endian, {
-        'I': 'Intel',
-        'M': 'Motorola',
-        '\x01': 'Adobe Ducky',
-        'd': 'XMP/Adobe unknown'
-    }[endian])
+    logger.debug("Endian format is %s (%s)", endian, ENDIAN_TYPES[endian])
 
     hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
