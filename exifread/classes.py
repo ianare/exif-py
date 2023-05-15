@@ -1,6 +1,6 @@
 import re
 import struct
-from typing import BinaryIO, Dict, Any
+from typing import BinaryIO, Dict, Any, List
 
 from exifread.exif_log import get_logger
 from exifread.utils import Ratio
@@ -15,7 +15,7 @@ class IfdTag:
     """
 
     def __init__(self, printable: str, tag: int, field_type: int, values,
-                 field_offset: int, field_length: int):
+                 field_offset: int, field_length: int) -> None:
         # printable version of data
         self.printable = printable
         # tag ID number
@@ -57,7 +57,7 @@ class ExifHeader:
     """
 
     def __init__(self, file_handle: BinaryIO, endian, offset, fake_exif, strict: bool,
-                 debug=False, detailed=True, truncate_tags=True):
+                 debug=False, detailed=True, truncate_tags=True) -> None:
         self.file_handle = file_handle
         self.endian = endian
         self.offset = offset
@@ -142,7 +142,7 @@ class ExifHeader:
             i = self._next_ifd(i)
         return ifds
 
-    def _process_field(self, tag_name, count, field_type, type_length, offset):
+    def _process_field(self, tag_name, count, field_type, type_length, offset) -> List:
         values = []
         signed = (field_type in [6, 8, 9, 10])
         # XXX investigate
@@ -188,7 +188,7 @@ class ExifHeader:
                 offset = offset + type_length
         return values
 
-    def _process_field2(self, ifd_name, tag_name, count, offset):
+    def _process_field2(self, ifd_name, tag_name, count, offset) -> str:
         values = ''
         # special case: null-terminated ASCII string
         # XXX investigate
@@ -532,7 +532,7 @@ class ExifHeader:
 #    def _olympus_decode_tag(self, value, mn_tags):
 #        pass
 
-    def _canon_decode_tag(self, value, mn_tags):
+    def _canon_decode_tag(self, value, mn_tags) -> None:
         """
         Decode Canon MakerNote tag based on offset within tag.
 
@@ -554,7 +554,7 @@ class ExifHeader:
             # This will have a "proprietary" type
             self.tags['MakerNote ' + name] = IfdTag(str(val), 0, 0, val, 0, 0)
 
-    def _canon_decode_camera_info(self, camera_info_tag):
+    def _canon_decode_camera_info(self, camera_info_tag) -> None:
         """
         Decode the variable length encoded camera info section.
         """
@@ -596,7 +596,7 @@ class ExifHeader:
 
             self.tags['MakerNote ' + tag_name] = IfdTag(str(tag_value), 0, 0, tag_value, 0, 0)
 
-    def parse_xmp(self, xmp_bytes: bytes):
+    def parse_xmp(self, xmp_bytes: bytes) -> None:
         """Adobe's Extensible Metadata Platform, just dump the pretty XML."""
 
         import xml.dom.minidom  # pylint: disable=import-outside-toplevel

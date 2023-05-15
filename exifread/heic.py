@@ -11,7 +11,7 @@
 #      gives us position and size information.
 
 import struct
-from typing import Any, List, Dict, Callable, BinaryIO, Optional
+from typing import Any, List, Dict, Callable, BinaryIO, Optional, Tuple
 
 from exifread.exif_log import get_logger
 
@@ -50,19 +50,19 @@ class Box:
     index_size = 0
     flags = 0
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def __repr__(self) -> str:
         return "<box '%s'>" % self.name
 
-    def set_sizes(self, offset: int, length: int, base_offset: int, index: int):
+    def set_sizes(self, offset: int, length: int, base_offset: int, index: int) -> None:
         self.offset_size = offset
         self.length_size = length
         self.base_offset_size = base_offset
         self.index_size = index
 
-    def set_full(self, vflags: int):
+    def set_full(self, vflags: int) -> None:
         """
         ISO boxes come in 'old' and 'full' variants.
         The 'full' variant contains version and flags information.
@@ -73,7 +73,7 @@ class Box:
 
 class HEICExifFinder:
 
-    def __init__(self, file_handle: BinaryIO):
+    def __init__(self, file_handle: BinaryIO) -> None:
         self.file_handle = file_handle
 
     def get(self, nbytes: int) -> bytes:
@@ -98,7 +98,7 @@ class HEICExifFinder:
     def get64(self) -> int:
         return struct.unpack('>Q', self.get(8))[0]
 
-    def get_int4x2(self) -> tuple:
+    def get_int4x2(self) -> Tuple:
         num = struct.unpack('>B', self.get(1))[0]
         num0 = num >> 4
         num1 = num & 0xf
@@ -144,10 +144,10 @@ class HEICExifFinder:
         box.pos = self.file_handle.tell()
         return box
 
-    def get_full(self, box: Box):
+    def get_full(self, box: Box) -> None:
         box.set_full(self.get32())
 
-    def skip(self, box: Box):
+    def skip(self, box: Box) -> None:
         self.file_handle.seek(box.after)
 
     def expect_parse(self, name: str) -> Box:
@@ -175,7 +175,7 @@ class HEICExifFinder:
         self.file_handle.seek(box.after)
         return box
 
-    def _parse_ftyp(self, box: Box):
+    def _parse_ftyp(self, box: Box) -> None:
         box.major_brand = self.get(4)
         box.minor_version = self.get32()
         box.compat = []
@@ -184,7 +184,7 @@ class HEICExifFinder:
             box.compat.append(self.get(4))
             size -= 4
 
-    def _parse_meta(self, meta: Box):
+    def _parse_meta(self, meta: Box) -> None:
         self.get_full(meta)
         while self.file_handle.tell() < meta.after:
             box = self.next_box()
@@ -197,7 +197,7 @@ class HEICExifFinder:
             # skip any unparsed data
             self.skip(box)
 
-    def _parse_infe(self, box: Box):
+    def _parse_infe(self, box: Box) -> None:
         self.get_full(box)
         if box.version >= 2:
             if box.version == 2:
@@ -209,7 +209,7 @@ class HEICExifFinder:
             box.item_name = self.get_string()
             # ignore the rest
 
-    def _parse_iinf(self, box: Box):
+    def _parse_iinf(self, box: Box) -> None:
         self.get_full(box)
         count = self.get16()
         box.exif_infe = None
@@ -220,7 +220,7 @@ class HEICExifFinder:
                 box.exif_infe = infe
                 break
 
-    def _parse_iloc(self, box: Box):
+    def _parse_iloc(self, box: Box) -> None:
         self.get_full(box)
         size0, size1 = self.get_int4x2()
         size2, size3 = self.get_int4x2()
@@ -257,7 +257,7 @@ class HEICExifFinder:
                 extents.append((extent_offset, extent_length))
             box.locs[item_id] = extents
 
-    def find_exif(self) -> tuple:
+    def find_exif(self) -> Tuple:
         ftyp = self.expect_parse('ftyp')
         assert ftyp.major_brand == b'heic'
         assert ftyp.minor_version == 0

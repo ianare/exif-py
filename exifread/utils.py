@@ -3,10 +3,10 @@ Misc utilities.
 """
 
 from fractions import Fraction
-from typing import Union
+from typing import Any, Tuple, Union
 
 
-def ord_(dta):
+def ord_(dta) -> int:
     if isinstance(dta, str):
         return ord(dta)
     return dta
@@ -53,7 +53,7 @@ def make_string_uc(seq) -> str:
     return make_string(seq)
 
 
-def get_gps_coords(tags: dict) -> tuple:
+def get_gps_coords(tags: dict) -> Tuple:
 
     lng_ref_tag_name = 'GPS GPSLongitudeRef'
     lng_tag_name = 'GPS GPSLongitude'
@@ -88,7 +88,7 @@ class Ratio(Fraction):
     """
 
     # We're immutable, so use __new__ not __init__
-    def __new__(cls, numerator=0, denominator=None):
+    def __new__(cls, numerator=0, denominator=None) -> Any:
         try:
             self = super(Ratio, cls).__new__(cls, numerator, denominator)
         except ZeroDivisionError:
@@ -101,11 +101,11 @@ class Ratio(Fraction):
         return str(self)
 
     @property
-    def num(self):
+    def num(self) -> int:
         return self.numerator
 
     @property
-    def den(self):
+    def den(self) -> int:
         return self.denominator
 
     def decimal(self) -> float:
