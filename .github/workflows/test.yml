@@ -46,7 +46,7 @@ jobs:
 
     - name: Run in debug and color mode
       run: |
-        find exif-samples-master -name *.tiff -o -name *.jpg | xargs EXIF.py -dc
+        find exif-samples-master -name *.tiff -o -name *.jpg -o -name *.heif | xargs EXIF.py -dc
 
     - name: Compare image processing output
       run: |
