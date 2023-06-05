@@ -5,13 +5,17 @@ http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 """
 
 TAGS = {
+    0x0001: ('CameraSettings',), # see CAMERA_SETTINGS
+    0x0002: ('FocalLength',), # see FOCAL_LENGTH
     0x0003: ('FlashInfo',),
+    0x0004: ('ShotInfo',), # see SHOT_INFO
     0x0006: ('ImageType', ),
     0x0007: ('FirmwareVersion', ),
     0x0008: ('ImageNumber', ),
     0x0009: ('OwnerName', ),
     0x000c: ('SerialNumber', ),
     0x000e: ('FileLength', ),
+    0x000d: ('CanonCameraInfo', ), # see
     0x0010: ('ModelID', {
         0x1010000: 'PowerShot A30',
         0x1040000: 'PowerShot S300 / Digital IXUS 300 / IXY Digital 300',
@@ -161,8 +165,8 @@ TAGS = {
         0x3090000: 'PowerShot SX150 IS',
         0x3100000: 'PowerShot ELPH 510 HS / IXUS 1100 HS / IXY 51S',
         0x3110000: 'PowerShot S100 (new)',
-        0x3130000: 'PowerShot SX40 HS',
         0x3120000: 'PowerShot ELPH 310 HS / IXUS 230 HS / IXY 600F',
+        0x3130000: 'PowerShot SX40 HS',
         0x3160000: 'PowerShot A1300',
         0x3170000: 'PowerShot A810',
         0x3180000: 'PowerShot ELPH 320 HS / IXUS 240 HS / IXY 420F',
@@ -220,7 +224,9 @@ TAGS = {
         0x3890000: 'PowerShot ELPH 170 IS / IXUS 170',
         0x3910000: 'PowerShot SX410 IS',
         0x4040000: 'PowerShot G1',
+
         0x6040000: 'PowerShot S100 / Digital IXUS / IXY Digital',
+
         0x4007d673: 'DC19/DC21/DC22',
         0x4007d674: 'XH A1',
         0x4007d675: 'HV10',
@@ -250,6 +256,7 @@ TAGS = {
         0x4007da90: 'HF S20/S21/S200',
         0x4007da92: 'FS31/FS36/FS37/FS300/FS305/FS306/FS307',
         0x4007dda9: 'HF G25',
+
         0x80000001: 'EOS-1D',
         0x80000167: 'EOS-1DS',
         0x80000168: 'EOS 10D',
@@ -293,13 +300,15 @@ TAGS = {
         0x80000326: 'EOS Rebel T5i / 700D / Kiss X7i',
         0x80000327: 'EOS Rebel T5 / 1200D / Kiss X70',
         0x80000331: 'EOS M',
-        0x80000355: 'EOS M2',
         0x80000346: 'EOS Rebel SL1 / 100D / Kiss X7',
         0x80000347: 'EOS Rebel T6s / 760D / 8000D',
+        0x80000349: 'EOS 5D Mark IV',
+        0x80000355: 'EOS M2',
         0x80000382: 'EOS 5DS',
         0x80000393: 'EOS Rebel T6i / 750D / Kiss X8i',
         0x80000401: 'EOS 5DS R',
     }),
+    0x0012: ('AFInfo', ),
     0x0013: ('ThumbnailImageValidArea', ),
     0x0015: ('SerialNumberFormat', {
         0x90000000: 'Format 1',
@@ -316,16 +325,21 @@ TAGS = {
         2: 'Date & Time',
     }),
     0x001e: ('FirmwareRevision', ),
+    0x0026: ('AFInfo2', ), # see AF_INFO_2
     0x0028: ('ImageUniqueID', ),
+    0x0035: ('TimeInfo', ),
+    0x0093: ('FileInfo', ), # see FILE_INFO
     0x0095: ('LensModel', ),
-    0x0096: ('InternalSerialNumber ', ),
-    0x0097: ('DustRemovalData ', ),
-    0x0098: ('CropInfo ', ),
+    0x0096: ('InternalSerialNumber', ),
+    0x0097: ('DustRemovalData', ),
+    0x0098: ('CropInfo', ),
     0x009a: ('AspectInfo', ),
     0x00b4: ('ColorSpace', {
         1: 'sRGB',
         2: 'Adobe RGB'
     }),
+    0x4019: ('LensInfo', ),
+
 }
 
 # this is in element offset, name, optional value dictionary format
@@ -523,12 +537,27 @@ FOCAL_LENGTH = {
 SHOT_INFO = {
     7: ('WhiteBalance', {
         0: 'Auto',
-        1: 'Sunny',
+        1: 'Daylight',
         2: 'Cloudy',
         3: 'Tungsten',
         4: 'Fluorescent',
         5: 'Flash',
-        6: 'Custom'
+        6: 'Custom',
+        7: 'Black & White',
+        8: 'Shade',
+        9: 'Manual Temperature (Kelvin)',
+        10: 'PC Set 1',
+        11: 'PC Set 2',
+        12: 'PC Set 3',
+        14: 'Daylight Fluorescent',
+        15: 'Custom 1',
+        16: 'Custom 2',
+        17: 'Underwater',
+        18: 'Custom 3',
+        19: 'Custom 4',
+        20: 'PC Set 4',
+        21: 'PC Set 5',
+        23: 'Auto (ambience priority)',
     }),
     8: ('SlowShutter', {
         -1: 'n/a',
@@ -563,7 +592,7 @@ SHOT_INFO = {
 
 # 0x0026
 AF_INFO_2 = {
-    2: ('AFAreaMode', {
+    1: ('AFAreaMode', {
         0: 'Off (Manual Focus)',
         2: 'Single-point AF',
         4: 'Multi-point AF or AI AF',
@@ -575,15 +604,26 @@ AF_INFO_2 = {
         11: 'Flexizone Multi',
         13: 'Flexizone Single',
     }),
-    3: ('NumAFPoints', ),
-    4: ('ValidAFPoints', ),
-    5: ('CanonImageWidth', ),
+    2: ('NumAFPoints', ),
+    3: ('ValidAFPoints', ),
+    4: ('CanonImageWidth', ),
+    5: ('CanonImageHeight', ),
+    6: ('AFImageWidth', ),
+    7: ('AFImageHeight', ),
+    8: ('AFAreaWidths', ),
+    9: ('AFAreaHeights', ),
+    10: ('AFAreaXPositions', ),
+    11: ('AFAreaYPositions', ),
+    12: ('AFPointsInFocus', ),
+    13: ('AFPointsSelected', ),
+    14: ('PrimaryAFPoint', ),
 }
+AF_INFO_2 = {k+1: v for k, v in AF_INFO_2.items()}
 
 # 0x0093
 FILE_INFO = {
     1: ('FileNumber', ),
-    3: ('BracketMode', {
+    2: ('BracketMode', {
         0: 'Off',
         1: 'AEB',
         2: 'FEB',
@@ -674,7 +714,7 @@ def convert_temp(value):
 # byte offset: (item name, data item type, decoding map).
 # Note that the data item type is fed directly to struct.unpack at the
 # specified offset.
-CAMERA_INFO_TAG_NAME = 'MakerNote Tag 0x000D'
+CAMERA_INFO_TAG_NAME = 'MakerNote CanonCameraInfo'
 
 CAMERA_INFO_5D = {
     23: ('CameraTemperature', '<B', convert_temp),
@@ -708,4 +748,5 @@ CAMERA_INFO_MODEL_MAP = {
     r'EOS 5D Mark II$': CAMERA_INFO_5DMKII,
     r'EOS 5D Mark III$': CAMERA_INFO_5DMKIII,
     r'\b(600D|REBEL T3i|Kiss X5)\b': CAMERA_INFO_600D,
+    r'EOS 5D Mark IV$': CAMERA_INFO_5DMKIII,
 }

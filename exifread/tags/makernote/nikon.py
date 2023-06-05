@@ -1,5 +1,6 @@
+from fractions import Fraction
 
-from exifread.utils import make_string, Ratio
+from exifread.utils import make_string
 
 
 def ev_bias(seq) -> str:
@@ -46,7 +47,7 @@ def ev_bias(seq) -> str:
     if i == 0:
         ret_str += 'EV'
     else:
-        ratio = Ratio(i, step)
+        ratio = Fraction(i, step)
         ret_str = ret_str + str(ratio) + ' EV'
     return ret_str
 
