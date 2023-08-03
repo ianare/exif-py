@@ -58,6 +58,11 @@ class ExifHeader:
 
     def __init__(self, file_handle: BinaryIO, endian, offset, fake_exif, strict: bool,
                  debug=False, detailed=True, truncate_tags=True):
+        file_handle.seek(2)
+        if file_handle.read(2) == 43:
+            self.length = 8
+        else:
+            self.length = 4
         self.file_handle = file_handle
         self.endian = endian
         self.offset = offset
@@ -68,6 +73,12 @@ class ExifHeader:
         self.truncate_tags = truncate_tags
         # TODO: get rid of 'Any' type
         self.tags = {}  # type: Dict[str, Any]
+
+    def tag_structure(self, entries):
+        #https://www.awaresystems.be/imaging/tiff/bigtiff.html
+        if self.length == 8:
+            return 8+entries*20
+        return 2+entries*12
 
     def s2n(self, offset, length: int, signed=False) -> int:
         """
