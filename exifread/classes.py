@@ -82,6 +82,9 @@ class ExifHeader:
         fmt = '<' if self.endian == 'I' else '>'
         # Construct a format string from the requested length and signedness;
         # raise a ValueError if length is something silly like 3
+        # Adding option for BigTiff, which uses long unsigned int
+        # https://www.awaresystems.be/imaging/tiff/bigtiff.html
+        # 
         try:
             fmt += {
                 (1, False): 'B',
@@ -90,8 +93,10 @@ class ExifHeader:
                 (2, True):  'h',
                 (4, False): 'I',
                 (4, True):  'i',
-                (8, False): 'L',
-                (8, True):  'l',
+                (4, False): 'L',
+                (4, True):  'l',
+                (8, False): 'Q',
+                (8, True):  'q',
                 }[(length, signed)]
         except KeyError as err:
             raise ValueError('unexpected unpacking length: %d' % length) from err
@@ -122,15 +127,16 @@ class ExifHeader:
 
     def _next_ifd(self, ifd) -> int:
         """Return the pointer to next IFD."""
-        entries = self.s2n(ifd, 2)
-        next_ifd = self.s2n(ifd + 2 + 12 * entries, 4)
+        entries = self.s2n(ifd, 8)
+        next_ifd = self.s2n(ifd + 8 + 20 * entries, 8)
         if next_ifd == ifd:
             return 0
         return next_ifd
 
     def list_ifd(self) -> list:
         """Return the list of IFDs in the header."""
-        i = self._first_ifd()
+        # i = self._first_ifd()
+        i = 16
         ifds = []
         set_ifds = set()
         while i:
@@ -227,7 +233,7 @@ class ExifHeader:
         count = self.s2n(entry + 4, 4)
         # Adjust for tag id/type/count (2+2+4 bytes)
         # Now we point at either the data or the 2nd level offset
-        offset = entry + 8
+        offset = entry + 12
 
         # If the value fits in 4 bytes, it is inlined, else we
         # need to jump ahead again.
@@ -297,14 +303,14 @@ class ExifHeader:
         if tag_dict is None:
             tag_dict = EXIF_TAGS
         try:
-            entries = self.s2n(ifd, 2)
+            entries = self.s2n(ifd, 8)
         except TypeError:
             logger.warning('Possibly corrupted IFD: %s', ifd)
             return
 
         for i in range(entries):
             # entry is index of start of this IFD in the file
-            entry = ifd + 2 + 12 * i
+            entry = ifd + 8 + 20 * i
             tag = self.s2n(entry, 2)
 
             # get tag name early to avoid errors, help debug
