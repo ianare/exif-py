@@ -134,20 +134,20 @@ class ExifHeader:
 
     def _first_ifd(self) -> int:
         """Return first IFD."""
-        return self.s2n(4, 4)
+        return self.s2n(self.length, self.length)
 
     def _next_ifd(self, ifd) -> int:
         """Return the pointer to next IFD."""
-        entries = self.s2n(ifd, 8)
-        next_ifd = self.s2n(ifd + 8 + 20 * entries, 8)
+        entries = self.s2n(ifd, self.length)
+        next_ifd = self.s2n(ifd + self.tag_structure(entries), self.length)
         if next_ifd == ifd:
             return 0
         return next_ifd
 
     def list_ifd(self) -> list:
         """Return the list of IFDs in the header."""
-        # i = self._first_ifd()
-        i = 16
+        i = self._first_ifd()
+        # i = 16
         ifds = []
         set_ifds = set()
         while i:
@@ -314,14 +314,14 @@ class ExifHeader:
         if tag_dict is None:
             tag_dict = EXIF_TAGS
         try:
-            entries = self.s2n(ifd, 8)
+            entries = self.s2n(ifd, self.length)
         except TypeError:
             logger.warning('Possibly corrupted IFD: %s', ifd)
             return
 
         for i in range(entries):
             # entry is index of start of this IFD in the file
-            entry = ifd + 8 + 20 * i
+            entry = ifd + self.tag_structure(i)
             tag = self.s2n(entry, 2)
 
             # get tag name early to avoid errors, help debug
