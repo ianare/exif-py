@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-#
+#AliElTop
 # Library to extract Exif information from digital camera image files.
 # https://github.com/ianare/exif-py
 #
@@ -63,66 +63,64 @@ def get_args() -> argparse.Namespace:
     return args
 
 
-def main(args) -> None:
+def main(args: argparse.Namespace) -> None:
     """Extract tags based on options (args)."""
 
     exif_log.setup_logger(args.debug, args.color)
 
-    # output info for each file
     for filename in args.files:
-        # avoid errors when printing to console
-        escaped_fn = escaped_fn = filename.encode(
-            sys.getfilesystemencoding(), 'surrogateescape'
-        ).decode()
+        escaped_fn = filename.encode(sys.getfilesystemencoding(), 'surrogateescape').decode()
 
         file_start = timeit.default_timer()
         try:
-            img_file = open(escaped_fn, 'rb')
-        except IOError:
-            logger.error("'%s' is unreadable", escaped_fn)
-            continue
-        logger.info('Opening: %s', escaped_fn)
+            with open(escaped_fn, 'rb') as img_file:
+                logger.info('Opening: %s', escaped_fn)
 
-        tag_start = timeit.default_timer()
+                tag_start = timeit.default_timer()
 
-        # get the tags
-        data = process_file(
-            img_file,
-            stop_tag=args.stop_tag,
-            details=args.detailed,
-            strict=args.strict,
-            debug=args.debug,
-            extract_thumbnail=args.detailed
-        )
+                data = process_file(
+                    img_file,
+                    stop_tag=args.stop_tag,
+                    details=args.detailed,
+                    strict=args.strict,
+                    debug=args.debug,
+                    extract_thumbnail=args.detailed
+                )
 
-        tag_stop = timeit.default_timer()
+                tag_stop = timeit.default_timer()
 
-        if not data:
-            logger.warning('No EXIF information found')
-            print()
-            continue
+                if not data:
+                    logger.warning('No EXIF information found')
+                    logger.info('')
+                    continue
 
-        if 'JPEGThumbnail' in data:
-            logger.info('File has JPEG thumbnail')
-            del data['JPEGThumbnail']
-        if 'TIFFThumbnail' in data:
-            logger.info('File has TIFF thumbnail')
-            del data['TIFFThumbnail']
+                if 'JPEGThumbnail' in data:
+                    logger.info('File has JPEG thumbnail')
+                    del data['JPEGThumbnail']
+                if 'TIFFThumbnail' in data:
+                    logger.info('File has TIFF thumbnail')
+                    del data['TIFFThumbnail']
 
-        tag_keys = list(data.keys())
-        tag_keys.sort()
+                tag_keys = list(data.keys())
+                tag_keys.sort()
 
-        for i in tag_keys:
-            try:
-                logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
-            except:
-                logger.error("%s : %s", i, str(data[i]))
+                for i in tag_keys:
+                    try:
+                        field_type_info = FIELD_TYPES.get(data[i].field_type, ('Unknown', 'Unknown', 'Unknown'))
+                        logger.info('%s (%s): %s', i, field_type_info[2], data[i].printable)
+                    except Exception as e:
+                        logger.error("%s : %s", i, str(e))
 
-        file_stop = timeit.default_timer()
+                file_stop = timeit.default_timer()
 
-        logger.debug("Tags processed in %s seconds", tag_stop - tag_start)
-        logger.debug("File processed in %s seconds", file_stop - file_start)
-        print()
+                logger.debug("Tags processed in %s seconds", tag_stop - tag_start)
+                logger.debug("File processed in %s seconds", file_stop - file_start)
+                logger.info('')
+
+        except FileNotFoundError:
+            logger.error("'%s' not found", escaped_fn)
+        except Exception as e:
+            logger.error("An error occurred while processing '%s': %s", escaped_fn, str(e))
 
 
 if __name__ == '__main__':
