@@ -1,57 +1,42 @@
-# Find Exif data in an HEIC file.
-# AliElTop
-# As of 2019, the latest standard seems to be "ISO/IEC 14496-12:2015"
-# There are many different related standards. (quicktime, mov, mp4, etc...)
-# See https://en.wikipedia.org/wiki/ISO_base_media_file_format for more details.
-
-# We parse just enough of the ISO format to locate the Exif data in the file.
-# Inside the 'meta' box are two directories we need:
-#   1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
-#   2) once we have the item_id, we find a matching entry in the 'iloc' box, which
-#      gives us position and size information.
-
 import struct
 from typing import Any, List, Dict, Callable, BinaryIO, Optional
-
 from exifread.exif_log import get_logger
-
-logger = get_logger()
 
 class WrongBox(Exception):
     pass
+
 class BoxVersion(Exception):
     pass
+
 class BadSize(Exception):
     pass
 
 class Box:
-    version = 0
-    minor_version = 0
-    item_count = 0
-    size = 0
-    after = 0
-    pos = 0
-    compat = []
-    base_offset = 0
-    subs = {}
-    locs = {}
-    exif_infe = None
-    item_id = 0
-    item_type = b''
-    item_name = b''
-    item_protection_index = 0
-    major_brand = b''
-    offset_size = 0
-    length_size = 0
-    base_offset_size = 0
-    index_size = 0
-    flags = 0
-
     def __init__(self, name: str):
         self.name = name
+        self.version = 0
+        self.minor_version = 0
+        self.item_count = 0
+        self.size = 0
+        self.after = 0
+        self.pos = 0
+        self.compat = []
+        self.base_offset = 0
+        self.subs = {}
+        self.locs = {}
+        self.exif_infe = None
+        self.item_id = 0
+        self.item_type = b''
+        self.item_name = b''
+        self.item_protection_index = 0
+        self.major_brand = b''
+        self.offset_size = 0
+        self.length_size = 0
+        self.base_offset_size = 0
+        self.index_size = 0
+        self.flags = 0
 
 class HEICExifFinder:
-
     def __init__(self, file_handle: BinaryIO):
         self.file_handle = file_handle
 
@@ -91,7 +76,7 @@ class HEICExifFinder:
 
     def get_string(self) -> bytes:
         read = []
-        while 1:
+        while True:
             char = self.get(1)
             if char == b'\x00':
                 break
@@ -217,6 +202,9 @@ class HEICExifFinder:
     def find_exif(self) -> tuple:
         ftyp = self.expect_parse('ftyp')
         meta = self.expect_parse('meta')
+        assert ftyp.major_brand == b'heic'
+        assert ftyp.minor_version == 0
+        assert meta.subs['iinf'].exif_infe is not None
         item_id = meta.subs['iinf'].exif_infe.item_id
         extents = meta.subs['iloc'].locs[item_id]
         assert len(extents) == 1
