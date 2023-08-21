@@ -8,6 +8,46 @@ from exifread.tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS,
 
 logger = get_logger()
 
+    def s2n(self, file_handle, offset, length: int, signed=False, endian="<") -> int:
+        """
+        Convert slice to integer, based on sign and endian flags.
+
+        Usually this offset is assumed to be relative to the beginning of the
+        start of the EXIF information.
+        For some cameras that use relative tags, this offset may be relative
+        to some other starting point.
+        """
+        # Little-endian if Intel, big-endian if Motorola
+        fmt = '<' if endian == 'I' else '>'
+        # Construct a format string from the requested length and signedness;
+        # raise a ValueError if length is something silly like 3
+        # Adding option for BigTiff, which uses long unsigned int
+        # https://www.awaresystems.be/imaging/tiff/bigtiff.html
+        # 
+        try:
+            fmt += {
+                (1, False): 'B',
+                (1, True):  'b',
+                (2, False): 'H',
+                (2, True):  'h',
+                (4, False): 'I',
+                (4, True):  'i',
+                (4, False): 'L',
+                (4, True):  'l',
+                (8, False): 'Q',
+                (8, True):  'q',
+                }[(length, signed)]
+        except KeyError as err:
+            raise ValueError('unexpected unpacking length: %d' % length) from err
+        file_handle.seek(self.offset + offset)
+        buf = file_handle.read(length)
+
+        if buf:
+            # https://github.com/ianare/exif-py/pull/158
+            # had to revert as this certain fields to be empty
+            # please provide test images
+            return struct.unpack(fmt, buf)[0]
+        return 0
 
 class IfdTag:
     """
@@ -61,21 +101,24 @@ class ExifHeader:
         """
         based on https://www.awaresystems.be/imaging/tiff/bigtiff.html#structures
         """
+        self.endian = endian
+        self.endian_fmt = "<" if self.endian == 'I' else ">"
+        file_handle.seek(0)
         _ = file_handle.read(2) # offset is 0
-        self.magic_number = file_handle.read(2) # offset is 2
+        self.magic_number = struct.unpack(f"{self.endian_fmt}h", file_handle.read(2)) # offset is 2
+        
         if self.magic_number == 43: 
             # bigtiff
             self.bytesize_of_offsets = file_handle.read(2) # offset is 4
             if file_handle.read(2) != 0: # offset is 6
                 raise ValueError
             self.offset_to_first_ifd = file_handle.read(2) # offset is 8
-            # self.length = 8
+            self.length = 8
         elif self.magic_number==42:
             # regular tiff
             self.offset_to_first_ifd = file_handle.read(2) # offset is 4
-            # self.length = 4
+        self.length = 4
         self.file_handle = file_handle
-        self.endian = endian
         self.offset = offset
         self.fake_exif = fake_exif
         self.strict = strict
@@ -90,47 +133,6 @@ class ExifHeader:
         if self.magic_number == 43: #big_tiff
             return 8+entries*20
         return 2+entries*12
-
-    def s2n(self, offset, length: int, signed=False) -> int:
-        """
-        Convert slice to integer, based on sign and endian flags.
-
-        Usually this offset is assumed to be relative to the beginning of the
-        start of the EXIF information.
-        For some cameras that use relative tags, this offset may be relative
-        to some other starting point.
-        """
-        # Little-endian if Intel, big-endian if Motorola
-        fmt = '<' if self.endian == 'I' else '>'
-        # Construct a format string from the requested length and signedness;
-        # raise a ValueError if length is something silly like 3
-        # Adding option for BigTiff, which uses long unsigned int
-        # https://www.awaresystems.be/imaging/tiff/bigtiff.html
-        # 
-        try:
-            fmt += {
-                (1, False): 'B',
-                (1, True):  'b',
-                (2, False): 'H',
-                (2, True):  'h',
-                (4, False): 'I',
-                (4, True):  'i',
-                (4, False): 'L',
-                (4, True):  'l',
-                (8, False): 'Q',
-                (8, True):  'q',
-                }[(length, signed)]
-        except KeyError as err:
-            raise ValueError('unexpected unpacking length: %d' % length) from err
-        self.file_handle.seek(self.offset + offset)
-        buf = self.file_handle.read(length)
-
-        if buf:
-            # https://github.com/ianare/exif-py/pull/158
-            # had to revert as this certain fields to be empty
-            # please provide test images
-            return struct.unpack(fmt, buf)[0]
-        return 0
 
     def n2b(self, offset, length) -> bytes:
         """Convert offset to bytes."""
