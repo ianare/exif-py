@@ -58,11 +58,22 @@ class ExifHeader:
 
     def __init__(self, file_handle: BinaryIO, endian, offset, fake_exif, strict: bool,
                  debug=False, detailed=True, truncate_tags=True):
-        file_handle.seek(2)
-        if file_handle.read(2) == 43:
-            self.length = 8
-        else:
-            self.length = 4
+        """
+        based on https://www.awaresystems.be/imaging/tiff/bigtiff.html#structures
+        """
+        _ = file_handle.read(2) # offset is 0
+        self.magic_number = file_handle.read(2) # offset is 2
+        if self.magic_number == 43: 
+            # bigtiff
+            self.bytesize_of_offsets = file_handle.read(2) # offset is 4
+            if file_handle.read(2) != 0: # offset is 6
+                raise ValueError
+            self.offset_to_first_ifd = file_handle.read(2) # offset is 8
+            # self.length = 8
+        elif self.magic_number==42:
+            # regular tiff
+            self.offset_to_first_ifd = file_handle.read(2) # offset is 4
+            # self.length = 4
         self.file_handle = file_handle
         self.endian = endian
         self.offset = offset
@@ -76,7 +87,7 @@ class ExifHeader:
 
     def tag_structure(self, entries):
         #https://www.awaresystems.be/imaging/tiff/bigtiff.html
-        if self.length == 8:
+        if self.magic_number == 43: #big_tiff
             return 8+entries*20
         return 2+entries*12
 
@@ -137,9 +148,10 @@ class ExifHeader:
         return self.s2n(self.length, self.length)
 
     def _next_ifd(self, ifd) -> int:
+
         """Return the pointer to next IFD."""
-        entries = self.s2n(ifd, self.length)
-        next_ifd = self.s2n(ifd + self.tag_structure(entries), self.length)
+        entries = self.s2n(offset=ifd, length=self.length)
+        next_ifd = self.s2n(offset=ifd + self.tag_structure(entries), length=self.length)
         if next_ifd == ifd:
             return 0
         return next_ifd
