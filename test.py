@@ -5,7 +5,7 @@ from exifread import process_file
 BIG_TIFF_PACKAGE: str = "compressed_asset.large.zip"
 TIFF_PACKAGE: str = "compressed_asset.zip"
 PARENT_PATH: str = "/Users/jose.delgado/delivery_data"
-path = zipfile.Path(Path(PARENT_PATH).joinpath(TIFF_PACKAGE))
+path = zipfile.Path(Path(PARENT_PATH).joinpath(BIG_TIFF_PACKAGE))
 
 for file_name in path.root.namelist():
     if ".tif" not in file_name.lower():

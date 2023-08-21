@@ -99,6 +99,7 @@ class ExifHeader:
         self.endian = endian
         self.endian_fmt = "<" if self.endian == 'I' else ">"
         self.magic_number = s2n(file_handle=file_handle, offset=2, length=1, signed=False, endian=self.endian_fmt)
+        self.bytesize_of_offset = 8 if self.magic_number==43 else 4
         self.file_handle = file_handle
         self.offset = offset
         self.fake_exif = fake_exif
@@ -130,28 +131,18 @@ class ExifHeader:
 
     def _first_ifd(self) -> int:
         """Return the pointer to first IFD."""
-        # TODO parameterize this
-        if self.magic_number == 42:
-            return s2n(
-                self.file_handle,
-                offset=4,
-                length=1, 
-                signed=False,
-                endian=self.endian)
-
-        if self.magic_number == 43:
-            return s2n(
-                self.file_handle,
-                offset=8,
-                length=1, 
-                signed=False,
-                endian=self.endian)
+        return s2n(
+            self.file_handle,
+            offset=self.bytesize_of_offset,
+            length=1, 
+            signed=False,
+            endian=self.endian)
 
     def _next_ifd(self, ifd) -> int:
 
         """Return the pointer to next IFD."""
         entries = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
-        next_ifd = s2n(file_handle=self.file_handle, offset=ifd + self.tag_structure(entries), length=4, endian=self.endian)
+        next_ifd = s2n(file_handle=self.file_handle, offset=ifd + self.tag_structure(entries), length=self.bytesize_of_offset, endian=self.endian)
         #bytesize of offsets is 8 in bigtiff and 4 in tiff
         if next_ifd == ifd:
             return 0
@@ -327,7 +318,7 @@ class ExifHeader:
         if tag_dict is None:
             tag_dict = EXIF_TAGS
         try:
-            entries = self.s2n(ifd, 2)
+            entries = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
         except TypeError:
             logger.warning('Possibly corrupted IFD: %s', ifd)
             return
@@ -335,7 +326,7 @@ class ExifHeader:
         for i in range(entries):
             # entry is index of start of this IFD in the file
             entry = ifd + self.tag_structure(i)
-            tag = self.s2n(entry, 2)
+            tag = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
 
             # get tag name early to avoid errors, help debug
             tag_entry = tag_dict.get(tag)
