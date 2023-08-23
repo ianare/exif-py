@@ -8,7 +8,7 @@ from exifread.tags import EXIF_TAGS, DEFAULT_STOP_TAG, FIELD_TYPES, IGNORE_TAGS,
 
 logger = get_logger()
 
-def s2n(file_handle, offset, length: int, signed=False, endian="<") -> int:
+def s2n(file_handle, offset, length: int, signed=False, endian="I") -> int:
     """
     Convert slice to integer, based on sign and endian flags.
     """
@@ -97,8 +97,7 @@ class ExifHeader:
         based on https://www.awaresystems.be/imaging/tiff/bigtiff.html#structures
         """
         self.endian = endian
-        self.endian_fmt = "<" if self.endian == 'I' else ">"
-        self.magic_number = s2n(file_handle=file_handle, offset=2, length=1, signed=False, endian=self.endian_fmt)
+        self.magic_number = s2n(file_handle=file_handle, offset=2, length=1, signed=False, endian=self.endian)
         self.number_of_entries_length = 8 if self.magic_number==43 else 2
         self.bytesize_of_offset_value = 8 if self.magic_number==43 else 4
         self.tag_id_length = 2
@@ -200,7 +199,13 @@ class ExifHeader:
                         # -1 means corrupted
                         value = -1
                 else:
-                    value = self.s2n(offset, type_length, signed)
+                    value = s2n(
+                        file_handle=self.file_handle,
+                        offset=offset,
+                        length=type_length,
+                        signed=signed,
+                        endian=self.endian
+                        )
                 values.append(value)
                 offset = offset + type_length
         # The test above causes problems with tags that are
@@ -241,7 +246,7 @@ class ExifHeader:
     def _process_tag(self, ifd, ifd_name: str, tag_entry, entry, tag: int, tag_name, relative, stop_tag) -> None:
         field_type = s2n(
             file_handle=self.file_handle,
-            offset=entry + 2,
+            offset=entry + self.tag_id_length,
             length=self.tag_fieldtype_length,
             signed=False,
             endian=self.endian
@@ -343,19 +348,19 @@ class ExifHeader:
 
         for i in range(entries):
             # entry is index of start of this IFD in the file
-            entry = ifd + self.offset_to_next_ifd(i)
-            tag = s2n(file_handle=self.file_handle, offset=entry, length=2, signed=False, endian=self.endian)
+            entry = self.offset_to_next_ifd(ifd, i)
+            tag_id = s2n(file_handle=self.file_handle, offset=entry, length=self.tag_id_length, signed=False, endian=self.endian)
 
             # get tag name early to avoid errors, help debug
-            tag_entry = tag_dict.get(tag)
+            tag_entry = tag_dict.get(tag_id)
             if tag_entry:
                 tag_name = tag_entry[0]
             else:
-                tag_name = 'Tag 0x%04X' % tag
+                tag_name = 'Tag 0x%04X' % tag_id
 
             # ignore certain tags for faster processing
-            if not (not self.detailed and tag in IGNORE_TAGS):
-                self._process_tag(ifd, ifd_name, tag_entry, entry, tag, tag_name, relative, stop_tag)
+            if not (not self.detailed and tag_id in IGNORE_TAGS):
+                self._process_tag(ifd, ifd_name, tag_entry, entry, tag_id, tag_name, relative, stop_tag)
 
             if tag_name == stop_tag:
                 break
