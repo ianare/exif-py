@@ -99,7 +99,14 @@ class ExifHeader:
         self.endian = endian
         self.endian_fmt = "<" if self.endian == 'I' else ">"
         self.magic_number = s2n(file_handle=file_handle, offset=2, length=1, signed=False, endian=self.endian_fmt)
-        self.bytesize_of_offset = 8 if self.magic_number==43 else 4
+        self.number_of_entries_length = 8 if self.magic_number==43 else 2
+        self.bytesize_of_offset_value = 8 if self.magic_number==43 else 4
+        self.tag_id_length = 2
+        self.tag_fieldtype_length = 2
+        self.tag_nvalues_length = 8 if self.magic_number==43 else 4
+        self.inlining_threshold = 8 if self.magic_number==43 else 4 # In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to. In BigTIFF, the tag data is written inside the tag structure, in the IFD, if its size is smaller than or equal to 8 bytes. 
+        self.max_tag_length = self.tag_id_length + self.tag_fieldtype_length + self.tag_nvalues_length + self.inlining_threshold # max tag length 
+
         self.file_handle = file_handle
         self.offset = offset
         self.fake_exif = fake_exif
@@ -110,13 +117,9 @@ class ExifHeader:
         # TODO: get rid of 'Any' type
         self.tags = {}  # type: Dict[str, Any]
 
-    def tag_structure(self, entries):
+    def offset_to_next_ifd(self, ifd, entries):
         #https://www.awaresystems.be/imaging/tiff/bigtiff.html
-        if self.magic_number == 43: #big_tiff
-            return 8+entries*20
-        if self.magic_number == 42: #tiff
-            return 2+entries*12
-        return 2+entries*12
+        return ifd + self.number_of_entries_length+entries*self.max_tag_length
 
     def n2b(self, offset, length) -> bytes:
         """Convert offset to bytes."""
@@ -133,7 +136,7 @@ class ExifHeader:
         """Return the pointer to first IFD."""
         return s2n(
             self.file_handle,
-            offset=self.bytesize_of_offset,
+            offset=self.bytesize_of_offset_value,
             length=1, 
             signed=False,
             endian=self.endian)
@@ -141,8 +144,8 @@ class ExifHeader:
     def _next_ifd(self, ifd) -> int:
 
         """Return the pointer to next IFD."""
-        entries = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
-        next_ifd = s2n(file_handle=self.file_handle, offset=ifd + self.tag_structure(entries), length=self.bytesize_of_offset, endian=self.endian)
+        entries = s2n(file_handle=self.file_handle, offset=ifd, length=self.number_of_entries_length, signed=False, endian=self.endian)
+        next_ifd = s2n(file_handle=self.file_handle, offset=self.offset_to_next_ifd(ifd, entries), length=self.bytesize_of_offset_value, endian=self.endian)
         #bytesize of offsets is 8 in bigtiff and 4 in tiff
         if next_ifd == ifd:
             return 0
@@ -236,8 +239,13 @@ class ExifHeader:
         return values
 
     def _process_tag(self, ifd, ifd_name: str, tag_entry, entry, tag: int, tag_name, relative, stop_tag) -> None:
-        field_type = self.s2n(entry + 2, 2)
-
+        field_type = s2n(
+            file_handle=self.file_handle,
+            offset=entry + 2,
+            length=self.tag_fieldtype_length,
+            signed=False,
+            endian=self.endian
+            )
         # unknown field type
         if not 0 < field_type < len(FIELD_TYPES):
             if not self.strict:
@@ -245,28 +253,38 @@ class ExifHeader:
             raise ValueError('Unknown type %d in tag 0x%04X' % (field_type, tag))
 
         type_length = FIELD_TYPES[field_type][0]
-        count = self.s2n(entry + 4, 4)
-        # Adjust for tag id/type/count (2+2+4 bytes)
+        count = s2n(
+            file_handle=self.file_handle,
+            offset=entry + self.tag_id_length + self.tag_fieldtype_length,
+            length=self.number_of_entries_length,
+            signed=False,
+            endian=self.endian
+            )
+            # the length of this field (number of values) is the same as the bytesize_of_offset by chance (or by design?)
+        # Adjust for tag id/type/count (2+2+4 bytes) or in the case of bigtiff (2+2+8)
         # Now we point at either the data or the 2nd level offset
-        offset = entry + 12
+        offset = entry + self.tag_id_length + self.tag_fieldtype_length + self.tag_nvalues_length
 
         # If the value fits in 4 bytes, it is inlined, else we
         # need to jump ahead again.
-        if count * type_length > 4:
+        if count * type_length > self.inlining_threshold:
             # offset is not the value; it's a pointer to the value
             # if relative we set things up so s2n will seek to the right
             # place when it adds self.offset.  Note that this 'relative'
             # is for the Nikon type 3 makernote.  Other cameras may use
             # other relative offsets, which would have to be computed here
             # slightly differently.
+            tmp_offset = s2n(
+                    file_handle=self.file_handle,
+                    offset=offset,
+                    length=self.bytesize_of_offset_value,
+                    signed=False)
             if relative:
-                tmp_offset = self.s2n(offset, 4)
                 offset = tmp_offset + ifd - 8
                 if self.fake_exif:
                     offset += 18
             else:
-                offset = self.s2n(offset, 4)
-
+                offset = tmp_offset
         field_offset = offset
         values = None
         if field_type == 2:
@@ -318,15 +336,15 @@ class ExifHeader:
         if tag_dict is None:
             tag_dict = EXIF_TAGS
         try:
-            entries = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
+            entries = s2n(file_handle=self.file_handle, offset=ifd, length=self.number_of_entries_length, signed=False, endian=self.endian)
         except TypeError:
             logger.warning('Possibly corrupted IFD: %s', ifd)
             return
 
         for i in range(entries):
             # entry is index of start of this IFD in the file
-            entry = ifd + self.tag_structure(i)
-            tag = s2n(file_handle=self.file_handle, offset=ifd, length=2, signed=False, endian=self.endian)
+            entry = ifd + self.offset_to_next_ifd(i)
+            tag = s2n(file_handle=self.file_handle, offset=entry, length=2, signed=False, endian=self.endian)
 
             # get tag name early to avoid errors, help debug
             tag_entry = tag_dict.get(tag)
