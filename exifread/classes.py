@@ -133,9 +133,14 @@ class ExifHeader:
         self.tag_id_length = 2
         self.tag_fieldtype_length = 2
         self.tag_nvalues_length = 8 if self.magic_number == 43 else 4
-        self.inlining_threshold = (
-            8 if self.magic_number == 43 else 4
-        )  # In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to. In BigTIFF, the tag data is written inside the tag structure, in the IFD, if its size is smaller than or equal to 8 bytes.
+        # In classic TIFF,
+        # the tag data was written inside the tag structure,
+        #  in the IFD, if its size was smaller than or equal
+        #  to 4 bytes. Otherwise, it's written elsewhere,
+        # and pointed to. In BigTIFF, the tag data is written
+        #  inside the tag structure, in the IFD, if its
+        # size is smaller than or equal to 8 bytes:
+        self.inlining_threshold = 8 if self.magic_number == 43 else 4
         self.max_tag_length = (
             self.tag_id_length
             + self.tag_fieldtype_length
@@ -224,7 +229,20 @@ class ExifHeader:
                 if field_type in (5, 10):
                     # a ratio
                     value = Ratio(
-                        self.s2n(offset, 4, signed), self.s2n(offset + 4, 4, signed)
+                        s2n(
+                            file_handle=self.file_handle,
+                            offset=offset,
+                            length=4,
+                            signed=signed,
+                            endian=self.endian,
+                        ),
+                        s2n(
+                            file_handle=self.file_handle,
+                            offset=offset + 4,
+                            length=4,
+                            signed=signed,
+                            endian=self.endian,
+                        ),
                     )
                 elif field_type in (11, 12):
                     # a float or double
@@ -259,7 +277,13 @@ class ExifHeader:
         # supposed to have long values! Fix up one important case.
         elif tag_name in ("MakerNote", makernote.canon.CAMERA_INFO_TAG_NAME):
             for _ in range(count):
-                value = self.s2n(offset, type_length, signed)
+                value = s2n(
+                            file_handle=self.file_handle,
+                            offset=offset,
+                            length=type_length,
+                            signed=signed,
+                            endian=self.endian,
+                        )
                 values.append(value)
                 offset = offset + type_length
         return values
@@ -475,7 +499,14 @@ class ExifHeader:
         if not thumb or thumb.printable != "Uncompressed TIFF":
             return
 
-        entries = self.s2n(thumb_ifd, 2)
+        entries = s2n(
+                file_handle=self.file_handle,
+                offset=thumb_ifd,
+                length=2,
+                signed=False,
+                endian=self.endian,
+            )
+
         # this is header plus offset to IFD ...
         if self.endian == "M":
             tiff = b"MM\x00*\x00\x00\x00\x08"
@@ -488,11 +519,35 @@ class ExifHeader:
         # fix up large value offset pointers into data area
         for i in range(entries):
             entry = thumb_ifd + 2 + 12 * i
-            tag = self.s2n(entry, 2)
-            field_type = self.s2n(entry + 2, 2)
+            tag = s2n(
+                file_handle=self.file_handle,
+                offset=entry,
+                length=2,
+                signed=False,
+                endian=self.endian,
+            )
+            field_type = s2n(
+                file_handle=self.file_handle,
+                offset=entry+2,
+                length=2,
+                signed=False,
+                endian=self.endian,
+            )
             type_length = FIELD_TYPES[field_type][0]
-            count = self.s2n(entry + 4, 4)
-            old_offset = self.s2n(entry + 8, 4)
+            count = s2n(
+                file_handle=self.file_handle,
+                offset=entry+4,
+                length=4,
+                signed=False,
+                endian=self.endian,
+            )
+            old_offset = s2n(
+                file_handle=self.file_handle,
+                offset=entry+8,
+                length=4,
+                signed=False,
+                endian=self.endian,
+            )
             # start of the 4-byte pointer area in entry
             ptr = i * 12 + 18
             # remember strip offsets location
