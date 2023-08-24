@@ -1,7 +1,7 @@
 import re
 import struct
 from typing import BinaryIO, Dict, Any
-from dataclasses import dataclass
+from functools import cached_property
 
 from exifread.exif_log import get_logger
 from exifread.utils import Ratio
@@ -124,7 +124,7 @@ class TagAttrs:
     Tag attributes as described in https://www.awaresystems.be/imaging/tiff/bigtiff.html
     Tiff and BigTiff differ mainly in length of fields.
     """
-    
+
     def __init__(self, magic_number: int) -> None:
         self.magic_number: int = magic_number
         self.id_length: int = 2
@@ -176,13 +176,6 @@ class ExifHeader:
         based on https://www.awaresystems.be/imaging/tiff/bigtiff.html#structures
         """
         self.endian = endian
-        self.magic_number = s2n(
-            file_handle=file_handle,
-            offset=2,
-            length=1,
-            signed=False,
-            endian=self.endian,
-        )
         self.file_handle = file_handle
         self.offset = offset
         self.fake_exif = fake_exif
@@ -192,8 +185,24 @@ class ExifHeader:
         self.truncate_tags = truncate_tags
         # TODO: get rid of 'Any' type
         self.tags = {}  # type: Dict[str, Any]
-        self.ifd_attrs = IfdAttrs(self.magic_number)
-        self.tag_attrs = TagAttrs(self.magic_number)
+
+    @cached_property
+    def magic_number(self):
+        return s2n(
+            file_handle=self.file_handle,
+            offset=self.offset + 2,
+            length=1,
+            signed=False,
+            endian=self.endian,
+        )
+
+    @cached_property
+    def ifd_attrs(self):
+        return IfdAttrs(self.magic_number)
+
+    @cached_property
+    def tag_attrs(self):
+        return TagAttrs(self.magic_number)
 
     def offset_to_next_ifd(self, ifd, entries):
         return ifd + self.ifd_attrs.ntag_length + entries * self.tag_attrs.total_length
@@ -213,7 +222,7 @@ class ExifHeader:
         """Return the pointer to first IFD."""
         return s2n(
             self.file_handle,
-            offset=self.ifd_attrs.offset_to_first_ifd,
+            offset=self.offset + self.ifd_attrs.offset_to_first_ifd,
             length=self.ifd_attrs.offset_to_ifd_length,
             signed=False,
             endian=self.endian,
@@ -223,14 +232,14 @@ class ExifHeader:
         """Return the pointer to next IFD."""
         entries = s2n(
             file_handle=self.file_handle,
-            offset=ifd,
+            offset=self.offset + ifd,
             length=self.ifd_attrs.ntag_length,
             signed=False,
             endian=self.endian,
         )
         next_ifd = s2n(
             file_handle=self.file_handle,
-            offset=self.offset_to_next_ifd(ifd, entries),
+            offset=self.offset + self.offset_to_next_ifd(ifd, entries),
             length=self.ifd_attrs.offset_to_ifd_length,
             endian=self.endian,
         )
@@ -267,14 +276,14 @@ class ExifHeader:
                     value = Ratio(
                         s2n(
                             file_handle=self.file_handle,
-                            offset=offset,
+                            offset=self.offset + offset,
                             length=4,
                             signed=signed,
                             endian=self.endian,
                         ),
                         s2n(
                             file_handle=self.file_handle,
-                            offset=offset + 4,
+                            offset=self.offset + offset + 4,
                             length=4,
                             signed=signed,
                             endian=self.endian,
@@ -302,7 +311,7 @@ class ExifHeader:
                 else:
                     value = s2n(
                         file_handle=self.file_handle,
-                        offset=offset,
+                        offset=self.offset + offset,
                         length=type_length,
                         signed=signed,
                         endian=self.endian,
@@ -315,7 +324,7 @@ class ExifHeader:
             for _ in range(count):
                 value = s2n(
                     file_handle=self.file_handle,
-                    offset=offset,
+                    offset=self.offset + offset,
                     length=type_length,
                     signed=signed,
                     endian=self.endian,
@@ -369,7 +378,7 @@ class ExifHeader:
     ) -> None:
         field_type = s2n(
             file_handle=self.file_handle,
-            offset=entry + self.tag_attrs.id_length,
+            offset=self.offset + entry + self.tag_attrs.id_length,
             length=self.tag_attrs.fieldtype_length,
             signed=False,
             endian=self.endian,
@@ -383,7 +392,10 @@ class ExifHeader:
         type_length = FIELD_TYPES[field_type][0]
         count = s2n(
             file_handle=self.file_handle,
-            offset=entry + self.tag_attrs.id_length + self.tag_attrs.fieldtype_length,
+            offset=self.offset
+            + entry
+            + self.tag_attrs.id_length
+            + self.tag_attrs.fieldtype_length,
             length=self.ifd_attrs.ntag_length,
             signed=False,
             endian=self.endian,
@@ -409,7 +421,7 @@ class ExifHeader:
             # slightly differently.
             tmp_offset = s2n(
                 file_handle=self.file_handle,
-                offset=offset,
+                offset=self.offset + offset,
                 length=self.ifd_attrs.offset_to_ifd_length,
                 signed=False,
             )
@@ -481,7 +493,7 @@ class ExifHeader:
         try:
             entries = s2n(
                 file_handle=self.file_handle,
-                offset=ifd,
+                offset=self.offset + ifd,
                 length=self.ifd_attrs.ntag_length,
                 signed=False,
                 endian=self.endian,
@@ -495,7 +507,7 @@ class ExifHeader:
             entry = self.offset_to_next_ifd(ifd, i)
             tag_id = s2n(
                 file_handle=self.file_handle,
-                offset=entry,
+                offset=self.offset + entry,
                 length=self.tag_attrs.id_length,
                 signed=False,
                 endian=self.endian,
@@ -537,7 +549,7 @@ class ExifHeader:
 
         entries = s2n(
             file_handle=self.file_handle,
-            offset=thumb_ifd,
+            offset=self.offset + thumb_ifd,
             length=2,
             signed=False,
             endian=self.endian,
@@ -557,7 +569,7 @@ class ExifHeader:
             entry = thumb_ifd + 2 + 12 * i
             tag = s2n(
                 file_handle=self.file_handle,
-                offset=entry,
+                offset=self.offset + entry,
                 length=2,
                 signed=False,
                 endian=self.endian,
@@ -572,14 +584,14 @@ class ExifHeader:
             type_length = FIELD_TYPES[field_type][0]
             count = s2n(
                 file_handle=self.file_handle,
-                offset=entry + 4,
+                offset=self.offset + entry + 4,
                 length=4,
                 signed=False,
                 endian=self.endian,
             )
             old_offset = s2n(
                 file_handle=self.file_handle,
-                offset=entry + 8,
+                offset=self.offset + entry + 8,
                 length=4,
                 signed=False,
                 endian=self.endian,
