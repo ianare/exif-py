@@ -107,6 +107,10 @@ class IfdAttrs:
         self.magic_number: int = magic_number
 
     @property
+    def offset_to_first_ifd(self) -> int:
+        return 8 if self.magic_number == 43 else 4
+
+    @property
     def offset_to_ifd_length(self) -> int:
         return 8 if self.magic_number == 43 else 4
 
@@ -209,8 +213,8 @@ class ExifHeader:
         """Return the pointer to first IFD."""
         return s2n(
             self.file_handle,
-            offset=self.ifd_attrs.offset_to_ifd_length,
-            length=1,
+            offset=self.ifd_attrs.offset_to_first_ifd,
+            length=self.ifd_attrs.offset_to_ifd_length,
             signed=False,
             endian=self.endian,
         )
