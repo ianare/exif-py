@@ -4,12 +4,15 @@
 name: Test
 
 on:
-  - pull_request
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
 
 jobs:
   pytest:
     name: Run Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     strategy:
       matrix:
@@ -20,11 +23,13 @@ jobs:
           - "3.9"
           - "3.10"
           - "3.11"
+          - "3.12"
+
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
