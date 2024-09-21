@@ -118,7 +118,7 @@ def main(args) -> None:
             value = data[field]
             try:
                 if args.builtin_types:
-                    logger.info('%s: %s', field, value)
+                    logger.info('%s (%s): %r', field, type(value).__name__, value)
                 else:
                     logger.info('%s (%s): %s', field, FIELD_TYPES[value.field_type][2], value.printable)
             except:

@@ -50,8 +50,8 @@ def convert_types(exif_tags: dict) -> dict:
 
         # Undefined
         elif code == 'U':
-            # These contain bytes represented as a list of integers
-            out = bytes(ifd_tag.values)
+            # These contain bytes represented as a list of integers, sometimes with surrounding space/null bytes
+            out = bytes(ifd_tag.values).strip(b' \x00')
 
             # Empty byte sequences or unicode values should be decoded as strings
             try:
