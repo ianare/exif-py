@@ -79,9 +79,9 @@ You can process the tags as you wish. In particular, you can iterate through all
 
 .. code-block:: python
 
-    for tag in tags.keys():
+    for tag, value in tags.items():
         if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
-            print "Key: %s, value %s" % (tag, tags[tag])
+            print(f"Key: {tag}, value {value}")
 
 An ``if`` statement is used to avoid printing out a few of the tags that tend to be long or boring.
 

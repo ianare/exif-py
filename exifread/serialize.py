@@ -9,7 +9,7 @@ def convert_hdr_tags(hdr_tags: dict) -> dict:
     Convert Exif IfdTags to native Python types (allowing exif serialization).
 
     If the printable value is relevant (i.e. enum type), keep it.
-    Otherwise, handle values according on their type.
+    Otherwise, handle values according to their type.
     """
 
     output = {}

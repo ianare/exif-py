@@ -1,5 +1,6 @@
 """
-Read Exif metadata from tiff and jpeg files.
+Read Exif metadata from image files
+Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 """
 
 import struct
