@@ -203,4 +203,3 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
         return hdr.tags
 
     return convert_hdr_tags(hdr.tags)
-
