@@ -160,6 +160,23 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 
     tags = exifread.process_file(file_handle, strict=True)
 
+Built-in Types
+==============
+
+To return a dictionary with tag values as built-in Python variable types (int, float, bytes, str, etc.) instead of `IfdTag` objects, use this option. This is useful for JSON serialization.
+
+Pass the ``-b`` or ``--builtin`` argument, or use:
+
+.. code-block:: python
+
+    tags = exifread.process_file(file_handle, builtin_types=True)
+
+For immediate JSON serialization, combine this with the ``-q`` argument or ``details=False`` to avoid bytes in the output:
+
+.. code-block:: python
+
+    json.dumps(exifread.process_file(file_handle, details=False, builtin_types=True))
+
 Usage Example
 =============
 
@@ -171,14 +188,14 @@ This example shows how to use the library to correct the orientation of an image
     import exifread
     from PIL import Image
     import logging
-    
+
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
         tags = {}
         with open(path, "rb") as file_handle:
             tags = exifread.process_file(file_handle, details=False)
 
-        if "Image Orientation" in tags.keys():
+        if "Image Orientation" in tags:
             orientation = tags["Image Orientation"]
             logging.basicConfig(level=logging.DEBUG)
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)

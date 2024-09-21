@@ -52,8 +52,8 @@ def get_args() -> argparse.Namespace:
         help='Run in strict mode (stop on errors).',
     )
     parser.add_argument(
-        '-n', '--native', action='store_true', dest='native',
-        help='Convert IfdTags to native python types.',
+        '-b', '--builtin', action='store_true', dest='builtin_types',
+        help='Convert IfdTag values to built-in Python variable types',
     )
     parser.add_argument(
         '-d', '--debug', action='store_true', dest='debug',
@@ -97,7 +97,7 @@ def main(args) -> None:
             strict=args.strict,
             debug=args.debug,
             extract_thumbnail=args.detailed,
-            convert_ifdtags=args.native,
+            builtin_types=args.builtin_types,
         )
 
         tag_stop = timeit.default_timer()
@@ -117,12 +117,12 @@ def main(args) -> None:
         for field in sorted(data):
             value = data[field]
             try:
-                if args.native:
+                if args.builtin_types:
                     logger.info('%s: %s', field, value)
                 else:
                     logger.info('%s (%s): %s', field, FIELD_TYPES[value.field_type][2], value.printable)
             except:
-                logger.error("%s : %s", field, str(value))
+                logger.error("%s: %s", field, str(value))
 
         file_stop = timeit.default_timer()
 

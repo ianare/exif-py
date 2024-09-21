@@ -4,17 +4,17 @@ Enable conversion of Exif IfdTags to native Python types
 
 from exifread.tags import FIELD_TYPES
 
-def convert_hdr_tags(hdr_tags: dict) -> dict:
+def convert_types(exif_tags: dict) -> dict:
     """
-    Convert Exif IfdTags to native Python types (allowing exif serialization).
+    Convert Exif IfdTags to built-in Python types (allowing exif serialization).
 
-    If the printable ifd_tag is relevant (e.g. enum type), keep it.
+    If the printable value of the IfdTag is relevant (e.g. enum type), keep it.
     Otherwise, handle values according to their type.
     """
 
     output = {}
 
-    for tag_name, ifd_tag in hdr_tags.items():
+    for tag_name, ifd_tag in exif_tags.items():
         # JPEGThumbnail and TIFFThumbnail are the only values
         # in HDR Tags dict that do not have the IfdTag type.
         if isinstance(ifd_tag, bytes):
@@ -75,6 +75,7 @@ def convert_hdr_tags(hdr_tags: dict) -> dict:
             # If there is only one ratio, it's the repr of that ratio (e.g. '1/10'), otherwise it's
             # a stringified list of repr of a Fraction objects (e.g. '[1/10, 3, 5/2]').
             # Values should be kept as float type, or integer if it's the case.
+            # To convert back if desired: `Fraction(float_value).limit_denominator()`.
             out = []
             for ratio in ifd_tag.values:
                 # Prevent division by 0. Sometimes, exif is full of 0s when a feature is not used.
