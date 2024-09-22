@@ -163,15 +163,15 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 Built-in Types
 ==============
 
-To return a dictionary with tag values as built-in Python variable types (int, float, bytes, str, etc.) instead of `IfdTag` objects, use this option. This is useful for JSON serialization.
+For easier serialization and programmatic use, this option returns a dictionary with values in built-in Python types (int, float, str, bytes, list, None) instead of `IfdTag` objects.
 
-Pass the ``-b`` or ``--builtin`` argument, or use:
+Pass the ``-b`` or ``--builtin`` argument, or as:
 
 .. code-block:: python
 
     tags = exifread.process_file(file_handle, builtin_types=True)
 
-For immediate JSON serialization, combine this with the ``-q`` argument or ``details=False`` to avoid bytes in the output:
+For direct JSON serialization, combine this option with ``details=False`` to avoid bytes in the output:
 
 .. code-block:: python
 

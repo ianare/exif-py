@@ -2,129 +2,243 @@
 Enable conversion of Exif IfdTags to native Python types
 """
 
-from exifread.tags import FIELD_TYPES
+from typing import Callable, Dict, List, Union
 
-def convert_types(exif_tags: dict) -> dict:
+from exifread.classes import IfdTag
+from exifread.exif_log import get_logger
+
+logger = get_logger()
+
+def convert_types(exif_tags: Dict[str, Union[IfdTag, bytes]]) -> Dict[str, Union[int, float, str, bytes, list, None]]:
     """
-    Convert Exif IfdTags to built-in Python types (allowing exif serialization).
+    Convert Exif IfdTags to built-in Python types for easier serialization and programmatic use.
 
-    If the printable value of the IfdTag is relevant (e.g. enum type), keep it.
-    Otherwise, handle values according to their type.
+    - If the printable value of the IfdTag is relevant (e.g. enum type), it is preserved.
+    - Otherwise, values are processed based on their field type, with some cleanups applied.
+    - Single-element lists are unpacked to return the item directly.
     """
 
-    output = {}
+    output: Dict[str, Union[int, float, str, bytes, list, None]] = {}
 
     for tag_name, ifd_tag in exif_tags.items():
+
         # JPEGThumbnail and TIFFThumbnail are the only values
-        # in HDR Tags dict that do not have the IfdTag type.
+        # in Exif Tags dict that do not have the IfdTag type.
         if isinstance(ifd_tag, bytes):
             output[tag_name] = ifd_tag
             continue
 
-        code = FIELD_TYPES[ifd_tag.field_type][1]
+        convert_func: Callable[[IfdTag, str], Union[int, float, List[int], List[float], bytes, str, None]]
 
-        # Use the printable version if relevant
         if ifd_tag.prefer_printable:
-            out = ifd_tag.printable
-
-        # ASCII
-        elif code == 'A':
-            out = ifd_tag.values
-
-            # Image DateTime, EXIF DateTimeOriginal, EXIF DateTimeDigitized are often
-            # formatted in a way that cannot be parsed by python dateutil (%Y:%m:%d %H:%M:%S).
-            if 'DateTime' in tag_name and len(out) == 19 and out.count(':') == 4:
-                out = out.replace(':', '-', 2)
-
-            # GPSDate
-            elif tag_name == 'GPS GPSDate':
-                # These are proper dates with the wrong delimiter (':' rather than '-').
-                # Invalid values have been found in test images: '' and '2014:09:259'
-                if len(out) == 10 and out.count(':') == 2:
-                    out = out.replace(':', '-')
-
-            # Other dates seen can be parsed properly
-
-            # Strip occasional trailing whitespaces
-            out = out.strip()
-
-        # Undefined
-        elif code == 'U':
-            # These contain bytes represented as a list of integers, sometimes with surrounding space/null bytes
-            out = bytes(ifd_tag.values).strip(b' \x00')
-
-            # Empty byte sequences or unicode values should be decoded as strings
-            try:
-                out = out.decode()
-            except UnicodeDecodeError:
-                pass
-
-        # Short, Long, Signed Short, Signed Long,
-        # Single-Precision Floating Point (32-bit), Double-Precision Floating Point (64-bit)
-        elif code in ('S', 'L', 'SS', 'SL', 'F32', 'F64'):
-            out = ifd_tag.values
-            if not out:  # Empty lists, seen in floating point numbers
-                out = ''
-            elif len(out) == 1:
-                out = out[0]
-
-        # Ratio, Signed Ratio
-        elif code in ('R', 'SR'):
-            # Handle IfdTags where values are ratios (fractions.Fraction).
-            # By default, the printable IfdTags is a string.
-            # If there is only one ratio, it's the repr of that ratio (e.g. '1/10'), otherwise it's
-            # a stringified list of repr of a Fraction objects (e.g. '[1/10, 3, 5/2]').
-            # Values should be kept as float type, or integer if it's the case.
-            # To convert back if desired: `Fraction(float_value).limit_denominator()`.
-            out = []
-            for ratio in ifd_tag.values:
-                # Prevent division by 0. Sometimes, exif is full of 0s when a feature is not used.
-                if ratio.denominator == 0:
-                    ratio = ratio.numerator
-
-                ratio = float(ratio)
-                if ratio.is_integer():
-                    ratio = int(ratio)
-
-                out.append(ratio)
-
-            if not out:  # Empty lists, seen in signed ratios
-                out = ''
-            elif len(out) == 1:
-                out = out[0]
-
-        # Proprietary
-        elif code == 'X':
-            out = ifd_tag.printable
-
-        # Byte, Signed Byte
-        elif code in ('B', 'SB'):
-            out = ifd_tag.values
-
-            if len(out) == 1:
-                # Byte can be a single integer, such as GPSAltitudeRef (ifd_tag 0 or 1)
-                out = out[0]
-
-            elif not tag_name.startswith('GPS'):
-                out = bytes(out)
-                # Seen text strings with a null byte between each character
-                # (e.g. b'p\x00i\x00a\x00n\x00o\x00')
-                # and others with a lot of trailing null bytes.
-                if out.endswith(b'\x00'):
-                    out = out.replace(b'\x00', b'').strip()
-
-                # Empty byte sequences or unicode values (e.g. XML Image ApplicationNotes)
-                # should be decoded as strings.
-                try:
-                    out = out.decode()
-                except UnicodeDecodeError:
-                    pass
+            # Prioritize the printable value if prefer_printable is set
+            convert_func = convert_proprietary
 
         else:
-            # Fallback handling in case new field types are added before
-            # updating the serialization function (e.g. to support bigtiff)
-            out = ifd_tag.printable
+            # Get the conversion function based on field type
+            try:
+                convert_func = conversion_map[ifd_tag.field_type]
+            except KeyError:
+                logger.error("Type conversion for field type %s not explicitly supported", ifd_tag.field_type)
+                convert_func = convert_proprietary  # Fallback to printable
 
-        output[tag_name] = out
+        output[tag_name] = convert_func(ifd_tag, tag_name)
+
+        # Useful only for testing
+        # logger.warning(
+        #     f"{convert_func.__name__}: {ifd_tag.field_type} to {type(output[tag_name]).__name__}\n"
+        #     f"{tag_name} --> {str(output[tag_name])[:30]!r}"
+        # )
 
     return output
+
+
+def convert_ascii(ifd_tag: IfdTag, tag_name: str) -> Union[str, bytes, None]:
+    """
+    Handle ASCII conversion, including special date formats.
+
+    Returns:
+    - str
+    - bytes for rare ascii sequences that aren't unicode
+    - None for empty values
+    """
+
+    out = ifd_tag.values
+
+    # Handle DateTime formatting; often formatted in a way that cannot
+    # be parsed by Python dateutil (%Y:%m:%d %H:%M:%S).
+    if 'DateTime' in tag_name and len(out) == 19 and out.count(':') == 4:
+        out = out.replace(':', '-', 2)
+
+    # Handle GPSDate formatting; these are proper dates with the wrong
+    # delimiter (':' rather than '-'). Invalid values have been found
+    # in test images: '' and '2014:09:259'
+    elif tag_name == 'GPS GPSDate' and len(out) == 10 and out.count(':') == 2:
+        out = out.replace(':', '-')
+
+    # Strip occasional trailing whitespaces
+    out = out.strip()
+
+    if not out:
+        return None
+
+    # Attempt to decode bytes if unicode
+    if isinstance(out, bytes):
+        try:
+            return out.decode()
+        except UnicodeDecodeError:
+            pass
+
+    return out
+
+
+def convert_undefined(ifd_tag: IfdTag, _tag_name: str) -> Union[bytes, str, int, None]:
+    """
+    Handle Undefined type conversion.
+
+    Returns:
+    - bytes if not unicode such as Exif MakerNote
+    - str for unicode
+    - int for rare MakerNote Tags containing a single value
+    - None for empty values such as some MakerNote Tags
+    """
+
+    out = ifd_tag.values
+
+    if len(out) == 1:
+        # Return integer from single-element list
+        return out[0]
+
+    # These contain bytes represented as a list of integers, sometimes with surrounded by spaces and/or null bytes
+    out = bytes(out).strip(b' \x00')
+
+    if not out:
+        return None
+
+    # Empty byte sequences or unicode values should be decoded as strings
+    try:
+        return out.decode()
+    except UnicodeDecodeError:
+        return out
+
+
+def convert_numeric(ifd_tag: IfdTag, _tag_name: str) -> Union[int, List[int], None]:
+    """
+    Handle numeric types conversion.
+
+    Returns:
+    - int in most cases
+    - list of int
+    - None for empty values such as some MakerNote Tags
+
+    Note: All Floating Point tags seen were empty.
+    """
+
+    out = ifd_tag.values
+
+    if not out:  # Empty lists, seen in floating point numbers
+        return None
+
+    return out[0] if len(out) == 1 else out
+
+
+def convert_ratio(ifd_tag: IfdTag, _tag_name: str) -> Union[int, float, List[int], List[float], None]:
+    """
+    Handle Ratio and Signed Ratio conversion.
+
+    Returns:
+    - int when the denominator is 1 or unused
+    - float otherwise
+    - a list of int or float, such as GPS Latitude/Longitude/TimeStamp
+    - None for empty values such as some MakerNote Tags
+
+    Ratios can be re-created with `Ratio(float_value).limit_denominator()`.
+    """
+
+    out = []
+
+    for ratio in ifd_tag.values:
+        # Prevent division by 0. Sometimes, EXIF data is full of 0s when a feature is unused.
+        if ratio.denominator == 0:
+            ratio = ratio.numerator
+
+        ratio = float(ratio)
+
+        if ratio.is_integer():
+            ratio = int(ratio)
+
+        out.append(ratio)
+
+    if not out:
+        return None
+
+    return out[0] if len(out) == 1 else out
+
+
+def convert_bytes(ifd_tag: IfdTag, tag_name: str) -> Union[bytes, str, int, None]:
+    """
+    Handle Byte and Signed Byte conversion.
+
+    Returns:
+    - bytes
+    - str for unicode such as GPSVersionID and Image ApplicationNotes (XML)
+    - int for single byte values such as GPSAltitudeRef or some MakerNote fields
+    - None for empty values such as some MakerNote Tags
+    """
+
+    out = ifd_tag.values
+
+    if len(out) == 1:
+        # Byte can be a single integer, such as GPSAltitudeRef (0 or 1)
+        return out[0]
+
+    if tag_name == 'GPS GPSVersionID':
+        return '.'.join(map(str, out))  # e.g. [2, 3, 0, 0] --> '2.3.0.0'
+
+    # Byte sequences are often surrounded by or only composed of spaces and/or null bytes
+    out = bytes(out).strip(b' \x00')
+
+    if not out:
+        return None
+
+    # Unicode values should be decoded as strings (e.g. XML)
+    try:
+        return out.decode()
+    except UnicodeDecodeError:
+        return out
+
+
+def convert_proprietary(ifd_tag: IfdTag, _tag_name: str) -> Union[str, None]:
+    """
+    Handle Proprietary type conversion.
+
+    Returns:
+    - str as all tags of this made-up type (e.g. enums) prefer printable
+    - None for very rare empty printable values
+    """
+
+    out = ifd_tag.printable
+    if not out or out == '[]':
+        return None
+
+    return out
+
+
+# Mapping of field type to conversion function
+# The key matches the index in exifread.tags.FIELD_TYPES
+conversion_map = {
+    0: convert_proprietary,  # Proprietary
+    1: convert_bytes,        # Byte
+    2: convert_ascii,        # ASCII
+    3: convert_numeric,      # Short
+    4: convert_numeric,      # Long
+    5: convert_ratio,        # Ratio
+    6: convert_numeric,      # Signed Byte
+    7: convert_undefined,    # Undefined
+    8: convert_numeric,      # Signed Short
+    9: convert_numeric,      # Signed Long
+    10: convert_ratio,       # Signed Ratio
+    11: convert_numeric,     # Single-Precision Floating Point
+    12: convert_numeric,     # Double-Precision Floating Point
+    13: convert_bytes,       # IFD
+}
