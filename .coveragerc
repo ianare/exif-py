@@ -1,0 +1,3 @@
+[run]
+source = exifread
+omit = tests/*, __init__.py

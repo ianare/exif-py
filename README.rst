@@ -204,6 +204,15 @@ This example shows how to use the library to correct the orientation of an image
         return im
 
 
+PyTest
+******
+for running PyTest, run `sh tests/start_tests.sh` in the projects root directory.
+This will run a few test cases with real files.
+The images are cropped to 10x10 pixels for the sage of the git repo.
+The RAW file is modified, so only the data with the exif tags are there.
+
+This can be used as reference during development, to ensure, that the lib still works after changes.
+
 License
 *******
 
