@@ -144,13 +144,16 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
 
     endian = chr(ord_(endian[0]))
     # deal with the EXIF info we found
-    logger.debug("Endian format is %s (%s)", endian, {
-        'I': 'Intel',
-        'M': 'Motorola',
-        '\x01': 'Adobe Ducky',
-        'd': 'XMP/Adobe unknown'
-    }[endian])
-
+    logger.debug(
+        "Endian format is %s (%s)", 
+        endian, 
+        {
+            'I': 'Intel',
+            'M': 'Motorola',
+            '\x01': 'Adobe Ducky',
+            'd': 'XMP/Adobe unknown'
+        }.get(endian, 'Unknown')  # Use .get() with default
+    )
     hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
     thumb_ifd = 0
