@@ -164,6 +164,10 @@ class HEICExifFinder:
             'infe': self._parse_infe,
             'iinf': self._parse_iinf,
             'iloc': self._parse_iloc,
+            'hdlr':None,
+            'pitm':None,
+            'iref':None,
+            'iprp':None,
         }
         return defs.get(box.name)
 
