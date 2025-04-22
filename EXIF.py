@@ -66,8 +66,11 @@ def get_args() -> argparse.Namespace:
         help="Run in strict mode (stop on errors).",
     )
     parser.add_argument(
-        '-b', '--builtin', action='store_true', dest='builtin_types',
-        help='Convert IfdTag values to built-in Python variable types',
+        "-b",
+        "--builtin",
+        action="store_true",
+        dest="builtin_types",
+        help="Convert IfdTag values to built-in Python variable types",
     )
     parser.add_argument(
         "-d",
@@ -138,9 +141,14 @@ def main(args) -> None:
             value = data[field]
             try:
                 if args.builtin_types:
-                    logger.info('%s (%s): %r', field, type(value).__name__, value)
+                    logger.info("%s (%s): %r", field, type(value).__name__, value)
                 else:
-                    logger.info('%s (%s): %s', field, FIELD_TYPES[value.field_type][2], value.printable)
+                    logger.info(
+                        "%s (%s): %s",
+                        field,
+                        FIELD_TYPES[value.field_type][2],
+                        value.printable,
+                    )
             except:
                 logger.error("%s: %s", field, str(value))
 

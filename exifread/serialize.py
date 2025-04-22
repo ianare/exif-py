@@ -9,7 +9,10 @@ from exifread.exif_log import get_logger
 
 logger = get_logger()
 
-def convert_types(exif_tags: Dict[str, Union[IfdTag, bytes]]) -> Dict[str, Union[int, float, str, bytes, list, None]]:
+
+def convert_types(
+    exif_tags: Dict[str, Union[IfdTag, bytes]]
+) -> Dict[str, Union[int, float, str, bytes, list, None]]:
     """
     Convert Exif IfdTags to built-in Python types for easier serialization and programmatic use.
 
@@ -21,14 +24,15 @@ def convert_types(exif_tags: Dict[str, Union[IfdTag, bytes]]) -> Dict[str, Union
     output: Dict[str, Union[int, float, str, bytes, list, None]] = {}
 
     for tag_name, ifd_tag in exif_tags.items():
-
         # JPEGThumbnail and TIFFThumbnail are the only values
         # in Exif Tags dict that do not have the IfdTag type.
         if isinstance(ifd_tag, bytes):
             output[tag_name] = ifd_tag
             continue
 
-        convert_func: Callable[[IfdTag, str], Union[int, float, List[int], List[float], bytes, str, None]]
+        convert_func: Callable[
+            [IfdTag, str], Union[int, float, List[int], List[float], bytes, str, None]
+        ]
 
         if ifd_tag.prefer_printable:
             # Prioritize the printable value if prefer_printable is set
@@ -39,7 +43,10 @@ def convert_types(exif_tags: Dict[str, Union[IfdTag, bytes]]) -> Dict[str, Union
             try:
                 convert_func = conversion_map[ifd_tag.field_type]
             except KeyError:
-                logger.error("Type conversion for field type %s not explicitly supported", ifd_tag.field_type)
+                logger.error(
+                    "Type conversion for field type %s not explicitly supported",
+                    ifd_tag.field_type,
+                )
                 convert_func = convert_proprietary  # Fallback to printable
 
         output[tag_name] = convert_func(ifd_tag, tag_name)
@@ -67,14 +74,14 @@ def convert_ascii(ifd_tag: IfdTag, tag_name: str) -> Union[str, bytes, None]:
 
     # Handle DateTime formatting; often formatted in a way that cannot
     # be parsed by Python dateutil (%Y:%m:%d %H:%M:%S).
-    if 'DateTime' in tag_name and len(out) == 19 and out.count(':') == 4:
-        out = out.replace(':', '-', 2)
+    if "DateTime" in tag_name and len(out) == 19 and out.count(":") == 4:
+        out = out.replace(":", "-", 2)
 
     # Handle GPSDate formatting; these are proper dates with the wrong
     # delimiter (':' rather than '-'). Invalid values have been found
     # in test images: '' and '2014:09:259'
-    elif tag_name == 'GPS GPSDate' and len(out) == 10 and out.count(':') == 2:
-        out = out.replace(':', '-')
+    elif tag_name == "GPS GPSDate" and len(out) == 10 and out.count(":") == 2:
+        out = out.replace(":", "-")
 
     # Strip occasional trailing whitespaces
     out = out.strip()
@@ -110,7 +117,7 @@ def convert_undefined(ifd_tag: IfdTag, _tag_name: str) -> Union[bytes, str, int,
         return out[0]
 
     # These contain bytes represented as a list of integers, sometimes with surrounded by spaces and/or null bytes
-    out = bytes(out).strip(b' \x00')
+    out = bytes(out).strip(b" \x00")
 
     if not out:
         return None
@@ -142,7 +149,9 @@ def convert_numeric(ifd_tag: IfdTag, _tag_name: str) -> Union[int, List[int], No
     return out[0] if len(out) == 1 else out
 
 
-def convert_ratio(ifd_tag: IfdTag, _tag_name: str) -> Union[int, float, List[int], List[float], None]:
+def convert_ratio(
+    ifd_tag: IfdTag, _tag_name: str
+) -> Union[int, float, List[int], List[float], None]:
     """
     Handle Ratio and Signed Ratio conversion.
 
@@ -192,11 +201,11 @@ def convert_bytes(ifd_tag: IfdTag, tag_name: str) -> Union[bytes, str, int, None
         # Byte can be a single integer, such as GPSAltitudeRef (0 or 1)
         return out[0]
 
-    if tag_name == 'GPS GPSVersionID':
-        return '.'.join(map(str, out))  # e.g. [2, 3, 0, 0] --> '2.3.0.0'
+    if tag_name == "GPS GPSVersionID":
+        return ".".join(map(str, out))  # e.g. [2, 3, 0, 0] --> '2.3.0.0'
 
     # Byte sequences are often surrounded by or only composed of spaces and/or null bytes
-    out = bytes(out).strip(b' \x00')
+    out = bytes(out).strip(b" \x00")
 
     if not out:
         return None
@@ -218,7 +227,7 @@ def convert_proprietary(ifd_tag: IfdTag, _tag_name: str) -> Union[str, None]:
     """
 
     out = ifd_tag.printable
-    if not out or out == '[]':
+    if not out or out == "[]":
         return None
 
     return out
@@ -228,17 +237,17 @@ def convert_proprietary(ifd_tag: IfdTag, _tag_name: str) -> Union[str, None]:
 # The key matches the index in exifread.tags.FIELD_TYPES
 conversion_map = {
     0: convert_proprietary,  # Proprietary
-    1: convert_bytes,        # Byte
-    2: convert_ascii,        # ASCII
-    3: convert_numeric,      # Short
-    4: convert_numeric,      # Long
-    5: convert_ratio,        # Ratio
-    6: convert_numeric,      # Signed Byte
-    7: convert_undefined,    # Undefined
-    8: convert_numeric,      # Signed Short
-    9: convert_numeric,      # Signed Long
-    10: convert_ratio,       # Signed Ratio
-    11: convert_numeric,     # Single-Precision Floating Point
-    12: convert_numeric,     # Double-Precision Floating Point
-    13: convert_bytes,       # IFD
+    1: convert_bytes,  # Byte
+    2: convert_ascii,  # ASCII
+    3: convert_numeric,  # Short
+    4: convert_numeric,  # Long
+    5: convert_ratio,  # Ratio
+    6: convert_numeric,  # Signed Byte
+    7: convert_undefined,  # Undefined
+    8: convert_numeric,  # Signed Short
+    9: convert_numeric,  # Signed Long
+    10: convert_ratio,  # Signed Ratio
+    11: convert_numeric,  # Single-Precision Floating Point
+    12: convert_numeric,  # Double-Precision Floating Point
+    13: convert_bytes,  # IFD
 }

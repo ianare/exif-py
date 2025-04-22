@@ -58,7 +58,7 @@ def degrees_to_decimal(degrees: float, minutes: float, seconds: float) -> float:
     Converts coordinates from a degrees minutes seconds format to a decimal degrees format.
     Reference: https://en.wikipedia.org/wiki/Geographic_coordinate_conversion
     """
-    return degrees + minutes/60 + seconds/3600
+    return degrees + minutes / 60 + seconds / 3600
 
 
 def get_gps_coords(tags: dict) -> Union[Tuple[float, float], None]:
@@ -68,10 +68,10 @@ def get_gps_coords(tags: dict) -> Union[Tuple[float, float], None]:
     Handles regular and serialized Exif tags.
     """
     gps = {
-        'lat_coord': 'GPS GPSLatitude',
-        'lat_ref': 'GPS GPSLatitudeRef',
-        'lng_coord': 'GPS GPSLongitude',
-        'lng_ref': 'GPS GPSLongitudeRef'
+        "lat_coord": "GPS GPSLatitude",
+        "lat_ref": "GPS GPSLatitudeRef",
+        "lng_coord": "GPS GPSLongitude",
+        "lng_ref": "GPS GPSLongitudeRef",
     }
 
     # Verify if required keys are a subset of provided tags
@@ -79,18 +79,18 @@ def get_gps_coords(tags: dict) -> Union[Tuple[float, float], None]:
         return None
 
     # If tags have not been converted to native Python types, do it
-    if not isinstance(tags[gps['lat_coord']], list):
-        tags[gps['lat_coord']] = [c.decimal() for c in tags[gps['lat_coord']].values]
-        tags[gps['lng_coord']] = [c.decimal() for c in tags[gps['lng_coord']].values]
-        tags[gps['lat_ref']] = tags[gps['lat_ref']].values
-        tags[gps['lng_ref']] = tags[gps['lng_ref']].values
+    if not isinstance(tags[gps["lat_coord"]], list):
+        tags[gps["lat_coord"]] = [c.decimal() for c in tags[gps["lat_coord"]].values]
+        tags[gps["lng_coord"]] = [c.decimal() for c in tags[gps["lng_coord"]].values]
+        tags[gps["lat_ref"]] = tags[gps["lat_ref"]].values
+        tags[gps["lng_ref"]] = tags[gps["lng_ref"]].values
 
-    lat = degrees_to_decimal(*tags[gps['lat_coord']])
-    if tags[gps['lat_ref']] == 'S':
+    lat = degrees_to_decimal(*tags[gps["lat_coord"]])
+    if tags[gps["lat_ref"]] == "S":
         lat *= -1
 
-    lng = degrees_to_decimal(*tags[gps['lng_coord']])
-    if tags[gps['lng_ref']] == 'W':
+    lng = degrees_to_decimal(*tags[gps["lng_coord"]])
+    if tags[gps["lng_ref"]] == "W":
         lng *= -1
 
     return lat, lng
