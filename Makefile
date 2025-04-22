@@ -16,6 +16,9 @@ else
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off
 endif
 
+# Find images, support multiple case insensitive extensions and file names with spaces, consistently sort files
+FIND_IMAGES := find exif-samples-master -regextype posix-egrep -iregex ".*\.(bmp|gif|heic|heif|jpg|jpeg|png|tiff|webp)" -print0 | LC_COLLATE=C sort -fz | xargs -0
+
 .PHONY: help
 all: help
 
@@ -41,6 +44,13 @@ samples-download: ## Install sample files used for testing.
 	wget https://github.com/ianare/exif-samples/archive/master.tar.gz
 	tar -xzf master.tar.gz
 
+run: ## Run EXIF.py on sample images
+	$(FIND_IMAGES) EXIF.py -dc
+
+compare: ## Run and compare exif dump
+	$(FIND_IMAGES) EXIF.py > exif-samples-master/dump_test
+	diff -Zu --color --suppress-common-lines exif-samples-master/dump exif-samples-master/dump_test
+
 build:  ## build distribution
 	rm -fr ./dist
 	$(PYTHON_BIN) setup.py sdist bdist_wheel
@@ -53,4 +63,4 @@ help: Makefile
 	@echo "Choose a command to run:"
 	@echo
 	@grep --no-filename -E '^[a-zA-Z_%-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf " \033[36m%-30s\033[0m %s\n", $$1, $$2}'
-	@echo 
+	@echo
