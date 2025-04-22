@@ -539,6 +539,18 @@ class ExifHeader:
 #    def _olympus_decode_tag(self, value, mn_tags):
 #        pass
 
+    def decode_cryptic_maker_note(self):
+        """
+        This is simply a rewrite of decode_maker_note to accommodate
+        any cryptic or 'unknown' makernote formats
+        """
+        note = self.tags['EXIF MakerNote']
+        self.dump_ifd(
+            note.field_offset,
+            'MakerNote',
+            tag_dict=makernote.reconyx.TAGS_HYPERFIRE
+        )
+
     def _canon_decode_tag(self, value, mn_tags):
         """
         Decode Canon MakerNote tag based on offset within tag.
