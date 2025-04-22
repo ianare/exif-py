@@ -79,9 +79,9 @@ You can process the tags as you wish. In particular, you can iterate through all
 
 .. code-block:: python
 
-    for tag in tags.keys():
+    for tag, value in tags.items():
         if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
-            print("Key: %s, value %s" % (tag, tags[tag]))
+            print(f"Key: {tag}, value {value}")
 
 An ``if`` statement is used to avoid printing out a few of the tags that tend to be long or boring.
 
@@ -160,6 +160,23 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 
     tags = exifread.process_file(file_handle, strict=True)
 
+Built-in Types
+==============
+
+For easier serialization and programmatic use, this option returns a dictionary with values in built-in Python types (int, float, str, bytes, list, None) instead of `IfdTag` objects.
+
+Pass the ``-b`` or ``--builtin`` argument, or as:
+
+.. code-block:: python
+
+    tags = exifread.process_file(file_handle, builtin_types=True)
+
+For direct JSON serialization, combine this option with ``details=False`` to avoid bytes in the output:
+
+.. code-block:: python
+
+    json.dumps(exifread.process_file(file_handle, details=False, builtin_types=True))
+
 Usage Example
 =============
 
@@ -171,14 +188,14 @@ This example shows how to use the library to correct the orientation of an image
     import exifread
     from PIL import Image
     import logging
-    
+
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
         tags = {}
         with open(path, "rb") as file_handle:
             tags = exifread.process_file(file_handle, details=False)
 
-        if "Image Orientation" in tags.keys():
+        if "Image Orientation" in tags:
             orientation = tags["Image Orientation"]
             logging.basicConfig(level=logging.DEBUG)
             logging.debug("Orientation: %s (%s)", orientation, orientation.values)

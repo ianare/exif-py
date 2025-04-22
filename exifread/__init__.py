@@ -1,5 +1,6 @@
 """
-Read Exif metadata from tiff and jpeg files.
+Read Exif metadata from image files
+Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 """
 
 import struct
@@ -12,6 +13,7 @@ from exifread.utils import ord_, make_string
 from exifread.heic import HEICExifFinder
 from exifread.jpeg import find_jpeg_exif
 from exifread.exceptions import InvalidExif, ExifNotFound
+from exifread.serialize import convert_types
 
 __version__ = '3.1.0'
 
@@ -141,7 +143,8 @@ def _determine_type(fh: BinaryIO) -> tuple:
 
 def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
                  details=True, strict=False, debug=False,
-                 truncate_tags=True, auto_seek=True, extract_thumbnail=True):
+                 truncate_tags=True, auto_seek=True,
+                 extract_thumbnail=True, builtin_types=False) -> dict:
     """
     Process an image file (expects an open file object).
 
@@ -216,4 +219,8 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
             xmp_bytes = _get_xmp(fh)
         if xmp_bytes:
             hdr.parse_xmp(xmp_bytes)
+
+    if builtin_types:
+        return convert_types(hdr.tags)
+
     return hdr.tags

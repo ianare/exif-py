@@ -28,7 +28,7 @@ def setup_logger(debug, color):
     else:
         log_level = logging.INFO
 
-    logger = logging.getLogger("exifread")
+    logger = get_logger()
     stream = Handler(log_level, debug, color)
     logger.addHandler(stream)
     logger.setLevel(log_level)

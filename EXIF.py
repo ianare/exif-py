@@ -52,6 +52,10 @@ def get_args() -> argparse.Namespace:
         help='Run in strict mode (stop on errors).',
     )
     parser.add_argument(
+        '-b', '--builtin', action='store_true', dest='builtin_types',
+        help='Convert IfdTag values to built-in Python variable types',
+    )
+    parser.add_argument(
         '-d', '--debug', action='store_true', dest='debug',
         help='Run in debug mode (display extra info).',
     )
@@ -92,7 +96,8 @@ def main(args) -> None:
             details=args.detailed,
             strict=args.strict,
             debug=args.debug,
-            extract_thumbnail=args.detailed
+            extract_thumbnail=args.detailed,
+            builtin_types=args.builtin_types,
         )
 
         tag_stop = timeit.default_timer()
@@ -109,14 +114,15 @@ def main(args) -> None:
             logger.info('File has TIFF thumbnail')
             del data['TIFFThumbnail']
 
-        tag_keys = list(data.keys())
-        tag_keys.sort()
-
-        for i in tag_keys:
+        for field in sorted(data):
+            value = data[field]
             try:
-                logger.info('%s (%s): %s', i, FIELD_TYPES[data[i].field_type][2], data[i].printable)
+                if args.builtin_types:
+                    logger.info('%s (%s): %r', field, type(value).__name__, value)
+                else:
+                    logger.info('%s (%s): %s', field, FIELD_TYPES[value.field_type][2], value.printable)
             except:
-                logger.error("%s : %s", i, str(data[i]))
+                logger.error("%s: %s", field, str(value))
 
         file_stop = timeit.default_timer()
 
