@@ -32,10 +32,7 @@ jobs:
         pip install virtualenv
         make venv reqs-install
 
-    - name: Analysing the code with mypy
+    - name: Static analysis of the code
       run: |
-        make mypy
-
-    - name: Analysing the code with pylint
-      run: |
-        make lint
+        source .venv/bin/activate
+        make analyze

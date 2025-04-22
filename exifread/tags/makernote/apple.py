@@ -6,8 +6,11 @@ http://owl.phy.queensu.ca/~phil/exiftool/
 """
 
 TAGS = {
-    0x000a: ('HDRImageType', {
-        3: 'HDR Image',
-        4: 'Original Image',
-    }),
+    0x000A: (
+        "HDRImageType",
+        {
+            3: "HDR Image",
+            4: "Original Image",
+        },
+    ),
 }

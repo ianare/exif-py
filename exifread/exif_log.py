@@ -1,9 +1,9 @@
 """
-Custom log output
+Custom log output.
 """
 
-import sys
 import logging
+import sys
 
 TEXT_NORMAL = 0
 TEXT_BOLD = 1
@@ -38,6 +38,7 @@ class Formatter(logging.Formatter):
     """
     Custom formatter, we like colors!
     """
+
     color: bool
     debug: bool
 
@@ -64,15 +65,25 @@ class Formatter(logging.Formatter):
                 color = TEXT_CYAN
             else:
                 color = TEXT_NORMAL
-            record.levelname = "\x1b[%sm%s\x1b[%sm" % (color, record.levelname, TEXT_NORMAL)
+            record.levelname = "\x1b[%sm%s\x1b[%sm" % (
+                color,
+                record.levelname,
+                TEXT_NORMAL,
+            )
         return logging.Formatter.format(self, record)
 
 
 class Handler(logging.StreamHandler):
+    """
+    Custom StreamHandler so we can use the Formatter.
+    """
+
     color: bool
     debug: bool
 
-    def __init__(self, log_level: int, debug: bool = False, color: bool = False) -> None:
+    def __init__(
+        self, log_level: int, debug: bool = False, color: bool = False
+    ) -> None:
         self.color = color
         self.debug = debug
         logging.StreamHandler.__init__(self, sys.stdout)

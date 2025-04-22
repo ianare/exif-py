@@ -2,16 +2,14 @@
 ifneq (,$(wildcard /.dockerenv))
 	PYTHON_BIN := /usr/local/bin/python3
 	PIP_BIN := /usr/local/bin/pip3
-	PYLINT_BIN := ~/.local/bin/pylint
-	MYPY_BIN := ~/.local/bin/mypy
+	PRE_COMMIT_BIN := ~/.local/bin/pre-commit
 	TWINE_BIN := ~/.local/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off --user
 else
 	VENV_DIR := ./.venv
 	PYTHON_BIN := $(VENV_DIR)/bin/python3
 	PIP_BIN := $(VENV_DIR)/bin/pip3
-	PYLINT_BIN := $(VENV_DIR)/bin/pylint
-	MYPY_BIN := $(VENV_DIR)/bin/mypy
+	PRE_COMMIT_BIN := $(VENV_DIR)/bin/pre-commit
 	TWINE_BIN := $(VENV_DIR)/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off
 endif
@@ -29,12 +27,6 @@ all: help
 venv: ## Set up the virtual environment
 	virtualenv -p python3 $(VENV_DIR)
 
-lint: ## Run linting (pylint)
-	$(PYLINT_BIN) -f colorized ./exifread
-
-mypy: ## Run mypy
-	$(MYPY_BIN) --show-error-context ./exifread ./EXIF.py
-
 test: ## Run exifread on all sample images
 	$(FIND_IMAGES) $(EXIF_PY) -dc
 
@@ -42,11 +34,11 @@ test-diff: ## Run and compare exif dump
 	$(FIND_IMAGES) $(EXIF_PY) > tests/resources/dump_test
 	diff -Zu --color --suppress-common-lines tests/resources/dump tests/resources/dump_test
 
-analyze: lint mypy ## Run all static analysis tools
+analyze: ## Run all static analysis tools
+	$(PRE_COMMIT_BIN) run --all
 
 reqs-install: ## Install with all requirements
 	$(PIP_INSTALL) .[dev]
-
 
 build:  ## build distribution
 	rm -fr ./dist
