@@ -16,6 +16,13 @@ else
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off
 endif
 
+# If exifread is installed locally (e.g. pip install -e .), use it, else fallback to local bin
+EXIF_PY := $(if $(shell which EXIF.py),EXIF.py,./EXIF.py)
+
+# Find images, support multiple case insensitive extensions and file names with spaces
+FIND_IMAGES := find tests/resources -regextype posix-egrep -iregex ".*\.(bmp|gif|heic|heif|jpg|jpeg|png|tiff|webp)" -print0 | LC_COLLATE=C sort -fz | xargs -0
+
+
 .PHONY: help
 all: help
 
@@ -28,18 +35,18 @@ lint: ## Run linting (pylint)
 mypy: ## Run mypy
 	$(MYPY_BIN) --show-error-context ./exifread ./EXIF.py
 
-#test: ## Run all tests
-#	$(PYTHON_BIN) -m unittest discover -v -s ./tests
+test: ## Run exifread on all sample images
+	$(FIND_IMAGES) $(EXIF_PY) -dc
+
+test-diff: ## Run and compare exif dump
+	$(FIND_IMAGES) $(EXIF_PY) > tests/resources/dump_test
+	diff -Zu --color --suppress-common-lines tests/resources/dump tests/resources/dump_test
 
 analyze: lint mypy ## Run all static analysis tools
 
 reqs-install: ## Install with all requirements
 	$(PIP_INSTALL) .[dev]
 
-samples-download: ## Install sample files used for testing.
-	rm -fr master.tar.gz exif-samples-master
-	wget https://github.com/ianare/exif-samples/archive/master.tar.gz
-	tar -xzf master.tar.gz
 
 build:  ## build distribution
 	rm -fr ./dist
@@ -53,4 +60,4 @@ help: Makefile
 	@echo "Choose a command to run:"
 	@echo
 	@grep --no-filename -E '^[a-zA-Z_%-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf " \033[36m%-30s\033[0m %s\n", $$1, $$2}'
-	@echo 
+	@echo

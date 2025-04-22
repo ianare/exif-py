@@ -4,12 +4,6 @@
 .directory
 .DS_Store
 
-# Images
-*.jpg
-*.jpeg
-*.tif
-*.tiff
-
 # Archives
 *.gz
 *.zip
@@ -68,3 +62,6 @@ venv.bak/
 .mypy_cache
 .dmypy.json
 dmypy.json
+
+# tests
+dump_test
