@@ -7,7 +7,7 @@ from exifread.exceptions import InvalidExif
 logger = get_logger()
 
 
-def _increment_base(data, base):
+def _increment_base(data, base) -> int:
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
@@ -32,7 +32,7 @@ def _get_initial_base(fh: BinaryIO, data, fake_exif) -> tuple:
     return base, fake_exif
 
 
-def _get_base(base, data) -> int:
+def _get_base(base: int, data: bytes) -> int:
     # pylint: disable=too-many-statements
     while True:
         logger.debug(" Segment base 0x%X", base)
@@ -112,7 +112,7 @@ def _get_base(base, data) -> int:
     return base
 
 
-def find_jpeg_exif(fh: BinaryIO, data, fake_exif) -> tuple:
+def find_jpeg_exif(fh: BinaryIO, data: bytes, fake_exif) -> tuple:
     logger.debug("JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1]))
 
     base, fake_exif = _get_initial_base(fh, data, fake_exif)
@@ -151,6 +151,6 @@ def find_jpeg_exif(fh: BinaryIO, data, fake_exif) -> tuple:
     else:
         # no EXIF information
         msg = "No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)"
-        msg += "Did get 0x%X and %s" % (ord_(data[2 + base]), data[6 + base : 10 + base + 1])
+        msg += "Did get 0x%X and %r" % (ord_(data[2 + base]), data[6 + base : 10 + base + 1])
         raise InvalidExif(msg)
     return offset, endian, fake_exif
