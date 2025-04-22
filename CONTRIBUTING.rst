@@ -24,6 +24,4 @@ Sample Images
 Sample images are very important, allowing for validating new features and limiting regressions.
 On every build, the library is run on all images.
 
-The samples are kept in a separate repository for space and bandwidth concerns:
-
-https://github.com/ianare/exif-samples 
+The samples are kept in the ``tests/resources`` folder.

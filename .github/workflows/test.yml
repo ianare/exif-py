@@ -22,6 +22,7 @@ jobs:
           - "3.10"
           - "3.11"
           - "3.12"
+          - "3.13"
     steps:
     - uses: actions/checkout@v4
 
@@ -31,16 +32,12 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Cache dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-test-${{ hashFiles('setup.py') }}
         restore-keys: |
           ${{ runner.os }}-test-
-
-    - name: Download Samples
-      run: |
-        make samples-download
 
     - name: Install
       run: |
@@ -48,8 +45,9 @@ jobs:
 
     - name: Run in debug and color mode
       run: |
-        make run
+        make test
 
     - name: Compare image processing output
       run: |
-        make compare
+        make test-diff
+
