@@ -11,7 +11,6 @@ from exifread.exceptions import ExifNotFound, InvalidExif
 from exifread.exif_log import get_logger
 from exifread.heic import HEICExifFinder
 from exifread.jpeg import find_jpeg_exif
-from exifread.exceptions import InvalidExif, ExifNotFound
 from exifread.serialize import convert_types
 from exifread.tags import DEFAULT_STOP_TAG
 from exifread.utils import make_string, ord_
@@ -22,10 +21,10 @@ logger = get_logger()
 
 
 ENDIAN_TYPES: Dict[str, str] = {
-    'I': 'Intel',
-    'M': 'Motorola',
-    '\x01': 'Adobe Ducky',
-    'b': 'XMP/Adobe unknown'
+    "I": "Intel",
+    "M": "Motorola",
+    "\x01": "Adobe Ducky",
+    "b": "XMP/Adobe unknown"
 }
 
 
@@ -182,7 +181,7 @@ def process_file(
 
     endian = chr(ord_(endian[0]))
     # deal with the EXIF info we found
-    logger.debug("Endian format is %s (%s)", endian, ENDIAN_TYPES[endian])
+    logger.debug("Endian format is %s (%s)", endian, ENDIAN_TYPES.get(endian, "Unknown"))
 
     hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
