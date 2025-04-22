@@ -10,7 +10,7 @@ Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 Compatibility
 *************
 
-EXIF.py is tested and officially supported on Python 3.5 to 3.11
+EXIF.py is tested and officially supported on Python 3.7 to 3.13
 
 Starting with version ``3.0.0``, Python2 compatibility is dropped *completely* (syntax errors due to type hinting).
 
@@ -62,25 +62,26 @@ Python Script
 .. code-block:: python
 
     import exifread
-    # Open image file for reading (must be in binary mode)
-    f = open(path_name, 'rb')
 
-    # Return Exif tags
-    tags = exifread.process_file(f)
+    # Open image file for reading (must be in binary mode)
+    with open(file_path, "rb") as file_handle:
+
+        # Return Exif tags
+        tags = exifread.process_file(file_handle)
 
 *Note:* To use this library in your project as a Git submodule, you should::
 
     from <submodule_folder> import exifread
 
 Returned tags will be a dictionary mapping names of Exif tags to their
-values in the file named by path_name.
+values in the file named by ``file_path``.
 You can process the tags as you wish. In particular, you can iterate through all the tags with:
 
 .. code-block:: python
 
     for tag in tags.keys():
         if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
-            print "Key: %s, value %s" % (tag, tags[tag])
+            print("Key: %s, value %s" % (tag, tags[tag]))
 
 An ``if`` statement is used to avoid printing out a few of the tags that tend to be long or boring.
 
@@ -119,13 +120,19 @@ Pass the ``-q`` or ``--quick`` command line arguments, or as:
 
 .. code-block:: python
 
-    tags = exifread.process_file(f, details=False)
+    tags = exifread.process_file(file_handle, details=False)
 
 To process makernotes only, without extracting the thumbnail image (if any):
 
 .. code-block:: python
 
-    tags = exifread.process_file(f, details=True, extract_thumbnail=False)
+    tags = exifread.process_file(file_handle, details=True, extract_thumbnail=False)
+
+To extract the thumbnail image (if any), without processing makernotes:
+
+.. code-block:: python
+
+    tags = exifread.process_file(file_handle, details=False, extract_thumbnail=True)
 
 Stop at a Given Tag
 ===================
@@ -136,7 +143,7 @@ Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as:
 
 .. code-block:: python
 
-    tags = exifread.process_file(f, stop_tag='TAG')
+    tags = exifread.process_file(file_handle, stop_tag='TAG')
 
 where ``TAG`` is a valid tag name, ex ``'DateTimeOriginal'``.
 
@@ -151,7 +158,7 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 
 .. code-block:: python
 
-    tags = exifread.process_file(f, strict=True)
+    tags = exifread.process_file(file_handle, strict=True)
 
 Usage Example
 =============
@@ -168,8 +175,9 @@ This example shows how to use the library to correct the orientation of an image
     def _read_img_and_correct_exif_orientation(path):
         im = Image.open(path)
         tags = {}
-        with open(path, 'rb') as f:
-            tags = exifread.process_file(f, details=False)
+        with open(path, "rb") as file_handle:
+            tags = exifread.process_file(file_handle, details=False)
+
         if "Image Orientation" in tags.keys():
             orientation = tags["Image Orientation"]
             logging.basicConfig(level=logging.DEBUG)
@@ -195,9 +203,18 @@ This example shows how to use the library to correct the orientation of an image
                 im = im.transpose(Image.ROTATE_90)
         return im
 
-Credit
-******
 
-A huge thanks to all the contributors over the years!
+License
+*******
+
+Copyright © 2002-2007 Gene Cash
+
+Copyright © 2007-2023 Ianaré Sévi and contributors
+
+A **huge** thanks to all the contributors over the years!
 
 Originally written by Gene Cash & Thierry Bousch.
+
+Available as open source under the terms of the **BSD-3-Clause license**.
+
+See LICENSE.txt file for details.
