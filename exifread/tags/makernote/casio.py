@@ -1,3 +1,7 @@
+"""
+Makernote (proprietary) tag definitions for Casio.
+"""
+
 TAGS = {
     0x0001: (
         "RecordingMode",

@@ -21,6 +21,7 @@ import sys
 import timeit
 
 from exifread import __version__, exif_log, process_file
+from exifread.exceptions import ExifError
 from exifread.tags import FIELD_TYPES
 
 logger = exif_log.get_logger()
@@ -98,32 +99,31 @@ def main(args) -> None:
     # output info for each file
     for filename in args.files:
         # avoid errors when printing to console
-        escaped_fn = escaped_fn = filename.encode(
+        escaped_fn = filename.encode(
             sys.getfilesystemencoding(), "surrogateescape"
         ).decode()
 
         file_start = timeit.default_timer()
         try:
-            img_file = open(escaped_fn, "rb")
+            with open(escaped_fn, "rb") as img_file:
+                logger.info("Opening: %s", escaped_fn)
+
+                tag_start = timeit.default_timer()
+                # get the tags
+                data = process_file(
+                    img_file,
+                    stop_tag=args.stop_tag,
+                    details=args.detailed,
+                    strict=args.strict,
+                    debug=args.debug,
+                    extract_thumbnail=args.detailed,
+                    builtin_types=args.builtin_types,
+                )
+                tag_stop = timeit.default_timer()
+
         except IOError:
             logger.error("'%s' is unreadable", escaped_fn)
             continue
-        logger.info("Opening: %s", escaped_fn)
-
-        tag_start = timeit.default_timer()
-
-        # get the tags
-        data = process_file(
-            img_file,
-            stop_tag=args.stop_tag,
-            details=args.detailed,
-            strict=args.strict,
-            debug=args.debug,
-            extract_thumbnail=args.detailed,
-            builtin_types=args.builtin_types,
-        )
-
-        tag_stop = timeit.default_timer()
 
         if not data:
             logger.warning("No EXIF information found")
@@ -149,7 +149,7 @@ def main(args) -> None:
                         FIELD_TYPES[value.field_type][2],
                         value.printable,
                     )
-            except:
+            except (ExifError, ValueError):
                 logger.error("%s: %s", field, str(value))
 
         file_stop = timeit.default_timer()

@@ -1,36 +1,37 @@
-# Find Exif data in an HEIC file.
+"""
+Find Exif data in an HEIC file.
 
-# As of 2019, the latest standard seems to be "ISO/IEC 14496-12:2015"
-# There are many different related standards. (quicktime, mov, mp4, etc...)
-# See https://en.wikipedia.org/wiki/ISO_base_media_file_format for more details.
+As of 2019, the latest standard seems to be "ISO/IEC 14496-12:2015"
+There are many different related standards. (quicktime, mov, mp4, etc...)
+See https://en.wikipedia.org/wiki/ISO_base_media_file_format for more details.
 
-# We parse just enough of the ISO format to locate the Exif data in the file.
-# Inside the 'meta' box are two directories we need:
-#   1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
-#   2) once we have the item_id, we find a matching entry in the 'iloc' box, which
-#      gives us position and size information.
+We parse just enough of the ISO format to locate the Exif data in the file.
+Inside the 'meta' box are two directories we need:
+  1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
+  2) once we have the item_id, we find a matching entry in the 'iloc' box, which
+     gives us position and size information.
+"""
 
 import struct
 from typing import Any, BinaryIO, Callable, Dict, List, Optional
 
+from exifread.exceptions import ExifError
 from exifread.exif_log import get_logger
 
 logger = get_logger()
 
 
-class WrongBox(Exception):
-    pass
+class BoxVersion(ExifError):
+    """Wrong box version."""
 
 
-class BoxVersion(Exception):
-    pass
-
-
-class BadSize(Exception):
-    pass
+class BadSize(ExifError):
+    """Wrong box size."""
 
 
 class Box:
+    """A HEIC Box."""
+
     version = 0
     minor_version = 0
     item_count = 0
@@ -77,6 +78,8 @@ class Box:
 
 
 class HEICExifFinder:
+    """Find HEIC EXIF tags."""
+
     file_handle: BinaryIO
 
     def __init__(self, file_handle: BinaryIO) -> None:

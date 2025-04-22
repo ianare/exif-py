@@ -34,4 +34,5 @@ jobs:
 
     - name: Static analysis of the code
       run: |
+        source .venv/bin/activate
         make analyze

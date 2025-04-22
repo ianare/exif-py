@@ -1,3 +1,7 @@
+"""
+Makernote (proprietary) tag definitions for Nikon.
+"""
+
 from exifread.utils import Ratio, make_string
 
 
@@ -178,41 +182,6 @@ TAGS_NEW = {
     0x00B8: ("FileInfo",),
     0x00B9: ("AFTune",),
     0x0100: ("DigitalICE",),
-    0x0103: (
-        "PreviewCompression",
-        {
-            1: "Uncompressed",
-            2: "CCITT 1D",
-            3: "T4/Group 3 Fax",
-            4: "T6/Group 4 Fax",
-            5: "LZW",
-            6: "JPEG (old-style)",
-            7: "JPEG",
-            8: "Adobe Deflate",
-            9: "JBIG B&W",
-            10: "JBIG Color",
-            32766: "Next",
-            32769: "Epson ERF Compressed",
-            32771: "CCIRLEW",
-            32773: "PackBits",
-            32809: "Thunderscan",
-            32895: "IT8CTPAD",
-            32896: "IT8LW",
-            32897: "IT8MP",
-            32898: "IT8BL",
-            32908: "PixarFilm",
-            32909: "PixarLog",
-            32946: "Deflate",
-            32947: "DCS",
-            34661: "JBIG",
-            34676: "SGILog",
-            34677: "SGILog24",
-            34712: "JPEG 2000",
-            34713: "Nikon NEF Compressed",
-            65000: "Kodak DCR Compressed",
-            65535: "Pentax PEF Compressed",
-        },
-    ),
     0x0201: ("PreviewImageStart",),
     0x0202: ("PreviewImageLength",),
     0x0213: (

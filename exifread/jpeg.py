@@ -1,3 +1,5 @@
+"""Extract EXIF from JPEG files."""
+
 from typing import BinaryIO
 
 from exifread.exceptions import InvalidExif
@@ -144,9 +146,8 @@ def _get_base(base: int, data: bytes) -> int:
                 raise InvalidExif(
                     "Unexpected/unhandled segment type or file content."
                 ) from err
-            else:
-                logger.debug("  Increment base by %s", increment)
-                base += increment
+            logger.debug("  Increment base by %s", increment)
+            base += increment
     return base
 
 

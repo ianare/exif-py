@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: [ "--profile", "black" , "--split-on-trailing-comma", "true"]
+        additional_dependencies: [toml]
+
+  - repo: https://github.com/PyCQA/pylint
+    rev: v3.0.4
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: [
+          "-j2"
+        ]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
+    hooks:
+      - id: mypy
+        args: []
+        exclude: "tests/|examples/|docs/"
+        additional_dependencies:
+          - toml
+          - types-setuptools

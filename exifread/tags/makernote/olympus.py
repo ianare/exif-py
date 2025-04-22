@@ -1,3 +1,7 @@
+"""
+Makernote (proprietary) tag definitions for Olympus.
+"""
+
 from exifread.utils import make_string
 
 

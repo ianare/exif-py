@@ -1,6 +1,12 @@
+"""
+Base classes.
+"""
+
 import re
 import struct
 from typing import Any, BinaryIO, Dict, List, Union
+from xml.dom.minidom import parseString
+from xml.parsers.expat import ExpatError
 
 from exifread.exif_log import get_logger
 from exifread.tags import (
@@ -552,7 +558,7 @@ class ExifHeader:
             # return
 
         # Casio
-        if "CASIO" in make or "Casio" in make:
+        if "CASIO" in make or "casio" in make:
             self.dump_ifd(note.field_offset, "MakerNote", tag_dict=makernote.casio.TAGS)
             return
 
@@ -686,6 +692,7 @@ class ExifHeader:
 
             tag_name = tag[0]
             if len(tag) > 2:
+                # pylint: disable=no-member
                 if callable(tag[2]):
                     tag_value = tag[2](tag_value)  # type: ignore
                 else:
@@ -699,8 +706,6 @@ class ExifHeader:
     def parse_xmp(self, xmp_bytes: bytes):
         """Adobe's Extensible Metadata Platform, just dump the pretty XML."""
 
-        import xml.dom.minidom  # pylint: disable=import-outside-toplevel
-
         logger.debug("XMP cleaning data")
 
         # Pray that it's encoded in UTF-8
@@ -708,8 +713,8 @@ class ExifHeader:
         xmp_string = xmp_bytes.decode("utf-8")
 
         try:
-            pretty = xml.dom.minidom.parseString(xmp_string).toprettyxml()
-        except xml.parsers.expat.ExpatError:
+            pretty = parseString(xmp_string).toprettyxml()
+        except ExpatError:
             logger.warning("XMP: XML is not well formed")
             self.tags["Image ApplicationNotes"] = IfdTag(
                 xmp_string, 0, 1, xmp_bytes, 0, 0

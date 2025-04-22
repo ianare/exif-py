@@ -1,5 +1,5 @@
 """
-Custom log output
+Custom log output.
 """
 
 import logging
@@ -74,6 +74,10 @@ class Formatter(logging.Formatter):
 
 
 class Handler(logging.StreamHandler):
+    """
+    Custom StreamHandler so we can use the Formatter.
+    """
+
     color: bool
     debug: bool
 
