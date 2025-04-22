@@ -4,8 +4,8 @@ import exifread
 readme_file = open("README.rst", "rt").read()
 
 dev_requirements = [
-    "mypy==1.2.0",
-    "pylint==2.14.4",
+    "mypy==1.4.1",
+    "pylint==2.14.5",
 ]
 
 setup(
@@ -31,6 +31,9 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Topic :: Utilities",
     ],
     extras_require={
