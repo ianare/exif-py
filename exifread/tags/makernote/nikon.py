@@ -2,6 +2,7 @@
 from exifread.utils import make_string, Ratio
 
 
+
 def ev_bias(seq) -> str:
     """
     First digit seems to be in steps of 1/6 EV.
@@ -52,6 +53,9 @@ def ev_bias(seq) -> str:
 
 
 # Nikon E99x MakerNote Tags
+#
+# NOTE: Byte field values are actually integer representations in this module so keys should
+# be integers.
 TAGS_NEW = {
     0x0001: ('MakernoteVersion', make_string),  # Sometimes binary
     0x0002: ('ISOSetting', ),
@@ -62,6 +66,7 @@ TAGS_NEW = {
     0x0007: ('FocusMode', ),
     0x0008: ('FlashSetting', ),
     0x0009: ('AutoFlashMode', ),
+    0x000A: ('LensMount', ),    # According to LibRAW
     0x000B: ('WhiteBalanceBias', ),
     0x000C: ('WhiteBalanceRBCoeff', ),
     0x000D: ('ProgramShift', ev_bias),
@@ -72,52 +77,156 @@ TAGS_NEW = {
     0x0011: ('NikonPreview', ),
     0x0012: ('FlashCompensation', ev_bias),
     0x0013: ('ISOSpeedRequested', ),
+    0x0014: ('ColorBalance', ),     # According to LibRAW
     0x0016: ('PhotoCornerCoordinates', ),
     0x0017: ('ExternalFlashExposureComp', ev_bias),
     0x0018: ('FlashBracketCompensationApplied', ev_bias),
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
-    0x001B: ('CropHiSpeed', ),
+    0x001B: ('CropHiSpeed', [
+        {
+            0: 'Off',
+            1: '1.3x',
+            2: 'DX',
+            3: '5:4',
+            4: '3:2',
+            6: '16:9',
+            8: '2.7x',
+            9: 'DX Movie',
+            10: '1.3x Movie',
+            11: 'FX Uncropper',
+            12: 'DX Uncropped',
+            15: '1.5x Movie',
+            17: '1:1'
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+    ]),
     0x001C: ('ExposureTuning', ),
     0x001D: ('SerialNumber', ),  # Conflict with 0x00A0 ?
-    0x001E: ('ColorSpace', ),
+    0x001E: ('ColorSpace', {
+        1: 'sRGB',
+        2: 'Adobe RGB'
+    }),
     0x001F: ('VRInfo', ),
-    0x0020: ('ImageAuthentication', ),
-    0x0022: ('ActiveDLighting', ),
+    0x0020: ('ImageAuthentication', {
+        0: 'Off',
+        1: 'On'
+    }),
+    0x0021: ('FaceDetect', ),
+    0x0022: ('ActiveDLighting', {
+        0: 'Off',
+        1: 'Low',
+        3: 'Normal',
+        5: 'High',
+        7: 'Extra High',
+        8: 'Extra High 1',
+        9: 'Extra High 2',
+        10: 'Extra High 3',
+        11: 'Extra High 4',
+        65535: 'Auto'
+    }),
     0x0023: ('PictureControl', ),
     0x0024: ('WorldTime', ),
     0x0025: ('ISOInfo', ),
+    0x002A: ('VignetteControl', {
+        0: 'Off',
+        1: 'Low',
+        3: 'Normal',
+        5: 'High'
+    }),
+    0x002B: ('DistortInfo', ),
+    0x002C: ('UnknownInfo', ),      # Using what ExifTool uses
+    0x0032: ('UnknownInfo2', ),     # Using what ExifTool uses
+    0x0034: ('ShutterMode', {
+        0: 'Mechanical',
+        16: 'Electronic',
+        48: 'Electronic Front Curtain',
+        64: 'Electronic (Movie)',
+        80: 'Auto (Mechanical)',
+        81: 'Auto (Electronic Front Curtain)',
+    }),
+    0x0035: ('HDRInfo', ),
+    0x0037: ('MechanicalShutterCount', ),
+    0x0039: ('LocationInfo', ),
+    # 0x003A: unknown
+    0x003B: ('MultiExposureWhiteBalance', ),
+    # 0x003C: unknown
+    0x003D: ('BlackLevel', ),
+    # 0x003E: unknown
+    # 0x003F: unknown
+    # 0x0040: unknown
+    # 0x0041: unknown
+    # 0x0042: unknown
+    # 0x0043: unknown
+    # 0x0044: unknown
+    0x0045: ('CropArea', ),     # (left, top, width, height) / left pixel (x,y), size (width,length)
+    # 0x0046: unknown
+    # 0x0047: unknown
+    # 0x0048: unknown
+    # 0x0049: unknown
+    # 0x004A: unknown
+    # 0x004B: unknown
+    # 0x004C: unknown
+    # 0x004D: unknown
+    0x004E: ('NikonSettings', ),
+    0x004F: ('ColorTemperatureAuto', ),
     0x0080: ('ImageAdjustment', ),
     0x0081: ('ToneCompensation', ),
     0x0082: ('AuxiliaryLens', ),
-    0x0083: ('LensType', ),
+    # About the table below:
+    # * All G lenses are also D lenses but not vice versa.
+    # * G lens names do not include the D
+    # * All G and D lenses are also AF
+    # * G and D don't even refer to related feature or lens characteristics
+    # * Nikon doesn't differentiate AF, AF-I, or AF-S lenses but does with AF-P
+    # * AF-{I,S,P} are autofocus technology types
+    # * But sometimes Nikon likes to write AF-D or AF-G too in documentation
+    # * VR is an additional lens feature.
+    0x0083: ('LensType', {  # FIXME: We should form the string instead of listing every possible combo
+        0: 'AF',
+        1: 'MF',
+        2: 'AF D',
+        6: 'AF G',
+        8: 'VR',
+        10: 'AF D VR',
+        14: 'AF G VR',
+        128: 'AF-P',
+        142: 'AF-P G VR'
+    }),
     0x0084: ('LensMinMaxFocalMaxAperture', ),
     0x0085: ('ManualFocusDistance', ),
     0x0086: ('DigitalZoomFactor', ),
     0x0087: ('FlashMode', {
-        0x00: 'Did Not Fire',
-        0x01: 'Fired, Manual',
-        0x07: 'Fired, External',
-        0x08: 'Fired, Commander Mode ',
-        0x09: 'Fired, TTL Mode',
+        0: 'Did Not Fire',
+        1: 'Fired, Manual',
+        3: 'Not Ready',
+        7: 'Fired, External',
+        8: 'Fired, Commander Mode ',
+        9: 'Fired, TTL Mode',
     }),
-    0x0088: ('AFFocusPosition', {
-        0x0000: 'Center',
-        0x0100: 'Top',
-        0x0200: 'Bottom',
-        0x0300: 'Left',
-        0x0400: 'Right',
-    }),
-    0x0089: ('BracketingMode', {
-        0x00: 'Single frame, no bracketing',
-        0x01: 'Continuous, no bracketing',
-        0x02: 'Timer, no bracketing',
-        0x10: 'Single frame, exposure bracketing',
-        0x11: 'Continuous, exposure bracketing',
-        0x12: 'Timer, exposure bracketing',
-        0x40: 'Single frame, white balance bracketing',
-        0x41: 'Continuous, white balance bracketing',
-        0x42: 'Timer, white balance bracketing'
+    0x0088: ('AFInfo', ),   # FIXME: This is a list where each position has a different meaning
+    0x0089: ('ShootingMode', {  # FIXME: We should form the string instead of listing every possible combo
+        0: 'Single frame',
+        1: 'Continuous',
+        2: 'Delay',
+        8: 'b3 ???',
+        10: 'b3 ???, Delay',
+        16: 'Exposure Bracketing',
+        17: 'Exposure Bracketing, Continuous',
+        18: 'Exposure Bracketing, Delay',
+        32: 'Auto ISO',
+        33: 'Auto ISO, Continuous',
+        34: 'Auto ISO, Delay',
+        40: 'Auto ISO, b3 ???',
+        48: 'Auto ISO, Exposure Bracketing',
+        128: 'IR Control',
+        256: 'b8 ???',
+        272: 'b8 ???, Exposure Bracketing'
     }),
     0x008A: ('AutoBracketRelease', ),
     0x008B: ('LensFStops', ),
@@ -128,7 +237,18 @@ TAGS_NEW = {
     0x0091: ('ShotInfo', ),  # First 4 bytes are a version number in ASCII
     0x0092: ('HueAdjustment', ),
     # ExifTool calls this 'NEFCompression', should be 1-4
-    0x0093: ('Compression', ),
+    0x0093: ('Compression', {
+        1: 'Lossy (type 1)',
+        2: 'Uncompressed',
+        3: 'Lossless',
+        4: 'Lossy (type 2)',
+        5: 'Striped packed 12 bits',
+        6: 'Uncompressed (reduced to 12 bit)',
+        7: 'Unpacked 12 bits',
+        8: 'Small',
+        9: 'Packed 12 bits',
+        10: 'Packed 14 bits',
+    }),
     0x0094: ('Saturation', {
         -3: 'B&W',
         -2: '-2',
@@ -144,7 +264,57 @@ TAGS_NEW = {
     0x0099: ('RawImageCenter', ),
     0x009A: ('SensorPixelSize', ),
     0x009C: ('Scene Assist', ),
-    0x009E: ('RetouchHistory', ),
+    0x009D: ('DateStampMode', {
+        0: 'Off',
+        1: 'Date & Time',
+        2: 'Date',
+        3: 'Date Counter'
+    }),
+    0x009E: ('RetouchHistory', {
+        0: 'None',
+        3: 'B & W',
+        4: 'Sepia',
+        5: 'Trim',
+        6: 'Small Picture',
+        7: 'D-Lighting',
+        8: 'Red Eye',
+        9: 'Cyanotype',
+        10: 'Sky Light',
+        11: 'Warm Tone',
+        12: 'Color Custom',
+        13: 'Image Overlay',
+        14: 'Red Intensifier',
+        15: 'Green Intensifier',
+        16: 'Blue Intensifier',
+        17: 'Cross Screen',
+        18: 'Quick Retouch',
+        19: 'NEF Processing',
+        23: 'Distortion Control',
+        25: 'Fisheye',
+        26: 'Straighten',
+        29: 'Perspective Control',
+        30: 'Color Outline',
+        31: 'Soft Filter',
+        32: 'Resize',
+        33: 'Miniature Effect',
+        34: 'Skin Softening',
+        35: 'Selected Frame',
+        37: 'Color Sketch',
+        38: 'Selective Color',
+        39: 'Glamour',
+        40: 'Drawing',
+        44: 'Pop',
+        45: 'Toy Camera Effect 1',
+        46: 'Toy Camera Effect 2',
+        47: 'Cross Process (red)',
+        48: 'Cross Process (blue)',
+        49: 'Cross Process (green)',
+        50: 'Cross Process (yellow)',
+        51: 'Super Vivid',
+        52: 'High-contrast Monochrome',
+        53: 'High Key',
+        54: 'Low Key'
+    }),
     0x00A0: ('SerialNumber', ),
     0x00A2: ('ImageDataSize', ),
     # 00A3: unknown - a single byte 0
@@ -161,11 +331,26 @@ TAGS_NEW = {
     0x00AC: ('ImageStabilization', ),
     0x00AD: ('AFResponse', ),
     0x00B0: ('MultiExposure', ),
-    0x00B1: ('HighISONoiseReduction', ),
+    0x00B1: ('HighISONoiseReduction', {
+        0: 'Off',
+        1: 'Minimal',
+        2: 'Low',
+        3: 'Medium Low',
+        4: 'Normal',
+        5: 'Medium High',
+        6: 'High',
+    }),
+    0x00B3: ('ToningEffect', ),
     0x00B6: ('PowerUpTime', ),
-    0x00B7: ('AFInfo2', ),
+    0x00B7: ('AFInfo2', ),  # FIXME: This is a list where each position has a different meaning
     0x00B8: ('FileInfo', ),
     0x00B9: ('AFTune', ),
+    0x00BB: ('RetouchInfo', ),
+    # 0x00BC: unknown
+    0x00BD: ('PictureControlData', ),
+    # 0x00BF: unknown
+    # 0x00C0: unknown
+    0x00C3: ('BarometerInfo', ),
     0x0100: ('DigitalICE', ),
     0x0103: ('PreviewCompression', {
         1: 'Uncompressed',
@@ -205,9 +390,14 @@ TAGS_NEW = {
         1: 'Centered',
         2: 'Co-sited',
     }),
+    0x0E00: ('PrintIM', ),
+    0x0E01: ('InCameraEditNote', ),
     0x0E09: ('NikonCaptureVersion', ),
     0x0E0E: ('NikonCaptureOffsets', ),
     0x0E10: ('NikonScan', ),
+    0x0E13: ('NikonCaptureEditVersions', ),
+    0x0E1D: ('NikonICCProfile', ),
+    0x0E1E: ('NikonCaptureOutput', ),
     0x0E22: ('NEFBitDepth', ),
 }
 
