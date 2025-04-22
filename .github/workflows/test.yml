@@ -4,24 +4,26 @@
 name: Test
 
 on:
-  - pull_request
+  - push
+  - workflow_dispatch
 
 jobs:
   pytest:
     name: Run Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     strategy:
       matrix:
         python-version:
-          - "3.6"
           - "3.7"
           - "3.8"
           - "3.9"
           - "3.10"
           - "3.11"
+          - "3.12"
+          - "3.13"
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -29,16 +31,12 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Cache dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-test-${{ hashFiles('setup.py') }}
         restore-keys: |
           ${{ runner.os }}-test-
-
-    - name: Download Samples
-      run: |
-        make samples-download
 
     - name: Install
       run: |
@@ -46,9 +44,9 @@ jobs:
 
     - name: Run in debug and color mode
       run: |
-        find exif-samples-master -name *.tiff -o -name *.jpg -o -name *.heif | xargs EXIF.py -dc
+        make test
 
     - name: Compare image processing output
       run: |
-        find exif-samples-master -name *.tiff -o -name *.jpg -o -name *.heif | sort -f | xargs EXIF.py > exif-samples-master/dump_test
-        diff -Z --side-by-side --suppress-common-lines exif-samples-master/dump exif-samples-master/dump_test
+        make test-diff
+

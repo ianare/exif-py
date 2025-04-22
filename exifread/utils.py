@@ -3,20 +3,20 @@ Misc utilities.
 """
 
 from fractions import Fraction
-from typing import Union
+from typing import Optional, Tuple, Union
 
 
-def ord_(dta):
+def ord_(dta) -> int:
     if isinstance(dta, str):
         return ord(dta)
     return dta
 
 
-def make_string(seq: Union[bytes, list]) -> str:
+def make_string(seq) -> str:
     """
     Don't throw an exception when given an out of range character.
     """
-    string = ''
+    string = ""
     for char in seq:
         # Screen out non-printing characters
         try:
@@ -28,15 +28,15 @@ def make_string(seq: Union[bytes, list]) -> str:
     # If no printing chars
     if not string:
         if isinstance(seq, list):
-            string = ''.join(map(str, seq))
+            string = "".join(map(str, seq))
             # Some UserComment lists only contain null bytes, nothing valuable to return
-            if set(string) == {'0'}:
-                return ''
+            if set(string) == {"0"}:
+                return ""
         else:
             string = str(seq)
 
     # Clean undesirable characters on any end
-    return string.strip(' \x00')
+    return string.strip(" \x00")
 
 
 def make_string_uc(seq) -> str:
@@ -46,39 +46,54 @@ def make_string_uc(seq) -> str:
     """
     if not isinstance(seq, str):
         # Remove code from sequence only if it is valid
-        if make_string(seq[:8]).upper() in ('ASCII', 'UNICODE', 'JIS', ''):
+        if make_string(seq[:8]).upper() in ("ASCII", "UNICODE", "JIS", ""):
             seq = seq[8:]
     # Of course, this is only correct if ASCII, and the standard explicitly
     # allows JIS and Unicode.
     return make_string(seq)
 
 
-def get_gps_coords(tags: dict) -> tuple:
+def degrees_to_decimal(degrees: float, minutes: float, seconds: float) -> float:
+    """
+    Converts coordinates from a degrees minutes seconds format to a decimal degrees format.
+    Reference: https://en.wikipedia.org/wiki/Geographic_coordinate_conversion
+    """
+    return degrees + minutes / 60 + seconds / 3600
 
-    lng_ref_tag_name = 'GPS GPSLongitudeRef'
-    lng_tag_name = 'GPS GPSLongitude'
-    lat_ref_tag_name = 'GPS GPSLatitudeRef'
-    lat_tag_name = 'GPS GPSLatitude'
 
-    # Check if these tags are present
-    gps_tags = [lng_ref_tag_name, lng_tag_name, lat_tag_name, lat_tag_name]
-    for tag in gps_tags:
-        if not tag in tags.keys():
-            return ()
+def get_gps_coords(tags: dict) -> Union[Tuple[float, float], None]:
+    """
+    Extract tuple of latitude and longitude values in decimal degrees format from EXIF tags.
+    Return None if no GPS coordinates are found.
+    Handles regular and serialized Exif tags.
+    """
+    gps = {
+        "lat_coord": "GPS GPSLatitude",
+        "lat_ref": "GPS GPSLatitudeRef",
+        "lng_coord": "GPS GPSLongitude",
+        "lng_ref": "GPS GPSLongitudeRef",
+    }
 
-    lng_ref_val = tags[lng_ref_tag_name].values
-    lng_coord_val = [c.decimal() for c in tags[lng_tag_name].values]
+    # Verify if required keys are a subset of provided tags
+    if not set(gps.values()) <= tags.keys():
+        return None
 
-    lat_ref_val = tags[lat_ref_tag_name].values
-    lat_coord_val = [c.decimal() for c in tags[lat_tag_name].values]
+    # If tags have not been converted to native Python types, do it
+    if not isinstance(tags[gps["lat_coord"]], list):
+        tags[gps["lat_coord"]] = [c.decimal() for c in tags[gps["lat_coord"]].values]
+        tags[gps["lng_coord"]] = [c.decimal() for c in tags[gps["lng_coord"]].values]
+        tags[gps["lat_ref"]] = tags[gps["lat_ref"]].values
+        tags[gps["lng_ref"]] = tags[gps["lng_ref"]].values
 
-    lng_coord = sum(c / 60**i for (i, c) in enumerate(lng_coord_val))
-    lng_coord *= (-1) ** (lng_ref_val == 'W')
+    lat = degrees_to_decimal(*tags[gps["lat_coord"]])
+    if tags[gps["lat_ref"]] == "S":
+        lat *= -1
 
-    lat_coord = sum(c / 60**i for (i, c) in enumerate(lat_coord_val))
-    lat_coord *= (-1) ** (lat_ref_val == 'S')
+    lng = degrees_to_decimal(*tags[gps["lng_coord"]])
+    if tags[gps["lng_ref"]] == "W":
+        lng *= -1
 
-    return (lat_coord, lng_coord)
+    return lat, lng
 
 
 class Ratio(Fraction):
@@ -87,8 +102,11 @@ class Ratio(Fraction):
     common denominator for printing.
     """
 
+    _numerator: Optional[int]
+    _denominator: Optional[int]
+
     # We're immutable, so use __new__ not __init__
-    def __new__(cls, numerator=0, denominator=None):
+    def __new__(cls, numerator: int = 0, denominator: Optional[int] = None):
         try:
             self = super(Ratio, cls).__new__(cls, numerator, denominator)
         except ZeroDivisionError:
