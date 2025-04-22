@@ -26,6 +26,22 @@ def _find_tiff_exif(fh: BinaryIO) -> tuple:
     offset = 0
     return offset, endian
 
+def _find_heic_tiff(fh: BinaryIO) -> tuple:
+    """ In some HEIC files, the Exif offset is 0 and there is a plain TIFF header near end of the file. """
+
+    data = fh.read(4)
+    if data[0:2] in [b'II', b'MM'] and data [2] == 42 and data[3] == 0:
+        offset = fh.tell() - 4
+        fh.seek(offset)
+        endian = data[0:2]
+        offset = fh.tell()
+        logger.debug('Found TIFF header in Exif, offset = %0xH', offset)
+    else:
+        raise InvalidExif(
+            "Exif pointer to zeros, but found " + str(data) + " instead of a TIFF header."
+        )
+
+    return offset, endian
 
 def _find_webp_exif(fh: BinaryIO) -> tuple:
     logger.debug("WebP format recognized in data[0:4], data[8:12]")
@@ -108,6 +124,9 @@ def _determine_type(fh: BinaryIO) -> tuple:
         fh.seek(0)
         heic = HEICExifFinder(fh)
         offset, endian = heic.find_exif()
+        if offset == 0:
+            offset, endian = _find_heic_tiff(fh)
+            # It's a HEIC file with a TIFF header
     elif data[0:4] == b'RIFF' and data[8:12] == b'WEBP':
         offset, endian = _find_webp_exif(fh)
     elif data[0:2] == b'\xFF\xD8':
@@ -144,12 +163,14 @@ def process_file(fh: BinaryIO, stop_tag=DEFAULT_STOP_TAG,
 
     endian = chr(ord_(endian[0]))
     # deal with the EXIF info we found
-    logger.debug("Endian format is %s (%s)", endian, {
+    endian_readable = {
         'I': 'Intel',
         'M': 'Motorola',
         '\x01': 'Adobe Ducky',
         'd': 'XMP/Adobe unknown'
-    }[endian])
+    }
+    logger.debug("Endian format is %s (%s)", endian,
+                 endian_readable.get(endian, "Unknown"))
 
     hdr = ExifHeader(fh, endian, offset, fake_exif, strict, debug, details, truncate_tags)
     ifd_list = hdr.list_ifd()
