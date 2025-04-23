@@ -4,6 +4,17 @@ Makernote (proprietary) tag definitions for Canon.
 http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 """
 
+def add_one(value):
+    return value + 1
+
+
+def subtract_one(value):
+    return value - 1
+
+
+def convert_temp(value):
+    return '%d C' % (value - 128)
+
 TAGS = {
     0x0003: ("FlashInfo",),
     0x0006: ("ImageType",),
@@ -526,6 +537,7 @@ SHOT_INFO = {
     ),
     8: ("SlowShutter", {-1: "n/a", 0: "Off", 1: "Night Scene", 2: "On", 3: "None"}),
     9: ("SequenceNumber",),
+    12: ("CameraTemperature", convert_temp),
     14: ("AFPointUsed",),
     15: (
         "FlashBias",
