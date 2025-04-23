@@ -1,11 +1,15 @@
-from setuptools import setup, find_packages
+"""EXIF.py setup"""
+
+from setuptools import find_packages, setup  # pylint: disable=import-error
+
 import exifread
 
-readme_file = open("README.rst", "rt").read()
+with open("README.rst", "rt", encoding="utf-8") as fh:
+    readme_file = fh.read()
 
 dev_requirements = [
-    "mypy==1.2.0",
-    "pylint==2.14.4",
+    "pre-commit==2.21.0",
+    "pylint==3.0.4",
 ]
 
 setup(
@@ -27,13 +31,12 @@ setup(
         "Intended Audience :: End Users/Desktop",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Utilities",
     ],
     extras_require={

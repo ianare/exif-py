@@ -9,6 +9,7 @@
     * fix webp for file conversion by magick (#132) by Marcelo
     * Ignore unknown parsers, fix for #160 (#175) by Herbert Poul
     * Allow extracting thumbnails with details=False (#170)
+    * Add option to return built-in Python types (#129) by Étienne Pelletier
 
 3.0.0 — 2022-05-08
     * **BREAKING CHANGE:** Add type hints, which removes Python2 compatibility

@@ -1,0 +1,4611 @@
+Opening: tests/resources/heic/mobile/HMD_Nokia_8.3_5G.heif
+No EXIF information found
+
+Opening: tests/resources/heic/mobile/HMD_Nokia_8.3_5G_hdr.heif
+EXIF ExposureProgram (Short): Unidentified
+EXIF ExposureTime (Ratio): 1/125
+EXIF FNumber (Ratio): 189/100
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 1
+EXIF ISOSpeedRatings (Short): 100
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SubSecTime (ASCII): 364
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 4701593/5000
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2022:01:12
+GPS GPSImgDirection (Ratio): 82
+GPS GPSImgDirectionRef (ASCII): M
+GPS GPSLatitude (Ratio): [40, 39, 233883/5000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [3, 45, 12366459/250000]
+GPS GPSLongitudeRef (ASCII): W
+GPS GPSProcessingMethod (ASCII): gps
+GPS GPSSpeed (Ratio): 7559/10000
+GPS GPSSpeedRef (ASCII): K
+GPS GPSTimeStamp (Ratio): [7, 30, 14]
+Image DateTime (ASCII): 2022:01:12 07:30:14
+Image ExifOffset (Long): 110
+Image GPSInfo (Long): 250
+Image Orientation (Short): Horizontal (normal)
+Image Software (ASCII): 00WW_2_270_SP04
+
+Opening: tests/resources/heic/mobile/iphone_13_pro_max.heic
+EXIF ApertureValue (Ratio): 27767/23734
+EXIF BrightnessValue (Signed Ratio): 51851/34780
+EXIF ColorSpace (Short): Uncalibrated
+EXIF DateTimeDigitized (ASCII): 2022:02:16 12:55:41
+EXIF DateTimeOriginal (ASCII): 2022:02:16 12:55:41
+EXIF DigitalZoomRatio (Ratio): 1512/1511
+EXIF ExifImageLength (Long): 3024
+EXIF ExifImageWidth (Long): 4032
+EXIF ExifVersion (Undefined): 0232
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/60
+EXIF FNumber (Ratio): 3/2
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FocalLength (Ratio): 57/10
+EXIF FocalLengthIn35mmFilm (Short): 26
+EXIF ISOSpeedRatings (Short): 250
+EXIF LensMake (ASCII): Apple
+EXIF LensModel (ASCII): iPhone 13 Pro Max back triple camera 5.7mm f/1.5
+EXIF LensSpecification (Ratio): [299253/190607, 9, 3/2, 14/5]
+EXIF MakerNote (Undefined): [65, 112, 112, 108, 101, 32, 105, 79, 83, 0, 0, 1, 77, 77, 0, 49, 0, 1, 0, 9, ... ]
+EXIF MeteringMode (Short): Pattern
+EXIF OffsetTime (ASCII): +01:00
+EXIF OffsetTimeDigitized (ASCII): +01:00
+EXIF OffsetTimeOriginal (ASCII): +01:00
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 62534/10573
+EXIF SubSecTimeDigitized (ASCII): 762
+EXIF SubSecTimeOriginal (ASCII): 762
+EXIF SubjectArea (Short): [2007, 1505, 2211, 1328]
+EXIF Tag 0xA460 (Short): 2
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2022:02:16 12:55:41
+Image ExifOffset (Long): 220
+Image HostComputer (ASCII): iPhone 13 Pro Max
+Image Make (ASCII): Apple
+Image Model (ASCII): iPhone 13 Pro Max
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): 15.2.1
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+MakerNote Tag 0x0001 (Signed Long): 14
+MakerNote Tag 0x0002 (Undefined): [180, 0, 197, 0, 21, 1, 179, 0, 148, 0, 99, 0, 80, 1, 120, 2, 122, 2, 17, 2, ... ]
+MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 89, 116, 105, 109, 101, ... ]
+MakerNote Tag 0x0004 (Signed Long): 1
+MakerNote Tag 0x0005 (Signed Long): 175
+MakerNote Tag 0x0006 (Signed Long): 181
+MakerNote Tag 0x0007 (Signed Long): 1
+MakerNote Tag 0x0008 (Signed Ratio): [-1886126079/621412352, -3525/29, 64/51]
+MakerNote Tag 0x000C (Signed Ratio): [1052199/105295456, 1094266945/1111766084]
+MakerNote Tag 0x000D (Signed Long): 20
+MakerNote Tag 0x000E (Signed Long): 0
+MakerNote Tag 0x0010 (Signed Long): 1
+MakerNote Tag 0x0014 (Signed Long): 12
+MakerNote Tag 0x0017 (Signed Long): 1112547328
+MakerNote Tag 0x0019 (Signed Long): 8192
+MakerNote Tag 0x001A (ASCII): -79FE-
+MakerNote Tag 0x001F (Signed Long): 0
+MakerNote Tag 0x0020 (ASCII): 45F3-837C-3B769EF04210
+MakerNote Tag 0x0021 (Signed Ratio): -2621441/1011810304
+MakerNote Tag 0x0023 (Signed Long): [207958840, 1128347715]
+MakerNote Tag 0x0025 (Signed Long): 5262
+MakerNote Tag 0x0026 (Signed Long): 3
+MakerNote Tag 0x0027 (Signed Ratio): 319841384/297845007
+MakerNote Tag 0x002B (ASCII): 45CE-A12B-26FD40383CD6
+MakerNote Tag 0x002D (Signed Long): 4239
+MakerNote Tag 0x002E (Signed Long): 1
+MakerNote Tag 0x002F (Signed Long): 51
+MakerNote Tag 0x0030 (Signed Ratio): 808506369/33752069
+MakerNote Tag 0x0033 (Signed Long): 12288
+MakerNote Tag 0x0034 (Signed Long): 5
+MakerNote Tag 0x0035 (Signed Long): 4
+MakerNote Tag 0x0036 (Signed Long): 172
+MakerNote Tag 0x0037 (Signed Long): 4
+MakerNote Tag 0x0038 (Signed Long): 205
+MakerNote Tag 0x0039 (Signed Long): 0
+MakerNote Tag 0x003A (Signed Long): 0
+MakerNote Tag 0x003B (Signed Long): 0
+MakerNote Tag 0x003C (Signed Long): 4
+MakerNote Tag 0x003D (Signed Long): 38
+MakerNote Tag 0x0040 (Undefined): [6, 7, 8, 81, 51, 81, 49, 81, 50, 81, 48, 16, 3, 34, 191, 0, 0, 0, 34, 0, ... ]
+MakerNote Tag 0x0041 (Undefined): [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 98, 112, 108, 105, 115, 116, 48, 48, 8, 8, 0, 0, 0, 0]
+MakerNote Tag 0x0042 (Undefined): [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 5, 232, 0, 0, 5, 231, 0, 4, 144, 245, 0, 2]
+MakerNote Tag 0x0043 (Signed Long): 0
+MakerNote Tag 0x0044 (Signed Long): 0
+MakerNote Tag 0x0045 (Signed Long): 0
+MakerNote Tag 0x0046 (Signed Long): 0
+MakerNote Tag 0x0048 (Signed Long): 0
+MakerNote Tag 0x0049 (Signed Long): 0
+MakerNote Tag 0x004A (Signed Long): 2
+
+Opening: tests/resources/heic/samplefilehub.heif
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Canon_40D.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 45/8
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:05:30 15:56:01
+EXIF DateTimeOriginal (ASCII): 2008:05:30 15:56:01
+EXIF ExifImageLength (Long): 68
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/160
+EXIF FNumber (Ratio): 71/10
+EXIF Flash (Short): Flash fired, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 135
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 324000/73
+EXIF FocalPlaneYResolution (Ratio): 2592000/583
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 948
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF ShutterSpeedValue (Signed Ratio): 59/8
+EXIF SubSecTime (ASCII): 00
+EXIF SubSecTimeDigitized (ASCII): 00
+EXIF SubSecTimeOriginal (ASCII): 00
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSVersionID (Byte): [2, 2, 0, 0]
+Image DateTime (ASCII): 2008:07:31 10:38:11
+Image ExifOffset (Long): 214
+Image GPSInfo (Long): 978
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon EOS 40D
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1090
+Thumbnail JPEGInterchangeFormatLength (Long): 1378
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Canon_40D_photoshop_import.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ExifImageLength (Long): 77
+EXIF ExifImageWidth (Long): 100
+Image DateTime (ASCII): 2008:07:31 10:05:49
+Image ExifOffset (Long): 146
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 300
+Image YResolution (Ratio): 300
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 282
+Thumbnail JPEGInterchangeFormatLength (Long): 2022
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Canon_DIGITAL_IXUS_400.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 213/32
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF CustomRendered (Short): Custom
+EXIF DateTimeDigitized (ASCII): 2004:08:27 13:52:55
+EXIF DateTimeOriginal (ASCII): 2004:08:27 13:52:55
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Short): 75
+EXIF ExifImageWidth (Short): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/200
+EXIF FNumber (Ratio): 10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 247/16
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 56800/7
+EXIF FocalPlaneYResolution (Ratio): 56800/7
+EXIF InteroperabilityOffset (Long): 1284
+EXIF MakerNote (Undefined): [14, 0, 0, 0, 3, 0, 6, 0, 0, 0, 76, 3, 0, 0, 0, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 4
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 245/32
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 17:15:01
+Image ExifOffset (Long): 200
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon DIGITAL IXUS 400
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1704
+Interoperability RelatedImageWidth (Short): 2272
+MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DigitalZoom (Proprietary): None
+MakerNote EasyShootingMode (Proprietary): Full Auto
+MakerNote ExposureMode (Proprietary): Easy Shooting
+MakerNote FirmwareVersion (ASCII): Firmware Version 1.00
+MakerNote FlashActivity (Proprietary): Did Not Fire
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashInfo (Short): [1024, 0, 0, 0]
+MakerNote FlashMode (Proprietary): Auto
+MakerNote FocalLength (Proprietary): 286
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocalUnitsPerMM (Proprietary): 32
+MakerNote FocusMode (Proprietary): Single
+MakerNote FocusType (Proprietary): Auto
+MakerNote ISO (Proprietary): Auto
+MakerNote ImageNumber (Long): 1242489
+MakerNote ImageSize (Proprietary): Large
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote ImageType (ASCII): IMG:DIGITAL IXUS 400 JPEG
+MakerNote LensType (Proprietary): 65535
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 711
+MakerNote Macromode (Proprietary): Normal
+MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeteringMode (Proprietary): Evaluative
+MakerNote ModelID (Long): PowerShot S400 / Digital IXUS 400 / IXY Digital 400
+MakerNote OwnerName (ASCII): Jean-Pierre Grignon
+MakerNote Quality (Proprietary): Fine
+MakerNote RecordMode (Proprietary): JPEG
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 0
+MakerNote Sharpness (Proprietary): Normal
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 237
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): AF Point
+MakerNote SubjectDistance (Proprietary): 216
+MakerNote Tag 0x0000 (Short): [0, 0, 0, 0]
+MakerNote Tag 0x0012 (Short): [9, 9, 2272, 1704, 2272, 212, 409, 38, 65126, 0, 410, 65126, 0, 410, 65126, 0, 410, 65495, 65495, 65495, 0, 0, 0, 41, 41, 41, 8, 3]
+MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 0
+MakerNote WhiteBalance (Proprietary): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1432
+Thumbnail JPEGInterchangeFormatLength (Long): 1805
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Canon_PowerShot_S40.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 149/32
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 5
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2003:12:14 12:01:44
+EXIF DateTimeOriginal (ASCII): 2003:12:14 12:01:44
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Short): 1704
+EXIF ExifImageWidth (Short): 2272
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/500
+EXIF FNumber (Ratio): 49/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 341/16
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 56800/7
+EXIF FocalPlaneYResolution (Ratio): 56800/7
+EXIF InteroperabilityOffset (Long): 1416
+EXIF MakerNote (Undefined): [12, 0, 1, 0, 3, 0, 40, 0, 0, 0, 68, 4, 0, 0, 2, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 97349/32768
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 287/32
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2003:12:14 12:01:44
+Image ExifOffset (Long): 196
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon PowerShot S40
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1704
+Interoperability RelatedImageWidth (Short): 2272
+MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFPointSelected (Proprietary): Center
+MakerNote AFPointUsed (Proprietary): 12290
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DigitalZoom (Proprietary): None
+MakerNote EasyShootingMode (Proprietary): Manual
+MakerNote ExposureMode (Proprietary): Program
+MakerNote FirmwareVersion (ASCII): Firmware Version 1.10
+MakerNote FlashActivity (Proprietary): Did Not Fire
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashInfo (Short): [0, 0, 0, 0]
+MakerNote FlashMode (Proprietary): Auto
+MakerNote FocalLength (Proprietary): 286
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocalUnitsPerMM (Proprietary): 32
+MakerNote FocusMode (Proprietary): Single
+MakerNote FocusType (Proprietary): Auto
+MakerNote ISO (Proprietary): 100
+MakerNote ImageNumber (Long): 1171771
+MakerNote ImageSize (Proprietary): Large
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote ImageType (ASCII): IMG:PowerShot S40 JPEG
+MakerNote LensType (Proprietary): 65535
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 682
+MakerNote Macromode (Proprietary): Normal
+MakerNote MeteringMode (Proprietary): Center-weighted
+MakerNote ModelID (Long): PowerShot S40
+MakerNote OwnerName (ASCII): Andreas Huggel
+MakerNote Quality (Proprietary): Superfine
+MakerNote RecordMode (Proprietary): JPEG
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 0
+MakerNote Sharpness (Proprietary): Normal
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 227
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): AF Point
+MakerNote SubjectDistance (Proprietary): 782
+MakerNote Tag 0x0000 (Short): [0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 250
+MakerNote WhiteBalance (Proprietary): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2036
+Thumbnail JPEGInterchangeFormatLength (Long): 5448
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 180
+Thumbnail YResolution (Ratio): 180
+
+Opening: tests/resources/jpg/corrupted.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2015:09:08 11:02:17
+EXIF DateTimeOriginal (ASCII): 2015:09:08 11:02:17
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 2736
+EXIF ExifImageWidth (Long): 3648
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Creative
+EXIF ExposureTime (Ratio): 1/250
+EXIF FNumber (Ratio): 7/2
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 33/5
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 80
+EXIF InteroperabilityOffset (Long): 614
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [79, 76, 89, 77, 80, 85, 83, 0, 73, 73, 3, 0, 7, 0, 0, 2, 4, 0, 3, 0, ... ]
+EXIF MaxApertureValue (Ratio): 86/25
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Normal
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2015:09:08 11:02:17
+Image ExifOffset (Long): 158
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
+Image Make (ASCII): OLYMPUS IMAGING CORP.  
+Image Model (ASCII): u1020,S1020     
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 37, 0, 1, 0, 20, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Version 1.0                    
+Image XResolution (Ratio): 314
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 314
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote Tag 0x0001 (Byte): []
+MakerNote Tag 0x0002 (Signed Byte): []
+MakerNote Tag 0x0003 (Short): []
+MakerNote Tag 0x0004 (Byte): []
+MakerNote Tag 0x0005 (Byte): []
+MakerNote Tag 0x0007 (Long): []
+MakerNote Tag 0x0008 (Byte): []
+MakerNote Tag 0x000A (Byte): []
+MakerNote Tag 0x0101 (Byte): []
+MakerNote Tag 0x0405 (Long): []
+MakerNote Tag 0x05B8 (Short): []
+MakerNote Tag 0x9466 (Signed Ratio): []
+MakerNote Tag 0xAA01 (Byte): []
+MakerNote Tag 0xAA60 (Signed Byte): []
+MakerNote Tag 0xCCC4 (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0xFFFE (ASCII): 
+MakerNote Tag 0xFFFF (Signed Ratio): []
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 8980
+Thumbnail JPEGInterchangeFormatLength (Long): 5309
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/canon-ixus.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF DateTimeDigitized (ASCII): 2001:06:09 15:17:32
+EXIF DateTimeOriginal (ASCII): 2001:06:09 15:17:32
+EXIF ExifImageLength (Short): 480
+EXIF ExifImageWidth (Short): 640
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 1/350
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 173/16
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 320000/103
+EXIF FocalPlaneYResolution (Ratio): 96000/31
+EXIF InteroperabilityOffset (Long): 1088
+EXIF MakerNote (Undefined): [10, 0, 1, 0, 3, 0, 19, 0, 0, 0, 120, 3, 0, 0, 2, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 97349/32768
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 553859/65536
+EXIF SubjectDistance (Ratio): 15/4
+EXIF UserComment (Undefined): 
+Image DateTime (ASCII): 2001:06:09 15:17:32
+Image ExifOffset (Long): 184
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon DIGITAL IXUS
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 480
+Interoperability RelatedImageWidth (Short): 640
+MakerNote AFPointUsed (Proprietary): 12290
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DigitalZoom (Proprietary): None
+MakerNote EasyShootingMode (Proprietary): Manual
+MakerNote FirmwareVersion (ASCII): Firmware Version 1.0
+MakerNote FlashInfo (Short): [0, 0, 0, 0]
+MakerNote FlashMode (Proprietary): Auto
+MakerNote FocalLength (Proprietary): 211
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocusMode (Proprietary): AI Servo
+MakerNote FocusType (Proprietary): Auto
+MakerNote ISO (Proprietary): See ISOSpeedRatings Tag
+MakerNote ImageNumber (Long): 1010163
+MakerNote ImageSize (Proprietary): Small
+MakerNote ImageType (ASCII): IMG:JPEG file
+MakerNote Macromode (Proprietary): Normal
+MakerNote MeteringMode (Proprietary): Default
+MakerNote ModelID (Long): PowerShot S100 / Digital IXUS / IXY Digital
+MakerNote OwnerName (ASCII): Tom Rowan and Sarah Clifton
+MakerNote Quality (Proprietary): Fine
+MakerNote RecordMode (Proprietary): JPEG
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 1
+MakerNote Sharpness (Proprietary): Normal
+MakerNote SlowShutter (Proprietary): Off
+MakerNote Tag 0x0000 (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 0
+MakerNote WhiteBalance (Proprietary): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1524
+Thumbnail JPEGInterchangeFormatLength (Long): 5342
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 180
+Thumbnail YResolution (Ratio): 180
+
+Opening: tests/resources/jpg/exif-org/fujifilm-dx10.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 41/10
+EXIF BrightnessValue (Signed Ratio): -27/10
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 7/5
+EXIF DateTimeDigitized (ASCII): 2001:04:12 20:33:14
+EXIF DateTimeOriginal (ASCII): 2001:04:12 20:33:14
+EXIF ExifImageLength (Long): 768
+EXIF ExifImageWidth (Long): 1024
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF FNumber (Ratio): 21/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 29/5
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 2151
+EXIF FocalPlaneYResolution (Ratio): 2151
+EXIF ISOSpeedRatings (Short): 150
+EXIF InteroperabilityOffset (Long): 708
+EXIF MaxApertureValue (Ratio): 41/10
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 33/5
+Image Copyright (ASCII): J P Bowen 
+Image DateTime (ASCII): 2001:04:12 20:33:14
+Image ExifOffset (Long): 258
+Image Make (ASCII): FUJIFILM
+Image Model (ASCII): DX-10
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Digital Camera DX-10 Ver1.00
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 856
+Thumbnail JPEGInterchangeFormatLength (Long): 10274
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/fujifilm-finepix40i.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 3
+EXIF BrightnessValue (Signed Ratio): 13/50
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3/2
+EXIF DateTimeDigitized (ASCII): 2000:08:04 18:22:57
+EXIF DateTimeOriginal (ASCII): 2000:08:04 18:22:57
+EXIF ExifImageLength (Long): 1800
+EXIF ExifImageWidth (Long): 2400
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF FNumber (Ratio): 14/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 87/10
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 2381
+EXIF FocalPlaneYResolution (Ratio): 2381
+EXIF ISOSpeedRatings (Short): 200
+EXIF InteroperabilityOffset (Long): 926
+EXIF MakerNote (Undefined): [70, 85, 74, 73, 70, 73, 76, 77, 12, 0, 0, 0, 15, 0, 0, 0, 7, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 11/2
+Image Copyright (ASCII):           
+Image DateTime (ASCII): 2000:08:04 18:22:57
+Image ExifOffset (Long): 250
+Image Make (ASCII): FUJIFILM
+Image Model (ASCII): FinePix40i
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Digital Camera FinePix40i Ver1.39
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote BlurWarning (Short): Off
+MakerNote ExposureWarning (Short): Off
+MakerNote FlashMode (Short): On
+MakerNote FlashStrength (Signed Ratio): 0
+MakerNote FocusMode (Short): Auto
+MakerNote FocusWarning (Short): Off
+MakerNote Macro (Short): Off
+MakerNote MotorOrBracket (Short): Off
+MakerNote NoteVersion (Undefined): 0130
+MakerNote PictureMode (Short): Portrait
+MakerNote Quality (ASCII): NORMAL 
+MakerNote Sharpness (Short): Normal
+MakerNote SlowSync (Short): Off
+MakerNote Tag 0x1200 (Short): 0
+MakerNote WhiteBalance (Short): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1074
+Thumbnail JPEGInterchangeFormatLength (Long): 8691
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/fujifilm-mx1700.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 28/5
+EXIF BrightnessValue (Signed Ratio): 38/5
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF DateTimeDigitized (ASCII): 2000:09:02 14:30:10
+EXIF DateTimeOriginal (ASCII): 2000:09:02 14:30:10
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF FNumber (Ratio): 7
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 99/10
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 1087
+EXIF FocalPlaneYResolution (Ratio): 1087
+EXIF ISOSpeedRatings (Short): 125
+EXIF InteroperabilityOffset (Long): 708
+EXIF MaxApertureValue (Ratio): 33/10
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 37/5
+Image Copyright (ASCII):           
+Image DateTime (ASCII): 2000:09:02 14:30:10
+Image ExifOffset (Long): 258
+Image Make (ASCII): FUJIFILM
+Image Model (ASCII): MX-1700ZOOM
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Digital Camera MX-1700ZOOM Ver1.00
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 856
+Thumbnail JPEGInterchangeFormatLength (Long): 4354
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/kodak-dc210.jpg
+EXIF ApertureValue (Ratio): 4
+EXIF BrightnessValue (Signed Ratio): 3/2
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 0/0
+EXIF DateTimeOriginal (ASCII): 2000:10:26 16:46:51
+EXIF ExifVersion (Undefined): 0110
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 1/30
+EXIF FNumber (Ratio): 4
+EXIF Flash (Short): Flash fired
+EXIF FocalLength (Ratio): 22/5
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [1, 4, 3, 0, 2, 1, 255, 255, 0, 1, 55, 142, 14, 93, 109, 246, 1, 0, 0, 251, ... ]
+EXIF MaxApertureValue (Ratio): 4
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF ShutterSpeedValue (Signed Ratio): 5
+EXIF SubjectDistance (Ratio): 0/0
+Image Copyright (ASCII): 
+Image ExifOffset (Long): 374
+Image ImageDescription (ASCII): 
+Image Make (ASCII): Eastman Kodak Company
+Image Model (ASCII): DC210 Zoom (V05.00)
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 216
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 216
+Thumbnail BitsPerSample (Short): [8, 8, 8]
+Thumbnail Compression (Short): Uncompressed
+Thumbnail ImageLength (Short): 72
+Thumbnail ImageWidth (Short): 96
+Thumbnail PhotometricInterpretation (Short): 2
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail RowsPerStrip (Short): 72
+Thumbnail SamplesPerPixel (Short): 3
+Thumbnail StripByteCounts (Short): 20736
+Thumbnail StripOffsets (Short): 928
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/kodak-dc240.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF DateTimeDigitized (ASCII): 1999:05:25 21:00:09
+EXIF DateTimeOriginal (ASCII): 1999:05:25 21:00:09
+EXIF ExifImageLength (Short): 960
+EXIF ExifImageWidth (Short): 1280
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureIndex (Ratio): 140
+EXIF ExposureTime (Ratio): 1/30
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 14
+EXIF InteroperabilityOffset (Long): 1284
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [1, 5, 3, 1, 2, 0, 0, 0, 255, 255, 255, 255, 7, 207, 5, 25, 21, 0, 9, 62, ... ]
+EXIF MaxApertureValue (Ratio): 19/5
+EXIF MeteringMode (Short): Average
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 5
+Image Copyright (ASCII): KODAK DC240 ZOOM DIGITAL CAMERA 
+Image ExifOffset (Long): 250
+Image Make (ASCII): EASTMAN KODAK COMPANY
+Image Model (ASCII): KODAK DC240 ZOOM DIGITAL CAMERA
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 192
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 192
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1480
+Thumbnail JPEGInterchangeFormatLength (Long): 6934
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/nikon-e950.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 4
+EXIF DateTimeDigitized (ASCII): 2001:04:06 11:51:40
+EXIF DateTimeOriginal (ASCII): 2001:04:06 11:51:40
+EXIF ExifImageLength (Long): 1200
+EXIF ExifImageWidth (Long): 1600
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/77
+EXIF FNumber (Ratio): 11/2
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 64/5
+EXIF ISOSpeedRatings (Short): 80
+EXIF InteroperabilityOffset (Long): 886
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 1, 0, 11, 0, 2, 0, 2, 0, 6, 0, 0, 0, 38, 4, ... ]
+EXIF MaxApertureValue (Ratio): 13/5
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF UserComment (Undefined): 
+Image DateTime (ASCII): 2001:04:06 11:51:40
+Image ExifOffset (Long): 284
+Image ImageDescription (ASCII):           
+Image Make (ASCII): NIKON
+Image Model (ASCII): E950
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): v981-79
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote CCDSpeed (Short): ISO 80
+MakerNote ColorMode (Short): Color
+MakerNote ImageAdjustment (Short): Contrast+
+MakerNote Quality (Short): 12
+MakerNote Tag 0x0002 (ASCII): 08.00
+MakerNote Tag 0x0008 (Ratio): 0/0
+MakerNote Tag 0x0009 (ASCII): 
+MakerNote Tag 0x000A (Ratio): 0
+MakerNote Tag 0x000B (Short): 0
+MakerNote Tag 0x0F00 (Long): [0, 0, 16777216, 0, 2685774096, 0, 34833, 6931, 16178, 4372, 4372, 3322676767, 3373084416, 15112, 0, 0, 1151495, 252903424, 17, 0, 0, 844038208, 55184128, 218129428, 1476410198, 370540566, 4044363286, 16711749, 204629079, 1729]
+MakerNote WhiteBalance (Short): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2036
+Thumbnail JPEGInterchangeFormatLength (Long): 4662
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 300
+Thumbnail YResolution (Ratio): 300
+
+Opening: tests/resources/jpg/exif-org/olympus-c960.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 1
+EXIF DateTimeDigitized (ASCII): 2000:11:07 10:41:43
+EXIF DateTimeOriginal (ASCII): 2000:11:07 10:41:43
+EXIF ExifImageLength (Short): 960
+EXIF ExifImageWidth (Short): 1280
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/345
+EXIF FNumber (Ratio): 8
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 28/5
+EXIF ISOSpeedRatings (Short): 125
+EXIF InteroperabilityOffset (Long): 958
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [79, 76, 89, 77, 80, 0, 1, 0, 8, 0, 1, 2, 3, 0, 1, 0, 0, 0, 2, 0, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF UserComment (Undefined): 
+Image DateTime (ASCII): 2000:11:08 20:14:38
+Image ExifOffset (Long): 274
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
+Image Make (ASCII): OLYMPUS OPTICAL CO.,LTD
+Image Model (ASCII): C960Z,D460Z
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): OLYMPUS CAMEDIA Master
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote BWMode (Short): Off
+MakerNote CameraID (Undefined): OLYMPUS DIGITAL CAMERA
+MakerNote DigitalZoom (Ratio): 0
+MakerNote FocalPlaneDiagonal (Ratio): 166/25
+MakerNote JPEGQual (Short): HQ
+MakerNote LensDistortionParams (Signed Short): [-283, -524, -571, -267, -485, -518]
+MakerNote Macro (Short): Normal
+MakerNote SoftwareRelease (ASCII): SR874
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2012
+Thumbnail JPEGInterchangeFormatLength (Long): 5145
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/olympus-d320l.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/exif-org/ricoh-rdc5300.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4
+EXIF BrightnessValue (Signed Ratio): -2
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF DateTimeDigitized (ASCII): 2000:05:31 21:50:40
+EXIF DateTimeOriginal (ASCII): 2000:05:31 21:50:40
+EXIF ExifImageLength (Long): 1200
+EXIF ExifImageWidth (Long): 1792
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF Flash (Short): Flash fired
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 133/10
+EXIF InteroperabilityOffset (Long): 936
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [82, 118, 48, 50, 48, 55, 59, 83, 102, 54, 67, 56, 52, 59, 82, 103, 55, 54, 59, 66, ... ]
+EXIF MaxApertureValue (Ratio): 39/10
+EXIF RelatedSoundFile (ASCII):             
+EXIF ShutterSpeedValue (Signed Ratio): 13/2
+EXIF UserComment (Undefined): 
+Image Copyright (ASCII): (C) by RDC-5300 User     
+Image ExifOffset (Long): 192
+Image Make (ASCII): RICOH      
+Image Model (ASCII): RDC-5300       
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1061
+Thumbnail JPEGInterchangeFormatLength (Long): 5046
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/sanyo-vpcg250.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): Uncalibrated
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 17/10
+EXIF DateTimeDigitized (ASCII): 1998:01:01 00:00:00
+EXIF DateTimeOriginal (ASCII): 1998:01:01 00:00:00
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0200
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 1/171
+EXIF FNumber (Ratio): 8
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 6
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [83, 65, 78, 89, 79, 0, 1, 0, 3, 0, 0, 2, 4, 0, 3, 0, 0, 0, 17, 3, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF RelatedSoundFile (ASCII):             
+Image DateTime (ASCII): 1998:01:01 00:00:00
+Image ExifOffset (Long): 294
+Image ImageDescription (ASCII): SANYO DIGITAL CAMERA
+Image Make (ASCII): SANYO Electric Co.,Ltd.
+Image Model (ASCII): SR6 
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): V06P-74
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 877
+Thumbnail JPEGInterchangeFormatLength (Long): 3602
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/sanyo-vpcsx550.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 17/10
+EXIF DateTimeDigitized (ASCII): 2000:11:18 21:14:19
+EXIF DateTimeOriginal (ASCII): 2000:11:18 21:14:19
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 10/483
+EXIF FNumber (Ratio): 12/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 6
+EXIF ISOSpeedRatings (Short): 400
+EXIF InteroperabilityOffset (Long): 862
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [83, 65, 78, 89, 79, 0, 1, 0, 6, 0, 0, 2, 4, 0, 3, 0, 0, 0, 210, 3, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF UserComment (Undefined): 
+Image DateTime (ASCII): 2000:11:18 21:14:19
+Image ExifOffset (Long): 284
+Image ImageDescription (ASCII): SANYO DIGITAL CAMERA
+Image Make (ASCII): SANYO Electric Co.,Ltd.
+Image Model (ASCII): SX113 
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): V113p-73
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1070
+Thumbnail JPEGInterchangeFormatLength (Long): 13234
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/sony-cybershot.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF DateTimeDigitized (ASCII): 2000:09:30 10:59:45
+EXIF DateTimeOriginal (ASCII): 2000:09:30 10:59:45
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/197
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 108/5
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 582
+EXIF LightSource (Short): Unknown
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SceneType (Undefined): Directly Photographed
+Image DateTime (ASCII): 2000:09:30 10:59:45
+Image ExifOffset (Long): 224
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): SONY
+Image Model (ASCII): CYBERSHOT
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail DateTime (ASCII): 2000:09:30 10:59:45
+Thumbnail JPEGInterchangeFormat (Long): 797
+Thumbnail JPEGInterchangeFormatLength (Long): 2959
+Thumbnail Make (ASCII): SONY
+Thumbnail Model (ASCII): CYBERSHOT
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/sony-d700.jpg
+EXIF ApertureValue (Ratio): 5/2
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 6
+EXIF DateTimeDigitized (ASCII): 1998:12:01 14:22:36
+EXIF DateTimeOriginal (ASCII): 1998:12:01 14:22:36
+EXIF ExifImageLength (Long): 1024
+EXIF ExifImageWidth (Long): 1344
+EXIF ExifVersion (Undefined): 0200
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Aperture Priority
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF ISOSpeedRatings (Short): 200
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF ShutterSpeedValue (Signed Ratio): 5
+Image DateTime (ASCII): 1998:12:01 14:22:36
+Image ExifOffset (Long): 206
+Image ImageDescription (ASCII): 
+Image Make (ASCII): SONY
+Image Model (ASCII): DSC-D700
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Thumbnail BitsPerSample (Short): [8, 8, 8]
+Thumbnail Compression (Short): Uncompressed
+Thumbnail ImageLength (Long): 60
+Thumbnail ImageWidth (Long): 80
+Thumbnail PhotometricInterpretation (Short): 2
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail RowsPerStrip (Long): 60
+Thumbnail SamplesPerPixel (Short): 3
+Thumbnail StripByteCounts (Long): 14400
+Thumbnail StripOffsets (Long): 648
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/exif-org/sony-powershota5.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/Fujifilm_FinePix6900ZOOM.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4
+EXIF BrightnessValue (Signed Ratio): 749/100
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 16/5
+EXIF DateTimeDigitized (ASCII): 2001:02:19 06:40:05
+EXIF DateTimeOriginal (ASCII): 2001:02:19 06:40:05
+EXIF ExifImageLength (Long): 75
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 109/5
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 3704
+EXIF FocalPlaneYResolution (Ratio): 3704
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 926
+EXIF MakerNote (Undefined): [70, 85, 74, 73, 70, 73, 76, 77, 12, 0, 0, 0, 17, 0, 0, 0, 7, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 17/2
+Image Copyright (ASCII):     
+Image DateTime (ASCII): 2008:07:31 17:17:56
+Image ExifOffset (Long): 226
+Image Make (ASCII): FUJIFILM
+Image Model (ASCII): FinePix6900ZOOM
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote BlurWarning (Short): Off
+MakerNote ExposureCount (Short): 1
+MakerNote ExposureWarning (Short): Off
+MakerNote FlashMode (Short): Off
+MakerNote FlashStrength (Signed Ratio): 0
+MakerNote FocusMode (Short): Auto
+MakerNote FocusWarning (Short): Off
+MakerNote Macro (Short): Off
+MakerNote MotorOrBracket (Short): Off
+MakerNote NoteVersion (Undefined): 0130
+MakerNote PictureMode (Short): Auto
+MakerNote Quality (ASCII): FINE   
+MakerNote Saturation (Short): Normal
+MakerNote Sharpness (Short): Normal
+MakerNote SlowSync (Short): Off
+MakerNote Tag 0x1200 (Short): 0
+MakerNote WhiteBalance (Short): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1074
+Thumbnail JPEGInterchangeFormatLength (Long): 1428
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Fujifilm_FinePix_E500.jpg
+EXIF ApertureValue (Ratio): 31/10
+EXIF BrightnessValue (Signed Ratio): 239/50
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 4
+EXIF CustomRendered (Short): Custom
+EXIF DateTimeDigitized (ASCII): 2006:08:17 09:24:48
+EXIF DateTimeOriginal (ASCII): 2006:08:17 09:24:48
+EXIF ExifImageLength (Long): 100
+EXIF ExifImageWidth (Long): 59
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/80
+EXIF FNumber (Ratio): 29/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 47/10
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 4000
+EXIF FocalPlaneYResolution (Ratio): 4000
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 1118
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [70, 85, 74, 73, 70, 73, 76, 77, 12, 0, 0, 0, 21, 0, 0, 0, 7, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 31/10
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF ShutterSpeedValue (Signed Ratio): 63/10
+EXIF SubjectDistanceRange (Short): 0
+EXIF WhiteBalance (Short): Auto
+Image Copyright (ASCII):     
+Image DateTime (ASCII): 2008:07:31 16:49:10
+Image ExifOffset (Long): 266
+Image Make (ASCII): FUJIFILM
+Image Model (ASCII): FinePix E500   
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 2, 0, 2, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 96
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 96
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFPointSet (Short): Yes
+MakerNote BlurWarning (Short): Off
+MakerNote ColorMode (Short): Chrome
+MakerNote ExposureCount (Short): 1
+MakerNote ExposureWarning (Short): Off
+MakerNote FlashMode (Short): Off
+MakerNote FlashStrength (Signed Ratio): 0
+MakerNote FocusMode (Short): Auto
+MakerNote FocusPixel (Short): [1152, 864]
+MakerNote FocusWarning (Short): Off
+MakerNote Macro (Short): On
+MakerNote MotorOrBracket (Short): Off
+MakerNote NoteVersion (Undefined): 0130
+MakerNote PictureMode (Short): Auto
+MakerNote Quality (ASCII): FINE   
+MakerNote Saturation (Short): Normal
+MakerNote Sharpness (Short): Normal
+MakerNote SlowSync (Short): Off
+MakerNote Tag 0x1101 (Short): 0
+MakerNote Tag 0x1200 (Short): 0
+MakerNote WhiteBalance (Short): Auto
+
+Opening: tests/resources/jpg/gps/DSCN0010.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:28:39
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:28:39
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/75
+EXIF FNumber (Ratio): 59/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 24
+EXIF FocalLengthIn35mmFilm (Short): 112
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 1407/500]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 53, 645599999/100000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 06
+GPS GPSTimeStamp (Ratio): [14, 27, 181/25]
+Image DateTime (ASCII): 2008:11:01 21:15:07
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6702
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0012.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:29:49
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:29:49
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 140213/25000000
+EXIF FNumber (Ratio): 9/2
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 6
+EXIF FocalLengthIn35mmFilm (Short): 28
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 176399999/100000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 53, 742199999/100000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 06
+GPS GPSTimeStamp (Ratio): [14, 28, 431/25]
+Image DateTime (ASCII): 2008:11:01 21:15:07
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6339
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0021.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:38:20
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:38:20
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 261233/25000000
+EXIF FNumber (Ratio): 47/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 83/5
+EXIF FocalLengthIn35mmFilm (Short): 77
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 149399999/100000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 53, 433799999/100000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 06
+GPS GPSTimeStamp (Ratio): [14, 36, 4723/100]
+Image DateTime (ASCII): 2008:11:01 21:15:08
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6307
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0025.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:43:21
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:43:21
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 813669/100000000
+EXIF FNumber (Ratio): 37/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 81/10
+EXIF FocalLengthIn35mmFilm (Short): 38
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 3057/500]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 538859999/10000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 05
+GPS GPSTimeStamp (Ratio): [14, 41, 4903/100]
+Image DateTime (ASCII): 2008:11:01 21:15:09
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 5628
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0027.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:44:01
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:44:01
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 169033/25000000
+EXIF FNumber (Ratio): 41/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 6
+EXIF FocalLengthIn35mmFilm (Short): 28
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 639/100]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 26727/500]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 05
+GPS GPSTimeStamp (Ratio): [14, 42, 2903/100]
+Image DateTime (ASCII): 2008:11:01 21:15:09
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 5803
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0029.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:46:53
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:46:53
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1543209/100000000
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 221/10
+EXIF FocalLengthIn35mmFilm (Short): 103
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 567599999/100000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 486179999/10000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 05
+GPS GPSTimeStamp (Ratio): [14, 45, 2091/100]
+Image DateTime (ASCII): 2008:11:01 21:15:09
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6737
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0038.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:52:15
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:52:15
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1555209/100000000
+EXIF FNumber (Ratio): 59/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 24
+EXIF FocalLengthIn35mmFilm (Short): 112
+EXIF GainControl (Short): Low gain up
+EXIF ISOSpeedRatings (Short): 103
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 28, 211799999/100000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 5646/125]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 04
+GPS GPSTimeStamp (Ratio): [14, 50, 409/10]
+Image DateTime (ASCII): 2008:11:01 21:15:11
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6112
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0040.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 16:55:37
+EXIF DateTimeOriginal (ASCII): 2008:10:22 16:55:37
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 152207/20000000
+EXIF FNumber (Ratio): 41/10
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 6
+EXIF FocalLengthIn35mmFilm (Short): 28
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 27, 576419999/10000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 448019999/10000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 04
+GPS GPSTimeStamp (Ratio): [14, 54, 19/100]
+Image DateTime (ASCII): 2008:11:01 21:15:11
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 5159
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/gps/DSCN0042.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:10:22 17:00:07
+EXIF DateTimeOriginal (ASCII): 2008:10:22 17:00:07
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 480
+EXIF ExifImageWidth (Long): 640
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/100
+EXIF FNumber (Ratio): 22/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 15
+EXIF FocalLengthIn35mmFilm (Short): 70
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 64
+EXIF InteroperabilityOffset (Long): 896
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 35, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2008:10:23
+GPS GPSImgDirectionRef (ASCII): 
+GPS GPSLatitude (Ratio): [43, 27, 26019/500]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 52, 26661/500]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSSatellites (ASCII): 04
+GPS GPSTimeStamp (Ratio): [14, 57, 4137/100]
+Image DateTime (ASCII): 2008:11:01 21:15:11
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 926
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P6000
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Nikon Transfer 1.1 W
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote ActiveDLighting (Short): 0
+MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote ColorMode (ASCII): COLOR
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 1
+MakerNote FlashSetting (ASCII):        
+MakerNote FocusMode (ASCII): AF-S  
+MakerNote ISOSelection (ASCII): AUTO  
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageSharpening (ASCII): NORMAL
+MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonScan (Long): 3292
+MakerNote NoiseReduction (ASCII): OFF 
+MakerNote Quality (ASCII): FINE   
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Saturation (ASCII): NORMAL
+MakerNote Scene Assist (ASCII):                     
+MakerNote SceneMode (ASCII):                
+MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
+MakerNote Tag 0x000A (Ratio): 9321/1000
+MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
+MakerNote Tag 0x0029 (Short): [0, 0]
+MakerNote Tag 0x002F (Short): 0
+MakerNote Tag 0x009B (Short): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
+MakerNote ToneCompensation (ASCII): NORMAL  
+MakerNote Whitebalance (ASCII): AUTO        
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 4548
+Thumbnail JPEGInterchangeFormatLength (Long): 6474
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/hdr/canon_hdr_NO.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 159/32
+EXIF CameraOwnerName (ASCII): 
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2015:02:09 22:47:44
+EXIF DateTimeOriginal (ASCII): 2015:02:09 22:47:44
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 1536
+EXIF ExifImageWidth (Long): 2048
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): 1
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureTime (Ratio): 1/60
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 24005/421
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 505679/60
+EXIF FocalPlaneYResolution (Ratio): 210989/25
+EXIF ISOSpeedRatings (Short): 800
+EXIF InteroperabilityOffset (Long): 6506
+EXIF MakerNote (Undefined): [31, 0, 1, 0, 3, 0, 50, 0, 0, 0, 12, 5, 0, 0, 3, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 159/32
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF SensitivityType (Short): Standard Output Sensitivity and Recommended Exposure Index
+EXIF ShutterSpeedValue (Signed Ratio): 189/32
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSVersionID (Byte): [2, 3, 0, 0]
+Image Artist (ASCII): 
+Image Copyright (ASCII): 
+Image DateTime (ASCII): 2015:02:26 04:20:03
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 6488
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon PowerShot SX60 HS
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1536
+Interoperability RelatedImageWidth (Short): 2048
+MakerNote AESetting (Proprietary): Unknown
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote AFPointUsed (Proprietary): 0
+MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DateStampMode (Short): Off
+MakerNote DigitalZoom (Proprietary): Unknown
+MakerNote EasyShootingMode (Proprietary): Unknown
+MakerNote ExposureMode (Proprietary): Easy Shooting
+MakerNote FirmwareRevision (Long): 16777728
+MakerNote FirmwareVersion (ASCII): 
+MakerNote FlashActivity (Proprietary): Unknown
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashInfo (Short): [0, 699, 0, 507]
+MakerNote FlashMode (Proprietary): Flash Not Fired
+MakerNote FocalUnitsPerMM (Proprietary): 14919
+MakerNote FocusMode (Proprietary): Unknown
+MakerNote FocusType (Proprietary): Manual
+MakerNote ISO (Proprietary): Unknown
+MakerNote ImageNumber (Long): 1020153
+MakerNote ImageSize (Proprietary): Large
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote ImageType (ASCII): 
+MakerNote ImageUniqueID (Byte): [231, 233, 118, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
+MakerNote LensType (Proprietary): 0
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
+MakerNote Macromode (Proprietary): Unknown
+MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MeteringMode (Proprietary): Spot
+MakerNote ModelID (Long): PowerShot SX60 HS
+MakerNote Quality (Proprietary): Unknown
+MakerNote RecordMode (Proprietary): Unknown
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 576
+MakerNote Sharpness (Proprietary): Unknown
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 19785
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): Unknown
+MakerNote SubjectDistance (Proprietary): 0
+MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0019 (Short): 1
+MakerNote Tag 0x001D (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x001F (Short): [0, 0, 0, 0, 0, 416, 0, 0, 16, 8, 1, 1, 640, 480, 0, 0, 0, 0, 0, 8, ... ]
+MakerNote Tag 0x0022 (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0023 (Long): [480, 9175295]
+MakerNote Tag 0x0027 (Short): [0, 0, 0, 53, 0, 0, 12, 0, 0, 12, 1, 65535, 65535, 65535, 65535, 28, 0, 1, 0, 0, 0]
+MakerNote Tag 0x002D (Long): 0
+MakerNote Tag 0x002E (Short): [59771, 34900, 14990, 18247, 16776, 20358, 57483, 50652, 16, 0, 60, 0, 32766, 0, 0, 0, 8, 0, 0, 0, 8, 0, 53459, 1, 98, 0, 9]
+MakerNote Tag 0x002F (Short): [1, 2048, 1536, 4608, 3456, 829, 0, 0, 0, 0, 0, 0, 0, 0, 622, 0, 0]
+MakerNote Tag 0x0031 (Short): [0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0032 (Long): [0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0033 (Long): [0, 0, 0, 0]
+MakerNote Tag 0x0035 (Long): [131072, 301989888, 226492416, 0]
+MakerNote Tag 0x0037 (Long): [0, 1229520896]
+MakerNote Tag 0x0038 (Undefined): [42, 0, 146, 3, 0, 0, 0, 0]
+MakerNote Tag 0x003C (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x00D0 (Long): 0
+MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 49
+MakerNote WhiteBalance (Proprietary): Unknown
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 6654
+Thumbnail JPEGInterchangeFormatLength (Long): 10151
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 180
+Thumbnail YResolution (Ratio): 180
+
+Opening: tests/resources/jpg/hdr/canon_hdr_YES.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 159/32
+EXIF CameraOwnerName (ASCII): 
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2015:02:09 22:48:10
+EXIF DateTimeOriginal (ASCII): 2015:02:09 22:48:10
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 1536
+EXIF ExifImageWidth (Long): 2048
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/200
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 24005/421
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 505679/60
+EXIF FocalPlaneYResolution (Ratio): 210989/25
+EXIF ISOSpeedRatings (Short): 1000
+EXIF InteroperabilityOffset (Long): 6506
+EXIF MakerNote (Undefined): [31, 0, 1, 0, 3, 0, 50, 0, 0, 0, 12, 5, 0, 0, 3, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 159/32
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF SensitivityType (Short): Standard Output Sensitivity and Recommended Exposure Index
+EXIF ShutterSpeedValue (Signed Ratio): 245/32
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSVersionID (Byte): [2, 3, 0, 0]
+Image Artist (ASCII): 
+Image Copyright (ASCII): 
+Image DateTime (ASCII): 2015:02:26 04:20:24
+Image ExifOffset (Long): 268
+Image GPSInfo (Long): 6488
+Image ImageDescription (ASCII):                                
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon PowerShot SX60 HS
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1536
+Interoperability RelatedImageWidth (Short): 2048
+MakerNote AESetting (Proprietary): Unknown
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote AFPointUsed (Proprietary): 0
+MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DateStampMode (Short): Off
+MakerNote DigitalZoom (Proprietary): Unknown
+MakerNote EasyShootingMode (Proprietary): Unknown
+MakerNote ExposureMode (Proprietary): Easy Shooting
+MakerNote FirmwareRevision (Long): 16777728
+MakerNote FirmwareVersion (ASCII): 
+MakerNote FlashActivity (Proprietary): Unknown
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashInfo (Short): [0, 743, 0, 507]
+MakerNote FlashMode (Proprietary): Flash Not Fired
+MakerNote FocalUnitsPerMM (Proprietary): 14919
+MakerNote FocusMode (Proprietary): Unknown
+MakerNote FocusType (Proprietary): Manual
+MakerNote ISO (Proprietary): Unknown
+MakerNote ImageNumber (Long): 1020154
+MakerNote ImageSize (Proprietary): Large
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote ImageType (ASCII): 
+MakerNote ImageUniqueID (Byte): [230, 233, 14, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
+MakerNote LensType (Proprietary): 0
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
+MakerNote Macromode (Proprietary): Unknown
+MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MeteringMode (Proprietary): Spot
+MakerNote ModelID (Long): PowerShot SX60 HS
+MakerNote Quality (Proprietary): Unknown
+MakerNote RecordMode (Proprietary): Unknown
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 742
+MakerNote Sharpness (Proprietary): Unknown
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 19785
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): Unknown
+MakerNote SubjectDistance (Proprietary): 0
+MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0019 (Short): 1
+MakerNote Tag 0x001D (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x001F (Short): [0, 0, 0, 0, 0, 416, 0, 0, 16, 8, 1, 1, 640, 480, 0, 0, 0, 0, 0, 8, ... ]
+MakerNote Tag 0x0022 (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0023 (Long): [480, 5898495]
+MakerNote Tag 0x0027 (Short): [0, 0, 0, 25, 0, 0, 6, 0, 0, 12, 1, 65535, 65535, 65535, 65535, 28, 0, 1, 0, 0, 0]
+MakerNote Tag 0x002D (Long): 0
+MakerNote Tag 0x002E (Short): [59771, 34900, 14990, 18247, 16776, 20358, 57483, 50652, 16, 0, 60, 0, 32766, 0, 0, 0, 8, 0, 0, 0, 8, 0, 53237, 1, 98, 2, 9]
+MakerNote Tag 0x002F (Short): [1, 2048, 1536, 4608, 3456, 829, 0, 9888, 65535, 10469, 136, 475, 23165, 0, 622, 5880, 9736]
+MakerNote Tag 0x0031 (Short): [68, 83, 60000, 4, 60, 68]
+MakerNote Tag 0x0032 (Long): [4294901760, 8923365, 1518141936, 3192662183, 23235, 5439556, 653584992]
+MakerNote Tag 0x0033 (Long): [5439556, 136, 1, 0]
+MakerNote Tag 0x0035 (Long): [131072, 301989888, 226492416, 0]
+MakerNote Tag 0x0037 (Long): [0, 1229520896]
+MakerNote Tag 0x0038 (Undefined): [42, 0, 146, 3, 0, 0, 0, 0]
+MakerNote Tag 0x003C (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x00D0 (Long): 0
+MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 53
+MakerNote WhiteBalance (Proprietary): Unknown
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 6654
+Thumbnail JPEGInterchangeFormatLength (Long): 9819
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 180
+Thumbnail YResolution (Ratio): 180
+
+Opening: tests/resources/jpg/hdr/iphone_hdr_NO.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 7983/3509
+EXIF BrightnessValue (Signed Ratio): 4481/847
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CustomRendered (Short): 4
+EXIF DateTimeDigitized (ASCII): 2015:04:10 20:12:23
+EXIF DateTimeOriginal (ASCII): 2015:04:10 20:12:23
+EXIF DigitalZoomRatio (Ratio): 136/69
+EXIF ExifImageLength (Long): 2448
+EXIF ExifImageWidth (Long): 3264
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 2946/2221
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/40
+EXIF FNumber (Ratio): 11/5
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 83/20
+EXIF FocalLengthIn35mmFilm (Short): 57
+EXIF ISOSpeedRatings (Short): 32
+EXIF LensMake (ASCII): Apple
+EXIF LensModel (ASCII): iPhone 6 back camera 4.15mm f/2.2
+EXIF LensSpecification (Ratio): [83/20, 83/20, 11/5, 11/5]
+EXIF MakerNote (Undefined): [65, 112, 112, 108, 101, 32, 105, 79, 83, 0, 0, 1, 77, 77, 0, 10, 0, 1, 0, 9, ... ]
+EXIF MeteringMode (Short): Spot
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 1123/211
+EXIF SubSecTimeDigitized (ASCII): 016
+EXIF SubSecTimeOriginal (ASCII): 016
+EXIF SubjectArea (Short): [1754, 1356, 612, 607]
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 105532/165
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2015:04:10
+GPS GPSDestBearing (Ratio): 15417/469
+GPS GPSDestBearingRef (ASCII): T
+GPS GPSImgDirection (Ratio): 99837/469
+GPS GPSImgDirectionRef (ASCII): T
+GPS GPSLatitude (Ratio): [40, 26, 491/10]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [3, 43, 2911/100]
+GPS GPSLongitudeRef (ASCII): W
+GPS GPSSpeed (Ratio): 0
+GPS GPSSpeedRef (ASCII): K
+GPS GPSTimeStamp (Ratio): [18, 12, 1103/50]
+Image DateTime (ASCII): 2015:04:10 20:12:23
+Image ExifOffset (Long): 198
+Image GPSInfo (Long): 1622
+Image Make (ASCII): Apple
+Image Model (ASCII): iPhone 6
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): 8.3
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+MakerNote HDRImageType (Signed Long): Original Image
+MakerNote Tag 0x0001 (Signed Long): 2
+MakerNote Tag 0x0002 (Undefined): [109, 0, 106, 0, 68, 0, 125, 0, 133, 1, 173, 0, 46, 0, 49, 0, 69, 0, 96, 0, ... ]
+MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 85, 101, 112, 111, 99, ... ]
+MakerNote Tag 0x0004 (Signed Long): 0
+MakerNote Tag 0x0005 (Signed Long): 142
+MakerNote Tag 0x0006 (Signed Long): 263
+MakerNote Tag 0x0007 (Signed Long): 1
+MakerNote Tag 0x0008 (Signed Ratio): [3210/1393, 2311/136, 69/83]
+MakerNote Tag 0x000E (Signed Long): 4
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2006
+Thumbnail JPEGInterchangeFormatLength (Long): 15812
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/hdr/iphone_hdr_YES.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 7983/3509
+EXIF BrightnessValue (Signed Ratio): 6979/1322
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CustomRendered (Short): 3
+EXIF DateTimeDigitized (ASCII): 2015:04:10 20:12:23
+EXIF DateTimeOriginal (ASCII): 2015:04:10 20:12:23
+EXIF DigitalZoomRatio (Ratio): 136/69
+EXIF ExifImageLength (Long): 2448
+EXIF ExifImageWidth (Long): 3264
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/40
+EXIF FNumber (Ratio): 11/5
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 83/20
+EXIF FocalLengthIn35mmFilm (Short): 57
+EXIF ISOSpeedRatings (Short): 32
+EXIF LensMake (ASCII): Apple
+EXIF LensModel (ASCII): iPhone 6 back camera 4.15mm f/2.2
+EXIF LensSpecification (Ratio): [83/20, 83/20, 11/5, 11/5]
+EXIF MakerNote (Undefined): [65, 112, 112, 108, 101, 32, 105, 79, 83, 0, 0, 1, 77, 77, 0, 10, 0, 1, 0, 9, ... ]
+EXIF MeteringMode (Short): Spot
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 1123/211
+EXIF SubSecTimeDigitized (ASCII): 550
+EXIF SubSecTimeOriginal (ASCII): 550
+EXIF SubjectArea (Short): [1754, 1356, 612, 607]
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 11513/18
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2015:04:10
+GPS GPSDestBearing (Ratio): 23557/755
+GPS GPSDestBearingRef (ASCII): T
+GPS GPSImgDirection (Ratio): 31469/149
+GPS GPSImgDirectionRef (ASCII): T
+GPS GPSLatitude (Ratio): [40, 26, 491/10]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [3, 43, 2911/100]
+GPS GPSLongitudeRef (ASCII): W
+GPS GPSSpeed (Ratio): 0
+GPS GPSSpeedRef (ASCII): K
+GPS GPSTimeStamp (Ratio): [18, 12, 1153/50]
+Image DateTime (ASCII): 2015:04:10 20:12:23
+Image ExifOffset (Long): 198
+Image GPSInfo (Long): 1622
+Image Make (ASCII): Apple
+Image Model (ASCII): iPhone 6
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): 8.3
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+MakerNote HDRImageType (Signed Long): HDR Image
+MakerNote Tag 0x0001 (Signed Long): 2
+MakerNote Tag 0x0002 (Undefined): [112, 0, 103, 0, 66, 0, 141, 0, 165, 1, 175, 0, 45, 0, 50, 0, 74, 0, 94, 0, ... ]
+MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 85, 101, 112, 111, 99, ... ]
+MakerNote Tag 0x0004 (Signed Long): 0
+MakerNote Tag 0x0005 (Signed Long): 142
+MakerNote Tag 0x0006 (Signed Long): 260
+MakerNote Tag 0x0007 (Signed Long): 1
+MakerNote Tag 0x0008 (Signed Ratio): [3210/1393, 2311/136, 69/83]
+MakerNote Tag 0x000E (Signed Long): 4
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2006
+Thumbnail JPEGInterchangeFormatLength (Long): 15628
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/invalid/image00971.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image01088.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image01137.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image01551.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image01713.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image01980.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/invalid/image02206.jpg
+No EXIF information found
+
+Opening: tests/resources/jpg/Kodak_CX7530.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 22/5
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2005:08:13 09:47:23
+EXIF DateTimeOriginal (ASCII): 2005:08:13 09:47:23
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Short): [78, 0]
+EXIF ExifImageWidth (Short): [100, 0]
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureIndex (Ratio): 80
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/250
+EXIF FNumber (Ratio): 23/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 84/5
+EXIF FocalLengthIn35mmFilm (Short): 102
+EXIF GainControl (Short): None
+EXIF InteroperabilityOffset (Long): 786
+EXIF LightSource (Short): Unknown
+EXIF MaxApertureValue (Ratio): 22/5
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF ShutterSpeedValue (Signed Ratio): 8
+EXIF SubjectDistanceRange (Short): 0
+EXIF WhiteBalance (Short): Auto
+GPS GPSLatitude (Ratio): [0, 11139/500, 0]
+GPS GPSLatitudeRef (ASCII): S
+GPS GPSLongitude (Ratio): [36, 677/200, 0]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSVersionID (Byte): [2, 2, 0, 0]
+Image DateTime (ASCII): 2008:07:31 10:39:26
+Image ExifOffset (Long): 248
+Image GPSInfo (Long): 816
+Image Make (ASCII): EASTMAN KODAK COMPANY
+Image Model (ASCII): KODAK CX7530 ZOOM DIGITAL CAMERA
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 972
+Thumbnail JPEGInterchangeFormatLength (Long): 1918
+
+Opening: tests/resources/jpg/Konica_Minolta_DiMAGE_Z3.jpg
+File has JPEG thumbnail
+EXIF BrightnessValue (Signed Ratio): -1/2
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2005:03:10 15:10:48
+EXIF DateTimeOriginal (ASCII): 2005:03:10 15:10:48
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 100
+EXIF ExifImageWidth (Long): 70
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/40
+EXIF FNumber (Ratio): 14/5
+EXIF Flash (Short): Flash fired, compulsory flash mode, return light detected
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 375/64
+EXIF FocalLengthIn35mmFilm (Short): 35
+EXIF GainControl (Short): High gain up
+EXIF ISOSpeedRatings (Short): 200
+EXIF InteroperabilityOffset (Long): 34232
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [0, 15, 0, 0, 0, 7, 0, 0, 0, 4, 77, 76, 84, 48, 0, 16, 0, 7, 0, 0, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Normal
+EXIF SubjectArea (Short): [1136, 852, 280, 280]
+EXIF SubjectDistanceRange (Short): 2
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 16:45:37
+Image ExifOffset (Long): 380
+Image ImageDescription (ASCII): KONICA MINOLTA DIGITAL CAMERA
+Image Make (ASCII): KONICA MINOLTA 
+Image Model (ASCII): DiMAGE Z3
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 5, 0, 1, 0, 22, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 34380
+Thumbnail JPEGInterchangeFormatLength (Long): 1234
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Centered
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/long_description.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ExifImageLength (Long): 73
+EXIF ExifImageWidth (Long): 100
+EXIF Flash (Short): 9969
+Image Artist (ASCII): SSG KYLE DAVIS
+Image Copyright (ASCII): 
+Image DateTime (ASCII): 2008:07:31 10:50:00
+Image ExifOffset (Long): 618
+Image ImageDescription (ASCII): Operation Mountain Viper put the soldiers of A Company, 2nd Battalion 22nd Infantry Division, 10th Mountain in the Afghanistan province of Daychopan to search for Taliban and or weapon caches that could be used against U.S. and allied forces. Soldiers quickly walk to the ramp of the CH-47 Chinook cargo helicopter that will return them to Kandahar Army Air Field.  (U.S. Army photo by Staff Sgt. Kyle Davis) (Released)
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+Thumbnail JPEGInterchangeFormat (Long): 702
+Thumbnail JPEGInterchangeFormatLength (Long): 1322
+
+Opening: tests/resources/jpg/mobile/HMD_Nokia_8.3_5G.jpg
+EXIF ApertureValue (Ratio): 11/5
+EXIF DateTimeOriginal (ASCII): 2022:08:14 14:12:31
+EXIF ExposureProgram (Short): Unidentified
+EXIF ExposureTime (Ratio): 541/1000000
+EXIF FNumber (Ratio): 11/5
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 11/4
+EXIF ISOSpeedRatings (Short): 100
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF OffsetTime (ASCII): +03:00
+EXIF OffsetTimeDigitized (ASCII): +03:00
+EXIF OffsetTimeOriginal (ASCII): +03:00
+EXIF WhiteBalance (Short): Auto
+GPS GPSDate (ASCII): 2022:08:14
+GPS GPSImgDirection (Ratio): 56
+GPS GPSImgDirectionRef (ASCII): M
+GPS GPSLatitude (Signed Ratio): [60, 8, 2407/50]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Signed Ratio): [24, 54, 1219/50]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSTimeStamp (Ratio): [11, 12, 32]
+Image ExifOffset (Long): 126
+Image GPSInfo (Long): 361
+Image Make (ASCII): HMD Global
+Image Model (ASCII): Nokia 8.3 5G
+Image Orientation (Short): Horizontal (normal)
+Image Software (ASCII): 00WW_3_380_SP02
+
+Opening: tests/resources/jpg/mobile/HMD_Nokia_8.3_5G_hdr.jpg
+EXIF ApertureValue (Ratio): 189/100
+EXIF DateTimeOriginal (ASCII): 2021:07:29 21:28:46
+EXIF ExposureProgram (Short): Unidentified
+EXIF ExposureTime (Ratio): 8333/500000
+EXIF FNumber (Ratio): 189/100
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 271/50
+EXIF ISOSpeedRatings (Short): 601
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF OffsetTime (ASCII): +03:00
+EXIF OffsetTimeDigitized (ASCII): +03:00
+EXIF OffsetTimeOriginal (ASCII): +03:00
+EXIF WhiteBalance (Short): Auto
+GPS GPSDate (ASCII): 2021:07:29
+GPS GPSImgDirection (Ratio): 178
+GPS GPSImgDirectionRef (ASCII): M
+GPS GPSLatitude (Signed Ratio): [60, 59, 2897/100]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Signed Ratio): [24, 25, 2709/100]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSTimeStamp (Ratio): [18, 28, 47]
+Image ExifOffset (Long): 126
+Image GPSInfo (Long): 361
+Image Make (ASCII): HMD Global
+Image Model (ASCII): Nokia 8.3 5G
+Image Orientation (Short): Rotated 90 CW
+Image Software (ASCII): 00WW_2_270_SP01
+
+Opening: tests/resources/jpg/mobile/jolla.jpg
+EXIF ApertureValue (Ratio): 334328577/132351334
+EXIF DateTimeOriginal (ASCII): 2014:09:21 16:00:56
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 1/25
+EXIF FNumber (Ratio): 12/5
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 4
+EXIF ISOSpeed (Long): 320
+EXIF ISOSpeedRatings (Short): 320
+EXIF MeteringMode (Short): Average
+EXIF SensitivityType (Short): ISO Speed
+EXIF ShutterSpeedValue (Signed Ratio): 205447286/44240665
+EXIF WhiteBalance (Short): Manual
+Image DateTime (ASCII): 2014:09:21 16:00:56
+Image ExifOffset (Long): 146
+Image Make (ASCII): Jolla
+Image Model (ASCII): Jolla
+Image Orientation (Short): Horizontal (normal)
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Nikon_COOLPIX_P1.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:03:07 09:55:46
+EXIF DateTimeOriginal (ASCII): 2008:03:07 09:55:46
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 75
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 10/2187
+EXIF FNumber (Ratio): 6
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 15/2
+EXIF FocalLengthIn35mmFilm (Short): 36
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 50
+EXIF InteroperabilityOffset (Long): 3024
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 30, 0, ... ]
+EXIF MaxApertureValue (Ratio): 29/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 17:43:03
+Image ExifOffset (Long): 224
+Image ImageDescription (ASCII):           
+Image Make (ASCII): NIKON
+Image Model (ASCII): COOLPIX P1
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
+MakerNote AFResponse (ASCII): 
+MakerNote AuxiliaryLens (ASCII): 
+MakerNote ColorMode (ASCII):       
+MakerNote DataDump (Undefined): []
+MakerNote DigitalZoomFactor (Ratio): 16843009/2049
+MakerNote FlashInfo (Undefined): [0, 0, 86, 82, 45, 79, 70, 70, 32, 32, 32, 32, 32, 0, 83, 84, 65, 78, 68, 65]
+MakerNote FlashSetting (ASCII): TO  
+MakerNote FocusMode (ASCII): 
+MakerNote ISOSelection (ASCII): 
+MakerNote ISOSetting (Short): [0, 0]
+MakerNote ImageAdjustment (ASCII):         
+MakerNote ImageProcessing (ASCII):                       AUTO         
+MakerNote ImageSharpening (ASCII): AL 
+MakerNote ImageStabilization (ASCII): RD 
+MakerNote MakernoteVersion (Undefined): 0200
+MakerNote ManualFocusDistance (Ratio): 1
+MakerNote NikonPreview (Long): 2150
+MakerNote NoiseReduction (ASCII):      
+MakerNote Quality (ASCII):  
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0]
+MakerNote Saturation (Signed Short): 0
+MakerNote Scene Assist (ASCII):  
+MakerNote SceneMode (ASCII): 
+MakerNote ShotInfo (ASCII): 
+MakerNote Tag 0x000A (Ratio): 0
+MakerNote Tag 0x009B (Byte): [0, 0]
+MakerNote Tag 0x009D (Short): 0
+MakerNote Tag 0x00AE (Undefined): [0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 32]
+MakerNote Whitebalance (ASCII):  
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 3148
+Thumbnail JPEGInterchangeFormatLength (Long): 1639
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 300
+Thumbnail YResolution (Ratio): 300
+
+Opening: tests/resources/jpg/Nikon_D70.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 126797/20000
+EXIF ColorSpace (Short): sRGB
+EXIF DateTimeOriginal (ASCII): 2008:03:15 09:52:01
+EXIF ExifImageLength (Long): 66
+EXIF ExifImageWidth (Long): 100
+EXIF ExposureBiasValue (Signed Ratio): -1
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/200
+EXIF FNumber (Ratio): 9
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 100
+EXIF FocalLengthIn35mmFilm (Short): 150
+EXIF ISOSpeedRatings (Short): 200
+EXIF MaxApertureValue (Ratio): 33/10
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF ShutterSpeedValue (Signed Ratio): 477741/62500
+Image DateTime (ASCII): 2008:07:31 10:03:44
+Image ExifOffset (Long): 198
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON D70
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 240
+Image YResolution (Ratio): 240
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 566
+Thumbnail JPEGInterchangeFormatLength (Long): 1700
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Olympus_C8080WZ.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): Uncalibrated
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 4
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2006:10:22 15:44:29
+EXIF DateTimeOriginal (ASCII): 2006:10:22 15:44:29
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 72
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/160
+EXIF FNumber (Ratio): 14/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 79/5
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 50
+EXIF ImageUniqueID (ASCII): 77c6274bd589ad50395891e84a8b673b
+EXIF InteroperabilityOffset (Long): 892
+EXIF LightSource (Short): Unknown
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF SubSecTime (ASCII): 500
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image Artist (ASCII): 
+Image DateTime (ASCII): 2008:07:31 13:03:47
+Image ExifOffset (Long): 222
+Image Make (ASCII): OLYMPUS CORPORATION
+Image Model (ASCII): C8080WZ
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail JPEGInterchangeFormat (Long): 952
+Thumbnail JPEGInterchangeFormatLength (Long): 1061
+
+Opening: tests/resources/jpg/orientation/landscape_1.jpg
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_2.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_3.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 180
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_4.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored vertical
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_5.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal then rotated 90 CCW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_6.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_7.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal then rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/landscape_8.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 90 CCW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_1.jpg
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_2.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_3.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 180
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_4.jpg
+EXIF ExifImageLength (Long): 600
+EXIF ExifImageWidth (Long): 450
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored vertical
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_5.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal then rotated 90 CCW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_6.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_7.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Mirrored horizontal then rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/orientation/portrait_8.jpg
+EXIF ExifImageLength (Long): 450
+EXIF ExifImageWidth (Long): 600
+Image ExifOffset (Long): 90
+Image Orientation (Short): Rotated 90 CCW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/PaintTool_sample.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): Uncalibrated
+EXIF ExifImageLength (Long): 100
+EXIF ExifImageWidth (Long): 88
+EXIF MakerNote (Undefined): [4, 94, 69, 249, 105, 198, 46, 220, 47, 86, 73, 89, 171, 122, 27, 89, 188, 74, 50, 180, 92, 32, 29, 52, 208, 18, 196, 140, 172, 246, 240, 126]
+EXIF UserComment (Undefined): a5cb01550dbb9a6bf732f87e413f6e231cc4581e6a5be800fb0871dce0760cd5
+Image ExifOffset (Long): 114
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 300
+Image YResolution (Ratio): 300
+Thumbnail JPEGInterchangeFormat (Long): 316
+Thumbnail JPEGInterchangeFormatLength (Long): 2251
+
+Opening: tests/resources/jpg/Panasonic_DMC-FZ30.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 4
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:07:16 11:33:20
+EXIF DateTimeOriginal (ASCII): 2008:07:16 11:33:20
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 75
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/30
+EXIF FNumber (Ratio): 16/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 141/10
+EXIF FocalLengthIn35mmFilm (Short): 82
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 6654
+EXIF LightSource (Short): Flash
+EXIF MakerNote (Undefined): [80, 97, 110, 97, 115, 111, 110, 105, 99, 0, 0, 0, 30, 0, 1, 0, 3, 0, 1, 0, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 16:39:24
+Image ExifOffset (Long): 422
+Image Make (ASCII): Panasonic
+Image Model (ASCII): DMC-FZ30
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 14, 0, 1, 0, 22, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 6802
+Thumbnail JPEGInterchangeFormatLength (Long): 1607
+Thumbnail Orientation (Short): Rotated 90 CCW
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Pentax_K10D.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF DateTimeDigitized (ASCII): 2008:05:04 16:47:24
+EXIF DateTimeOriginal (ASCII): 2008:05:04 16:47:24
+EXIF ExifImageLength (Long): 72
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Aperture Priority
+EXIF ExposureTime (Ratio): 1/180
+EXIF FNumber (Ratio): 11
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 90
+EXIF ISOSpeedRatings (Short): 200
+EXIF MeteringMode (Short): Pattern
+EXIF SensingMethod (Short): One-chip color area
+Image Contrast (Short): Normal
+Image Copyright (ASCII): Laitche (This file is in the public domain.)
+Image CustomRendered (Short): Normal
+Image DateTime (ASCII): 2008:07:31 15:56:49
+Image ExifOffset (Long): 408
+Image ExposureMode (Short): Auto Exposure
+Image Make (ASCII): PENTAX Corporation 
+Image Model (ASCII): PENTAX K10D        
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Saturation (Short): Normal
+Image SceneCaptureType (Short): Standard
+Image Sharpness (Short): Normal
+Image Software (ASCII): GIMP 2.4.5
+Image SubjectDistanceRange (Short): 1
+Image WhiteBalance (Short): Auto
+Image XPAuthor (Byte): www.laitche.com
+Image XResolution (Ratio): 350
+Image YResolution (Ratio): 350
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 772
+Thumbnail JPEGInterchangeFormatLength (Long): 1349
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Reconyx_HC500_Hyperfire.jpg
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF ExifImageLength (Long): 1536
+EXIF ExifImageWidth (Long): 2048
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureTime (Ratio): 37/2040
+EXIF FlashPixVersion (Undefined): 0100
+EXIF ISOSpeedRatings (Short): 100
+EXIF MakerNote (Undefined): [1, 241, 3, 0, 3, 0, 0, 0, 17, 32, 16, 1, 84, 0, 0, 0, 0, 0, 0, 0, ... ]
+Image ExifOffset (Long): 90
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Ricoh_Caplio_RR330.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF DateTimeDigitized (ASCII): 2004:08:31 19:52:58
+EXIF DateTimeOriginal (ASCII): 2004:08:31 19:52:58
+EXIF ExifImageLength (Long): 75
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/33
+EXIF FNumber (Ratio): 72/25
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF ISOSpeedRatings (Short): 100
+EXIF ImageUniqueID (ASCII): 00000000000000000000000000000111
+EXIF InteroperabilityOffset (Long): 554
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Normal
+EXIF ShutterSpeedValue (Signed Ratio): 51/10
+EXIF SubjectDistanceRange (Short): 3
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 17:36:21
+Image ExifOffset (Long): 190
+Image Make (ASCII): Caplio 
+Image Model (ASCII): RR330      
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): Uncompressed
+Thumbnail JPEGInterchangeFormat (Long): 690
+Thumbnail JPEGInterchangeFormatLength (Long): 1307
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/Samsung_Digimax_i50_MP3.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 29/8
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2512717/629856
+EXIF DateTimeDigitized (ASCII): 2006:08:15 17:50:57
+EXIF DateTimeOriginal (ASCII): 2006:08:15 17:50:57
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 75
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureIndex (Ratio): 1
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Creative
+EXIF ExposureTime (Ratio): 1/6
+EXIF FNumber (Ratio): 7/2
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 33/5
+EXIF FocalLengthIn35mmFilm (Short): 39
+EXIF ISOSpeedRatings (Short): 150
+EXIF InteroperabilityOffset (Long): 41826
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [255, 216, 255, 219, 0, 132, 0, 3, 2, 2, 3, 2, 2, 3, 3, 2, 3, 4, 3, 3, ... ]
+EXIF MaxApertureValue (Ratio): 29/8
+EXIF MeteringMode (Short): Pattern
+EXIF RelatedSoundFile (ASCII): RelatedSound
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF ShutterSpeedValue (Signed Ratio): 83/32
+EXIF WhiteBalance (Short): Auto
+Image Copyright (ASCII): COPYRIGHT, 2005
+Image DateTime (ASCII): 2008:07:31 19:03:37
+Image ExifOffset (Long): 306
+Image ImageDescription (ASCII): <Digimax i50 MP3, Samsung #1 MP3>
+Image Make (ASCII): Samsung Techwin
+Image Model (ASCII): <Digimax i50 MP3, Samsung #1 MP3>
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.4.5
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 41962
+Thumbnail JPEGInterchangeFormatLength (Long): 1418
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 1
+Thumbnail YResolution (Ratio): 1
+
+Opening: tests/resources/jpg/Sony_HDR-HC3.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2007:06:15 04:42:32
+EXIF DateTimeOriginal (ASCII): 2007:06:15 04:42:32
+EXIF ExifImageLength (Long): 64
+EXIF ExifImageWidth (Long): 100
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/60
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 51/10
+EXIF InteroperabilityOffset (Long): 566
+EXIF LightSource (Short): Unknown
+EXIF MaxApertureValue (Ratio): 17/10
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:07:31 17:20:21
+Image ExifOffset (Long): 172
+Image Make (ASCII): SONY
+Image Model (ASCII): HDR-HC3
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 752
+Thumbnail JPEGInterchangeFormatLength (Long): 1232
+Thumbnail Make (ASCII): SONY
+Thumbnail Model (ASCII): HDR-HC3
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/11-tests.jpg
+EXIF ApertureValue (Ratio): 95/32
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF DateTimeDigitized (ASCII): 2007:09:03 16:03:45
+EXIF DateTimeOriginal (ASCII): 2007:09:03 16:03:45
+EXIF ExifImageLength (Short): 1704
+EXIF ExifImageWidth (Short): 2272
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureTime (Ratio): 1/500
+EXIF FNumber (Ratio): 14/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 29/5
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 71000/7
+EXIF FocalPlaneYResolution (Ratio): 71000/7
+EXIF MakerNote (Undefined): [17, 0, 1, 0, 3, 0, 46, 0, 0, 0, 120, 3, 0, 0, 2, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 95/32
+EXIF MeteringMode (Short): Pattern
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 287/32
+EXIF UserComment (Undefined): 
+Image CustomRendered (Short): Normal
+Image DateTime (ASCII): 2007:09:03 16:03:45
+Image DigitalZoomRatio (Ratio): 1
+Image ExifOffset (Long): 214
+Image ExposureMode (Short): Auto Exposure
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon DIGITAL IXUS 40
+Image SceneCaptureType (Short): Standard
+Image Tag 0x1001 (Short): 2272
+Image Tag 0x1002 (Short): 1704
+Image WhiteBalance (Short): Auto
+Image YCbCrPositioning (Short): Centered
+MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DateStampMode (Short): Off
+MakerNote DigitalZoom (Proprietary): None
+MakerNote EasyShootingMode (Proprietary): Full Auto
+MakerNote ExposureMode (Proprietary): Unknown
+MakerNote FirmwareVersion (ASCII): 
+MakerNote FlashActivity (Proprietary): Did Not Fire
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashInfo (Short): [0, 0, 6, 250]
+MakerNote FlashMode (Proprietary): Flash Not Fired
+MakerNote FocalLength (Proprietary): 96
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocalUnitsPerMM (Proprietary): 0
+MakerNote FocusMode (Proprietary): Unknown
+MakerNote FocusType (Proprietary): Manual
+MakerNote ISO (Proprietary): Unknown
+MakerNote ImageNumber (Long): 1353533
+MakerNote ImageSize (Proprietary): Unknown
+MakerNote ImageStabilization (Proprietary): Off
+MakerNote ImageType (ASCII): 
+MakerNote LensType (Proprietary): 2
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
+MakerNote Macromode (Proprietary): Unknown
+MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeteringMode (Proprietary): Default
+MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
+MakerNote OwnerName (ASCII): 
+MakerNote Quality (Proprietary): Unknown
+MakerNote RecordMode (Proprietary): Unknown
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 0
+MakerNote Sharpness (Proprietary): Unknown
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 0
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): Center
+MakerNote SubjectDistance (Proprietary): 0
+MakerNote Tag 0x0000 (Short): [65484, 65484, 0, 0, 0, 52, 52, 52, 65]
+MakerNote Tag 0x0012 (Short): [0, 0, 0, 0, 0, 19785, 14919, 18756, 18759, 16724, 8268, 22601, 21333, 13344, 8240, 20554, 18245, 0, 0, 0, 0, 26950, 28018, 24951, 25970, 22048, 29285, 26995]
+MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0019 (Short): 1
+MakerNote ThumbnailImageValidArea (Short): [28271, 12576, 12334, 48]
+MakerNote Unknown (Proprietary): 65127
+MakerNote WhiteBalance (Proprietary): Auto
+
+Opening: tests/resources/jpg/tests/22-canon_tags.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 95/32
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 3
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2007:11:29 16:16:21
+EXIF DateTimeOriginal (ASCII): 2007:11:29 16:16:21
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Short): 1200
+EXIF ExifImageWidth (Short): 1600
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/6
+EXIF FNumber (Ratio): 14/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 29/5
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 50000/7
+EXIF FocalPlaneYResolution (Ratio): 50000/7
+EXIF InteroperabilityOffset (Long): 2142
+EXIF MakerNote (Undefined): [17, 0, 1, 0, 3, 0, 46, 0, 0, 0, 120, 3, 0, 0, 2, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 95/32
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Portrait
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 83/32
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2007:11:29 16:16:21
+Image ExifOffset (Long): 196
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon PowerShot SD300
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1200
+Interoperability RelatedImageWidth (Short): 1600
+MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
+MakerNote Contrast (Proprietary): Normal
+MakerNote DateStampMode (Short): Off
+MakerNote DigitalZoom (Proprietary): None
+MakerNote EasyShootingMode (Proprietary): Portrait
+MakerNote ExposureMode (Proprietary): Easy Shooting
+MakerNote FirmwareVersion (ASCII): Firmware Version 1.00
+MakerNote FlashActivity (Proprietary): Unknown
+MakerNote FlashBias (Proprietary): 0 EV
+MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashInfo (Short): [0, 0, 0, 0]
+MakerNote FlashMode (Proprietary): Flash Not Fired
+MakerNote FocalLength (Proprietary): 2
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocalUnitsPerMM (Proprietary): 1000
+MakerNote FocusMode (Proprietary): Single
+MakerNote FocusType (Proprietary): Auto
+MakerNote ISO (Proprietary): Auto
+MakerNote ImageNumber (Long): 1202059
+MakerNote ImageSize (Proprietary): Unknown
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote ImageType (ASCII): IMG:PowerShot SD300 JPEG
+MakerNote LensType (Proprietary): 65535
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 17400
+MakerNote Macromode (Proprietary): Normal
+MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeteringMode (Proprietary): Evaluative
+MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
+MakerNote OwnerName (ASCII): 
+MakerNote Quality (Proprietary): Fine
+MakerNote RecordMode (Proprietary): JPEG
+MakerNote Saturation (Proprietary): Normal
+MakerNote SelfTimer (Proprietary): 0
+MakerNote SequenceNumber (Proprietary): 0
+MakerNote Sharpness (Proprietary): Normal
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 5800
+MakerNote SlowShutter (Proprietary): Off
+MakerNote SpotMeteringMode (Proprietary): Center
+MakerNote SubjectDistance (Proprietary): 100
+MakerNote Tag 0x0000 (Short): [18, 0, 0, 1, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0012 (Short): [9, 9, 1600, 1200, 2272, 284, 409, 51, 65127, 0, 409, 65127, 0, 409, 65127, 0, 409, 65484, 65484, 65484, 0, 0, 0, 52, 52, 52, 19, 0]
+MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0019 (Short): 1
+MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
+MakerNote Unknown (Proprietary): 0
+MakerNote WhiteBalance (Proprietary): Auto
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 5108
+Thumbnail JPEGInterchangeFormatLength (Long): 5922
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 180
+Thumbnail YResolution (Ratio): 180
+
+Opening: tests/resources/jpg/tests/28-hex_value.jpg
+Possibly corrupted field Tag 0x0001 in MakerNote IFD
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 159/32
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 5
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:08:21 14:53:03
+EXIF DateTimeOriginal (ASCII): 2008:08:21 14:53:03
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 2272
+EXIF ExifImageWidth (Long): 1704
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/640
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 29/5
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 71000/7
+EXIF FocalPlaneYResolution (Ratio): 71000/7
+EXIF InteroperabilityOffset (Long): 2180
+EXIF MakerNote (Undefined): [17, 0, 1, 0, 3, 0, 46, 0, 0, 0, 120, 3, 0, 0, 2, 0, 3, 0, 4, 0, ... ]
+EXIF MaxApertureValue (Ratio): 95/32
+EXIF MeteringMode (Short): Pattern
+EXIF OffsetSchema (Signed Long): 62
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 149/16
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2008:08:31 10:41:19
+Image ExifOffset (Long): 246
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon DIGITAL IXUS 40
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Microsoft Windows Photo Gallery 6.0.6001.18000
+Image XResolution (Ratio): 180
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 180
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Short): 1704
+Interoperability RelatedImageWidth (Short): 2272
+MakerNote AESetting (Proprietary): Unknown
+MakerNote AFPointSelected (Proprietary): Unknown
+MakerNote ContinuousDriveMode (Proprietary): Unknown
+MakerNote Contrast (Proprietary): Unknown
+MakerNote DigitalZoom (Proprietary): Unknown
+MakerNote EasyShootingMode (Proprietary): Unknown
+MakerNote ExposureMode (Proprietary): Unknown
+MakerNote FlashActivity (Proprietary): Unknown
+MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashMode (Proprietary): Unknown
+MakerNote FocalLength (Proprietary): 48
+MakerNote FocalType (Proprietary): Unknown
+MakerNote FocalUnitsPerMM (Proprietary): 10
+MakerNote FocusMode (Proprietary): Unknown
+MakerNote FocusType (Proprietary): Unknown
+MakerNote ISO (Proprietary): Unknown
+MakerNote ImageSize (Proprietary): Unknown
+MakerNote ImageStabilization (Proprietary): Unknown
+MakerNote LensType (Proprietary): 15
+MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 195
+MakerNote Macromode (Proprietary): Unknown
+MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MeteringMode (Proprietary): Unknown
+MakerNote Quality (Proprietary): Unknown
+MakerNote RecordMode (Proprietary): Unknown
+MakerNote Saturation (Proprietary): Unknown
+MakerNote SelfTimer (Proprietary): 72
+MakerNote Sharpness (Proprietary): Unknown
+MakerNote ShortFocalLengthOfLensInFocalUnits (Proprietary): 30
+MakerNote SpotMeteringMode (Proprietary): Unknown
+MakerNote Tag 0x0000 (Byte): []
+MakerNote Tag 0x0203 (Long): []
+MakerNote Tag 0x1001 (Short): 2272
+MakerNote Tag 0x1002 (Short): 1704
+MakerNote Tag 0x23FF (Ratio): []
+MakerNote Unknown (Proprietary): 48
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 2352
+Thumbnail JPEGInterchangeFormatLength (Long): 3409
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 1/96
+Thumbnail YResolution (Ratio): 1/96
+
+Opening: tests/resources/jpg/tests/30-type_error.jpg
+Possibly corrupted IFD: 	
+File has JPEG thumbnail
+Image Copyright (ASCII): Francisco Gonzalez
+Image DateTime (ASCII): 2013:07:07 17:20:59
+Image ExifOffset (ASCII): 	
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Adobe Photoshop Elements 7.0
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 444
+Thumbnail JPEGInterchangeFormatLength (Long): 2857
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/32-lens_data.jpeg
+File has JPEG thumbnail
+EXIF CVAPattern (Undefined): [0, 2, 0, 2, 0, 1, 1, 2]
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2012:07:14 16:30:12
+EXIF DateTimeOriginal (ASCII): 2012:07:14 16:30:12
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Short): 0
+EXIF ExifImageWidth (Short): 0
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Aperture Priority
+EXIF ExposureTime (Ratio): 1/500
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 105
+EXIF FocalLengthIn35mmFilm (Short): 157
+EXIF GainControl (Short): None
+EXIF ISOSpeedRatings (Short): 200
+EXIF InteroperabilityOffset (Long): 8980
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 0, 0, 0, 77, 77, 0, 42, 0, 0, 0, 8, 0, 49, ... ]
+EXIF MaxApertureValue (Ratio): 49/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF SubSecTime (ASCII): 68
+EXIF SubSecTimeDigitized (ASCII): 68
+EXIF SubSecTimeOriginal (ASCII): 68
+EXIF SubjectDistanceRange (Short): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSVersionID (Byte): [2, 2, 0, 0]
+Image Artist (ASCII): Ilya Kurikhin                       
+Image Copyright (ASCII): Ilya Kurikhin                                         
+Image DateTime (ASCII): 2014:11:19 18:08:04
+Image ExifOffset (Long): 342
+Image GPSInfo (Long): 9010
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON D300
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.8.10
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 300
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote AEBracketCompensationApplied (Signed Ratio): 0
+MakerNote AFInfo2 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 49, 48, 48, 0, 0, 0, 100, 20, 246, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote AFTune (Undefined): [0, 255, 0, 0]
+MakerNote ActiveDLighting (Short): 0
+MakerNote AutoBracketRelease (Short): 1
+MakerNote AutoFlashMode (ASCII):  
+MakerNote BracketingMode (Short): Continuous, no bracketing
+MakerNote ColorBalance (Undefined): []
+MakerNote ColorSpace (Short): 1
+MakerNote CropHiSpeed (Short): [13110, 13312, 12337, 12336, 257, 0, 12337]
+MakerNote ExposureDifference (Undefined): 0 EV
+MakerNote ExposureTuning (Undefined): [0, 1, 6]
+MakerNote ExternalFlashExposureComp (Undefined): 0 EV
+MakerNote FileInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote FlashBracketCompensationApplied (Undefined): 0 EV
+MakerNote FlashCompensation (Undefined): 0 EV
+MakerNote FlashInfo (Undefined): [0, 0, 0, 0, 48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 218]
+MakerNote FlashMode (Byte): Did Not Fire
+MakerNote FlashSetting (ASCII):              
+MakerNote FocusMode (ASCII):  
+MakerNote HighISONoiseReduction (Short): 0
+MakerNote ISOInfo (Undefined): [0, 0, 0, 10, 0, 0, 11, 184, 0, 0, 0, 10, 0, 0]
+MakerNote ISOSetting (Short): [0, 200]
+MakerNote ISOSpeedRequested (Short): [0, 200]
+MakerNote ImageAuthentication (Byte): 0
+MakerNote ImageDataSize (Long): 4283904
+MakerNote LensData (Undefined): [171, 28, 20, 247, 91, 244, 169, 206, 229, 232, 230, 204, 166, 113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote LensFStops (Undefined): [64, 1, 12, 0]
+MakerNote LensMinMaxFocalMaxAperture (Ratio): [7/2, 1835008/333849, 412623731/495358395, 1282302404/4273759655]
+MakerNote LensType (Byte): 14
+MakerNote MakernoteVersion (Undefined): 0210
+MakerNote MultiExposure (Undefined): [4, 25, 10, 51, 0, 0, 48, 49, 48, 48, 0, 0, 1, 1, 1, 0]
+MakerNote NikonPreview (Long): 8014
+MakerNote NoiseReduction (ASCII): 
+MakerNote PhotoCornerCoordinates (Short): [4352, 2868, 4352, 2868]
+MakerNote PictureControl (Undefined): [0, 0, 0, 0, 0, 0, 83, 84, 65, 78, 68, 65, 82, 68, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote PowerUpTime (Undefined): [0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote ProgramShift (Undefined): 0 EV
+MakerNote Quality (ASCII):   
+MakerNote RetouchHistory (Short): [0, 12337, 12339, 0, 0, 0, 255, 0, 0, 0]
+MakerNote SerialNumber (ASCII): 00STANDA
+MakerNote ShotInfo (Undefined): []
+MakerNote Tag 0x00A3 (Byte): 0
+MakerNote TotalShutterReleases (Long): 241575
+MakerNote VRInfo (Undefined): [82, 68, 0, 0, 0, 0, 0, 0]
+MakerNote WhiteBalanceBias (Signed Short): [0, 0]
+MakerNote WhiteBalanceRBCoeff (Ratio): [1, 1, 67/2916352, 0]
+MakerNote Whitebalance (ASCII):  
+MakerNote WorldTime (Undefined): [0, 180, 0, 2]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 9134
+Thumbnail JPEGInterchangeFormatLength (Long): 3538
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 300
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 300
+
+Opening: tests/resources/jpg/tests/33-type_error.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 290241/62500
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): Y
+EXIF CompressedBitsPerPixel (Ratio): 5
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2008:05:25 19:31:26
+EXIF DateTimeOriginal (ASCII): 2008:05:25 19:31:26
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 1600
+EXIF ExifImageWidth (Long): 2560
+EXIF ExifVersion (ASCII): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureTime (Ratio): 1/1250
+EXIF FNumber (Ratio): 5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (ASCII): 0100
+EXIF FocalLength (Ratio): 37/5
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 4000000/291
+EXIF FocalPlaneYResolution (Ratio): 1000000/73
+EXIF ISOSpeedRatings (Short): 80
+EXIF InteroperabilityOffset (Long): 1082
+EXIF MaxApertureValue (Ratio): 95/32
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF SensingMethod (Short): One-chip color area
+EXIF ShutterSpeedValue (Signed Ratio): 329/32
+EXIF SubSecTime (ASCII): 0
+EXIF SubSecTimeDigitized (ASCII): 0
+EXIF SubSecTimeOriginal (ASCII): 0
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2011:08:25 15:09:41
+Image ExifOffset (Long): 264
+Image ImageDescription (ASCII): El cielo sobre Berlin (Heaven above Berlin)
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon PowerShot G9
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.6.11
+Image XResolution (Ratio): 350
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 350
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1206
+Thumbnail JPEGInterchangeFormatLength (Long): 3881
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/35-empty.jpg
+Possibly corrupted field RecordingMode in MakerNote IFD
+Possibly corrupted field RecordingMode in MakerNote IFD
+Possibly corrupted field Tag 0x3800 in MakerNote IFD
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 275/54
+EXIF Contrast (Short): Soft
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2005:07:19 18:25:29
+EXIF DateTimeOriginal (ASCII): 2005:07:19 18:25:29
+EXIF DigitalZoomRatio (Ratio): 0/0
+EXIF ExifImageLength (Long): 1626
+EXIF ExifImageWidth (Long): 2164
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/250
+EXIF FNumber (Ratio): 4
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 79/10
+EXIF FocalLengthIn35mmFilm (Short): 38
+EXIF GainControl (Short): None
+EXIF InteroperabilityOffset (Long): 32570
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [81, 86, 67, 0, 0, 0, 0, 69, 0, 2, 0, 3, 0, 0, 0, 2, 1, 64, 0, 240, ... ]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Soft
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Soft
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2005:07:19 18:25:29
+Image ExifOffset (Long): 282
+Image Make (ASCII): CASIO COMPUTER CO.,LTD 
+Image Model (ASCII): EX-Z750
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 0, 5, 0, 1, 0, 22, 0, 22, 0, 2, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 16, 129, 0, 0, 0]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): 1.00                 
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote Quality (Byte): 
+MakerNote RecordingMode (Byte): 
+MakerNote Tag 0x0000 (Byte): []
+MakerNote Tag 0x0400 (Byte): []
+MakerNote Tag 0x1AB5 (Signed Long): []
+MakerNote Tag 0x33FF (Long): []
+MakerNote Tag 0x3800 (ASCII): b"\xae\r\xbe\x8b\xe9\xb9\xc3\xc3\x82?\xf8\x86\xa7'\x9e\x9e\x02\xa1c\xab, ... ]
+MakerNote Tag 0x76FF (Ratio): []
+MakerNote Tag 0xA1FF (Short): []
+MakerNote Tag 0xBC92 (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0xC2FF (Long): []
+MakerNote Tag 0xC4EC (Short): []
+MakerNote Tag 0xC4FF (Signed Short): []
+MakerNote Tag 0xC9FF (Ratio): []
+MakerNote Tag 0xCDFF (Ratio): []
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 32694
+Thumbnail JPEGInterchangeFormatLength (Long): 8724
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/36-memory_error.jpg
+Possibly corrupted field RecordingMode in MakerNote IFD
+Possibly corrupted field RecordingMode in MakerNote IFD
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 12/25
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2002:04:21 00:30:33
+EXIF DateTimeOriginal (ASCII): 2002:04:21 00:30:33
+EXIF DigitalZoomRatio (Ratio): 0
+EXIF ExifImageLength (Long): 1200
+EXIF ExifImageWidth (Long): 1600
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/40
+EXIF FNumber (Ratio): 16/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 15/2
+EXIF FocalLengthIn35mmFilm (Short): 36
+EXIF GainControl (Short): Low gain up
+EXIF InteroperabilityOffset (Long): 33158
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [81, 86, 67, 0, 0, 0, 0, 35, 0, 2, 0, 3, 0, 0, 0, 2, 1, 64, 0, 240, ... ]
+EXIF MaxApertureValue (Ratio): 16/5
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Normal
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2002:04:21 00:30:33
+Image ExifOffset (Long): 276
+Image Make (ASCII): CASIO COMPUTER CO.,LTD.
+Image Model (ASCII): EX-M2  
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 4, 0, 1, 0, 22, 0, 22, 0, 2, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): 1.01+R               
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote Quality (Ratio): 
+MakerNote RecordingMode (Byte): 
+MakerNote Tag 0x0000 (Long): []
+MakerNote Tag 0x0121 (ASCII): 
+MakerNote Tag 0x0122 (ASCII): 
+MakerNote Tag 0x01FF (Signed Ratio): []
+MakerNote Tag 0x0277 (Byte): []
+MakerNote Tag 0x4B54 (ASCII): 
+MakerNote Tag 0x5AFF (IFD): []
+MakerNote Tag 0x6D11 (Double-Precision Floating Point (64-bit)): []
+MakerNote Tag 0x8B48 (Long): []
+MakerNote Tag 0x9DB0 (Signed Ratio): []
+MakerNote Tag 0xB900 (Double-Precision Floating Point (64-bit)): []
+MakerNote Tag 0xBBFF (Signed Long): []
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 33282
+Thumbnail JPEGInterchangeFormatLength (Long): 8234
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/42_IndexError.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Hard
+EXIF CustomRendered (Short): Custom
+EXIF DateTimeDigitized (ASCII): 2014:08:23 13:05:43
+EXIF DateTimeOriginal (ASCII): 2014:08:23 13:05:43
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 3024
+EXIF ExifImageWidth (Long): 4032
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Creative
+EXIF ExposureTime (Ratio): 1/30
+EXIF FNumber (Ratio): 18/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): 8
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 15
+EXIF GainControl (Short): High gain up
+EXIF ISOSpeedRatings (Short): 1600
+EXIF InteroperabilityOffset (Long): 686
+EXIF LightSource (Short): other light source
+EXIF MakerNote (Undefined): [79, 76, 89, 77, 80, 85, 83, 0, 73, 73, 3, 0, 7, 0, 0, 2, 4, 0, 3, 0, ... ]
+EXIF MaxApertureValue (Ratio): 925/256
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Hard
+EXIF SceneCaptureType (Short): Standard
+EXIF Sharpness (Short): Normal
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+Image Artist (ASCII): 
+Image Copyright (ASCII): 
+Image DateTime (ASCII): 2014:08:23 13:05:43
+Image ExifOffset (Long): 218
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
+Image Make (ASCII): OLYMPUS IMAGING CORP.  
+Image Model (ASCII): E-P3            
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 28, 0, 1, 0, 18, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Version 1.3                    
+Image XResolution (Ratio): 314
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 314
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote SpecialMode (ASCII): 
+MakerNote Tag 0x0000 (Short): []
+MakerNote Tag 0x0001 (Long): []
+MakerNote Tag 0x0002 (Ratio): []
+MakerNote Tag 0x0003 (Byte): []
+MakerNote Tag 0x0004 (Byte): []
+MakerNote Tag 0x0005 (Byte): []
+MakerNote Tag 0x0007 (Long): []
+MakerNote Tag 0x0008 (Byte): []
+MakerNote Tag 0x000A (Byte): []
+MakerNote Tag 0x0101 (Byte): []
+MakerNote Tag 0x0112 (Byte): []
+MakerNote Tag 0x01BE (Byte): []
+MakerNote Tag 0x0237 (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0x0287 (Byte): []
+MakerNote Tag 0x0305 (Ratio): []
+MakerNote Tag 0x0388 (Signed Byte): []
+MakerNote Tag 0x0405 (Long): []
+MakerNote Tag 0x040E (Double-Precision Floating Point (64-bit)): []
+MakerNote Tag 0x0800 (ASCII): 
+MakerNote Tag 0x0835 (IFD): []
+MakerNote Tag 0x0A1C (Long): []
+MakerNote Tag 0x0D0E (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0x0ED1 (Signed Byte): []
+MakerNote Tag 0x1083 (Signed Byte): []
+MakerNote Tag 0x150B (Undefined): []
+MakerNote Tag 0x1615 (Ratio): []
+MakerNote Tag 0x183D (IFD): []
+MakerNote Tag 0x21B5 (Long): []
+MakerNote Tag 0x2207 (Undefined): []
+MakerNote Tag 0x231E (Ratio): []
+MakerNote Tag 0x233F (Signed Short): []
+MakerNote Tag 0x2501 (Double-Precision Floating Point (64-bit)): []
+MakerNote Tag 0x2531 (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0x2F12 (Double-Precision Floating Point (64-bit)): []
+MakerNote Tag 0x301E (Long): []
+MakerNote Tag 0x3230 (IFD): []
+MakerNote Tag 0x3718 (Byte): []
+MakerNote Tag 0x3D0F (IFD): []
+MakerNote Tag 0x979F (Undefined): []
+MakerNote Tag 0xB3B2 (Long): []
+MakerNote Tag 0xC9B6 (Undefined): []
+MakerNote Tag 0xEFD0 (Signed Ratio): []
+MakerNote Tag 0xF8D3 (Long): []
+MakerNote Tag 0xFFFE (ASCII): *
+MakerNote Tag 0xFFFF (Signed Ratio): []
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 13588
+Thumbnail JPEGInterchangeFormatLength (Long): 7361
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/45-gps_ifd.jpg
+No values found for GPS SubIFD
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF DateTimeDigitized (ASCII): 2012:06:23 06:55:49
+EXIF DateTimeOriginal (ASCII): 2012:06:23 06:55:49
+EXIF ExifImageLength (Long): 900
+EXIF ExifImageWidth (Long): 1600
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/59
+EXIF FNumber (Ratio): 45
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 119/2
+EXIF InteroperabilityOffset (Long): 700
+EXIF MakerNote (Undefined): [8, 0, 0, 3, 9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 9, 0, 1, 0, ... ]
+Image Copyright (ASCII): TM&Copyright (C) 2010 Sony Computer Entertainment Inc.
+Image DateTime (ASCII): 2012:06:23 08:24:05
+Image ExifOffset (Long): 340
+Image GPSInfo (Long): []
+Image ImageDescription (ASCII): Gran Turismo 5
+Image Make (ASCII): Polyphony Digital Inc.
+Image Model (ASCII): Gran Turismo 5
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): PMB Service Uploader
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 836
+Thumbnail JPEGInterchangeFormatLength (Long): 5168
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/46_UnicodeEncodeError.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 126797/20000
+EXIF BodySerialNumber (ASCII): 2131400336
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2012:06:22 19:52:31
+EXIF DateTimeOriginal (ASCII): 2012:06:22 19:52:31
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): -1/3
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Aperture Priority
+EXIF ExposureTime (Ratio): 1/50
+EXIF FNumber (Ratio): 9
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 100
+EXIF FocalPlaneResolutionUnit (Short): 2
+EXIF FocalPlaneXResolution (Ratio): 163200/43
+EXIF FocalPlaneYResolution (Ratio): 816000/209
+EXIF ISOSpeedRatings (Short): 1600
+EXIF LensModel (ASCII): EF100mm f/2.8L Macro IS USM
+EXIF LensSpecification (Ratio): [100, 100, 0/0, 0/0]
+EXIF MaxApertureValue (Ratio): 3
+EXIF MeteringMode (Short): Pattern
+EXIF SceneCaptureType (Short): Standard
+EXIF ShutterSpeedValue (Signed Ratio): 352741/62500
+EXIF SubSecTimeDigitized (ASCII): 00
+EXIF SubSecTimeOriginal (ASCII): 00
+EXIF WhiteBalance (Short): Auto
+GPS GPSLatitude (Ratio): [51, 254903/10000, 0/0]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [0, 404137/10000, 0/0]
+GPS GPSLongitudeRef (ASCII): W
+Image Artist (ASCII): Robert Muckley
+Image Copyright (ASCII): Copyright © 2012 Robert Muckley
+Image DateTime (ASCII): 2012:06:23 16:19:48
+Image ExifOffset (Long): 326
+Image GPSInfo (Long): 828
+Image ImageDescription (ASCII): Arion ater
+Image Make (ASCII): Canon
+Image Model (ASCII): Canon EOS-1D Mark IV
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Adobe Photoshop Lightroom 4.0 (Macintosh)
+Image XResolution (Ratio): 240
+Image YResolution (Ratio): 240
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 1024
+Thumbnail JPEGInterchangeFormatLength (Long): 12316
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/tests/67-0_length_string.jpg
+EXIF ColorSpace (Short): sRGB
+EXIF ExifImageLength (Long): 2012
+EXIF ExifImageWidth (Long): 4032
+GPS GPSAltitude (Ratio): 340
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDOP (Ratio): 0
+GPS GPSDestLatitude (Ratio): [0, 0, 0]
+GPS GPSDestLatitudeRef (ASCII): N
+GPS GPSImgDirection (Ratio): 29139/100
+GPS GPSImgDirectionRef (ASCII): M
+GPS GPSLatitude (Ratio): [51, 1, 30]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [7, 35, 31]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSVersionID (Byte): [2, 2, 0, 0]
+Image DateTime (ASCII): 2016:09:12 10:05:31
+Image ExifOffset (Long): 176
+Image GPSInfo (Long): 218
+Image Make (ASCII): samsung
+Image Model (ASCII): SM-G930F
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 300
+Image YResolution (Ratio): 300
+
+Opening: tests/resources/jpg/tests/87_OSError.jpg
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
+Possibly corrupted field Tag 0x9003 in MakerNote IFD
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 4857981/500000
+EXIF BodySerialNumber (ASCII): -1000f46
+EXIF CVAPattern (Undefined): [0, 2, 0, 2, 2, 1, 1, 0]
+EXIF ColorSpace (Short): Uncalibrated
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF Contrast (Short): Hard
+EXIF DateTimeDigitized (ASCII): 2005:12:14 14:39:47
+EXIF DateTimeOriginal (ASCII): 2005:12:14 14:39:47
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Short): 2240
+EXIF ExifImageWidth (Short): 1488
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/60
+EXIF FNumber (Ratio): 29
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 60
+EXIF FocalLengthIn35mmFilm (Short): 90
+EXIF GainControl (Short): Low gain up
+EXIF ISOSpeedRatings (Short): 1000
+EXIF LensModel (ASCII): 18.0-70.0 mm f/3.5-4.5
+EXIF LensSpecification (Ratio): [18, 70, 7/2, 9/2]
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 16, 0, 0, 77, 77, 0, 42, 0, 0, 0, 8, 0, 42, ... ]
+EXIF MaxApertureValue (Ratio): 43/10
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Hard
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Hard
+EXIF ShutterSpeedValue (Signed Ratio): 5906891/1000000
+EXIF SubjectDistance (Ratio): 4294967295
+EXIF SubjectDistanceRange (Short): 0
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 42123/1000
+GPS GPSLatitude (Ratio): [43, 23567833/500000, 0]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [11, 7038583/500000, 0]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSVersionID (Byte): [2, 2, 0, 0]
+Image Contrast (Short): Hard
+Image CustomRendered (Short): Normal
+Image DateTime (ASCII): 2005:12:14 14:39:47
+Image DigitalZoomRatio (Ratio): 1
+Image ExifOffset (Long): 29766
+Image ExposureMode (Short): Manual Exposure
+Image FocalLengthIn35mmFilm (Short): 90
+Image GPSInfo (Long): 30350
+Image GainControl (Short): Low gain up
+Image Gamma (Ratio): 11/5
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON D70s
+Image Orientation (Short): Horizontal (normal)
+Image PrimaryChromaticities (Ratio): [16/25, 33/100, 21/100, 71/100, 3/20, 3/50]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Saturation (Short): Hard
+Image SceneCaptureType (Short): Standard
+Image Sharpness (Short): Hard
+Image Software (ASCII): Ver.1.00
+Image SubjectDistanceRange (Short): 0
+Image WhiteBalance (Short): Auto
+Image WhitePoint (Ratio): [313/1000, 329/1000]
+Image XResolution (Ratio): 300
+Image YCbCrCoefficients (Ratio): [299/1000, 587/1000, 57/500]
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 300
+MakerNote DigitalICE (Signed Byte): []
+MakerNote Tag 0x0000 (Signed Ratio): []
+MakerNote Tag 0x1C47 (ASCII): 
+MakerNote Tag 0x2007 (Signed Long): []
+MakerNote Tag 0x40BA (Single-Precision Floating Point (32-bit)): []
+MakerNote Tag 0x6D6E (Signed Byte): []
+MakerNote Tag 0x829A (Ratio): 1210058243/1342177408
+MakerNote Tag 0x829D (Ratio): 92275031/512
+MakerNote Tag 0x8822 (Short): 1
+MakerNote Tag 0x8827 (Short): 1000
+MakerNote Tag 0x9000 (Undefined): [48, 50, 50, 49]
+MakerNote Tag 0x9003 (ASCII): b'\n\x08\xc0\x10\x08\x03@\x90\x08\x04\x80\x10\x08\t '
+MakerNote Tag 0x9004 (ASCII): 
+MakerNote Tag 0x9101 (Undefined): [1, 2, 3, 0]
+MakerNote Tag 0x9102 (Ratio): 138413443/4718593
+MakerNote Tag 0x9201 (Signed Ratio): 650993855/264119676
+MakerNote Tag 0x9202 (Ratio): 1885954863/1886006881
+MakerNote Tag 0x9204 (Signed Ratio): -408945664/1066401787
+MakerNote Tag 0x9205 (Ratio): 126615808/181209481
+MakerNote Tag 0x9206 (Ratio): 1769497903/774975334
+MakerNote Tag 0x9207 (Short): 5
+MakerNote Tag 0x9208 (Short): 0
+MakerNote Tag 0x9209 (Short): 0
+MakerNote Tag 0x920A (Ratio): 3964976/4013243
+MakerNote Tag 0x927C (Undefined): []
+MakerNote Tag 0xA000 (Undefined): [48, 49, 48, 48]
+MakerNote Tag 0xA001 (Short): 65535
+MakerNote Tag 0xA002 (Short): 1488
+MakerNote Tag 0xA003 (Short): 2240
+MakerNote Tag 0xA217 (Short): 2
+MakerNote Tag 0xA300 (Undefined): 3
+MakerNote Tag 0xA301 (Undefined): 1
+MakerNote Tag 0xA302 (Undefined): [64, 66, 15, 0, 250, 64, 148, 0]
+MakerNote Tag 0xA402 (Short): 1
+MakerNote Tag 0xA403 (Short): 0
+MakerNote Tag 0xA404 (Ratio): 10625779/125960706
+MakerNote Tag 0xA405 (Short): 90
+MakerNote Tag 0xA406 (Short): 0
+MakerNote Tag 0xA407 (Short): 1
+MakerNote Tag 0xA408 (Short): 2
+MakerNote Tag 0xA409 (Short): 2
+MakerNote Tag 0xA40A (Short): 2
+MakerNote Tag 0xA40C (Short): 0
+MakerNote Tag 0xA431 (ASCII): mp:Creato
+MakerNote Tag 0xA432 (Ratio): [202138036/188904853, 77497509/17001272, 2015371296/1295675501, 1718183023/1952531577]
+MakerNote Tag 0xA434 (ASCII): e="2005-12-14T14:39:47"
+MakerNote Tag 0xA501 (Byte): []
+MakerNote Tag 0xED4C (Short): []
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 29448
+Thumbnail JPEGInterchangeFormatLength (Long): 0
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 300
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 300
+
+Opening: tests/resources/jpg/WWL_Polaroid_ION230.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 2
+EXIF DateTimeDigitized (ASCII): 2026:11:24 14:41:16
+EXIF DateTimeOriginal (ASCII): 2026:11:24 14:41:16
+EXIF ExifImageLength (Long): 100
+EXIF ExifImageWidth (Long): 75
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 10/333
+EXIF FNumber (Ratio): 14/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 42/5
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 556
+EXIF LightSource (Short): Unknown
+EXIF MaxApertureValue (Ratio): 3/2
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SceneType (Undefined): 12
+Image DateTime (ASCII): 2008:07:31 17:32:06
+Image ExifOffset (Long): 198
+Image ImageDescription (ASCII): WWL     
+Image Make (ASCII): WWL     
+Image Model (ASCII): ION230
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 704
+Thumbnail JPEGInterchangeFormatLength (Long): 1435
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/xmp/BlueSquare.jpg
+File has JPEG thumbnail
+EXIF ColorSpace (Short): sRGB
+EXIF ExifImageLength (Long): 216
+EXIF ExifImageWidth (Long): 360
+Image DateTime (ASCII): 2005:09:07 15:09:51
+Image ExifOffset (Long): 264
+Image ImageDescription (ASCII): XMPFiles BlueSquare test file, created in Photoshop CS2, saved as .psd, .jpg, and .tif.
+Image Orientation (Short): Horizontal (normal)
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Adobe Photoshop CS2 Macintosh
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 400
+Thumbnail JPEGInterchangeFormatLength (Long): 1725
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
+Opening: tests/resources/jpg/xmp/no_exif.jpg
+No EXIF information found
+
+Opening: tests/resources/tiff/Arbitro.tiff
+Image ApplicationNotes (Byte): [60, 120, 58, 120, 109, 112, 109, 101, 116, 97, 32, 120, 109, 108, 110, 115, 58, 120, 61, 34, ... ]
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 38
+Image ImageWidth (Short): 174
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 38
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image StripByteCounts (Long): 6391
+Image StripOffsets (Long): 8
+
+Opening: tests/resources/tiff/BSG1.tiff
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 348
+Image ImageWidth (Short): 635
+Image InterColorProfile (Undefined): []
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 51
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image StripByteCounts (Long): [43680, 43983, 41422, 66002, 59709, 27792, 1744]
+Image StripOffsets (Long): [8, 43688, 87671, 129093, 195095, 254804, 282596]
+
+Opening: tests/resources/tiff/Crémieux11.tiff
+Image Artist (ASCII): Jean Cornillon
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image DateTime (ASCII): 2012:01:09 22:52:11
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 47
+Image ImageWidth (Short): 199
+Image InterColorProfile (Undefined): []
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image ResolutionUnit (Short): Pixels/Inch
+Image RowsPerStrip (Short): 47
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image Software (ASCII): Mac OS X 10.5.8 (9L31a)
+Image StripByteCounts (Long): 6205
+Image StripOffsets (Long): 8
+Image XResolution (Ratio): 72
+Image YResolution (Ratio): 72
+
+Opening: tests/resources/tiff/DudleyLeavittUtah.tiff
+Image Artist (ASCII): Russell Leavitt
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image DateTime (ASCII): 2009:09:26 01:11:52
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 257
+Image ImageWidth (Short): 196
+Image InterColorProfile (Undefined): []
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 167
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image Software (ASCII): Mac OS X 10.5.7 (9J61)
+Image StripByteCounts (Long): [59502, 27296]
+Image StripOffsets (Long): [8, 59510]
+
+Opening: tests/resources/tiff/Jobagent.tiff
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 84
+Image ImageWidth (Short): 264
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 84
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image StripByteCounts (Long): 12870
+Image StripOffsets (Long): 8
+
+Opening: tests/resources/tiff/Picoawards.tiff
+Image BitsPerSample (Short): [8, 8, 8]
+Image Compression (Short): LZW
+Image ImageLength (Short): 547
+Image ImageWidth (Short): 436
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): None
+Image ResolutionUnit (Short): Pixels/Inch
+Image RowsPerStrip (Long): 9
+Image SamplesPerPixel (Short): 3
+Image StripByteCounts (Long): [175, 232, 241, 233, 231, 230, 228, 351, 311, 227, 223, 224, 223, 225, 229, 230, 230, 231, 231, 222, ... ]
+Image StripOffsets (Long): [8, 183, 415, 656, 889, 1120, 1350, 1578, 1929, 2240, 2467, 2690, 2914, 3137, 3362, 3591, 3821, 4051, 4282, 4513, ... ]
+Image SubfileType (Long): Full-resolution Image
+Image XResolution (Ratio): 96
+Image YResolution (Ratio): 96
+
+Opening: tests/resources/tiff/Rudless.tiff
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 328
+Image ImageWidth (Short): 734
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 44
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image StripByteCounts (Long): [1119, 14608, 15547, 15590, 14315, 9814, 3255, 444]
+Image StripOffsets (Long): [8, 1127, 15735, 31282, 46872, 61187, 71001, 74256]
+
+Opening: tests/resources/tiff/Tless0.tiff
+Image BitsPerSample (Short): [8, 8, 8, 8]
+Image Compression (Short): LZW
+Image ExtraSamples (Short): Associated Alpha
+Image ImageLength (Short): 448
+Image ImageWidth (Short): 643
+Image InterColorProfile (Undefined): []
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 2
+Image PlanarConfiguration (Short): 1
+Image Predictor (Short): Horizontal differencing
+Image RowsPerStrip (Short): 50
+Image SampleFormat (Short): UnsignedUnsignedUnsignedUnsigned
+Image SamplesPerPixel (Short): 4
+Image StripByteCounts (Long): [2478, 1321, 1297, 1296, 1238, 1248, 1552, 3733, 3168]
+Image StripOffsets (Long): [8, 2486, 3807, 5104, 6400, 7638, 8886, 10438, 14171]
+

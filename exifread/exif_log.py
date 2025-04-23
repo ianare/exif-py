@@ -1,9 +1,9 @@
 """
-Custom log output
+Custom log output.
 """
 
-import sys
 import logging
+import sys
 
 TEXT_NORMAL = 0
 TEXT_BOLD = 1
@@ -15,12 +15,12 @@ TEXT_MAGENTA = 35
 TEXT_CYAN = 36
 
 
-def get_logger():
+def get_logger() -> logging.Logger:
     """Use this from all files needing to log."""
     return logging.getLogger("exifread")
 
 
-def setup_logger(debug, color):
+def setup_logger(debug: bool, color: bool) -> None:
     """Configure the logger."""
 
     if debug:
@@ -28,7 +28,7 @@ def setup_logger(debug, color):
     else:
         log_level = logging.INFO
 
-    logger = logging.getLogger("exifread")
+    logger = get_logger()
     stream = Handler(log_level, debug, color)
     logger.addHandler(stream)
     logger.setLevel(log_level)
@@ -39,7 +39,10 @@ class Formatter(logging.Formatter):
     Custom formatter, we like colors!
     """
 
-    def __init__(self, debug=False, color=False):
+    color: bool
+    debug: bool
+
+    def __init__(self, debug: bool = False, color: bool = False) -> None:
         self.color = color
         self.debug = debug
         if self.debug:
@@ -62,12 +65,25 @@ class Formatter(logging.Formatter):
                 color = TEXT_CYAN
             else:
                 color = TEXT_NORMAL
-            record.levelname = "\x1b[%sm%s\x1b[%sm" % (color, record.levelname, TEXT_NORMAL)
+            record.levelname = "\x1b[%sm%s\x1b[%sm" % (
+                color,
+                record.levelname,
+                TEXT_NORMAL,
+            )
         return logging.Formatter.format(self, record)
 
 
 class Handler(logging.StreamHandler):
-    def __init__(self, log_level, debug=False, color=False):
+    """
+    Custom StreamHandler so we can use the Formatter.
+    """
+
+    color: bool
+    debug: bool
+
+    def __init__(
+        self, log_level: int, debug: bool = False, color: bool = False
+    ) -> None:
         self.color = color
         self.debug = debug
         logging.StreamHandler.__init__(self, sys.stdout)

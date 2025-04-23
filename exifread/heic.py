@@ -1,79 +1,88 @@
-# Find Exif data in an HEIC file.
+"""
+Find Exif data in an HEIC file.
 
-# As of 2019, the latest standard seems to be "ISO/IEC 14496-12:2015"
-# There are many different related standards. (quicktime, mov, mp4, etc...)
-# See https://en.wikipedia.org/wiki/ISO_base_media_file_format for more details.
+As of 2019, the latest standard seems to be "ISO/IEC 14496-12:2015"
+There are many different related standards. (quicktime, mov, mp4, etc...)
+See https://en.wikipedia.org/wiki/ISO_base_media_file_format for more details.
 
-# We parse just enough of the ISO format to locate the Exif data in the file.
-# Inside the 'meta' box are two directories we need:
-#   1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
-#   2) once we have the item_id, we find a matching entry in the 'iloc' box, which
-#      gives us position and size information.
+We parse just enough of the ISO format to locate the Exif data in the file.
+Inside the 'meta' box are two directories we need:
+  1) the 'iinf' box contains 'infe' records, we look for the item_id for 'Exif'.
+  2) once we have the item_id, we find a matching entry in the 'iloc' box, which
+     gives us position and size information.
+"""
 
 import struct
-from typing import Any, List, Dict, Callable, BinaryIO, Optional
+from typing import Any, BinaryIO, Callable, Dict, List, Optional
 
+from exifread.exceptions import ExifError
 from exifread.exif_log import get_logger
 
 logger = get_logger()
 
 
-class WrongBox(Exception):
-    pass
-class BoxVersion(Exception):
-    pass
-class BadSize(Exception):
-    pass
+class BoxVersion(ExifError):
+    """Wrong box version."""
+
+
+class BadSize(ExifError):
+    """Wrong box size."""
 
 
 class Box:
+    """A HEIC Box."""
+
     version = 0
     minor_version = 0
     item_count = 0
     size = 0
     after = 0
     pos = 0
-    compat = []  # type: List
+    compat: List[bytes] = []
     base_offset = 0
     # this is full of boxes, but not in a predictable order.
-    subs = {}  # type: Dict[str, Box]
-    locs = {}  # type: Dict
-    exif_infe = None  # type: Optional[Box]
+    subs: Dict[str, "Box"] = {}
+    locs: Dict = {}
+    exif_infe: Optional["Box"] = None
     item_id = 0
-    item_type = b''
-    item_name = b''
+    item_type = b""
+    item_name = b""
     item_protection_index = 0
-    major_brand = b''
+    major_brand = b""
     offset_size = 0
     length_size = 0
     base_offset_size = 0
     index_size = 0
     flags = 0
+    name: str
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def __repr__(self) -> str:
         return "<box '%s'>" % self.name
 
-    def set_sizes(self, offset: int, length: int, base_offset: int, index: int):
+    def set_sizes(self, offset: int, length: int, base_offset: int, index: int) -> None:
         self.offset_size = offset
         self.length_size = length
         self.base_offset_size = base_offset
         self.index_size = index
 
-    def set_full(self, vflags: int):
+    def set_full(self, vflags: int) -> None:
         """
         ISO boxes come in 'old' and 'full' variants.
         The 'full' variant contains version and flags information.
         """
         self.version = vflags >> 24
-        self.flags = vflags & 0x00ffffff
+        self.flags = vflags & 0x00FFFFFF
 
 
 class HEICExifFinder:
+    """Find HEIC EXIF tags."""
 
-    def __init__(self, file_handle: BinaryIO):
+    file_handle: BinaryIO
+
+    def __init__(self, file_handle: BinaryIO) -> None:
         self.file_handle = file_handle
 
     def get(self, nbytes: int) -> bytes:
@@ -82,26 +91,24 @@ class HEICExifFinder:
             raise EOFError
         if len(read) != nbytes:
             msg = "get(nbytes={nbytes}) found {read} bytes at position {pos}".format(
-                nbytes=nbytes,
-                read=len(read),
-                pos=self.file_handle.tell()
+                nbytes=nbytes, read=len(read), pos=self.file_handle.tell()
             )
             raise BadSize(msg)
         return read
 
     def get16(self) -> int:
-        return struct.unpack('>H', self.get(2))[0]
+        return struct.unpack(">H", self.get(2))[0]
 
     def get32(self) -> int:
-        return struct.unpack('>L', self.get(4))[0]
+        return struct.unpack(">L", self.get(4))[0]
 
     def get64(self) -> int:
-        return struct.unpack('>Q', self.get(8))[0]
+        return struct.unpack(">Q", self.get(8))[0]
 
     def get_int4x2(self) -> tuple:
-        num = struct.unpack('>B', self.get(1))[0]
+        num = struct.unpack(">B", self.get(1))[0]
         num0 = num >> 4
-        num1 = num & 0xf
+        num1 = num & 0xF
         return num0, num1
 
     def get_int(self, size: int) -> int:
@@ -120,15 +127,15 @@ class HEICExifFinder:
         read = []
         while 1:
             char = self.get(1)
-            if char == b'\x00':
+            if char == b"\x00":
                 break
             read.append(char)
-        return b''.join(read)
+        return b"".join(read)
 
     def next_box(self) -> Box:
         pos = self.file_handle.tell()
         size = self.get32()
-        kind = self.get(4).decode('ascii')
+        kind = self.get(4).decode("ascii")
         box = Box(kind)
         if size == 0:
             # signifies 'to the end of the file', we shouldn't see this.
@@ -144,10 +151,10 @@ class HEICExifFinder:
         box.pos = self.file_handle.tell()
         return box
 
-    def get_full(self, box: Box):
+    def get_full(self, box: Box) -> None:
         box.set_full(self.get32())
 
-    def skip(self, box: Box):
+    def skip(self, box: Box) -> None:
         self.file_handle.seek(box.after)
 
     def expect_parse(self, name: str) -> Box:
@@ -159,15 +166,17 @@ class HEICExifFinder:
 
     def get_parser(self, box: Box) -> Optional[Callable[[Box], Any]]:
         defs = {
-            'ftyp': self._parse_ftyp,
-            'meta': self._parse_meta,
-            'infe': self._parse_infe,
-            'iinf': self._parse_iinf,
-            'iloc': self._parse_iloc,
-            'hdlr':None,
-            'pitm':None,
-            'iref':None,
-            'iprp':None,
+            "ftyp": self._parse_ftyp,
+            "meta": self._parse_meta,
+            "infe": self._parse_infe,
+            "iinf": self._parse_iinf,
+            "iloc": self._parse_iloc,
+            "hdlr": self._parse_hdlr,  # HEIC/AVIF hdlr = Handler
+            "pitm": self._parse_pitm,  # HEIC/AVIF pitm = Primary Item
+            "iref": self._parse_iref,  # HEIC/AVIF idat = Item Reference
+            "idat": self._parse_idat,  # HEIC/AVIF idat = Item Data Box
+            "dinf": self._parse_dinf,  # HEIC/AVIF dinf = Data Information Box
+            "iprp": self._parse_iprp,  # HEIC/AVIF iprp = Item Protection Box
         }
         return defs.get(box.name)
 
@@ -179,7 +188,7 @@ class HEICExifFinder:
         self.file_handle.seek(box.after)
         return box
 
-    def _parse_ftyp(self, box: Box):
+    def _parse_ftyp(self, box: Box) -> None:
         box.major_brand = self.get(4)
         box.minor_version = self.get32()
         box.compat = []
@@ -188,7 +197,7 @@ class HEICExifFinder:
             box.compat.append(self.get(4))
             size -= 4
 
-    def _parse_meta(self, meta: Box):
+    def _parse_meta(self, meta: Box) -> None:
         self.get_full(meta)
         while self.file_handle.tell() < meta.after:
             box = self.next_box()
@@ -197,11 +206,11 @@ class HEICExifFinder:
                 psub(box)
                 meta.subs[box.name] = box
             else:
-                logger.debug('HEIC: skipping %r', box)
+                logger.debug("HEIC: skipping %r", box)
             # skip any unparsed data
             self.skip(box)
 
-    def _parse_infe(self, box: Box):
+    def _parse_infe(self, box: Box) -> None:
         self.get_full(box)
         if box.version >= 2:
             if box.version == 2:
@@ -213,18 +222,18 @@ class HEICExifFinder:
             box.item_name = self.get_string()
             # ignore the rest
 
-    def _parse_iinf(self, box: Box):
+    def _parse_iinf(self, box: Box) -> None:
         self.get_full(box)
         count = self.get16()
         box.exif_infe = None
         for _ in range(count):
-            infe = self.expect_parse('infe')
-            if infe.item_type == b'Exif':
+            infe = self.expect_parse("infe")
+            if infe.item_type == b"Exif":
                 logger.debug("HEIC: found Exif 'infe' box")
                 box.exif_infe = infe
                 break
 
-    def _parse_iloc(self, box: Box):
+    def _parse_iloc(self, box: Box) -> None:
         self.get_full(box)
         size0, size1 = self.get_int4x2()
         size2, size3 = self.get_int4x2()
@@ -236,7 +245,7 @@ class HEICExifFinder:
         else:
             raise BoxVersion(2, box.version)
         box.locs = {}
-        logger.debug('HEIC: %d iloc items', box.item_count)
+        logger.debug("HEIC: %d iloc items", box.item_count)
         for _ in range(box.item_count):
             if box.version < 2:
                 item_id = self.get16()
@@ -261,15 +270,46 @@ class HEICExifFinder:
                 extents.append((extent_offset, extent_length))
             box.locs[item_id] = extents
 
+    # Added a few box names, which as unhandled aborted data extraction:
+    # hdlr, pitm, dinf, iprp, idat, iref
+    #
+    # Handling is initially `None`.
+    # They were found in .heif photo files produced by Nokia 8.3 5G.
+    #
+    # They are part of the standard, referring to:
+    #   - ISO/IEC 14496-12 fifth edition 2015-02-20 (chapter 8.10 Metadata)
+    #     found in:
+    #     https://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition
+    #     (The newest is ISO/IEC 14496-12:2022, but would cost 208 Swiss Francs at iso.org)
+    #   - A C++ example: https://exiv2.org/book/#BMFF
+
+    def _parse_hdlr(self, box: Box):
+        logger.debug("HEIC: found 'hdlr' Box %s, skipped", box.name)
+
+    def _parse_pitm(self, box: Box):
+        logger.debug("HEIC: found 'pitm' Box %s, skipped", box.name)
+
+    def _parse_dinf(self, box: Box):
+        logger.debug("HEIC: found 'dinf' Box %s, skipped", box.name)
+
+    def _parse_iprp(self, box: Box):
+        logger.debug("HEIC: found 'iprp' Box %s, skipped", box.name)
+
+    def _parse_idat(self, box: Box):
+        logger.debug("HEIC: found 'idat' Box %s, skipped", box.name)
+
+    def _parse_iref(self, box: Box):
+        logger.debug("HEIC: found 'iref' Box %s, skipped", box.name)
+
     def find_exif(self) -> tuple:
-        ftyp = self.expect_parse('ftyp')
-        assert ftyp.major_brand == b'heic'
+        ftyp = self.expect_parse("ftyp")
+        assert ftyp.major_brand == b"heic"
         assert ftyp.minor_version == 0
-        meta = self.expect_parse('meta')
-        assert meta.subs['iinf'].exif_infe is not None
-        item_id = meta.subs['iinf'].exif_infe.item_id
-        extents = meta.subs['iloc'].locs[item_id]
-        logger.debug('HEIC: found Exif location.')
+        meta = self.expect_parse("meta")
+        assert meta.subs["iinf"].exif_infe is not None
+        item_id = meta.subs["iinf"].exif_infe.item_id
+        extents = meta.subs["iloc"].locs[item_id]
+        logger.debug("HEIC: found Exif location.")
         # we expect the Exif data to be in one piece.
         assert len(extents) == 1
         pos, _ = extents[0]
@@ -281,8 +321,17 @@ class HEICExifFinder:
         # b'Exif\x00\x00' (without APP1 marker, e.g. iOS)
         # according to "ISO/IEC 23008-12, 2017-12", both of them are legal
         exif_tiff_header_offset = self.get32()
-        assert exif_tiff_header_offset >= 6
-        assert self.get(exif_tiff_header_offset)[-6:] == b'Exif\x00\x00'
-        offset = self.file_handle.tell()
-        endian = self.file_handle.read(1)
+
+        if exif_tiff_header_offset == 0:
+            # This case was found in HMD Nokia 8.3 5G heic photos.
+            # The TIFF header just sits there without any 'Exif'.
+
+            offset = 0
+            endian = "?"  # Haven't got Endian info yet
+        else:
+            assert exif_tiff_header_offset >= 6
+            assert self.get(exif_tiff_header_offset)[-6:] == b"Exif\x00\x00"
+            offset = self.file_handle.tell()
+            endian = str(self.file_handle.read(1))
+
         return offset, endian
