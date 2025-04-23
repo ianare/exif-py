@@ -558,7 +558,7 @@ class ExifHeader:
             # return
 
         # Casio
-        if "CASIO" in make or "casio" in make:
+        if "CASIO" in make or "Casio" in make:
             self.dump_ifd(note.field_offset, "MakerNote", tag_dict=makernote.casio.TAGS)
             return
 
@@ -647,7 +647,7 @@ class ExifHeader:
                 if callable(tag[1]):
                     val = tag[1](value[i])
                 else:
-                    val = tag[1].get(value[i], 'Unknown')
+                    val = tag[1].get(value[i], "Unknown")
             else:
                 val = value[i]
             try:

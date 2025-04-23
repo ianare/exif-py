@@ -252,6 +252,7 @@ Interoperability RelatedImageWidth (Short): 2272
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DigitalZoom (Proprietary): None
@@ -351,6 +352,7 @@ Interoperability RelatedImageWidth (Short): 2272
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Center
 MakerNote AFPointUsed (Proprietary): 12290
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DigitalZoom (Proprietary): None
@@ -512,6 +514,7 @@ Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 Interoperability RelatedImageLength (Short): 480
 Interoperability RelatedImageWidth (Short): 640
 MakerNote AFPointUsed (Proprietary): 12290
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DigitalZoom (Proprietary): None
@@ -2241,6 +2244,7 @@ MakerNote AESetting (Proprietary): Unknown
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
 MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DateStampMode (Short): Off
@@ -2365,6 +2369,7 @@ MakerNote AESetting (Proprietary): Unknown
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
 MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DateStampMode (Short): Off
@@ -3465,6 +3470,7 @@ Image YCbCrPositioning (Short): Centered
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DateStampMode (Short): Off
@@ -3561,6 +3567,7 @@ Interoperability RelatedImageWidth (Short): 1600
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DateStampMode (Short): Off
