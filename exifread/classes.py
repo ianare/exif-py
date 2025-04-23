@@ -647,7 +647,7 @@ class ExifHeader:
                 if callable(tag[1]):
                     val = tag[1](value[i])
                 else:
-                    val = tag[1].get(value[i], 'Unknown')
+                    val = tag[1].get(value[i], "Unknown")
             else:
                 val = value[i]
             try:

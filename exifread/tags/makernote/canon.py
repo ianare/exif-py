@@ -4,6 +4,7 @@ Makernote (proprietary) tag definitions for Canon.
 http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 """
 
+
 def add_one(value):
     return value + 1
 
@@ -13,7 +14,8 @@ def subtract_one(value):
 
 
 def convert_temp(value):
-    return '%d C' % (value - 128)
+    return "%d C" % (value - 128)
+
 
 TAGS = {
     0x0003: ("FlashInfo",),
@@ -654,18 +656,6 @@ FILE_INFO = {
     19: ("LiveViewShooting", {0: "Off", 1: "On"}),
     25: ("FlashExposureLock", {0: "Off", 1: "On"}),
 }
-
-
-def add_one(value):
-    return value + 1
-
-
-def subtract_one(value):
-    return value - 1
-
-
-def convert_temp(value):
-    return "%d C" % (value - 128)
 
 
 # CameraInfo data structures have variable sized members. Each entry here is:
