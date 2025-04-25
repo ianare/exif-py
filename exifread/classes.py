@@ -83,7 +83,7 @@ class ExifHeader:
         file_handle: BinaryIO,
         endian: str,
         offset: int,
-        fake_exif,
+        fake_exif: int,
         strict: bool,
         debug=False,
         detailed=True,
@@ -431,7 +431,9 @@ class ExifHeader:
             old_offset = self.s2n(entry + 8, 4)
             # start of the 4-byte pointer area in entry
             ptr = i * 12 + 18
-            # remember strip offsets location
+
+            # remember strip offsets
+            strip_len = 0
             if tag == 0x0111:
                 strip_off = ptr
                 strip_len = count * type_length

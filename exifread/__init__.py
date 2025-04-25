@@ -4,7 +4,7 @@ Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 """
 
 import struct
-from typing import BinaryIO, Dict, Tuple
+from typing import Any, BinaryIO, Dict, Tuple
 
 from exifread.classes import ExifHeader
 from exifread.exceptions import ExifNotFound, InvalidExif
@@ -37,8 +37,13 @@ def _find_tiff_exif(fh: BinaryIO) -> Tuple[int, bytes]:
     return offset, endian
 
 
-def _find_heic_tiff(fh: BinaryIO) -> tuple:
-    """In some HEIC files, the Exif offset is 0 and there is a plain TIFF header near end of the file."""
+def _find_heic_tiff(fh: BinaryIO) -> Tuple[int, bytes]:
+    """
+    Look for TIFF header in HEIC files.
+
+    In some HEIC files, the Exif offset is 0,
+    and yet there is a plain TIFF header near end of the file.
+    """
 
     data = fh.read(4)
     if data[0:2] in [b"II", b"MM"] and data[2] == 42 and data[3] == 0:
@@ -126,7 +131,7 @@ def _get_xmp(fh: BinaryIO) -> bytes:
     return xmp_bytes
 
 
-def _determine_type(fh: BinaryIO) -> tuple:
+def _determine_type(fh: BinaryIO) -> Tuple[int, bytes, int]:
     # by default do not fake an EXIF beginning
     fake_exif = 0
 
@@ -163,7 +168,7 @@ def process_file(
     auto_seek=True,
     extract_thumbnail=True,
     builtin_types=False,
-) -> dict:
+) -> Dict[str, Any]:
     """
     Process an image file (expects an open file object).
 
@@ -175,7 +180,7 @@ def process_file(
         fh.seek(0)
 
     try:
-        offset, endian, fake_exif = _determine_type(fh)
+        offset, endian_bytes, fake_exif = _determine_type(fh)
     except ExifNotFound as err:
         logger.warning(err)
         return {}
@@ -183,14 +188,14 @@ def process_file(
         logger.debug(err)
         return {}
 
-    endian = chr(ord_(endian[0]))
+    endian_str = chr(ord_(endian_bytes[0]))
     # deal with the EXIF info we found
     logger.debug(
-        "Endian format is %s (%s)", endian, ENDIAN_TYPES.get(endian, "Unknown")
+        "Endian format is %s (%s)", endian_str, ENDIAN_TYPES.get(endian_str, "Unknown")
     )
 
     hdr = ExifHeader(
-        fh, endian, offset, fake_exif, strict, debug, details, truncate_tags
+        fh, endian_str, offset, fake_exif, strict, debug, details, truncate_tags
     )
     ifd_list = hdr.list_ifd()
     thumb_ifd = 0

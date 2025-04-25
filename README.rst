@@ -4,6 +4,8 @@ EXIF.py
 
 Easy to use Python module to extract Exif metadata from digital image files.
 
+Pure Python, lightweight, no dependencies.
+
 Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 
 
@@ -11,10 +13,6 @@ Compatibility
 *************
 
 EXIF.py is tested and officially supported on Python 3.7 to 3.13
-
-Starting with version ``3.0.0``, Python2 compatibility is dropped *completely* (syntax errors due to type hinting).
-
-https://pythonclock.org/
 
 
 Installation
@@ -36,9 +34,9 @@ Development Version
 
 After cloning the repo, use the provided Makefile::
 
-  make venv reqs-install
+  make venv install-dev
 
-Which will install a virtual environment and install development dependencies.
+Which will create a virtual environment and install development dependencies.
 
 Usage
 *****
@@ -163,7 +161,8 @@ Pass the ``-s`` or ``--strict`` argument, or as:
 Built-in Types
 ==============
 
-For easier serialization and programmatic use, this option returns a dictionary with values in built-in Python types (int, float, str, bytes, list, None) instead of `IfdTag` objects.
+For easier serialization and programmatic use, this option returns a dictionary with values in built-in Python types
+(int, float, str, bytes, list, None) instead of `IfdTag` objects.
 
 Pass the ``-b`` or ``--builtin`` argument, or as:
 
@@ -226,7 +225,7 @@ License
 
 Copyright © 2002-2007 Gene Cash
 
-Copyright © 2007-2023 Ianaré Sévi and contributors
+Copyright © 2007-2025 Ianaré Sévi and contributors
 
 A **huge** thanks to all the contributors over the years!
 

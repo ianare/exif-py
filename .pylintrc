@@ -59,10 +59,11 @@ ignore-paths=
 # Emacs file locks
 ignore-patterns=^\.#
 
-# List of module names for which member attributes should not be checked
-# (useful for modules/projects where namespaces are manipulated during runtime
-# and thus existing member attributes cannot be deduced by static analysis). It
-# supports qualified module names, as well as Unix pattern matching.
+# List of module names for which member attributes should not be checked and
+# will not be imported (useful for modules/projects where namespaces are
+# manipulated during runtime and thus existing member attributes cannot be
+# deduced by static analysis). It supports qualified module names, as well as
+# Unix pattern matching.
 ignored-modules=
 
 # Python code to execute, usually for sys.path manipulation such as
@@ -85,6 +86,10 @@ load-plugins=
 
 # Pickle collected data for later comparisons.
 persistent=yes
+
+# Resolve imports to .pyi stubs if available. May reduce no-member messages and
+# increase not-an-iterable messages.
+prefer-stubs=no
 
 # Minimum Python version to use for version dependent checks. Will default to
 # the version used to run pylint.
@@ -190,10 +195,7 @@ good-names=i,
            k,
            ex,
            Run,
-           _,
-           s,
-           fh,
-           EXIF
+           _
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
@@ -304,6 +306,9 @@ max-locals=25
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
+
+# Maximum number of positional arguments for function / method.
+max-positional-arguments=10
 
 # Maximum number of public methods for a class (see R0904).
 max-public-methods=20
@@ -429,13 +434,12 @@ disable=raw-checker-failed,
         locally-disabled,
         file-ignored,
         suppressed-message,
-        useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
         use-implicit-booleaness-not-comparison-to-string,
         use-implicit-booleaness-not-comparison-to-zero,
-        consider-using-f-string,
         missing-function-docstring,
+        consider-using-f-string,
         fixme,
 
 # Enable the message, report, category or checker with the given id(s). You can
@@ -474,6 +478,11 @@ max-nested-blocks=5
 # printed.
 never-returning-functions=sys.exit,argparse.parse_error
 
+# Let 'consider-using-join' be raised when the separator to join on would be
+# non-empty (resulting in expected fixes of the type: ``"- " + " -
+# ".join(items)``)
+suggest-join-with-non-empty-separator=yes
+
 
 [REPORTS]
 
@@ -488,10 +497,10 @@ evaluation=max(0, 0 if fatal else 10.0 - ((float(5 * error + warning + refactor 
 # used to format the message information. See doc for all details.
 msg-template=
 
-# Set the output format. Available formats are: text, parseable, colorized,
-# json2 (improved json format), json (old json format) and msvs (visual
-# studio). You can also give a reporter class, e.g.
-# mypackage.mymodule.MyReporterClass.
+# Set the output format. Available formats are: 'text', 'parseable',
+# 'colorized', 'json2' (improved json format), 'json' (old json format), msvs
+# (visual studio) and 'github' (GitHub actions). You can also give a reporter
+# class, e.g. mypackage.mymodule.MyReporterClass.
 #output-format=
 
 # Tells whether to display a full report or only the messages.

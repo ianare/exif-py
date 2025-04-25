@@ -6,7 +6,7 @@
 #
 #
 # Copyright (c) 2002-2007 Gene Cash
-# Copyright (c) 2007-2023 Ianaré Sévi and contributors
+# Copyright (c) 2007-2025 Ianaré Sévi and contributors
 #
 # See LICENSE.txt file for licensing information
 # See ChangeLog.rst file for all contributors and changes
@@ -91,7 +91,7 @@ def get_args() -> argparse.Namespace:
     return args
 
 
-def main(args) -> None:
+def run_cli(args: argparse.Namespace) -> None:
     """Extract tags based on options (args)."""
 
     exif_log.setup_logger(args.debug, args.color)
@@ -159,5 +159,9 @@ def main(args) -> None:
         print()
 
 
+def main() -> None:
+    run_cli(get_args())
+
+
 if __name__ == "__main__":
-    main(get_args())
+    main()
