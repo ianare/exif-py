@@ -37,8 +37,11 @@ test-diff: ## Run and compare exif dump
 analyze: ## Run all static analysis tools
 	$(PRE_COMMIT_BIN) run --all
 
-reqs-install: ## Install with all requirements
-	$(PIP_INSTALL) .[dev]
+install-dev: ## Install with all development requirements
+	$(PIP_INSTALL) -U -e .[dev]
+
+install: ## Install with basic requirements
+	$(PIP_INSTALL) -U -e .
 
 build:  ## build distribution
 	rm -fr ./dist

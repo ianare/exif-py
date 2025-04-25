@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools >= 68.0.0", "wheel >= 0.41.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "ExifRead"
+description = "Library to extract Exif information from digital camera image files."
+readme = "README.rst"
+license = {file = "LICENSE"}
+requires-python = ">= 3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities",
+]
+keywords = ["exif", "image", "metadata", "photo"]
+authors = [
+  {name = "Ianaré Sévi"},
+]
+dependencies = []
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit~=2.21",
+    "pylint~=3.0",
+    "build~=1.0",
+]
+
+
+[project.urls]
+Repository = "https://github.com/ianare/exif-py"
+Changelog = "https://github.com/ianare/exif-py/blob/master/ChangeLog.rst"
+
+
+[project.scripts]
+"EXIF.py" = "exifread.cli:main"
+
+
+[tool.setuptools.packages]
+find = {}
+
+
+[tool.setuptools.dynamic]
+version = {attr = "exifread.__version__"}
+
+
+[tool.setuptools.package-data]
+"exifread" = ["py.typed"]
+
+
+[tool.isort]
+profile = "black"
+
+
+[tool.mypy]
+disallow_any_unimported = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+strict_equality = true
+warn_unused_ignores = true
+warn_unreachable = true

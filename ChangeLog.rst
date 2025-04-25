@@ -1,7 +1,14 @@
 ﻿EXIF.py Change Log
 ##################
 
-3.1.0 — 2023-05-??
+3.1.0 — 2025-04-25
+    * Add more typing definitions (#181)
+    * Put all test files in the repo (#208)
+    * use pre-commit to run black, isort, pylint, mypy (#209)
+    * Canon MakerNote: Allow callable to process tag value (#189) by Daan van Gorkum
+    * Added missing HEIC box names and handling of a TIFF header inside HEIC (#173) by Antti Ketola
+    * don't let debug logging trigger an exception (#196) by David Bonner
+    * fix for certain box names not handled, but skipping would generate valid output by Anand Mahesh
     * Add DJI makernotes, extract_thumbnail parameter (#168) by Piero Toffanin
     * Fix endianess bug while reading DJI makernotes, add Make tag (#169) by Piero Toffanin
     * Make CI pass (#178) by Nick Dimitroff

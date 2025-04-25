@@ -1,6 +1,6 @@
 """Extract EXIF from JPEG files."""
 
-from typing import BinaryIO
+from typing import BinaryIO, Tuple
 
 from exifread.exceptions import InvalidExif
 from exifread.exif_log import get_logger
@@ -13,7 +13,7 @@ def _increment_base(data, base) -> int:
     return ord_(data[base + 2]) * 256 + ord_(data[base + 3]) + 2
 
 
-def _get_initial_base(fh: BinaryIO, data, fake_exif) -> tuple:
+def _get_initial_base(fh: BinaryIO, data: bytes, fake_exif: int) -> Tuple[int, int]:
     base = 2
     logger.debug(
         "data[2]=0x%X data[3]=0x%X data[6:10]=%s",
@@ -151,7 +151,7 @@ def _get_base(base: int, data: bytes) -> int:
     return base
 
 
-def find_jpeg_exif(fh: BinaryIO, data: bytes, fake_exif) -> tuple:
+def find_jpeg_exif(fh: BinaryIO, data: bytes, fake_exif: int) -> Tuple[int, bytes, int]:
     logger.debug(
         "JPEG format recognized data[0:2]=0x%X%X", ord_(data[0]), ord_(data[1])
     )
