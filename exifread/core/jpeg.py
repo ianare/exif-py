@@ -192,7 +192,7 @@ def find_jpeg_exif(fh: BinaryIO, data: bytes, fake_exif: int) -> Tuple[int, byte
     else:
         # no EXIF information
         msg = "No EXIF header expected data[2+base]==0xFF and data[6+base:10+base]===Exif (or Duck)"
-        msg += "Did get 0x%X and %r" % (
+        msg += " Did get 0x%X and %r" % (
             ord_(data[2 + base]),
             data[6 + base : 10 + base + 1],
         )

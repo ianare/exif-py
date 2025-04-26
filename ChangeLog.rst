@@ -1,6 +1,17 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.2.0 — 2025-04-27
+    * Add testing using pytest (#214)
+    * Field types should be easier to use (#213)
+    * Fix for incoherent thumbnail extraction (#215)
+    * Add images from DasMoorhuhn in PR #204 (#216)
+    * Update and add Canon tags
+    * Use stricter mypy settings
+    * Fixes for str, bytes typing mismatch (#219)
+    * Add test image for TypeError on Nikon (#220)
+    * Rework code structure and organization
+
 3.1.0 — 2025-04-25
     * Add more typing definitions (#181)
     * Put all test files in the repo (#208)
