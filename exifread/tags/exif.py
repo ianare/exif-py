@@ -1,11 +1,12 @@
 """
 Standard tag definitions.
 """
+from typing import Dict, Tuple
 
 from exifread.utils import make_string, make_string_uc
 
 # Interoperability tags
-INTEROP_TAGS = {
+INTEROP_TAGS: Dict[int, Tuple] = {
     0x0001: ("InteroperabilityIndex",),
     0x0002: ("InteroperabilityVersion",),
     0x1000: ("RelatedImageFileFormat",),
@@ -15,7 +16,7 @@ INTEROP_TAGS = {
 INTEROP_INFO = ("Interoperability", INTEROP_TAGS)
 
 # GPS tags
-GPS_TAGS = {
+GPS_TAGS: Dict[int, Tuple] = {
     0x0000: ("GPSVersionID",),
     0x0001: ("GPSLatitudeRef",),
     0x0002: ("GPSLatitude",),
@@ -51,7 +52,7 @@ GPS_TAGS = {
 GPS_INFO = ("GPS", GPS_TAGS)
 
 # Main Exif tag names
-EXIF_TAGS = {
+EXIF_TAGS: Dict[int, Tuple] = {
     0x00FE: (
         "SubfileType",
         {

@@ -6,6 +6,7 @@ from typing import Callable, Dict, List, Union
 
 from exifread.classes import IfdTag
 from exifread.exif_log import get_logger
+from exifread.tags import FieldType
 
 logger = get_logger()
 
@@ -66,7 +67,7 @@ def convert_ascii(ifd_tag: IfdTag, tag_name: str) -> Union[str, bytes, None]:
 
     Returns:
     - str
-    - bytes for rare ascii sequences that aren't unicode
+    - bytes for rare ascii sequences that aren't Unicode
     - None for empty values
     """
 
@@ -104,8 +105,8 @@ def convert_undefined(ifd_tag: IfdTag, _tag_name: str) -> Union[bytes, str, int,
     Handle Undefined type conversion.
 
     Returns:
-    - bytes if not unicode such as Exif MakerNote
-    - str for unicode
+    - bytes if not Unicode such as Exif MakerNote
+    - str for Unicode
     - int for rare MakerNote Tags containing a single value
     - None for empty values such as some MakerNote Tags
     """
@@ -190,7 +191,7 @@ def convert_bytes(ifd_tag: IfdTag, tag_name: str) -> Union[bytes, str, int, None
 
     Returns:
     - bytes
-    - str for unicode such as GPSVersionID and Image ApplicationNotes (XML)
+    - str for Unicode such as GPSVersionID and Image ApplicationNotes (XML)
     - int for single byte values such as GPSAltitudeRef or some MakerNote fields
     - None for empty values such as some MakerNote Tags
     """
@@ -234,20 +235,19 @@ def convert_proprietary(ifd_tag: IfdTag, _tag_name: str) -> Union[str, None]:
 
 
 # Mapping of field type to conversion function
-# The key matches the index in exifread.tags.FIELD_TYPES
-conversion_map = {
-    0: convert_proprietary,  # Proprietary
-    1: convert_bytes,  # Byte
-    2: convert_ascii,  # ASCII
-    3: convert_numeric,  # Short
-    4: convert_numeric,  # Long
-    5: convert_ratio,  # Ratio
-    6: convert_numeric,  # Signed Byte
-    7: convert_undefined,  # Undefined
-    8: convert_numeric,  # Signed Short
-    9: convert_numeric,  # Signed Long
-    10: convert_ratio,  # Signed Ratio
-    11: convert_numeric,  # Single-Precision Floating Point
-    12: convert_numeric,  # Double-Precision Floating Point
-    13: convert_bytes,  # IFD
+conversion_map: Dict[FieldType, Callable] = {
+    FieldType.PROPRIETARY: convert_proprietary,
+    FieldType.BYTE: convert_bytes,
+    FieldType.ASCII: convert_ascii,
+    FieldType.SHORT: convert_numeric,
+    FieldType.LONG: convert_numeric,
+    FieldType.RATIO: convert_ratio,
+    FieldType.SIGNED_BYTE: convert_numeric,
+    FieldType.UNDEFINED: convert_undefined,
+    FieldType.SIGNED_SHORT: convert_numeric,
+    FieldType.SIGNED_LONG: convert_numeric,
+    FieldType.SIGNED_RATIO: convert_ratio,
+    FieldType.FLOAT_32: convert_numeric,
+    FieldType.FLOAT_64: convert_numeric,
+    FieldType.IFD: convert_bytes,
 }
