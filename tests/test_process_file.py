@@ -21,33 +21,33 @@ def test_corrupted_pass():
     assert len(tags) == 69
 
 
-@pytest.mark.parametrize(
-    "extract_thumbnail, details",
-    (
-        (True, False),
-        (True, True),
-        (False, True),
-    ),
-)
-def test_thumbnail_extraction(extract_thumbnail, details):
+@pytest.mark.parametrize("details", (True, False))
+def test_thumbnail_extract(details):
     file_path = "tests/resources/jpg/Canon_40D.jpg"
     with open(file_path, "rb") as fh:
-        tags = exifread.process_file(
-            fh=fh, extract_thumbnail=extract_thumbnail, details=details
-        )
+        tags = exifread.process_file(fh=fh, extract_thumbnail=True, details=details)
     assert len(tags["JPEGThumbnail"]) == 1378
 
 
-def test_no_thumbnail_extraction():
+@pytest.mark.parametrize("details", (True, False))
+def test_no_thumbnail_extract(details):
     file_path = "tests/resources/jpg/Canon_40D.jpg"
     with open(file_path, "rb") as fh:
-        tags = exifread.process_file(fh=fh, extract_thumbnail=False, details=False)
+        tags = exifread.process_file(fh=fh, extract_thumbnail=False, details=details)
     assert "JPEGThumbnail" not in tags
 
 
 @pytest.mark.parametrize("strict", (True, False))
 def test_no_exif(strict):
     file_path = "tests/resources/jpg/xmp/no_exif.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=True, strict=strict)
+    assert not tags
+
+
+@pytest.mark.parametrize("strict", (True, False))
+def test_invalid_exif(strict):
+    file_path = "tests/resources/jpg/invalid/image00971.jpg"
     with open(file_path, "rb") as fh:
         tags = exifread.process_file(fh=fh, details=True, strict=strict)
     assert not tags
