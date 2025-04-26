@@ -22,7 +22,7 @@ import timeit
 
 from exifread import __version__, exif_log, process_file
 from exifread.exceptions import ExifError
-from exifread.tags import FIELD_DEFINITIONS
+from exifread.tags.fields import FIELD_DEFINITIONS
 
 logger = exif_log.get_logger()
 

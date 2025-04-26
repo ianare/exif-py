@@ -3782,11 +3782,11 @@ Thumbnail XResolution (Ratio): 1/96
 Thumbnail YResolution (Ratio): 1/96
 
 Opening: tests/resources/jpg/tests/30-type_error.jpg
-Possibly corrupted IFD: 	
+Possibly corrupted IFD: EXIF
 File has JPEG thumbnail
 Image Copyright (ASCII): Francisco Gonzalez
 Image DateTime (ASCII): 2013:07:07 17:20:59
-Image ExifOffset (ASCII): 	
+Image ExifOffset (ASCII):
 Image ResolutionUnit (Short): Pixels/Inch
 Image Software (ASCII): Adobe Photoshop Elements 7.0
 Image XResolution (Ratio): 72
@@ -3839,11 +3839,11 @@ EXIF SubSecTime (ASCII): 68
 EXIF SubSecTimeDigitized (ASCII): 68
 EXIF SubSecTimeOriginal (ASCII): 68
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSVersionID (Byte): [2, 2, 0, 0]
-Image Artist (ASCII): Ilya Kurikhin                       
-Image Copyright (ASCII): Ilya Kurikhin                                         
+Image Artist (ASCII): Ilya Kurikhin
+Image Copyright (ASCII): Ilya Kurikhin
 Image DateTime (ASCII): 2014:11:19 18:08:04
 Image ExifOffset (Long): 342
 Image GPSInfo (Long): 9010
@@ -3862,7 +3862,7 @@ MakerNote AFInfo2 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 49, 48, 
 MakerNote AFTune (Undefined): [0, 255, 0, 0]
 MakerNote ActiveDLighting (Short): 0
 MakerNote AutoBracketRelease (Short): 1
-MakerNote AutoFlashMode (ASCII):  
+MakerNote AutoFlashMode (ASCII):
 MakerNote BracketingMode (Short): Continuous, no bracketing
 MakerNote ColorBalance (Undefined): []
 MakerNote ColorSpace (Short): 1
@@ -3875,8 +3875,8 @@ MakerNote FlashBracketCompensationApplied (Undefined): 0 EV
 MakerNote FlashCompensation (Undefined): 0 EV
 MakerNote FlashInfo (Undefined): [0, 0, 0, 0, 48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 218]
 MakerNote FlashMode (Byte): Did Not Fire
-MakerNote FlashSetting (ASCII):              
-MakerNote FocusMode (ASCII):  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII):
 MakerNote HighISONoiseReduction (Short): 0
 MakerNote ISOInfo (Undefined): [0, 0, 0, 10, 0, 0, 11, 184, 0, 0, 0, 10, 0, 0]
 MakerNote ISOSetting (Short): [0, 200]
@@ -3890,12 +3890,12 @@ MakerNote LensType (Byte): 14
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote MultiExposure (Undefined): [4, 25, 10, 51, 0, 0, 48, 49, 48, 48, 0, 0, 1, 1, 1, 0]
 MakerNote NikonPreview (Long): 8014
-MakerNote NoiseReduction (ASCII): 
+MakerNote NoiseReduction (ASCII):
 MakerNote PhotoCornerCoordinates (Short): [4352, 2868, 4352, 2868]
 MakerNote PictureControl (Undefined): [0, 0, 0, 0, 0, 0, 83, 84, 65, 78, 68, 65, 82, 68, 0, 0, 0, 0, 0, 0, ... ]
 MakerNote PowerUpTime (Undefined): [0, 0, 0, 0, 0, 0, 0, 0]
 MakerNote ProgramShift (Undefined): 0 EV
-MakerNote Quality (ASCII):   
+MakerNote Quality (ASCII):
 MakerNote RetouchHistory (Short): [0, 12337, 12339, 0, 0, 0, 255, 0, 0, 0]
 MakerNote SerialNumber (ASCII): 00STANDA
 MakerNote ShotInfo (Undefined): []
@@ -3904,7 +3904,7 @@ MakerNote TotalShutterReleases (Long): 241575
 MakerNote VRInfo (Undefined): [82, 68, 0, 0, 0, 0, 0, 0]
 MakerNote WhiteBalanceBias (Signed Short): [0, 0]
 MakerNote WhiteBalanceRBCoeff (Ratio): [1, 1, 67/2916352, 0]
-MakerNote Whitebalance (ASCII):  
+MakerNote Whitebalance (ASCII):
 MakerNote WorldTime (Undefined): [0, 180, 0, 2]
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 9134
@@ -3948,7 +3948,7 @@ EXIF ShutterSpeedValue (Signed Ratio): 329/32
 EXIF SubSecTime (ASCII): 0
 EXIF SubSecTimeDigitized (ASCII): 0
 EXIF SubSecTimeOriginal (ASCII): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2011:08:25 15:09:41
 Image ExifOffset (Long): 264
@@ -4008,19 +4008,19 @@ EXIF Sharpness (Short): Soft
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2005:07:19 18:25:29
 Image ExifOffset (Long): 282
-Image Make (ASCII): CASIO COMPUTER CO.,LTD 
+Image Make (ASCII): CASIO COMPUTER CO.,LTD
 Image Model (ASCII): EX-Z750
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 0, 5, 0, 1, 0, 22, 0, 22, 0, 2, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 16, 129, 0, 0, 0]
 Image ResolutionUnit (Short): Pixels/Inch
-Image Software (ASCII): 1.00                 
+Image Software (ASCII): 1.00
 Image XResolution (Ratio): 72
 Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
 Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
-MakerNote Quality (Byte): 
-MakerNote RecordingMode (Byte): 
+MakerNote Quality (Byte):
+MakerNote RecordingMode (Byte):
 MakerNote Tag 0x0000 (Byte): []
 MakerNote Tag 0x0400 (Byte): []
 MakerNote Tag 0x1AB5 (Signed Long): []
@@ -4079,24 +4079,24 @@ EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2002:04:21 00:30:33
 Image ExifOffset (Long): 276
 Image Make (ASCII): CASIO COMPUTER CO.,LTD.
-Image Model (ASCII): EX-M2  
+Image Model (ASCII): EX-M2
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 4, 0, 1, 0, 22, 0, 22, 0, 2, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0]
 Image ResolutionUnit (Short): Pixels/Inch
-Image Software (ASCII): 1.01+R               
+Image Software (ASCII): 1.01+R
 Image XResolution (Ratio): 72
 Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
 Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
-MakerNote Quality (Ratio): 
-MakerNote RecordingMode (Byte): 
+MakerNote Quality (Ratio):
+MakerNote RecordingMode (Byte):
 MakerNote Tag 0x0000 (Long): []
-MakerNote Tag 0x0121 (ASCII): 
-MakerNote Tag 0x0122 (ASCII): 
+MakerNote Tag 0x0121 (ASCII):
+MakerNote Tag 0x0122 (ASCII):
 MakerNote Tag 0x01FF (Signed Ratio): []
 MakerNote Tag 0x0277 (Byte): []
-MakerNote Tag 0x4B54 (ASCII): 
+MakerNote Tag 0x4B54 (ASCII):
 MakerNote Tag 0x5AFF (IFD): []
 MakerNote Tag 0x6D11 (Double-Precision Floating Point (64-bit)): []
 MakerNote Tag 0x8B48 (Long): []
@@ -4141,25 +4141,25 @@ EXIF MeteringMode (Short): Pattern
 EXIF Saturation (Short): Hard
 EXIF SceneCaptureType (Short): Standard
 EXIF Sharpness (Short): Normal
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
-Image Artist (ASCII): 
-Image Copyright (ASCII): 
+Image Artist (ASCII):
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2014:08:23 13:05:43
 Image ExifOffset (Long): 218
-Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
-Image Make (ASCII): OLYMPUS IMAGING CORP.  
-Image Model (ASCII): E-P3            
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA
+Image Make (ASCII): OLYMPUS IMAGING CORP.
+Image Model (ASCII): E-P3
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 28, 0, 1, 0, 18, 0, ... ]
 Image ResolutionUnit (Short): Pixels/Inch
-Image Software (ASCII): Version 1.3                    
+Image Software (ASCII): Version 1.3
 Image XResolution (Ratio): 314
 Image YCbCrPositioning (Short): Co-sited
 Image YResolution (Ratio): 314
 Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
-MakerNote SpecialMode (ASCII): 
+MakerNote SpecialMode (ASCII):
 MakerNote Tag 0x0000 (Short): []
 MakerNote Tag 0x0001 (Long): []
 MakerNote Tag 0x0002 (Ratio): []
@@ -4178,7 +4178,7 @@ MakerNote Tag 0x0305 (Ratio): []
 MakerNote Tag 0x0388 (Signed Byte): []
 MakerNote Tag 0x0405 (Long): []
 MakerNote Tag 0x040E (Double-Precision Floating Point (64-bit)): []
-MakerNote Tag 0x0800 (ASCII): 
+MakerNote Tag 0x0800 (ASCII):
 MakerNote Tag 0x0835 (IFD): []
 MakerNote Tag 0x0A1C (Long): []
 MakerNote Tag 0x0D0E (Single-Precision Floating Point (32-bit)): []
@@ -4412,7 +4412,7 @@ Image YCbCrPositioning (Short): Co-sited
 Image YResolution (Ratio): 300
 MakerNote DigitalICE (Signed Byte): []
 MakerNote Tag 0x0000 (Signed Ratio): []
-MakerNote Tag 0x1C47 (ASCII): 
+MakerNote Tag 0x1C47 (ASCII):
 MakerNote Tag 0x2007 (Signed Long): []
 MakerNote Tag 0x40BA (Single-Precision Floating Point (32-bit)): []
 MakerNote Tag 0x6D6E (Signed Byte): []
@@ -4422,7 +4422,7 @@ MakerNote Tag 0x8822 (Short): 1
 MakerNote Tag 0x8827 (Short): 1000
 MakerNote Tag 0x9000 (Undefined): [48, 50, 50, 49]
 MakerNote Tag 0x9003 (ASCII): b'\n\x08\xc0\x10\x08\x03@\x90\x08\x04\x80\x10\x08\t '
-MakerNote Tag 0x9004 (ASCII): 
+MakerNote Tag 0x9004 (ASCII):
 MakerNote Tag 0x9101 (Undefined): [1, 2, 3, 0]
 MakerNote Tag 0x9102 (Ratio): 138413443/4718593
 MakerNote Tag 0x9201 (Signed Ratio): 650993855/264119676
@@ -4492,8 +4492,8 @@ EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF SceneType (Undefined): 12
 Image DateTime (ASCII): 2008:07:31 17:32:06
 Image ExifOffset (Long): 198
-Image ImageDescription (ASCII): WWL     
-Image Make (ASCII): WWL     
+Image ImageDescription (ASCII): WWL
+Image Make (ASCII): WWL
 Image Model (ASCII): ION230
 Image Orientation (Short): Horizontal (normal)
 Image ResolutionUnit (Short): Pixels/Inch
