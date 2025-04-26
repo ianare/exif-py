@@ -1,8 +1,9 @@
 """
 Makernote (proprietary) tag definitions for Casio.
 """
+from typing import Dict, Tuple
 
-TAGS = {
+TAGS: Dict[int, Tuple] = {
     0x0001: (
         "RecordingMode",
         {

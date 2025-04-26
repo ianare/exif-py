@@ -3,8 +3,9 @@ Makernote (proprietary) tag definitions for DJI cameras
 
 Based on https://github.com/exiftool/exiftool/blob/master/lib/Image/ExifTool/DJI.pm
 """
+from typing import Dict, Tuple
 
-TAGS = {
+TAGS: Dict[int, Tuple] = {
     0x01: ("Make",),
     0x03: ("SpeedX",),
     0x04: ("SpeedY",),

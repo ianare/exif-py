@@ -1,11 +1,12 @@
 """
 Makernote (proprietary) tag definitions for Olympus.
 """
+from typing import Dict, Tuple
 
 from exifread.utils import make_string
 
 
-def special_mode(val):
+def special_mode(val) -> str:
     """Decode Olympus SpecialMode tag in MakerNote"""
     mode1 = {
         0: "Normal",
@@ -29,7 +30,7 @@ def special_mode(val):
     return "%s - Sequence %d - %s" % (mode1_val, val[1], mode2_val)
 
 
-TAGS = {
+TAGS: Dict[int, Tuple] = {
     # Ah HAH! those sneeeeeaky bastids! this is how they get past the fact
     # that a JPEG thumbnail is not allowed in an uncompressed TIFF file
     0x0100: ("JPEGThumbnail",),
@@ -99,7 +100,7 @@ TAGS = {
 }
 
 # 0x2020 CameraSettings
-TAG_0x2020 = {
+TAG_0x2020: Dict[int, Tuple] = {
     0x0100: ("PreviewImageValid", {0: "No", 1: "Yes"}),
     0x0101: ("PreviewImageStart",),
     0x0102: ("PreviewImageLength",),

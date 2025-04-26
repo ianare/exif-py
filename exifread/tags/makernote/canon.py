@@ -4,6 +4,8 @@ Makernote (proprietary) tag definitions for Canon.
 http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 """
 
+from typing import Callable, Dict, Tuple
+
 
 def add_one(value):
     return value + 1
@@ -17,7 +19,7 @@ def convert_temp(value):
     return "%d C" % (value - 128)
 
 
-TAGS = {
+TAGS: Dict[int, Tuple] = {
     0x0003: ("FlashInfo",),
     0x0006: ("ImageType",),
     0x0007: ("FirmwareVersion",),
@@ -339,7 +341,7 @@ TAGS = {
 
 # this is in element offset, name, optional value dictionary format
 # 0x0001
-CAMERA_SETTINGS = {
+CAMERA_SETTINGS: Dict[int, Tuple] = {
     1: ("Macromode", {1: "Macro", 2: "Normal"}),
     2: ("SelfTimer",),
     3: ("Quality", {1: "Economy", 2: "Normal", 3: "Fine", 5: "Superfine"}),
@@ -512,7 +514,7 @@ CAMERA_SETTINGS = {
 }
 
 # 0x0002
-FOCAL_LENGTH = {
+FOCAL_LENGTH: Dict[int, Tuple] = {
     1: (
         "FocalType",
         {
@@ -524,7 +526,7 @@ FOCAL_LENGTH = {
 }
 
 # 0x0004
-SHOT_INFO = {
+SHOT_INFO: Dict[int, Tuple] = {
     7: (
         "WhiteBalance",
         {
@@ -567,7 +569,7 @@ SHOT_INFO = {
 }
 
 # 0x0026
-AF_INFO_2 = {
+AF_INFO_2: Dict[int, Tuple] = {
     2: (
         "AFAreaMode",
         {
@@ -589,7 +591,7 @@ AF_INFO_2 = {
 }
 
 # 0x0093
-FILE_INFO = {
+FILE_INFO: Dict[int, Tuple] = {
     1: ("FileNumber",),
     3: (
         "BracketMode",
@@ -664,19 +666,19 @@ FILE_INFO = {
 # specified offset.
 CAMERA_INFO_TAG_NAME = "MakerNote Tag 0x000D"
 
-CAMERA_INFO_5D = {
+CAMERA_INFO_5D: Dict[int, Tuple[str, str, Callable]] = {
     23: ("CameraTemperature", "<B", convert_temp),
     204: ("DirectoryIndex", "<L", subtract_one),
     208: ("FileIndex", "<H", add_one),
 }
 
-CAMERA_INFO_5DMKII = {
+CAMERA_INFO_5DMKII: Dict[int, Tuple[str, str, Callable]] = {
     25: ("CameraTemperature", "<B", convert_temp),
     443: ("FileIndex", "<L", add_one),
     455: ("DirectoryIndex", "<L", subtract_one),
 }
 
-CAMERA_INFO_5DMKIII = {
+CAMERA_INFO_5DMKIII: Dict[int, Tuple[str, str, Callable]] = {
     27: ("CameraTemperature", "<B", convert_temp),
     652: ("FileIndex", "<L", add_one),
     656: ("FileIndex2", "<L", add_one),
@@ -684,14 +686,14 @@ CAMERA_INFO_5DMKIII = {
     668: ("DirectoryIndex2", "<L", subtract_one),
 }
 
-CAMERA_INFO_600D = {
+CAMERA_INFO_600D: Dict[int, Tuple[str, str, Callable]] = {
     25: ("CameraTemperature", "<B", convert_temp),
     475: ("FileIndex", "<L", add_one),
     487: ("DirectoryIndex", "<L", subtract_one),
 }
 
 # A map of regular expressions on 'Image Model' to the CameraInfo spec
-CAMERA_INFO_MODEL_MAP = {
+CAMERA_INFO_MODEL_MAP: Dict[str, dict] = {
     r"EOS 5D$": CAMERA_INFO_5D,
     r"EOS 5D Mark II$": CAMERA_INFO_5DMKII,
     r"EOS 5D Mark III$": CAMERA_INFO_5DMKIII,

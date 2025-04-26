@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install virtualenv
-        make venv install-dev
+        make venv install-all
 
     - name: Static analysis of the code
       run: |
