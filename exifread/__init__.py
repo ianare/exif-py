@@ -224,7 +224,7 @@ def process_file(
         hdr.decode_maker_note()
 
     # extract thumbnails
-    if details or (thumb_ifd and extract_thumbnail):
+    if thumb_ifd and extract_thumbnail:
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
