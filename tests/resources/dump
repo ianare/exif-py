@@ -252,16 +252,22 @@ Interoperability RelatedImageWidth (Short): 2272
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AutoExposureBracketing (Proprietary): Off
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 128
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): Camera Local Control
 MakerNote DigitalZoom (Proprietary): None
 MakerNote EasyShootingMode (Proprietary): Full Auto
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Easy Shooting
 MakerNote FirmwareVersion (ASCII): Firmware Version 1.00
 MakerNote FlashActivity (Proprietary): Did Not Fire
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [1024, 0, 0, 0]
 MakerNote FlashMode (Proprietary): Auto
 MakerNote FocalLength (Proprietary): 286
@@ -278,8 +284,10 @@ MakerNote LensType (Proprietary): 65535
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 711
 MakerNote Macromode (Proprietary): Normal
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeasuredEV (Proprietary): 335
 MakerNote MeteringMode (Proprietary): Evaluative
 MakerNote ModelID (Long): PowerShot S400 / Digital IXUS 400 / IXY Digital 400
+MakerNote OpticalZoomCode (Proprietary): 4
 MakerNote OwnerName (ASCII): Jean-Pierre Grignon
 MakerNote Quality (Proprietary): Fine
 MakerNote RecordMode (Proprietary): JPEG
@@ -293,6 +301,8 @@ MakerNote SpotMeteringMode (Proprietary): AF Point
 MakerNote SubjectDistance (Proprietary): 216
 MakerNote Tag 0x0000 (Short): [0, 0, 0, 0]
 MakerNote Tag 0x0012 (Short): [9, 9, 2272, 1704, 2272, 212, 409, 38, 65126, 0, 410, 65126, 0, 410, 65126, 0, 410, 65495, 65495, 65495, 0, 0, 0, 41, 41, 41, 8, 3]
+MakerNote TargetAperture (Proprietary): 213
+MakerNote TargetExposureTime (Proprietary): 245
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
 MakerNote Unknown (Proprietary): 0
 MakerNote WhiteBalance (Proprietary): Auto
@@ -334,7 +344,7 @@ EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF SceneCaptureType (Short): Standard
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 287/32
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2003:12:14 12:01:44
 Image ExifOffset (Long): 196
@@ -352,16 +362,22 @@ Interoperability RelatedImageWidth (Short): 2272
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Center
 MakerNote AFPointUsed (Proprietary): 12290
+MakerNote AutoExposureBracketing (Proprietary): Off
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 160
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): Camera Local Control
 MakerNote DigitalZoom (Proprietary): None
 MakerNote EasyShootingMode (Proprietary): Manual
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Program
 MakerNote FirmwareVersion (ASCII): Firmware Version 1.10
 MakerNote FlashActivity (Proprietary): Did Not Fire
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [0, 0, 0, 0]
 MakerNote FlashMode (Proprietary): Auto
 MakerNote FocalLength (Proprietary): 286
@@ -377,8 +393,10 @@ MakerNote ImageType (ASCII): IMG:PowerShot S40 JPEG
 MakerNote LensType (Proprietary): 65535
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 682
 MakerNote Macromode (Proprietary): Normal
+MakerNote MeasuredEV (Proprietary): 276
 MakerNote MeteringMode (Proprietary): Center-weighted
 MakerNote ModelID (Long): PowerShot S40
+MakerNote OpticalZoomCode (Proprietary): 6
 MakerNote OwnerName (ASCII): Andreas Huggel
 MakerNote Quality (Proprietary): Superfine
 MakerNote RecordMode (Proprietary): JPEG
@@ -391,6 +409,8 @@ MakerNote SlowShutter (Proprietary): Off
 MakerNote SpotMeteringMode (Proprietary): AF Point
 MakerNote SubjectDistance (Proprietary): 782
 MakerNote Tag 0x0000 (Short): [0, 0, 0, 0]
+MakerNote TargetAperture (Proprietary): 149
+MakerNote TargetExposureTime (Proprietary): 287
 MakerNote Unknown (Proprietary): 250
 MakerNote WhiteBalance (Proprietary): Auto
 Thumbnail Compression (Short): JPEG (old-style)
@@ -431,17 +451,17 @@ EXIF MeteringMode (Short): Pattern
 EXIF Saturation (Short): Normal
 EXIF SceneCaptureType (Short): Standard
 EXIF Sharpness (Short): Normal
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2015:09:08 11:02:17
 Image ExifOffset (Long): 158
-Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
-Image Make (ASCII): OLYMPUS IMAGING CORP.  
-Image Model (ASCII): u1020,S1020     
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA
+Image Make (ASCII): OLYMPUS IMAGING CORP.
+Image Model (ASCII): u1020,S1020
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 37, 0, 1, 0, 20, 0, ... ]
 Image ResolutionUnit (Short): Pixels/Inch
-Image Software (ASCII): Version 1.0                    
+Image Software (ASCII): Version 1.0
 Image XResolution (Ratio): 314
 Image YCbCrPositioning (Short): Co-sited
 Image YResolution (Ratio): 314
@@ -462,7 +482,7 @@ MakerNote Tag 0x9466 (Signed Ratio): []
 MakerNote Tag 0xAA01 (Byte): []
 MakerNote Tag 0xAA60 (Signed Byte): []
 MakerNote Tag 0xCCC4 (Single-Precision Floating Point (32-bit)): []
-MakerNote Tag 0xFFFE (ASCII): 
+MakerNote Tag 0xFFFE (ASCII):
 MakerNote Tag 0xFFFF (Signed Ratio): []
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 8980
@@ -499,7 +519,7 @@ EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 553859/65536
 EXIF SubjectDistance (Ratio): 15/4
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 Image DateTime (ASCII): 2001:06:09 15:17:32
 Image ExifOffset (Long): 184
 Image Make (ASCII): Canon
@@ -514,12 +534,16 @@ Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 Interoperability RelatedImageLength (Short): 480
 Interoperability RelatedImageWidth (Short): 640
 MakerNote AFPointUsed (Proprietary): 12290
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 140
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote DigitalZoom (Proprietary): None
 MakerNote EasyShootingMode (Proprietary): Manual
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote FirmwareVersion (ASCII): Firmware Version 1.0
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [0, 0, 0, 0]
 MakerNote FlashMode (Proprietary): Auto
 MakerNote FocalLength (Proprietary): 211
@@ -531,8 +555,10 @@ MakerNote ImageNumber (Long): 1010163
 MakerNote ImageSize (Proprietary): Small
 MakerNote ImageType (ASCII): IMG:JPEG file
 MakerNote Macromode (Proprietary): Normal
+MakerNote MeasuredEV (Proprietary): 258
 MakerNote MeteringMode (Proprietary): Default
 MakerNote ModelID (Long): PowerShot S100 / Digital IXUS / IXY Digital
+MakerNote OpticalZoomCode (Proprietary): 4
 MakerNote OwnerName (ASCII): Tom Rowan and Sarah Clifton
 MakerNote Quality (Proprietary): Fine
 MakerNote RecordMode (Proprietary): JPEG
@@ -542,6 +568,8 @@ MakerNote SequenceNumber (Proprietary): 1
 MakerNote Sharpness (Proprietary): Normal
 MakerNote SlowShutter (Proprietary): Off
 MakerNote Tag 0x0000 (Short): [0, 0, 0, 0, 0, 0]
+MakerNote TargetAperture (Proprietary): 128
+MakerNote TargetExposureTime (Proprietary): 270
 MakerNote Unknown (Proprietary): 0
 MakerNote WhiteBalance (Proprietary): Auto
 Thumbnail Compression (Short): JPEG (old-style)
@@ -580,7 +608,7 @@ EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 33/5
-Image Copyright (ASCII): J P Bowen 
+Image Copyright (ASCII): J P Bowen
 Image DateTime (ASCII): 2001:04:12 20:33:14
 Image ExifOffset (Long): 258
 Image Make (ASCII): FUJIFILM
@@ -632,7 +660,7 @@ EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 11/2
-Image Copyright (ASCII):           
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2000:08:04 18:22:57
 Image ExifOffset (Long): 250
 Image Make (ASCII): FUJIFILM
@@ -655,7 +683,7 @@ MakerNote Macro (Short): Off
 MakerNote MotorOrBracket (Short): Off
 MakerNote NoteVersion (Undefined): 0130
 MakerNote PictureMode (Short): Portrait
-MakerNote Quality (ASCII): NORMAL 
+MakerNote Quality (ASCII): NORMAL
 MakerNote Sharpness (Short): Normal
 MakerNote SlowSync (Short): Off
 MakerNote Tag 0x1200 (Short): 0
@@ -698,7 +726,7 @@ EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 37/5
-Image Copyright (ASCII):           
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2000:09:02 14:30:10
 Image ExifOffset (Long): 258
 Image Make (ASCII): FUJIFILM
@@ -738,9 +766,9 @@ EXIF MaxApertureValue (Ratio): 4
 EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF ShutterSpeedValue (Signed Ratio): 5
 EXIF SubjectDistance (Ratio): 0/0
-Image Copyright (ASCII): 
+Image Copyright (ASCII):
 Image ExifOffset (Long): 374
-Image ImageDescription (ASCII): 
+Image ImageDescription (ASCII):
 Image Make (ASCII): Eastman Kodak Company
 Image Model (ASCII): DC210 Zoom (V05.00)
 Image Orientation (Short): Horizontal (normal)
@@ -787,7 +815,7 @@ EXIF MeteringMode (Short): Average
 EXIF SceneType (Undefined): Directly Photographed
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 5
-Image Copyright (ASCII): KODAK DC240 ZOOM DIGITAL CAMERA 
+Image Copyright (ASCII): KODAK DC240 ZOOM DIGITAL CAMERA
 Image ExifOffset (Long): 250
 Image Make (ASCII): EASTMAN KODAK COMPANY
 Image Model (ASCII): KODAK DC240 ZOOM DIGITAL CAMERA
@@ -831,10 +859,10 @@ EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 1, 0, 11, 0, 2, 0, 2, 0,
 EXIF MaxApertureValue (Ratio): 13/5
 EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 Image DateTime (ASCII): 2001:04:06 11:51:40
 Image ExifOffset (Long): 284
-Image ImageDescription (ASCII):           
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): E950
 Image Orientation (Short): Horizontal (normal)
@@ -851,7 +879,7 @@ MakerNote ImageAdjustment (Short): Contrast+
 MakerNote Quality (Short): 12
 MakerNote Tag 0x0002 (ASCII): 08.00
 MakerNote Tag 0x0008 (Ratio): 0/0
-MakerNote Tag 0x0009 (ASCII): 
+MakerNote Tag 0x0009 (ASCII):
 MakerNote Tag 0x000A (Ratio): 0
 MakerNote Tag 0x000B (Short): 0
 MakerNote Tag 0x0F00 (Long): [0, 0, 16777216, 0, 2685774096, 0, 34833, 6931, 16178, 4372, 4372, 3322676767, 3373084416, 15112, 0, 0, 1151495, 252903424, 17, 0, 0, 844038208, 55184128, 218129428, 1476410198, 370540566, 4044363286, 16711749, 204629079, 1729]
@@ -888,10 +916,10 @@ EXIF MakerNote (Undefined): [79, 76, 89, 77, 80, 0, 1, 0, 8, 0, 1, 2, 3, 0, 1, 0
 EXIF MaxApertureValue (Ratio): 3
 EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 Image DateTime (ASCII): 2000:11:08 20:14:38
 Image ExifOffset (Long): 274
-Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA         
+Image ImageDescription (ASCII): OLYMPUS DIGITAL CAMERA
 Image Make (ASCII): OLYMPUS OPTICAL CO.,LTD
 Image Model (ASCII): C960Z,D460Z
 Image Orientation (Short): Horizontal (normal)
@@ -940,13 +968,13 @@ EXIF InteroperabilityOffset (Long): 936
 EXIF LightSource (Short): Unknown
 EXIF MakerNote (Undefined): [82, 118, 48, 50, 48, 55, 59, 83, 102, 54, 67, 56, 52, 59, 82, 103, 55, 54, 59, 66, ... ]
 EXIF MaxApertureValue (Ratio): 39/10
-EXIF RelatedSoundFile (ASCII):             
+EXIF RelatedSoundFile (ASCII):
 EXIF ShutterSpeedValue (Signed Ratio): 13/2
-EXIF UserComment (Undefined): 
-Image Copyright (ASCII): (C) by RDC-5300 User     
+EXIF UserComment (Undefined):
+Image Copyright (ASCII): (C) by RDC-5300 User
 Image ExifOffset (Long): 192
-Image Make (ASCII): RICOH      
-Image Model (ASCII): RDC-5300       
+Image Make (ASCII): RICOH
+Image Model (ASCII): RDC-5300
 Image Orientation (Short): Horizontal (normal)
 Image ResolutionUnit (Short): Pixels/Inch
 Image XResolution (Ratio): 72
@@ -982,12 +1010,12 @@ EXIF LightSource (Short): Unknown
 EXIF MakerNote (Undefined): [83, 65, 78, 89, 79, 0, 1, 0, 3, 0, 0, 2, 4, 0, 3, 0, 0, 0, 17, 3, ... ]
 EXIF MaxApertureValue (Ratio): 3
 EXIF MeteringMode (Short): CenterWeightedAverage
-EXIF RelatedSoundFile (ASCII):             
+EXIF RelatedSoundFile (ASCII):
 Image DateTime (ASCII): 1998:01:01 00:00:00
 Image ExifOffset (Long): 294
 Image ImageDescription (ASCII): SANYO DIGITAL CAMERA
 Image Make (ASCII): SANYO Electric Co.,Ltd.
-Image Model (ASCII): SR6 
+Image Model (ASCII): SR6
 Image Orientation (Short): Horizontal (normal)
 Image ResolutionUnit (Short): Pixels/Inch
 Image Software (ASCII): V06P-74
@@ -1024,12 +1052,12 @@ EXIF LightSource (Short): Unknown
 EXIF MakerNote (Undefined): [83, 65, 78, 89, 79, 0, 1, 0, 6, 0, 0, 2, 4, 0, 3, 0, 0, 0, 210, 3, ... ]
 EXIF MaxApertureValue (Ratio): 3
 EXIF MeteringMode (Short): CenterWeightedAverage
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 Image DateTime (ASCII): 2000:11:18 21:14:19
 Image ExifOffset (Long): 284
 Image ImageDescription (ASCII): SANYO DIGITAL CAMERA
 Image Make (ASCII): SANYO Electric Co.,Ltd.
-Image Model (ASCII): SX113 
+Image Model (ASCII): SX113
 Image Orientation (Short): Horizontal (normal)
 Image ResolutionUnit (Short): Pixels/Inch
 Image Software (ASCII): V113p-73
@@ -1071,7 +1099,7 @@ EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF SceneType (Undefined): Directly Photographed
 Image DateTime (ASCII): 2000:09:30 10:59:45
 Image ExifOffset (Long): 224
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): SONY
 Image Model (ASCII): CYBERSHOT
 Image Orientation (Short): Horizontal (normal)
@@ -1111,7 +1139,7 @@ EXIF MeteringMode (Short): CenterWeightedAverage
 EXIF ShutterSpeedValue (Signed Ratio): 5
 Image DateTime (ASCII): 1998:12:01 14:22:36
 Image ExifOffset (Long): 206
-Image ImageDescription (ASCII): 
+Image ImageDescription (ASCII):
 Image Make (ASCII): SONY
 Image Model (ASCII): DSC-D700
 Image Orientation (Short): Horizontal (normal)
@@ -1165,7 +1193,7 @@ EXIF MeteringMode (Short): Pattern
 EXIF SceneType (Undefined): Directly Photographed
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 17/2
-Image Copyright (ASCII):     
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2008:07:31 17:17:56
 Image ExifOffset (Long): 226
 Image Make (ASCII): FUJIFILM
@@ -1189,7 +1217,7 @@ MakerNote Macro (Short): Off
 MakerNote MotorOrBracket (Short): Off
 MakerNote NoteVersion (Undefined): 0130
 MakerNote PictureMode (Short): Auto
-MakerNote Quality (ASCII): FINE   
+MakerNote Quality (ASCII): FINE
 MakerNote Saturation (Short): Normal
 MakerNote Sharpness (Short): Normal
 MakerNote SlowSync (Short): Off
@@ -1241,11 +1269,11 @@ EXIF Sharpness (Short): Normal
 EXIF ShutterSpeedValue (Signed Ratio): 63/10
 EXIF SubjectDistanceRange (Short): 0
 EXIF WhiteBalance (Short): Auto
-Image Copyright (ASCII):     
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2008:07:31 16:49:10
 Image ExifOffset (Long): 266
 Image Make (ASCII): FUJIFILM
-Image Model (ASCII): FinePix E500   
+Image Model (ASCII): FinePix E500
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 2, 0, 2, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0]
 Image ResolutionUnit (Short): Pixels/Inch
@@ -1269,7 +1297,7 @@ MakerNote Macro (Short): On
 MakerNote MotorOrBracket (Short): Off
 MakerNote NoteVersion (Undefined): 0130
 MakerNote PictureMode (Short): Auto
-MakerNote Quality (ASCII): FINE   
+MakerNote Quality (ASCII): FINE
 MakerNote Saturation (Short): Normal
 MakerNote Sharpness (Short): Normal
 MakerNote SlowSync (Short): Off
@@ -1311,22 +1339,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 1407/500]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 53, 645599999/100000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 06
 GPS GPSTimeStamp (Ratio): [14, 27, 181/25]
 Image DateTime (ASCII): 2008:11:01 21:15:07
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1339,27 +1367,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1367,10 +1395,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6702
@@ -1412,22 +1440,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 176399999/100000000]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 53, 742199999/100000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 06
 GPS GPSTimeStamp (Ratio): [14, 28, 431/25]
 Image DateTime (ASCII): 2008:11:01 21:15:07
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1440,27 +1468,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1468,10 +1496,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6339
@@ -1513,22 +1541,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 149399999/100000000]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 53, 433799999/100000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 06
 GPS GPSTimeStamp (Ratio): [14, 36, 4723/100]
 Image DateTime (ASCII): 2008:11:01 21:15:08
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1541,27 +1569,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1569,10 +1597,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6307
@@ -1614,22 +1642,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 3057/500]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 538859999/10000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 05
 GPS GPSTimeStamp (Ratio): [14, 41, 4903/100]
 Image DateTime (ASCII): 2008:11:01 21:15:09
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1642,27 +1670,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1670,10 +1698,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 5628
@@ -1715,22 +1743,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 639/100]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 26727/500]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 05
 GPS GPSTimeStamp (Ratio): [14, 42, 2903/100]
 Image DateTime (ASCII): 2008:11:01 21:15:09
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1743,27 +1771,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1771,10 +1799,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 5803
@@ -1816,22 +1844,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 567599999/100000000]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 486179999/10000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 05
 GPS GPSTimeStamp (Ratio): [14, 45, 2091/100]
 Image DateTime (ASCII): 2008:11:01 21:15:09
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1844,27 +1872,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1872,10 +1900,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6737
@@ -1917,22 +1945,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 28, 211799999/100000000]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 5646/125]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 04
 GPS GPSTimeStamp (Ratio): [14, 50, 409/10]
 Image DateTime (ASCII): 2008:11:01 21:15:11
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -1945,27 +1973,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -1973,10 +2001,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6112
@@ -2018,22 +2046,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 27, 576419999/10000000]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 448019999/10000000]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 04
 GPS GPSTimeStamp (Ratio): [14, 54, 19/100]
 Image DateTime (ASCII): 2008:11:01 21:15:11
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -2046,27 +2074,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -2074,10 +2102,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 5159
@@ -2119,22 +2147,22 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSAltitudeRef (Byte): 0
 GPS GPSDate (ASCII): 2008:10:23
-GPS GPSImgDirectionRef (ASCII): 
+GPS GPSImgDirectionRef (ASCII):
 GPS GPSLatitude (Ratio): [43, 27, 26019/500]
 GPS GPSLatitudeRef (ASCII): N
 GPS GPSLongitude (Ratio): [11, 52, 26661/500]
 GPS GPSLongitudeRef (ASCII): E
-GPS GPSMapDatum (ASCII): WGS-84   
+GPS GPSMapDatum (ASCII): WGS-84
 GPS GPSSatellites (ASCII): 04
 GPS GPSTimeStamp (Ratio): [14, 57, 4137/100]
 Image DateTime (ASCII): 2008:11:01 21:15:11
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 926
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P6000
 Image Orientation (Short): Horizontal (normal)
@@ -2147,27 +2175,27 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
 MakerNote ActiveDLighting (Short): 0
-MakerNote AuxiliaryLens (ASCII): OFF         
+MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 1
-MakerNote FlashSetting (ASCII):        
-MakerNote FocusMode (ASCII): AF-S  
-MakerNote ISOSelection (ASCII): AUTO  
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-S
+MakerNote ISOSelection (ASCII): AUTO
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII): NORMAL       
+MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
-MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0              
+MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
 MakerNote NikonScan (Long): 3292
-MakerNote NoiseReduction (ASCII): OFF 
-MakerNote Quality (ASCII): FINE   
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote Quality (ASCII): FINE
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0]
 MakerNote Saturation (ASCII): NORMAL
-MakerNote Scene Assist (ASCII):                     
-MakerNote SceneMode (ASCII):                
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
 MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0021 (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
@@ -2175,10 +2203,10 @@ MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
 MakerNote Tag 0x009D (Short): 0
-MakerNote Tag 0x00B2 (ASCII): NORMAL  
+MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote Tag 0x00BD (Undefined): [48, 49, 48, 48, 83, 84, 65, 78, 68, 65, 82, 68, 32, 32, 32, 0, 0, 0, 0, 0, ... ]
-MakerNote ToneCompensation (ASCII): NORMAL  
-MakerNote Whitebalance (ASCII): AUTO        
+MakerNote ToneCompensation (ASCII): NORMAL
+MakerNote Whitebalance (ASCII): AUTO
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 4548
 Thumbnail JPEGInterchangeFormatLength (Long): 6474
@@ -2189,7 +2217,7 @@ Thumbnail YResolution (Ratio): 72
 Opening: tests/resources/jpg/hdr/canon_hdr_NO.jpg
 File has JPEG thumbnail
 EXIF ApertureValue (Ratio): 159/32
-EXIF CameraOwnerName (ASCII): 
+EXIF CameraOwnerName (ASCII):
 EXIF ColorSpace (Short): sRGB
 EXIF ComponentsConfiguration (Undefined): YCbCr
 EXIF CompressedBitsPerPixel (Ratio): 3
@@ -2220,15 +2248,15 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SensingMethod (Short): One-chip color area
 EXIF SensitivityType (Short): Standard Output Sensitivity and Recommended Exposure Index
 EXIF ShutterSpeedValue (Signed Ratio): 189/32
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSVersionID (Byte): [2, 3, 0, 0]
-Image Artist (ASCII): 
-Image Copyright (ASCII): 
+Image Artist (ASCII):
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2015:02:26 04:20:03
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 6488
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): Canon
 Image Model (ASCII): Canon PowerShot SX60 HS
 Image Orientation (Short): Rotated 90 CW
@@ -2244,18 +2272,24 @@ MakerNote AESetting (Proprietary): Unknown
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
 MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote AutoExposureBracketing (Proprietary): Off
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 0
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): n/a
 MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoom (Proprietary): Unknown
 MakerNote EasyShootingMode (Proprietary): Unknown
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Easy Shooting
 MakerNote FirmwareRevision (Long): 16777728
-MakerNote FirmwareVersion (ASCII): 
+MakerNote FirmwareVersion (ASCII):
 MakerNote FlashActivity (Proprietary): Unknown
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [0, 699, 0, 507]
 MakerNote FlashMode (Proprietary): Flash Not Fired
 MakerNote FocalUnitsPerMM (Proprietary): 14919
@@ -2265,14 +2299,16 @@ MakerNote ISO (Proprietary): Unknown
 MakerNote ImageNumber (Long): 1020153
 MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
-MakerNote ImageType (ASCII): 
+MakerNote ImageType (ASCII):
 MakerNote ImageUniqueID (Byte): [231, 233, 118, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
 MakerNote LensType (Proprietary): 0
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Spot
 MakerNote ModelID (Long): PowerShot SX60 HS
+MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote Quality (Proprietary): Unknown
 MakerNote RecordMode (Proprietary): Unknown
 MakerNote Saturation (Proprietary): Normal
@@ -2301,6 +2337,8 @@ MakerNote Tag 0x0037 (Long): [0, 1229520896]
 MakerNote Tag 0x0038 (Undefined): [42, 0, 146, 3, 0, 0, 0, 0]
 MakerNote Tag 0x003C (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MakerNote Tag 0x00D0 (Long): 0
+MakerNote TargetAperture (Proprietary): 0
+MakerNote TargetExposureTime (Proprietary): 0
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
 MakerNote Unknown (Proprietary): 49
 MakerNote WhiteBalance (Proprietary): Unknown
@@ -2314,7 +2352,7 @@ Thumbnail YResolution (Ratio): 180
 Opening: tests/resources/jpg/hdr/canon_hdr_YES.jpg
 File has JPEG thumbnail
 EXIF ApertureValue (Ratio): 159/32
-EXIF CameraOwnerName (ASCII): 
+EXIF CameraOwnerName (ASCII):
 EXIF ColorSpace (Short): sRGB
 EXIF ComponentsConfiguration (Undefined): YCbCr
 EXIF CompressedBitsPerPixel (Ratio): 3
@@ -2345,15 +2383,15 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SensingMethod (Short): One-chip color area
 EXIF SensitivityType (Short): Standard Output Sensitivity and Recommended Exposure Index
 EXIF ShutterSpeedValue (Signed Ratio): 245/32
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSVersionID (Byte): [2, 3, 0, 0]
-Image Artist (ASCII): 
-Image Copyright (ASCII): 
+Image Artist (ASCII):
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2015:02:26 04:20:24
 Image ExifOffset (Long): 268
 Image GPSInfo (Long): 6488
-Image ImageDescription (ASCII):                                
+Image ImageDescription (ASCII):
 Image Make (ASCII): Canon
 Image Model (ASCII): Canon PowerShot SX60 HS
 Image Orientation (Short): Rotated 90 CW
@@ -2369,18 +2407,24 @@ MakerNote AESetting (Proprietary): Unknown
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
 MakerNote AspectInfo (Long): [0, 0, 0, 0, 0]
+MakerNote AutoExposureBracketing (Proprietary): Off
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 0
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): n/a
 MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoom (Proprietary): Unknown
 MakerNote EasyShootingMode (Proprietary): Unknown
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Easy Shooting
 MakerNote FirmwareRevision (Long): 16777728
-MakerNote FirmwareVersion (ASCII): 
+MakerNote FirmwareVersion (ASCII):
 MakerNote FlashActivity (Proprietary): Unknown
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [0, 743, 0, 507]
 MakerNote FlashMode (Proprietary): Flash Not Fired
 MakerNote FocalUnitsPerMM (Proprietary): 14919
@@ -2390,14 +2434,16 @@ MakerNote ISO (Proprietary): Unknown
 MakerNote ImageNumber (Long): 1020154
 MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
-MakerNote ImageType (ASCII): 
+MakerNote ImageType (ASCII):
 MakerNote ImageUniqueID (Byte): [230, 233, 14, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
 MakerNote LensType (Proprietary): 0
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Spot
 MakerNote ModelID (Long): PowerShot SX60 HS
+MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote Quality (Proprietary): Unknown
 MakerNote RecordMode (Proprietary): Unknown
 MakerNote Saturation (Proprietary): Normal
@@ -2426,6 +2472,8 @@ MakerNote Tag 0x0037 (Long): [0, 1229520896]
 MakerNote Tag 0x0038 (Undefined): [42, 0, 146, 3, 0, 0, 0, 0]
 MakerNote Tag 0x003C (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MakerNote Tag 0x00D0 (Long): 0
+MakerNote TargetAperture (Proprietary): 0
+MakerNote TargetExposureTime (Proprietary): 0
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
 MakerNote Unknown (Proprietary): 53
 MakerNote WhiteBalance (Proprietary): Unknown
@@ -2706,12 +2754,12 @@ EXIF SceneCaptureType (Short): Standard
 EXIF Sharpness (Short): Normal
 EXIF SubjectArea (Short): [1136, 852, 280, 280]
 EXIF SubjectDistanceRange (Short): 2
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2008:07:31 16:45:37
 Image ExifOffset (Long): 380
 Image ImageDescription (ASCII): KONICA MINOLTA DIGITAL CAMERA
-Image Make (ASCII): KONICA MINOLTA 
+Image Make (ASCII): KONICA MINOLTA
 Image Model (ASCII): DiMAGE Z3
 Image Orientation (Short): Horizontal (normal)
 Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 50, 53, 48, 0, 0, 0, 5, 0, 1, 0, 22, ... ]
@@ -2738,7 +2786,7 @@ EXIF ExifImageLength (Long): 73
 EXIF ExifImageWidth (Long): 100
 EXIF Flash (Short): 9969
 Image Artist (ASCII): SSG KYLE DAVIS
-Image Copyright (ASCII): 
+Image Copyright (ASCII):
 Image DateTime (ASCII): 2008:07:31 10:50:00
 Image ExifOffset (Long): 618
 Image ImageDescription (ASCII): Operation Mountain Viper put the soldiers of A Company, 2nd Battalion 22nd Infantry Division, 10th Mountain in the Afghanistan province of Daychopan to search for Taliban and or weapon caches that could be used against U.S. and allied forces. Soldiers quickly walk to the ramp of the CH-47 Chinook cargo helicopter that will return them to Kandahar Army Air Field.  (U.S. Army photo by Staff Sgt. Kyle Davis) (Released)
@@ -2867,11 +2915,11 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubjectDistanceRange (Short): 0
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2008:07:31 17:43:03
 Image ExifOffset (Long): 224
-Image ImageDescription (ASCII):           
+Image ImageDescription (ASCII):
 Image Make (ASCII): NIKON
 Image Model (ASCII): COOLPIX P1
 Image Orientation (Short): Horizontal (normal)
@@ -2883,35 +2931,35 @@ Image YResolution (Ratio): 72
 Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 MakerNote AFFocusPosition (Undefined): CenterCenterCenterCenter
-MakerNote AFResponse (ASCII): 
-MakerNote AuxiliaryLens (ASCII): 
-MakerNote ColorMode (ASCII):       
+MakerNote AFResponse (ASCII):
+MakerNote AuxiliaryLens (ASCII):
+MakerNote ColorMode (ASCII):
 MakerNote DataDump (Undefined): []
 MakerNote DigitalZoomFactor (Ratio): 16843009/2049
 MakerNote FlashInfo (Undefined): [0, 0, 86, 82, 45, 79, 70, 70, 32, 32, 32, 32, 32, 0, 83, 84, 65, 78, 68, 65]
-MakerNote FlashSetting (ASCII): TO  
-MakerNote FocusMode (ASCII): 
+MakerNote FlashSetting (ASCII): TO
+MakerNote FocusMode (ASCII):
 MakerNote ISOSelection (ASCII): 
 MakerNote ISOSetting (Short): [0, 0]
-MakerNote ImageAdjustment (ASCII):         
-MakerNote ImageProcessing (ASCII):                       AUTO         
-MakerNote ImageSharpening (ASCII): AL 
-MakerNote ImageStabilization (ASCII): RD 
+MakerNote ImageAdjustment (ASCII):
+MakerNote ImageProcessing (ASCII):                       AUTO
+MakerNote ImageSharpening (ASCII): AL
+MakerNote ImageStabilization (ASCII): RD
 MakerNote MakernoteVersion (Undefined): 0200
 MakerNote ManualFocusDistance (Ratio): 1
 MakerNote NikonPreview (Long): 2150
-MakerNote NoiseReduction (ASCII):      
-MakerNote Quality (ASCII):  
+MakerNote NoiseReduction (ASCII):
+MakerNote Quality (ASCII):
 MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0]
 MakerNote Saturation (Signed Short): 0
-MakerNote Scene Assist (ASCII):  
-MakerNote SceneMode (ASCII): 
-MakerNote ShotInfo (ASCII): 
+MakerNote Scene Assist (ASCII):
+MakerNote SceneMode (ASCII):
+MakerNote ShotInfo (ASCII):
 MakerNote Tag 0x000A (Ratio): 0
 MakerNote Tag 0x009B (Byte): [0, 0]
 MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00AE (Undefined): [0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 32]
-MakerNote Whitebalance (ASCII):  
+MakerNote Whitebalance (ASCII):
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 3148
 Thumbnail JPEGInterchangeFormatLength (Long): 1639
@@ -2987,9 +3035,9 @@ EXIF SceneCaptureType (Short): Standard
 EXIF SceneType (Undefined): Directly Photographed
 EXIF Sharpness (Short): Normal
 EXIF SubSecTime (ASCII): 500
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
-Image Artist (ASCII): 
+Image Artist (ASCII):
 Image DateTime (ASCII): 2008:07:31 13:03:47
 Image ExifOffset (Long): 222
 Image Make (ASCII): OLYMPUS CORPORATION
@@ -3243,8 +3291,8 @@ Image CustomRendered (Short): Normal
 Image DateTime (ASCII): 2008:07:31 15:56:49
 Image ExifOffset (Long): 408
 Image ExposureMode (Short): Auto Exposure
-Image Make (ASCII): PENTAX Corporation 
-Image Model (ASCII): PENTAX K10D        
+Image Make (ASCII): PENTAX Corporation
+Image Model (ASCII): PENTAX K10D
 Image Orientation (Short): Horizontal (normal)
 Image ResolutionUnit (Short): Pixels/Inch
 Image Saturation (Short): Normal
@@ -3304,8 +3352,8 @@ EXIF SubjectDistanceRange (Short): 3
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2008:07:31 17:36:21
 Image ExifOffset (Long): 190
-Image Make (ASCII): Caplio 
-Image Model (ASCII): RR330      
+Image Make (ASCII): Caplio
+Image Model (ASCII): RR330
 Image ResolutionUnit (Short): Pixels/Inch
 Image Software (ASCII): GIMP 2.4.5
 Image XResolution (Ratio): 72
@@ -3522,7 +3570,7 @@ EXIF MaxApertureValue (Ratio): 95/32
 EXIF MeteringMode (Short): Pattern
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 287/32
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 Image CustomRendered (Short): Normal
 Image DateTime (ASCII): 2007:09:03 16:03:45
 Image DigitalZoomRatio (Ratio): 1
@@ -3538,17 +3586,23 @@ Image YCbCrPositioning (Short): Centered
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AutoExposureBracketing (Proprietary): On (shot 1)
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 0
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): n/a
 MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoom (Proprietary): None
 MakerNote EasyShootingMode (Proprietary): Full Auto
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Unknown
-MakerNote FirmwareVersion (ASCII): 
+MakerNote FirmwareVersion (ASCII):
 MakerNote FlashActivity (Proprietary): Did Not Fire
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Unknown
+MakerNote FlashGuideNumber (Proprietary): 18
 MakerNote FlashInfo (Short): [0, 0, 6, 250]
 MakerNote FlashMode (Proprietary): Flash Not Fired
 MakerNote FocalLength (Proprietary): 96
@@ -3560,14 +3614,16 @@ MakerNote ISO (Proprietary): Unknown
 MakerNote ImageNumber (Long): 1353533
 MakerNote ImageSize (Proprietary): Unknown
 MakerNote ImageStabilization (Proprietary): Off
-MakerNote ImageType (ASCII): 
+MakerNote ImageType (ASCII):
 MakerNote LensType (Proprietary): 2
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Default
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
-MakerNote OwnerName (ASCII): 
+MakerNote OpticalZoomCode (Proprietary): 0
+MakerNote OwnerName (ASCII):
 MakerNote Quality (Proprietary): Unknown
 MakerNote RecordMode (Proprietary): Unknown
 MakerNote Saturation (Proprietary): Normal
@@ -3582,6 +3638,8 @@ MakerNote Tag 0x0000 (Short): [65484, 65484, 0, 0, 0, 52, 52, 52, 65]
 MakerNote Tag 0x0012 (Short): [0, 0, 0, 0, 0, 19785, 14919, 18756, 18759, 16724, 8268, 22601, 21333, 13344, 8240, 20554, 18245, 0, 0, 0, 0, 26950, 28018, 24951, 25970, 22048, 29285, 26995]
 MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
 MakerNote Tag 0x0019 (Short): 1
+MakerNote TargetAperture (Proprietary): 0
+MakerNote TargetExposureTime (Proprietary): 0
 MakerNote ThumbnailImageValidArea (Short): [28271, 12576, 12334, 48]
 MakerNote Unknown (Proprietary): 65127
 MakerNote WhiteBalance (Proprietary): Auto
@@ -3617,7 +3675,7 @@ EXIF MeteringMode (Short): Pattern
 EXIF SceneCaptureType (Short): Portrait
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 83/32
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2007:11:29 16:16:21
 Image ExifOffset (Long): 196
@@ -3635,17 +3693,23 @@ Interoperability RelatedImageWidth (Short): 1600
 MakerNote AESetting (Proprietary): Normal AE
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AutoExposureBracketing (Proprietary): Off
+MakerNote AutoISO (Proprietary): 0
+MakerNote BaseISO (Proprietary): 128
 MakerNote CameraTemperature (Proprietary): -128 C
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
+MakerNote ControlMode (Proprietary): Camera Local Control
 MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoom (Proprietary): None
 MakerNote EasyShootingMode (Proprietary): Portrait
+MakerNote ExposureCompensation (Proprietary): 0
 MakerNote ExposureMode (Proprietary): Easy Shooting
 MakerNote FirmwareVersion (ASCII): Firmware Version 1.00
 MakerNote FlashActivity (Proprietary): Unknown
 MakerNote FlashBias (Proprietary): 0 EV
 MakerNote FlashDetails (Proprietary): Manual
+MakerNote FlashGuideNumber (Proprietary): 0
 MakerNote FlashInfo (Short): [0, 0, 0, 0]
 MakerNote FlashMode (Proprietary): Flash Not Fired
 MakerNote FocalLength (Proprietary): 2
@@ -3662,9 +3726,11 @@ MakerNote LensType (Proprietary): 65535
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 17400
 MakerNote Macromode (Proprietary): Normal
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MeasuredEV (Proprietary): 39
 MakerNote MeteringMode (Proprietary): Evaluative
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
-MakerNote OwnerName (ASCII): 
+MakerNote OpticalZoomCode (Proprietary): 0
+MakerNote OwnerName (ASCII):
 MakerNote Quality (Proprietary): Fine
 MakerNote RecordMode (Proprietary): JPEG
 MakerNote Saturation (Proprietary): Normal
@@ -3679,6 +3745,8 @@ MakerNote Tag 0x0000 (Short): [18, 0, 0, 1, 0, 0, 0, 0, 0]
 MakerNote Tag 0x0012 (Short): [9, 9, 1600, 1200, 2272, 284, 409, 51, 65127, 0, 409, 65127, 0, 409, 65127, 0, 409, 65484, 65484, 65484, 0, 0, 0, 52, 52, 52, 19, 0]
 MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
 MakerNote Tag 0x0019 (Short): 1
+MakerNote TargetAperture (Proprietary): 95
+MakerNote TargetExposureTime (Proprietary): 83
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
 MakerNote Unknown (Proprietary): 0
 MakerNote WhiteBalance (Proprietary): Auto
@@ -3722,7 +3790,7 @@ EXIF OffsetSchema (Signed Long): 62
 EXIF SceneCaptureType (Short): Standard
 EXIF SensingMethod (Short): One-chip color area
 EXIF ShutterSpeedValue (Signed Ratio): 149/16
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 Image DateTime (ASCII): 2008:08:31 10:41:19
 Image ExifOffset (Long): 246
