@@ -2,6 +2,23 @@
 EXIF.py
 *******
 
+.. image:: https://img.shields.io/github/license/ianare/exif-py
+    :target: https://opensource.org/license/bsd-3-clause
+    :alt: BSD-3-clause
+.. image:: https://img.shields.io/pypi/v/ExifRead
+    :target: https://pypi.org/project/ExifRead
+    :alt: PyPi
+.. image:: https://img.shields.io/pypi/dm/ExifRead
+    :target: https://opensource.org/license/bsd-3-clause
+    :alt: BSD-3-clause
+.. image:: http://www.mypy-lang.org/static/mypy_badge.svg
+    :target: http://mypy-lang.org/
+    :alt: Checked with mypy
+.. image:: https://img.shields.io/github/actions/workflow/status/ianare/exif-py/test.yml
+    :target: https://github.com/ianare/exif-py
+    :alt: Tests
+|
+
 Easy to use Python module to extract Exif metadata from digital image files.
 
 Pure Python, lightweight, no dependencies.
