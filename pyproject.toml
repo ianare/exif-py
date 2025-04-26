@@ -32,6 +32,10 @@ dev = [
     "pre-commit~=2.21",
     "pylint~=3.0",
     "build~=1.0",
+    "pytest~=7.4.4"
+]
+test = [
+    "pytest~=7.4"
 ]
 
 

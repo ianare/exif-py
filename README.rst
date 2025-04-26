@@ -51,7 +51,7 @@ Development Version
 
 After cloning the repo, use the provided Makefile::
 
-  make venv install-dev
+  make venv install-all
 
 Which will create a virtual environment and install development dependencies.
 
