@@ -11,9 +11,14 @@ from xml.parsers.expat import ExpatError
 from exifread.exif_log import get_logger
 from exifread.tags import (
     DEFAULT_STOP_TAG,
-    EXIF_TAGS,
-    FIELD_DEFINITIONS,
     IGNORE_TAGS,
+)
+from exifread.tags.exif import EXIF_TAGS
+from exifread.tags.fields import (
+    FIELD_DEFINITIONS,
+    FLOAT_FIELD_TYPES,
+    RATIO_FIELD_TYPES,
+    SIGNED_FIELD_TYPES,
     FieldType,
 )
 from exifread.tags.makernote import apple, canon, casio, dji, fujifilm, nikon, olympus
@@ -182,26 +187,26 @@ class ExifHeader:
         offset: int,
     ) -> list:
         values: List[Any] = []
-        signed = field_type in [6, 8, 9, 10]
+        signed = field_type in SIGNED_FIELD_TYPES
         # TODO: investigate
         # some entries get too big to handle could be malformed
         # file or problem with self.s2n
         if count < 1000:
             for _ in range(count):
-                if field_type in (5, 10):
+                if field_type in RATIO_FIELD_TYPES:
                     # a ratio
                     ratio_value = Ratio(
                         self.s2n(offset, 4, signed), self.s2n(offset + 4, 4, signed)
                     )
                     values.append(ratio_value)
-                elif field_type in (11, 12):
+                elif field_type in FLOAT_FIELD_TYPES:
                     # a float or double
                     unpack_format = ""
                     if self.endian == "I":
                         unpack_format += "<"
                     else:
                         unpack_format += ">"
-                    if field_type == 11:
+                    if field_type == FieldType.FLOAT_32:
                         unpack_format += "f"
                     else:
                         unpack_format += "d"
@@ -226,7 +231,7 @@ class ExifHeader:
                 offset = offset + type_length
         return values
 
-    def _process_field2(self, ifd_name, tag_name, count: int, offset: int):
+    def _process_ascii_field(self, ifd_name, tag_name, count: int, offset: int):
         values: Union[str, bytes] = ""
         # special case: null-terminated ASCII string
         # XXX investigate
@@ -362,7 +367,7 @@ class ExifHeader:
 
         field_offset = offset
         if field_type == FieldType.ASCII:
-            values = self._process_field2(ifd_name, tag_name, count, offset)
+            values = self._process_ascii_field(ifd_name, tag_name, count, offset)
         else:
             values = self._process_field(
                 tag_name, count, field_type, type_length, offset
@@ -400,7 +405,7 @@ class ExifHeader:
         try:
             entries = self.s2n(ifd, 2)
         except TypeError:
-            logger.warning("Possibly corrupted IFD: %s", ifd)
+            logger.warning("Possibly corrupted IFD: %s", ifd_name)
             return
 
         for i in range(entries):

@@ -6,7 +6,7 @@ from typing import Callable, Dict, List, Union
 
 from exifread.classes import IfdTag
 from exifread.exif_log import get_logger
-from exifread.tags import FieldType
+from exifread.tags.fields import FieldType
 
 logger = get_logger()
 
