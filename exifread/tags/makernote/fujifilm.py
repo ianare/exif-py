@@ -5,7 +5,7 @@ http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/FujiFilm.html
 """
 from typing import Dict, Tuple
 
-from exifread.utils import make_string
+from exifread.tags.str_utils import make_string
 
 TAGS: Dict[int, Tuple] = {
     0x0000: ("NoteVersion", make_string),

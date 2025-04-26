@@ -3,7 +3,7 @@ Makernote (proprietary) tag definitions for Olympus.
 """
 from typing import Dict, Tuple
 
-from exifread.utils import make_string
+from exifread.tags.str_utils import make_string
 
 
 def special_mode(val) -> str:

@@ -2,9 +2,9 @@
 
 from typing import BinaryIO, Tuple
 
-from exifread.exceptions import InvalidExif
+from exifread.core.exceptions import InvalidExif
+from exifread.core.utils import ord_
 from exifread.exif_log import get_logger
-from exifread.utils import ord_
 
 logger = get_logger()
 
