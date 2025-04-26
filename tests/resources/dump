@@ -3380,6 +3380,74 @@ Thumbnail ResolutionUnit (Short): Pixels/Inch
 Thumbnail XResolution (Ratio): 1
 Thumbnail YResolution (Ratio): 1
 
+Opening: tests/resources/jpg/sony_alpha_a58.JPG
+File has JPEG thumbnail
+EXIF BrightnessValue (Signed Ratio): -1543/1280
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 0
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2023:10:28 21:42:29
+EXIF DateTimeOriginal (ASCII): 2023:10:28 21:42:29
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Signed Long): 10
+EXIF ExifImageWidth (Signed Long): 10
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/100
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 300
+EXIF FocalLengthIn35mmFilm (Short): 450
+EXIF ISOSpeedRatings (Short): 100
+EXIF InteroperabilityOffset (Long): 24062
+EXIF LensModel (ASCII): 70-300mm F4-5.6 SSM
+EXIF LensSpecification (Ratio): [70, 300, 4, 28/5]
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [83, 79, 78, 89, 32, 68, 83, 67, 32, 0, 0, 0, 87, 0, 0, 32, 7, 0, 1, 0, ... ]
+EXIF MaxApertureValue (Ratio): 159/32
+EXIF MeteringMode (Short): Pattern
+EXIF RecommendedExposureIndex (Long): 100
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensitivityType (Short): Recommended Exposure Index
+EXIF Sharpness (Short): Normal
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2023:10:28 21:42:29
+Image ExifOffset (Long): 362
+Image ImageLength (Signed Long): 10
+Image ImageWidth (Signed Long): 10
+Image Make (ASCII): SONY
+Image Model (ASCII): SLT-A58
+Image Orientation (Signed Long): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 3, 0, 2, 0, 1, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): SLT-A58 v1.01
+Image Tag 0x000B (ASCII): Pix 3.0.2
+Image XResolution (Ratio): 350
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 350
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail DateTime (ASCII): 2023:10:28 21:42:29
+Thumbnail JPEGInterchangeFormat (Long): 24290
+Thumbnail JPEGInterchangeFormatLength (Long): 285
+Thumbnail Make (ASCII): SONY
+Thumbnail Model (ASCII): SLT-A58
+Thumbnail Orientation (Short): Horizontal (normal)
+Thumbnail ResolutionUnit (Signed Long): Pixels/Inch
+Thumbnail Software (ASCII): SLT-A58 v1.01
+Thumbnail XResolution (Signed Long): 72
+Thumbnail YCbCrPositioning (Short): Co-sited
+Thumbnail YResolution (Signed Long): 72
+
 Opening: tests/resources/jpg/Sony_HDR-HC3.jpg
 File has JPEG thumbnail
 EXIF ColorSpace (Short): sRGB
@@ -4465,6 +4533,67 @@ Thumbnail YResolution (Ratio): 72
 
 Opening: tests/resources/jpg/xmp/no_exif.jpg
 No EXIF information found
+
+Opening: tests/resources/raw/sony_alpha_a7iii_raw_image.ARW
+EXIF BrightnessValue (Signed Ratio): -3483/1280
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 8
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2024:09:14 13:54:44
+EXIF DateTimeOriginal (ASCII): 2024:09:14 13:54:44
+EXIF DigitalZoomRatio (Ratio): 0/0
+EXIF ExifImageLength (Long): 4000
+EXIF ExifImageWidth (Long): 6000
+EXIF ExifVersion (Undefined): 0231
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 1/400
+EXIF FNumber (Ratio): 0
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 0
+EXIF FocalLengthIn35mmFilm (Short): 0
+EXIF ISOSpeedRatings (Short): 6400
+EXIF InteroperabilityOffset (Long): 42888
+EXIF LensModel (ASCII):
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [101, 0, 3, 16, 4, 0, 16, 0, 0, 0, 232, 24, 0, 0, 0, 32, 7, 0, 1, 0, ... ]
+EXIF MaxApertureValue (Ratio): 0
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF OffsetTime (ASCII): +02:00
+EXIF OffsetTimeDigitized (ASCII): +02:00
+EXIF OffsetTimeOriginal (ASCII): +02:00
+EXIF RecommendedExposureIndex (Long): 6400
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensitivityType (Short): Recommended Exposure Index
+EXIF Sharpness (Short): Normal
+EXIF UserComment (Undefined):
+EXIF WhiteBalance (Short): Auto
+Image ApplicationNotes (Byte): []
+Image Compression (Short): JPEG (old-style)
+Image DateTime (ASCII): 2024:09:14 13:54:44
+Image ExifOffset (Long): 4544
+Image ImageDescription (ASCII):
+Image JPEGInterchangeFormat (Long): 135330
+Image JPEGInterchangeFormatLength (Long): 392117
+Image Make (ASCII): SONY
+Image Model (ASCII): ILCE-7M3
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 3, 0, 2, 0, 1, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): ILCE-7M3 v4.01
+Image SubIFDs (Long): 133316
+Image SubfileType (Long): Reduced-resolution image
+Image Tag 0xC634 (Byte): [2, 209, 0, 0]
+Image XResolution (Ratio): 350
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 350
 
 Opening: tests/resources/tiff/Arbitro.tiff
 Image ApplicationNotes (Byte): [60, 120, 58, 120, 109, 112, 109, 101, 116, 97, 32, 120, 109, 108, 110, 115, 58, 120, 61, 34, ... ]
