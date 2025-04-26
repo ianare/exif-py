@@ -4574,6 +4574,89 @@ Thumbnail XResolution (Ratio): 300
 Thumbnail YCbCrPositioning (Short): Co-sited
 Thumbnail YResolution (Ratio): 300
 
+Opening: tests/resources/jpg/tests/nikon_D3100_TypeError.jpg
+Possibly corrupted field FlashCompensation in MakerNote IFD
+File has JPEG thumbnail
+EXIF CVAPattern (Undefined): [0, 2, 0, 2, 1, 2, 0, 1]
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2017:06:05 07:08:42
+EXIF DateTimeOriginal (ASCII): 2017:06:05 07:08:42
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Signed Long): 134
+EXIF ExifImageWidth (Signed Long): 200
+EXIF ExifVersion (Undefined): 0210
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/80
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 85
+EXIF FocalLengthIn35mmFilm (Short): 127
+EXIF GainControl (Short): Low gain up
+EXIF ISOSpeedRatings (Short): 800
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 16, 0, 0, 77, 77, 0, 42, 0, 0, 0, 8, 0, 54, ... ]
+EXIF MaxApertureValue (Ratio): 5
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Landscape
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF Sharpness (Short): Normal
+EXIF SubSecTime (ASCII): 00
+EXIF SubSecTimeDigitized (ASCII): 00
+EXIF SubSecTimeOriginal (ASCII): 00
+EXIF SubjectDistanceRange (Short): 0
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 0
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSLatitude (Ratio): [44, 25, 14674989/1000000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [8, 56, 21599417/1000000]
+GPS GPSLongitudeRef (ASCII): E
+GPS GPSMapDatum (ASCII): WGS-84
+GPS GPSVersionID (Byte): [2, 0, 0, 0]
+Image DateTime (ASCII): 2017:06:05 22:30:47
+Image ExifOffset (Long): 358
+Image GPSInfo (Long): 7974
+Image ImageLength (Signed Long): 3048
+Image ImageWidth (Signed Long): 4528
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON D3100
+Image Orientation (Short): Horizontal (normal)
+Image ReferenceBlackWhite (Ratio): [0, 255, 0, 255, 0, 255]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.8.16
+Image SubfileType (Long): Reduced-resolution image
+Image TIFF/EPStandardID (Byte): [1, 0, 0, 0]
+Image Tag 0x000B (ASCII): gThumb 3.5.1
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Signed Long): Centered
+Image YResolution (Ratio): 72
+MakerNote AutoFlashMode (Byte): []
+MakerNote ColorMode (Byte): []
+MakerNote DigitalICE (Byte): []
+MakerNote FlashCompensation (ASCII): -0.30319148936170215 57/188 EV
+MakerNote ISOSetting (Ratio): [1795869711/155865761, 860544844/357136957, 426035233/1709449416]
+MakerNote ImageSharpening (Ratio): 909748852/3519332905
+MakerNote MakernoteVersion (ASCII): N
+MakerNote Quality (Byte): []
+MakerNote Tag 0x0000 (Byte): [2, 0, 0, 0]
+MakerNote Tag 0x0101 (Byte): []
+MakerNote Whitebalance (Byte): 0
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 8218
+Thumbnail JPEGInterchangeFormatLength (Long): 3675
+Thumbnail ResolutionUnit (Signed Long): Pixels/Inch
+Thumbnail XResolution (Signed Long): 72
+Thumbnail YResolution (Signed Long): 72
+
 Opening: tests/resources/jpg/WWL_Polaroid_ION230.jpg
 File has JPEG thumbnail
 EXIF ColorSpace (Short): sRGB
