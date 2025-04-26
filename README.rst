@@ -233,4 +233,4 @@ Originally written by Gene Cash & Thierry Bousch.
 
 Available as open source under the terms of the **BSD-3-Clause license**.
 
-See LICENSE.txt file for details.
+See the LICENSE file for details.
