@@ -3,7 +3,7 @@ Standard tag definitions.
 """
 from typing import Dict, Tuple
 
-from exifread.utils import make_string, make_string_uc
+from exifread.tags.str_utils import make_string, make_string_uc
 
 # Interoperability tags
 INTEROP_TAGS: Dict[int, Tuple] = {

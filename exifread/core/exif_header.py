@@ -4,10 +4,11 @@ Base classes.
 
 import re
 import struct
-from typing import Any, BinaryIO, Dict, List, Tuple, Union
+from typing import Any, BinaryIO, Dict, List, Optional, Tuple, Union
 from xml.dom.minidom import parseString
 from xml.parsers.expat import ExpatError
 
+from exifread.core.ifd_tag import IfdTag
 from exifread.exif_log import get_logger
 from exifread.tags import (
     DEFAULT_STOP_TAG,
@@ -25,58 +26,6 @@ from exifread.tags.makernote import apple, canon, casio, dji, fujifilm, nikon, o
 from exifread.utils import Ratio
 
 logger = get_logger()
-
-
-class IfdTag:
-    """
-    Eases dealing with tags.
-    """
-
-    def __init__(
-        self,
-        printable: str,
-        tag: int,
-        field_type: FieldType,
-        values,
-        field_offset: int,
-        field_length: int,
-        prefer_printable: bool = True,
-    ) -> None:
-        # printable version of data
-        self.printable = printable
-        # tag ID number
-        self.tag = tag
-        # field type as index into FIELD_TYPES
-        self.field_type = field_type
-        # offset of start of field in bytes from beginning of IFD
-        self.field_offset = field_offset
-        # length of data field in bytes
-        self.field_length = field_length
-        # either string, bytes or list of data items
-        # TODO: sort out this type mess!
-        self.values = values
-        # indication if printable version should be used upon serialization
-        self.prefer_printable = prefer_printable
-
-    def __str__(self) -> str:
-        return self.printable
-
-    def __repr__(self) -> str:
-        try:
-            tag = "(0x%04X) %s=%s @ %d" % (
-                self.tag,
-                FIELD_DEFINITIONS[self.field_type][1],
-                self.printable,
-                self.field_offset,
-            )
-        except TypeError:
-            tag = "(%s) %s=%s @ %s" % (
-                str(self.tag),
-                FIELD_DEFINITIONS[self.field_type][1],
-                self.printable,
-                str(self.field_offset),
-            )
-        return tag
 
 
 class ExifHeader:
@@ -298,10 +247,10 @@ class ExifHeader:
                     try:
                         logger.debug("%s SubIFD at offset %d:", ifd_info[0], values[0])
                         self.dump_ifd(
-                            values[0],  # type: ignore
-                            ifd_info[0],
-                            tag_dict=ifd_info[1],
+                            ifd=values[0],  # type: ignore
                             stop_tag=stop_tag,
+                            ifd_name=ifd_info[0],
+                            tag_dict=ifd_info[1],
                         )
                     except IndexError:
                         logger.warning("No values found for %s SubIFD", ifd_info[0])
@@ -555,8 +504,8 @@ class ExifHeader:
             if note.values[0:7] == [78, 105, 107, 111, 110, 0, 1]:
                 logger.debug("Looks like a type 1 Nikon MakerNote.")
                 self.dump_ifd(
-                    note.field_offset + 8,
-                    "MakerNote",
+                    ifd=note.field_offset + 8,
+                    ifd_name="MakerNote",
                     tag_dict=nikon.TAGS_OLD,
                 )
             elif note.values[0:7] == [78, 105, 107, 111, 110, 0, 2]:
@@ -565,20 +514,24 @@ class ExifHeader:
                     raise ValueError("Missing marker tag 42 in MakerNote.")
                     # skip the Makernote label and the TIFF header
                 self.dump_ifd(
-                    note.field_offset + 10 + 8,
-                    "MakerNote",
+                    ifd=note.field_offset + 10 + 8,
+                    ifd_name="MakerNote",
                     tag_dict=nikon.TAGS_NEW,
                     relative=1,
                 )
             else:
                 # E99x or D1
                 logger.debug("Looks like an unlabeled type 2 Nikon MakerNote")
-                self.dump_ifd(note.field_offset, "MakerNote", tag_dict=nikon.TAGS_NEW)
+                self.dump_ifd(
+                    ifd=note.field_offset, ifd_name="MakerNote", tag_dict=nikon.TAGS_NEW
+                )
             return
 
         # Olympus
         if make.startswith("OLYMPUS"):
-            self.dump_ifd(note.field_offset + 8, "MakerNote", tag_dict=olympus.TAGS)
+            self.dump_ifd(
+                ifd=note.field_offset + 8, ifd_name="MakerNote", tag_dict=olympus.TAGS
+            )
             # TODO
             # for i in (('MakerNote Tag 0x2020', makernote.OLYMPUS_TAG_0x2020),):
             #    self.decode_olympus_tag(self.tags[i[0]].values, i[1])
@@ -586,7 +539,9 @@ class ExifHeader:
 
         # Casio
         if "CASIO" in make or "Casio" in make:
-            self.dump_ifd(note.field_offset, "MakerNote", tag_dict=casio.TAGS)
+            self.dump_ifd(
+                ifd=note.field_offset, ifd_name="MakerNote", tag_dict=casio.TAGS
+            )
             return
 
         # Fujifilm
@@ -600,7 +555,7 @@ class ExifHeader:
             offset = self.offset
             self.offset += note.field_offset
             # process note with bogus values (note is actually at offset 12)
-            self.dump_ifd(12, "MakerNote", tag_dict=fujifilm.TAGS)
+            self.dump_ifd(ifd=12, ifd_name="MakerNote", tag_dict=fujifilm.TAGS)
             # reset to correct values
             self.endian = endian
             self.offset = offset
@@ -621,7 +576,7 @@ class ExifHeader:
         ]:
             offset = self.offset
             self.offset += note.field_offset + 14
-            self.dump_ifd(0, "MakerNote", tag_dict=apple.TAGS)
+            self.dump_ifd(ifd=0, ifd_name="MakerNote", tag_dict=apple.TAGS)
             self.offset = offset
             return
 
@@ -630,26 +585,22 @@ class ExifHeader:
             self.endian = "I"
             offset = self.offset
             self.offset += note.field_offset
-            self.dump_ifd(0, "MakerNote", tag_dict=dji.TAGS)
+            self.dump_ifd(ifd=0, ifd_name="MakerNote", tag_dict=dji.TAGS)
             self.offset = offset
             self.endian = endian
             return
 
         # Canon
         if make == "Canon":
-            self.dump_ifd(note.field_offset, "MakerNote", tag_dict=canon.TAGS)
-
-            for i in (
-                ("MakerNote Tag 0x0001", canon.CAMERA_SETTINGS),
-                ("MakerNote Tag 0x0002", canon.FOCAL_LENGTH),
-                ("MakerNote Tag 0x0004", canon.SHOT_INFO),
-                ("MakerNote Tag 0x0026", canon.AF_INFO_2),
-                ("MakerNote Tag 0x0093", canon.FILE_INFO),
-            ):
-                if i[0] in self.tags:
-                    logger.debug("Canon %s", i[0])
-                    self._canon_decode_tag(self.tags[i[0]].values, i[1])
-                    del self.tags[i[0]]
+            self.dump_ifd(
+                ifd=note.field_offset, ifd_name="MakerNote", tag_dict=canon.TAGS
+            )
+            for tag_id, tags_dict in canon.OFFSET_TAGS.items():
+                tag_str = f"MakerNote Tag 0x{tag_id:04X}"
+                if tag_str in self.tags:
+                    logger.debug("Canon %s", tag_str)
+                    self._canon_decode_tag(self.tags[tag_str].values, tags_dict)
+                    del self.tags[tag_str]
             if canon.CAMERA_INFO_TAG_NAME in self.tags:
                 tag = self.tags[canon.CAMERA_INFO_TAG_NAME]
                 logger.debug("Canon CameraInfo")
@@ -688,14 +639,14 @@ class ExifHeader:
                 str(val), 0, FieldType.PROPRIETARY, val, 0, 0
             )
 
-    def _canon_decode_camera_info(self, camera_info_tag) -> None:
+    def _canon_decode_camera_info(self, camera_info_tag: IfdTag) -> None:
         """
         Decode the variable length encoded camera info section.
         """
-        model = self.tags.get("Image Model", None)
-        if not model:
+        model_tag: Optional[IfdTag] = self.tags.get("Image Model", None)
+        if not model_tag:
             return
-        model = str(model.values)
+        model = str(model_tag.values)
 
         for model_name_re, tag_desc in canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
@@ -704,9 +655,8 @@ class ExifHeader:
         else:
             return
 
-        # We are assuming here that these are all unsigned bytes (Byte or
-        # Unknown)
-        if camera_info_tag.field_type not in (1, 7):
+        # We are assuming here that these are all unsigned bytes
+        if camera_info_tag.field_type not in (FieldType.BYTE, FieldType.UNDEFINED):
             return
         camera_info = struct.pack(
             "<%dB" % len(camera_info_tag.values), *camera_info_tag.values

@@ -1,5 +1,31 @@
 Opening: tests/resources/heic/mobile/HMD_Nokia_8.3_5G.heif
-No EXIF information found
+EXIF ExposureProgram (Short): Unidentified
+EXIF ExposureTime (Ratio): 1/5000
+EXIF FNumber (Ratio): 189/100
+EXIF Flash (Short): 2
+EXIF FocalLength (Ratio): 1
+EXIF ISOSpeedRatings (Short): 102
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SubSecTime (ASCII): 722
+EXIF WhiteBalance (Short): Auto
+GPS GPSAltitude (Ratio): 2428027/1250
+GPS GPSAltitudeRef (Byte): 0
+GPS GPSDate (ASCII): 2022:02:03
+GPS GPSImgDirection (Ratio): 93
+GPS GPSImgDirectionRef (ASCII): M
+GPS GPSLatitude (Ratio): [40, 47, 2408349/125000]
+GPS GPSLatitudeRef (ASCII): N
+GPS GPSLongitude (Ratio): [4, 0, 925353/50000]
+GPS GPSLongitudeRef (ASCII): W
+GPS GPSProcessingMethod (ASCII): gps
+GPS GPSSpeed (Ratio): 1197/250
+GPS GPSSpeedRef (ASCII): K
+GPS GPSTimeStamp (Ratio): [14, 44, 9]
+Image DateTime (ASCII): 2022:02:03 14:44:07
+Image ExifOffset (Long): 110
+Image GPSInfo (Long): 248
+Image Orientation (Short): Horizontal (normal)
+Image Software (ASCII): 00WW_2_270_SP04
 
 Opening: tests/resources/heic/mobile/HMD_Nokia_8.3_5G_hdr.heif
 EXIF ExposureProgram (Short): Unidentified
@@ -162,7 +188,7 @@ EXIF ShutterSpeedValue (Signed Ratio): 59/8
 EXIF SubSecTime (ASCII): 00
 EXIF SubSecTimeDigitized (ASCII): 00
 EXIF SubSecTimeOriginal (ASCII): 00
-EXIF UserComment (Undefined): 
+EXIF UserComment (Undefined):
 EXIF WhiteBalance (Short): Auto
 GPS GPSVersionID (Byte): [2, 2, 0, 0]
 Image DateTime (ASCII): 2008:07:31 10:38:11
@@ -280,12 +306,14 @@ MakerNote ImageNumber (Long): 1242489
 MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
 MakerNote ImageType (ASCII): IMG:DIGITAL IXUS 400 JPEG
-MakerNote LensType (Proprietary): 65535
+MakerNote LensType (Proprietary): n/a
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 711
 MakerNote Macromode (Proprietary): Normal
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MaxAperture (Proprietary): 130
 MakerNote MeasuredEV (Proprietary): 335
 MakerNote MeteringMode (Proprietary): Evaluative
+MakerNote MinAperture (Proprietary): 215
 MakerNote ModelID (Long): PowerShot S400 / Digital IXUS 400 / IXY Digital 400
 MakerNote OpticalZoomCode (Proprietary): 4
 MakerNote OwnerName (ASCII): Jean-Pierre Grignon
@@ -390,11 +418,13 @@ MakerNote ImageNumber (Long): 1171771
 MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
 MakerNote ImageType (ASCII): IMG:PowerShot S40 JPEG
-MakerNote LensType (Proprietary): 65535
+MakerNote LensType (Proprietary): n/a
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 682
 MakerNote Macromode (Proprietary): Normal
+MakerNote MaxAperture (Proprietary): 149
 MakerNote MeasuredEV (Proprietary): 276
 MakerNote MeteringMode (Proprietary): Center-weighted
+MakerNote MinAperture (Proprietary): 192
 MakerNote ModelID (Long): PowerShot S40
 MakerNote OpticalZoomCode (Proprietary): 6
 MakerNote OwnerName (ASCII): Andreas Huggel
@@ -2301,12 +2331,14 @@ MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
 MakerNote ImageType (ASCII):
 MakerNote ImageUniqueID (Byte): [231, 233, 118, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
-MakerNote LensType (Proprietary): 0
+MakerNote LensType (Proprietary): Unknown
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MaxAperture (Proprietary): 28496
 MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Spot
+MakerNote MinAperture (Proprietary): 25975
 MakerNote ModelID (Long): PowerShot SX60 HS
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote Quality (Proprietary): Unknown
@@ -2436,12 +2468,14 @@ MakerNote ImageSize (Proprietary): Large
 MakerNote ImageStabilization (Proprietary): Unknown
 MakerNote ImageType (ASCII):
 MakerNote ImageUniqueID (Byte): [230, 233, 14, 250, 60, 147, 71, 71, 136, 65, 134, 79, 139, 224, 220, 197]
-MakerNote LensType (Proprietary): 0
+MakerNote LensType (Proprietary): Unknown
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MaxAperture (Proprietary): 28496
 MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Spot
+MakerNote MinAperture (Proprietary): 25975
 MakerNote ModelID (Long): PowerShot SX60 HS
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote Quality (Proprietary): Unknown
@@ -3615,12 +3649,14 @@ MakerNote ImageNumber (Long): 1353533
 MakerNote ImageSize (Proprietary): Unknown
 MakerNote ImageStabilization (Proprietary): Off
 MakerNote ImageType (ASCII):
-MakerNote LensType (Proprietary): 2
+MakerNote LensType (Proprietary): Unknown
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 0
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MaxAperture (Proprietary): 0
 MakerNote MeasuredEV (Proprietary): 0
 MakerNote MeteringMode (Proprietary): Default
+MakerNote MinAperture (Proprietary): 68
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote OwnerName (ASCII):
@@ -3722,12 +3758,14 @@ MakerNote ImageNumber (Long): 1202059
 MakerNote ImageSize (Proprietary): Unknown
 MakerNote ImageStabilization (Proprietary): Unknown
 MakerNote ImageType (ASCII): IMG:PowerShot SD300 JPEG
-MakerNote LensType (Proprietary): 65535
+MakerNote LensType (Proprietary): n/a
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 17400
 MakerNote Macromode (Proprietary): Normal
 MakerNote ManualFlashOutput (Proprietary): n/a
+MakerNote MaxAperture (Proprietary): 95
 MakerNote MeasuredEV (Proprietary): 39
 MakerNote MeteringMode (Proprietary): Evaluative
+MakerNote MinAperture (Proprietary): 159
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote OwnerName (ASCII):
@@ -3824,11 +3862,13 @@ MakerNote FocusType (Proprietary): Unknown
 MakerNote ISO (Proprietary): Unknown
 MakerNote ImageSize (Proprietary): Unknown
 MakerNote ImageStabilization (Proprietary): Unknown
-MakerNote LensType (Proprietary): 15
+MakerNote LensType (Proprietary): Canon EF 50-200mm f/3.5-4.5
 MakerNote LongFocalLengthOfLensInFocalUnits (Proprietary): 195
 MakerNote Macromode (Proprietary): Unknown
 MakerNote ManualFlashOutput (Proprietary): Unknown
+MakerNote MaxAperture (Proprietary): 213
 MakerNote MeteringMode (Proprietary): Unknown
+MakerNote MinAperture (Proprietary): 116
 MakerNote Quality (Proprietary): Unknown
 MakerNote RecordMode (Proprietary): Unknown
 MakerNote Saturation (Proprietary): Unknown

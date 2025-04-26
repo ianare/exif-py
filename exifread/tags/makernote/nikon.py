@@ -3,7 +3,8 @@ Makernote (proprietary) tag definitions for Nikon.
 """
 from typing import Dict, Tuple
 
-from exifread.utils import Ratio, make_string
+from exifread.tags.str_utils import make_string
+from exifread.utils import Ratio
 
 
 def ev_bias(seq) -> str:

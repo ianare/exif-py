@@ -4,7 +4,7 @@ Enable conversion of Exif IfdTags to native Python types
 
 from typing import Callable, Dict, List, Union
 
-from exifread.classes import IfdTag
+from exifread.core.exif_header import IfdTag
 from exifread.exif_log import get_logger
 from exifread.tags.fields import FieldType
 

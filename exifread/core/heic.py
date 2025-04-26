@@ -13,12 +13,37 @@ Inside the 'meta' box are two directories we need:
 """
 
 import struct
-from typing import Any, BinaryIO, Callable, Dict, List, Optional
+from typing import Any, BinaryIO, Callable, Dict, List, Optional, Tuple
 
-from exifread.exceptions import ExifError
+from exifread.core.exceptions import ExifError, InvalidExif
 from exifread.exif_log import get_logger
 
 logger = get_logger()
+
+
+def find_heic_tiff(fh: BinaryIO) -> Tuple[int, bytes]:
+    """
+    Look for TIFF header in HEIC files.
+
+    In some HEIC files, the Exif offset is 0,
+    and yet there is a plain TIFF header near end of the file.
+    """
+
+    data = fh.read(4)
+    if data[0:2] in [b"II", b"MM"] and data[2] == 42 and data[3] == 0:
+        offset = fh.tell() - 4
+        fh.seek(offset)
+        endian = data[0:2]
+        offset = fh.tell()
+        logger.debug("Found TIFF header in Exif, offset = %0xH", offset)
+    else:
+        raise InvalidExif(
+            "Exif pointer to zeros, but found "
+            + str(data)
+            + " instead of a TIFF header."
+        )
+
+    return offset, endian
 
 
 class BoxVersion(ExifError):
@@ -283,25 +308,25 @@ class HEICExifFinder:
     #     (The newest is ISO/IEC 14496-12:2022, but would cost 208 Swiss Francs at iso.org)
     #   - A C++ example: https://exiv2.org/book/#BMFF
 
-    def _parse_hdlr(self, box: Box):
+    def _parse_hdlr(self, box: Box) -> None:
         logger.debug("HEIC: found 'hdlr' Box %s, skipped", box.name)
 
-    def _parse_pitm(self, box: Box):
+    def _parse_pitm(self, box: Box) -> None:
         logger.debug("HEIC: found 'pitm' Box %s, skipped", box.name)
 
-    def _parse_dinf(self, box: Box):
+    def _parse_dinf(self, box: Box) -> None:
         logger.debug("HEIC: found 'dinf' Box %s, skipped", box.name)
 
-    def _parse_iprp(self, box: Box):
+    def _parse_iprp(self, box: Box) -> None:
         logger.debug("HEIC: found 'iprp' Box %s, skipped", box.name)
 
-    def _parse_idat(self, box: Box):
+    def _parse_idat(self, box: Box) -> None:
         logger.debug("HEIC: found 'idat' Box %s, skipped", box.name)
 
-    def _parse_iref(self, box: Box):
+    def _parse_iref(self, box: Box) -> None:
         logger.debug("HEIC: found 'iref' Box %s, skipped", box.name)
 
-    def find_exif(self) -> tuple:
+    def find_exif(self) -> Tuple[int, bytes]:
         ftyp = self.expect_parse("ftyp")
         assert ftyp.major_brand == b"heic"
         assert ftyp.minor_version == 0
@@ -327,11 +352,11 @@ class HEICExifFinder:
             # The TIFF header just sits there without any 'Exif'.
 
             offset = 0
-            endian = "?"  # Haven't got Endian info yet
+            endian = b"?"  # Haven't got Endian info yet
         else:
             assert exif_tiff_header_offset >= 6
             assert self.get(exif_tiff_header_offset)[-6:] == b"Exif\x00\x00"
             offset = self.file_handle.tell()
-            endian = str(self.file_handle.read(1))
+            endian = self.file_handle.read(1)
 
         return offset, endian
