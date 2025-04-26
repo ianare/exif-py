@@ -17,6 +17,7 @@ EXIF.py
 .. image:: https://img.shields.io/github/actions/workflow/status/ianare/exif-py/test.yml
     :target: https://github.com/ianare/exif-py
     :alt: Tests
+
 |
 
 Easy to use Python module to extract Exif metadata from digital image files.

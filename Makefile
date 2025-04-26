@@ -62,9 +62,13 @@ install: ## Install with basic requirements
 build:  ## build distribution
 	rm -fr ./dist
 	$(PYTHON_BIN) -m build
+	$(TWINE_BIN) check --strict ./dist/*
 
-publish: build ## Publish to PyPI
+publish-test: build ## Publish to test PyPI
 	$(TWINE_BIN) upload --repository testpypi dist/*
+
+publish: build ## Publish to test PyPI
+	$(TWINE_BIN) upload dist/*
 
 help: Makefile
 	@echo
