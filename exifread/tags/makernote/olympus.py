@@ -6,7 +6,7 @@ from typing import Dict, Tuple
 from exifread.tags.str_utils import make_string
 
 
-def special_mode(val) -> str:
+def special_mode(val: bytes) -> str:
     """Decode Olympus SpecialMode tag in MakerNote"""
     mode1 = {
         0: "Normal",
@@ -23,7 +23,7 @@ def special_mode(val) -> str:
     }
 
     if not val:
-        return val
+        return ""
 
     mode1_val = mode1.get(val[0], "Unknown")
     mode2_val = mode2.get(val[2], "Unknown")
