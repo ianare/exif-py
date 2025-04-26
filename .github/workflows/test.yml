@@ -41,15 +41,19 @@ jobs:
     - name: Install
       run: |
         pip install virtualenv
-        make venv install
+        make venv install-test
 
     - name: Run in debug and color mode
       run: |
         source .venv/bin/activate
-        make test
+        make test-cli
 
     - name: Compare image processing output
       run: |
         source .venv/bin/activate
         make test-diff
 
+    - name: Run pytest
+      run: |
+        source .venv/bin/activate
+        make test-pytest

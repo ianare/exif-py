@@ -3,6 +3,7 @@ ifneq (,$(wildcard /.dockerenv))
 	PYTHON_BIN := /usr/local/bin/python3
 	PIP_BIN := /usr/local/bin/pip3
 	PRE_COMMIT_BIN := ~/.local/bin/pre-commit
+	PYTEST_BIN := $(PYTHON_BIN) -m pytest
 	TWINE_BIN := ~/.local/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off --user
 else
@@ -10,6 +11,7 @@ else
 	PYTHON_BIN := $(VENV_DIR)/bin/python3
 	PIP_BIN := $(VENV_DIR)/bin/pip3
 	PRE_COMMIT_BIN := $(VENV_DIR)/bin/pre-commit
+	PYTEST_BIN := $(PYTHON_BIN) -m pytest
 	TWINE_BIN := $(VENV_DIR)/bin/twine
 	PIP_INSTALL := $(PIP_BIN) install --progress-bar=off
 endif
@@ -27,12 +29,20 @@ all: help
 venv: ## Set up the virtual environment
 	virtualenv -p python3 $(VENV_DIR)
 
-test: ## Run exifread on all sample images
+test-cli: ## Run exifread on all sample images
 	$(FIND_IMAGES) $(EXIF_PY) -dc
 
 test-diff: ## Run and compare exif dump
 	$(FIND_IMAGES) $(EXIF_PY) > tests/resources/dump_test
 	diff -Zu --color --suppress-common-lines tests/resources/dump tests/resources/dump_test
+
+test-cli: ## Run exifread CLI on all sample images
+	$(FIND_IMAGES) $(EXIF_PY) -dc
+
+test-pytest: ## Run pytest
+	$(PYTEST_BIN) -v
+
+test: test-cli test-diff test-pytest ## Run all tests
 
 analyze: ## Run all static analysis tools
 	$(PRE_COMMIT_BIN) run --all
@@ -40,12 +50,18 @@ analyze: ## Run all static analysis tools
 install-dev: ## Install with all development requirements
 	$(PIP_INSTALL) -U -e .[dev]
 
+install-test: ## Install with all testing requirements
+	$(PIP_INSTALL) -U -e .[test]
+
+install-all: ## Install with all requirements
+	$(PIP_INSTALL) -U -e .[test,dev]
+
 install: ## Install with basic requirements
 	$(PIP_INSTALL) -U -e .
 
 build:  ## build distribution
 	rm -fr ./dist
-	$(PYTHON_BIN) setup.py sdist bdist_wheel
+	$(PYTHON_BIN) -m build
 
 publish: build ## Publish to PyPI
 	$(TWINE_BIN) upload --repository testpypi dist/*
