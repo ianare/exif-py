@@ -276,12 +276,21 @@ Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 Interoperability RelatedImageLength (Short): 1704
 Interoperability RelatedImageWidth (Short): 2272
 MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFAreaHeight (Proprietary): 38
+MakerNote AFAreaWidth (Proprietary): 409
+MakerNote AFAreaXPositions (Proprietary): 65126
+MakerNote AFAreaYPositions (Proprietary): 0
+MakerNote AFImageHeight (Proprietary): 212
+MakerNote AFImageWidth (Proprietary): 2272
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AFPointsInFocus (Proprietary): 410
 MakerNote AutoExposureBracketing (Proprietary): Off
 MakerNote AutoISO (Proprietary): 0
 MakerNote BaseISO (Proprietary): 128
 MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote CanonImageHeight (Proprietary): 1704
+MakerNote CanonImageWidth (Proprietary): 2272
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote ControlMode (Proprietary): Camera Local Control
@@ -317,6 +326,7 @@ MakerNote MinAperture (Proprietary): 215
 MakerNote ModelID (Long): PowerShot S400 / Digital IXUS 400 / IXY Digital 400
 MakerNote OpticalZoomCode (Proprietary): 4
 MakerNote OwnerName (ASCII): Jean-Pierre Grignon
+MakerNote PrimaryAFPoint  (Proprietary): 0
 MakerNote Quality (Proprietary): Fine
 MakerNote RecordMode (Proprietary): JPEG
 MakerNote Saturation (Proprietary): Normal
@@ -328,11 +338,11 @@ MakerNote SlowShutter (Proprietary): Off
 MakerNote SpotMeteringMode (Proprietary): AF Point
 MakerNote SubjectDistance (Proprietary): 216
 MakerNote Tag 0x0000 (Short): [0, 0, 0, 0]
-MakerNote Tag 0x0012 (Short): [9, 9, 2272, 1704, 2272, 212, 409, 38, 65126, 0, 410, 65126, 0, 410, 65126, 0, 410, 65495, 65495, 65495, 0, 0, 0, 41, 41, 41, 8, 3]
 MakerNote TargetAperture (Proprietary): 213
 MakerNote TargetExposureTime (Proprietary): 245
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
-MakerNote Unknown (Proprietary): 0
+MakerNote Unknown (Proprietary): 3
+MakerNote ValidAFPoints (Proprietary): 9
 MakerNote WhiteBalance (Proprietary): Auto
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 1432
@@ -3618,12 +3628,21 @@ Image Tag 0x1002 (Short): 1704
 Image WhiteBalance (Short): Auto
 Image YCbCrPositioning (Short): Centered
 MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFAreaHeight (Proprietary): 18756
+MakerNote AFAreaWidth (Proprietary): 14919
+MakerNote AFAreaXPositions (Proprietary): 18759
+MakerNote AFAreaYPositions (Proprietary): 16724
+MakerNote AFImageHeight (Proprietary): 19785
+MakerNote AFImageWidth (Proprietary): 0
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AFPointsInFocus (Proprietary): 8268
 MakerNote AutoExposureBracketing (Proprietary): On (shot 1)
 MakerNote AutoISO (Proprietary): 0
 MakerNote BaseISO (Proprietary): 0
 MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote CanonImageHeight (Proprietary): 0
+MakerNote CanonImageWidth (Proprietary): 0
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote ControlMode (Proprietary): n/a
@@ -3660,6 +3679,7 @@ MakerNote MinAperture (Proprietary): 68
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote OwnerName (ASCII):
+MakerNote PrimaryAFPoint  (Proprietary): 21333
 MakerNote Quality (Proprietary): Unknown
 MakerNote RecordMode (Proprietary): Unknown
 MakerNote Saturation (Proprietary): Normal
@@ -3671,13 +3691,13 @@ MakerNote SlowShutter (Proprietary): Off
 MakerNote SpotMeteringMode (Proprietary): Center
 MakerNote SubjectDistance (Proprietary): 0
 MakerNote Tag 0x0000 (Short): [65484, 65484, 0, 0, 0, 52, 52, 52, 65]
-MakerNote Tag 0x0012 (Short): [0, 0, 0, 0, 0, 19785, 14919, 18756, 18759, 16724, 8268, 22601, 21333, 13344, 8240, 20554, 18245, 0, 0, 0, 0, 26950, 28018, 24951, 25970, 22048, 29285, 26995]
 MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
 MakerNote Tag 0x0019 (Short): 1
 MakerNote TargetAperture (Proprietary): 0
 MakerNote TargetExposureTime (Proprietary): 0
 MakerNote ThumbnailImageValidArea (Short): [28271, 12576, 12334, 48]
-MakerNote Unknown (Proprietary): 65127
+MakerNote Unknown (Proprietary): 26995
+MakerNote ValidAFPoints (Proprietary): 0
 MakerNote WhiteBalance (Proprietary): Auto
 
 Opening: tests/resources/jpg/tests/22-canon_tags.jpg
@@ -3727,12 +3747,21 @@ Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 Interoperability RelatedImageLength (Short): 1200
 Interoperability RelatedImageWidth (Short): 1600
 MakerNote AESetting (Proprietary): Normal AE
+MakerNote AFAreaHeight (Proprietary): 51
+MakerNote AFAreaWidth (Proprietary): 409
+MakerNote AFAreaXPositions (Proprietary): 65127
+MakerNote AFAreaYPositions (Proprietary): 0
+MakerNote AFImageHeight (Proprietary): 284
+MakerNote AFImageWidth (Proprietary): 2272
 MakerNote AFPointSelected (Proprietary): Unknown
 MakerNote AFPointUsed (Proprietary): 0
+MakerNote AFPointsInFocus (Proprietary): 409
 MakerNote AutoExposureBracketing (Proprietary): Off
 MakerNote AutoISO (Proprietary): 0
 MakerNote BaseISO (Proprietary): 128
 MakerNote CameraTemperature (Proprietary): -128 C
+MakerNote CanonImageHeight (Proprietary): 1200
+MakerNote CanonImageWidth (Proprietary): 1600
 MakerNote ContinuousDriveMode (Proprietary): Single Or Timer
 MakerNote Contrast (Proprietary): Normal
 MakerNote ControlMode (Proprietary): Camera Local Control
@@ -3769,6 +3798,7 @@ MakerNote MinAperture (Proprietary): 159
 MakerNote ModelID (Long): PowerShot SD300 / Digital IXUS 40 / IXY Digital 50
 MakerNote OpticalZoomCode (Proprietary): 0
 MakerNote OwnerName (ASCII):
+MakerNote PrimaryAFPoint  (Proprietary): 0
 MakerNote Quality (Proprietary): Fine
 MakerNote RecordMode (Proprietary): JPEG
 MakerNote Saturation (Proprietary): Normal
@@ -3780,13 +3810,13 @@ MakerNote SlowShutter (Proprietary): Off
 MakerNote SpotMeteringMode (Proprietary): Center
 MakerNote SubjectDistance (Proprietary): 100
 MakerNote Tag 0x0000 (Short): [18, 0, 0, 1, 0, 0, 0, 0, 0]
-MakerNote Tag 0x0012 (Short): [9, 9, 1600, 1200, 2272, 284, 409, 51, 65127, 0, 409, 65127, 0, 409, 65127, 0, 409, 65484, 65484, 65484, 0, 0, 0, 52, 52, 52, 19, 0]
 MakerNote Tag 0x0018 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
 MakerNote Tag 0x0019 (Short): 1
 MakerNote TargetAperture (Proprietary): 95
 MakerNote TargetExposureTime (Proprietary): 83
 MakerNote ThumbnailImageValidArea (Short): [0, 0, 0, 0]
 MakerNote Unknown (Proprietary): 0
+MakerNote ValidAFPoints (Proprietary): 9
 MakerNote WhiteBalance (Proprietary): Auto
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 5108

@@ -858,6 +858,23 @@ _SHOT_INFO: Dict[int, Tuple] = {
     19: ("SubjectDistance",),
 }
 
+# 0x0012
+_AF_INFO: Dict[int, Tuple] = {
+    0: ("NumAFPoints",),
+    1: ("ValidAFPoints",),
+    2: ("CanonImageWidth",),
+    3: ("CanonImageHeight",),
+    4: ("AFImageWidth",),
+    5: ("AFImageHeight",),
+    6: ("AFAreaWidth",),
+    7: ("AFAreaHeight",),
+    8: ("AFAreaXPositions",),
+    9: ("AFAreaYPositions",),
+    10: ("AFPointsInFocus",),
+    11: ("PrimaryAFPoint ",),
+    12: ("PrimaryAFPoint ",),
+}
+
 # 0x0026
 _AF_INFO_2: Dict[int, Tuple] = {
     2: (
@@ -994,6 +1011,7 @@ OFFSET_TAGS: Dict[int, Dict] = {
     0x0001: _CAMERA_SETTINGS,
     0x0002: _FOCAL_LENGTH,
     0x0004: _SHOT_INFO,
+    0x0012: _AF_INFO,
     0x0026: _AF_INFO_2,
     0x0093: _FILE_INFO,
 }
