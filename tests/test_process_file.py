@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 import exifread
+from exifread import DEFAULT_STOP_TAG
 
 RESOURCES_ROOT = Path("tests/resources/")
 
@@ -23,6 +24,36 @@ def test_corrupted_pass():
         tags = exifread.process_file(fh=fh, strict=False)
     assert "EXIF Contrast" in tags
     assert len(tags) == 69
+
+
+@pytest.mark.parametrize(
+    "stop_tag, tag_count", (("ColorSpace", 39), (DEFAULT_STOP_TAG, 51))
+)
+def test_stop_at_tag(stop_tag, tag_count):
+    file_path = RESOURCES_ROOT / "jpg/Canon_40D.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, stop_tag=stop_tag)
+    assert len(tags) == tag_count
+
+
+@pytest.mark.parametrize("extract_thumbnail", (True, False))
+def test_makernote_extract(extract_thumbnail):
+    file_path = RESOURCES_ROOT / "jpg/Canon_DIGITAL_IXUS_400.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(
+            fh=fh, extract_thumbnail=extract_thumbnail, details=True
+        )
+    assert "MakerNote AESetting" in tags
+
+
+@pytest.mark.parametrize("extract_thumbnail", (True, False))
+def test_no_makernote_extract(extract_thumbnail):
+    file_path = RESOURCES_ROOT / "jpg/Canon_DIGITAL_IXUS_400.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(
+            fh=fh, extract_thumbnail=extract_thumbnail, details=False
+        )
+    assert "MakerNote AESetting" not in tags
 
 
 @pytest.mark.parametrize("details", (True, False))

@@ -161,7 +161,7 @@ Pass the ``-t TAG`` or ``--stop-tag TAG`` argument, or as:
 
     tags = exifread.process_file(file_handle, stop_tag='TAG')
 
-where ``TAG`` is a valid tag name, ex ``'DateTimeOriginal'``.
+where ``TAG`` is a valid tag name without the IFD, ex ``'DateTimeOriginal'``.
 
 *The two above options are useful to speed up processing of large numbers of files.*
 

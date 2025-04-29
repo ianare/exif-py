@@ -367,7 +367,7 @@ class ExifHeader:
             if tag_entry:
                 tag_name = tag_entry[0]
             else:
-                tag_name = "Tag 0x%04X" % tag
+                tag_name = f"Tag 0x{tag:04X}"
 
             # ignore certain tags for faster processing
             if not (not self.detailed and tag in IGNORE_TAGS):
