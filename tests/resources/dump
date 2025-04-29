@@ -101,19 +101,20 @@ Image ResolutionUnit (Short): Pixels/Inch
 Image Software (ASCII): 15.2.1
 Image XResolution (Ratio): 72
 Image YResolution (Ratio): 72
-MakerNote Tag 0x0001 (Signed Long): 14
+MakerNote AEAverage (Signed Long): 181
+MakerNote AEStable (Signed Long): Yes
+MakerNote AETarget (Signed Long): 175
+MakerNote AFStable (Signed Long): Yes
+MakerNote CameraType (Signed Long): Back Normal
+MakerNote ImageCaptureType (Signed Long): Scene
+MakerNote MakerNoteVersion (Signed Long): 14
 MakerNote Tag 0x0002 (Undefined): [180, 0, 197, 0, 21, 1, 179, 0, 148, 0, 99, 0, 80, 1, 120, 2, 122, 2, 17, 2, ... ]
 MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 89, 116, 105, 109, 101, ... ]
-MakerNote Tag 0x0004 (Signed Long): 1
-MakerNote Tag 0x0005 (Signed Long): 175
-MakerNote Tag 0x0006 (Signed Long): 181
-MakerNote Tag 0x0007 (Signed Long): 1
 MakerNote Tag 0x0008 (Signed Ratio): [-1886126079/621412352, -3525/29, 64/51]
 MakerNote Tag 0x000C (Signed Ratio): [1052199/105295456, 1094266945/1111766084]
 MakerNote Tag 0x000D (Signed Long): 20
 MakerNote Tag 0x000E (Signed Long): 0
 MakerNote Tag 0x0010 (Signed Long): 1
-MakerNote Tag 0x0014 (Signed Long): 12
 MakerNote Tag 0x0017 (Signed Long): 1112547328
 MakerNote Tag 0x0019 (Signed Long): 8192
 MakerNote Tag 0x001A (ASCII): -79FE-
@@ -126,7 +127,6 @@ MakerNote Tag 0x0026 (Signed Long): 3
 MakerNote Tag 0x0027 (Signed Ratio): 319841384/297845007
 MakerNote Tag 0x002B (ASCII): 45CE-A12B-26FD40383CD6
 MakerNote Tag 0x002D (Signed Long): 4239
-MakerNote Tag 0x002E (Signed Long): 1
 MakerNote Tag 0x002F (Signed Long): 51
 MakerNote Tag 0x0030 (Signed Ratio): 808506369/33752069
 MakerNote Tag 0x0033 (Signed Long): 12288
@@ -2589,14 +2589,14 @@ Image Software (ASCII): 8.3
 Image XResolution (Ratio): 72
 Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
+MakerNote AEAverage (Signed Long): 263
+MakerNote AEStable (Signed Long): No
+MakerNote AETarget (Signed Long): 142
+MakerNote AFStable (Signed Long): Yes
 MakerNote HDRImageType (Signed Long): Original Image
-MakerNote Tag 0x0001 (Signed Long): 2
+MakerNote MakerNoteVersion (Signed Long): 2
 MakerNote Tag 0x0002 (Undefined): [109, 0, 106, 0, 68, 0, 125, 0, 133, 1, 173, 0, 46, 0, 49, 0, 69, 0, 96, 0, ... ]
 MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 85, 101, 112, 111, 99, ... ]
-MakerNote Tag 0x0004 (Signed Long): 0
-MakerNote Tag 0x0005 (Signed Long): 142
-MakerNote Tag 0x0006 (Signed Long): 263
-MakerNote Tag 0x0007 (Signed Long): 1
 MakerNote Tag 0x0008 (Signed Ratio): [3210/1393, 2311/136, 69/83]
 MakerNote Tag 0x000E (Signed Long): 4
 Thumbnail Compression (Short): JPEG (old-style)
@@ -2667,14 +2667,14 @@ Image Software (ASCII): 8.3
 Image XResolution (Ratio): 72
 Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
+MakerNote AEAverage (Signed Long): 260
+MakerNote AEStable (Signed Long): No
+MakerNote AETarget (Signed Long): 142
+MakerNote AFStable (Signed Long): Yes
 MakerNote HDRImageType (Signed Long): HDR Image
-MakerNote Tag 0x0001 (Signed Long): 2
+MakerNote MakerNoteVersion (Signed Long): 2
 MakerNote Tag 0x0002 (Undefined): [112, 0, 103, 0, 66, 0, 141, 0, 165, 1, 175, 0, 45, 0, 50, 0, 74, 0, 94, 0, ... ]
 MakerNote Tag 0x0003 (Undefined): [6, 7, 8, 85, 102, 108, 97, 103, 115, 85, 118, 97, 108, 117, 101, 85, 101, 112, 111, 99, ... ]
-MakerNote Tag 0x0004 (Signed Long): 0
-MakerNote Tag 0x0005 (Signed Long): 142
-MakerNote Tag 0x0006 (Signed Long): 260
-MakerNote Tag 0x0007 (Signed Long): 1
 MakerNote Tag 0x0008 (Signed Ratio): [3210/1393, 2311/136, 69/83]
 MakerNote Tag 0x000E (Signed Long): 4
 Thumbnail Compression (Short): JPEG (old-style)
