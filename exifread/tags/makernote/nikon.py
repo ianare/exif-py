@@ -83,16 +83,77 @@ TAGS_NEW: Dict[int, Tuple] = {
     0x0018: ("FlashBracketCompensationApplied", ev_bias),
     0x0019: ("AEBracketCompensationApplied",),
     0x001A: ("ImageProcessing",),
-    0x001B: ("CropHiSpeed",),
+    0x001B: (
+        "CropHiSpeed",
+        # need to investigate, returns incoherent results
+        #          {
+        #     0: "Off",
+        #     1: "1.3x Crop",
+        #     2: "DX Crop",
+        #     3: "5:4 Crop",
+        #     4: "3:2 Crop",
+        #     6: "16:9 Crop",
+        #     8: "2.7x Crop",
+        #     9: "DX Movie Crop",
+        #     10: "1.3x Movie Crop",
+        #     11: "FX Uncropped",
+        #     12: "DX Uncropped",
+        #     13: "2.8x Movie Crop",
+        #     14: "1.4x Movie Crop",
+        #     15: "1.5x Movie Crop",
+        #     17: "1:1 Crop",
+        # }
+    ),
     0x001C: ("ExposureTuning",),
     0x001D: ("SerialNumber",),  # Conflict with 0x00A0 ?
-    0x001E: ("ColorSpace",),
+    0x001E: (
+        "ColorSpace",
+        {
+            1: "sRGB",
+            2: "Adobe RGB",
+            4: "BT.2100",
+        },
+    ),
     0x001F: ("VRInfo",),
     0x0020: ("ImageAuthentication",),
-    0x0022: ("ActiveDLighting",),
+    0x0021: ("FaceDetect",),
+    0x0022: (
+        "ActiveDLighting",
+        {
+            0: "Off",
+            1: "Low",
+            3: "Normal",
+            5: "High",
+            7: "Extra High",
+            8: "Extra High 1",
+            9: "Extra High 2",
+            10: "Extra High 3",
+            11: "Extra High 4",
+            65535: "Auto",
+        },
+    ),
     0x0023: ("PictureControl",),
     0x0024: ("WorldTime",),
     0x0025: ("ISOInfo",),
+    0x002A: ("VignetteControl",),
+    0x002B: ("DistortInfo",),
+    0x002C: ("UnknownInfo",),
+    0x0034: (
+        "ShutterMode",
+        {
+            0: "Mechanical",
+            16: "Electronic",
+            48: "Electronic Front Curtain",
+            64: "Electronic (Movie)",
+            80: "Auto (Mechanical)",
+            81: "Auto (Electronic Front Curtain)",
+            96: "Electronic (High Speed)",
+        },
+    ),
+    0x0037: ("MechanicalShutterCount",),
+    0x0039: ("LocationInfo",),
+    0x003D: ("BlackLevel",),
+    0x003E: ("ImageSizeRAW",),
     0x0080: ("ImageAdjustment",),
     0x0081: ("ToneCompensation",),
     0x0082: ("AuxiliaryLens",),
@@ -105,9 +166,11 @@ TAGS_NEW: Dict[int, Tuple] = {
         {
             0x00: "Did Not Fire",
             0x01: "Fired, Manual",
+            0x03: "Not Ready",
             0x07: "Fired, External",
             0x08: "Fired, Commander Mode ",
             0x09: "Fired, TTL Mode",
+            0x18: "LED Light",
         },
     ),
     0x0088: (
@@ -142,8 +205,23 @@ TAGS_NEW: Dict[int, Tuple] = {
     0x0090: ("LightingType",),
     0x0091: ("ShotInfo",),  # First 4 bytes are a version number in ASCII
     0x0092: ("HueAdjustment",),
-    # ExifTool calls this 'NEFCompression', should be 1-4
-    0x0093: ("Compression",),
+    0x0093: (
+        "NEFCompression",
+        {
+            1: "Lossy (type 1)",
+            2: "Uncompressed",
+            3: "Lossless",
+            4: "Lossy (type 2)",
+            5: "Striped packed 12 bits",
+            6: "Uncompressed (reduced to 12 bit)",
+            7: "Unpacked 12 bits",
+            8: "Small",
+            9: "Packed 12 bits",
+            10: "Packed 14 bits",
+            13: "High Efficiency",
+            14: "High Efficiency*",
+        },
+    ),
     0x0094: (
         "Saturation",
         {
@@ -171,7 +249,7 @@ TAGS_NEW: Dict[int, Tuple] = {
     0x00A6: ("DeletedImageCount",),
     0x00A7: ("TotalShutterReleases",),
     # First 4 bytes are a version number in ASCII, with version specific
-    # info to follow.  Its hard to treat it as a string due to embedded nulls.
+    # info to follow.  It's hard to treat it as a string due to embedded nulls.
     0x00A8: ("FlashInfo",),
     0x00A9: ("ImageOptimization",),
     0x00AA: ("Saturation",),
@@ -184,6 +262,9 @@ TAGS_NEW: Dict[int, Tuple] = {
     0x00B7: ("AFInfo2",),
     0x00B8: ("FileInfo",),
     0x00B9: ("AFTune",),
+    0x00BB: ("RetouchInfo",),
+    0x00BD: ("PictureControlData",),
+    0x00BF: ("SilentPhotography", {0: "Off", 1: "On"}),
     0x0100: ("DigitalICE",),
     0x0201: ("PreviewImageStart",),
     0x0202: ("PreviewImageLength",),
