@@ -93,7 +93,7 @@ def determine_type(fh: BinaryIO) -> Tuple[int, bytes, int]:
             # It's a HEIC file with a TIFF header
     elif data[0:4] == b"RIFF" and data[8:12] == b"WEBP":
         offset, endian = find_webp_exif(fh)
-    elif data[0:2] == b"\xFF\xD8":
+    elif data[0:2] == b"\xff\xd8":
         # it's a JPEG file
         offset, endian, fake_exif = find_jpeg_exif(fh, data, fake_exif)
     elif data[0:8] == b"\x89PNG\r\n\x1a\n":

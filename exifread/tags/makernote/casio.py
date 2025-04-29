@@ -1,9 +1,10 @@
 """
 Makernote (proprietary) tag definitions for Casio.
 """
-from typing import Dict, Tuple
 
-TAGS: Dict[int, Tuple] = {
+from exifread.tags import SubIfdTagDict
+
+TAGS: SubIfdTagDict = {
     0x0001: (
         "RecordingMode",
         {
@@ -29,7 +30,7 @@ TAGS: Dict[int, Tuple] = {
         },
     ),
     0x0005: ("FlashIntensity", {11: "Weak", 13: "Normal", 15: "Strong"}),
-    0x0006: ("Object Distance",),
+    0x0006: ("Object Distance", None),
     0x0007: (
         "WhiteBalance",
         {
@@ -41,7 +42,7 @@ TAGS: Dict[int, Tuple] = {
             129: "Manual",
         },
     ),
-    0x000A: ("DigitalZoom",),
+    0x000A: ("DigitalZoom", None),
     0x000B: (
         "Sharpness",
         {
@@ -77,5 +78,5 @@ TAGS: Dict[int, Tuple] = {
             250: "+2.0",
         },
     ),
-    0x0015: ("FirmwareDate",),
+    0x0015: ("FirmwareDate", None),
 }

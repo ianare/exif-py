@@ -4,10 +4,11 @@ Makernote (proprietary) tag definitions for Apple iOS
 Based on version 1.01 of ExifTool -> Image/ExifTool/Apple.pm
 http://owl.phy.queensu.ca/~phil/exiftool/
 """
-from typing import Dict, Tuple
 
-TAGS: Dict[int, Tuple] = {
-    0x0001: ("MakerNoteVersion",),
+from exifread.tags import SubIfdTagDict
+
+TAGS: SubIfdTagDict = {
+    0x0001: ("MakerNoteVersion", None),
     0x0004: (
         "AEStable",
         {
@@ -15,8 +16,8 @@ TAGS: Dict[int, Tuple] = {
             1: "Yes",
         },
     ),
-    0x0005: ("AETarget",),
-    0x0006: ("AEAverage",),
+    0x0005: ("AETarget", None),
+    0x0006: ("AEAverage", None),
     0x0007: (
         "AFStable",
         {
@@ -41,7 +42,7 @@ TAGS: Dict[int, Tuple] = {
             12: "Scene",
         },
     ),
-    0x0015: ("ImageUniqueID",),
+    0x0015: ("ImageUniqueID", None),
     0x002E: (
         "CameraType",
         {

@@ -1,6 +1,7 @@
 """
 Misc utilities.
 """
+
 from typing import Union
 
 

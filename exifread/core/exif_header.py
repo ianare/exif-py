@@ -8,11 +8,15 @@ from typing import Any, BinaryIO, Dict, List, Optional, Tuple, Union
 from xml.dom.minidom import parseString
 from xml.parsers.expat import ExpatError
 
+from exifread.core.exceptions import ExifError
 from exifread.core.ifd_tag import IfdTag
 from exifread.exif_log import get_logger
 from exifread.tags import (
     DEFAULT_STOP_TAG,
     IGNORE_TAGS,
+    IfdDictValue,
+    SubIfdTagDict,
+    SubIfdTagDictValue,
 )
 from exifread.tags.exif import EXIF_TAGS
 from exifread.tags.fields import (
@@ -217,8 +221,8 @@ class ExifHeader:
         count: int,
         values: Union[str, list],
         field_type: FieldType,
-        tag_entry: tuple,
-        stop_tag,
+        tag_entry: IfdDictValue,
+        stop_tag: str,
     ) -> Tuple[str, bool]:
         # TODO: use only one type
         if count == 1 and field_type != FieldType.ASCII:
@@ -236,12 +240,13 @@ class ExifHeader:
         # compute printable version of values
         if tag_entry:
             # optional 2nd tag element is present
-            if len(tag_entry) != 1:
+            if tag_entry[1] is not None:
                 prefer_printable = True
 
+                # call mapping function
                 if callable(tag_entry[1]):
-                    # call mapping function
                     printable = tag_entry[1](values)
+                # handle sub-ifd
                 elif isinstance(tag_entry[1], tuple):
                     ifd_info = tag_entry[1]
                     try:
@@ -266,7 +271,7 @@ class ExifHeader:
         self,
         ifd: int,
         ifd_name: str,
-        tag_entry: tuple,
+        tag_entry: SubIfdTagDictValue,
         entry: int,
         tag: int,
         tag_name: str,
@@ -612,20 +617,22 @@ class ExifHeader:
     #    def _olympus_decode_tag(self, value, mn_tags):
     #        pass
 
-    def _canon_decode_tag(self, value, mn_tags) -> None:
+    def _canon_decode_tag(self, value, mn_tags: SubIfdTagDict) -> None:
         """
         Decode Canon MakerNote tag based on offset within tag.
 
         See http://www.burren.cx/david/canon.html by David Burren
         """
         for i in range(1, len(value)):
-            tag = mn_tags.get(i, ("Unknown",))
+            tag = mn_tags.get(i, ("Unknown", None))
             name = tag[0]
-            if len(tag) > 1:
+            if tag[1] is not None:
                 if callable(tag[1]):
                     val = tag[1](value[i])
-                else:
+                elif isinstance(tag[1], dict):
                     val = tag[1].get(value[i], "Unknown")
+                else:
+                    raise ExifError(f"Invalid tag type for Canon: {type(tag[1])}")
             else:
                 val = value[i]
             try:

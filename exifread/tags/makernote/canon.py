@@ -6,6 +6,8 @@ http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/Canon.html
 
 from typing import Callable, Dict, Tuple
 
+from exifread.tags import SubIfdTagDict
+
 
 def add_one(value):
     return value + 1
@@ -19,14 +21,14 @@ def convert_temp(value):
     return "%d C" % (value - 128)
 
 
-TAGS: Dict[int, Tuple] = {
-    0x0003: ("FlashInfo",),
-    0x0006: ("ImageType",),
-    0x0007: ("FirmwareVersion",),
-    0x0008: ("ImageNumber",),
-    0x0009: ("OwnerName",),
-    0x000C: ("SerialNumber",),
-    0x000E: ("FileLength",),
+TAGS: SubIfdTagDict = {
+    0x0003: ("FlashInfo", None),
+    0x0006: ("ImageType", None),
+    0x0007: ("FirmwareVersion", None),
+    0x0008: ("ImageNumber", None),
+    0x0009: ("OwnerName", None),
+    0x000C: ("SerialNumber", None),
+    0x000E: ("FileLength", None),
     0x0010: (
         "ModelID",
         {
@@ -385,7 +387,7 @@ TAGS: Dict[int, Tuple] = {
             0x80000560: "EOS D6000C",
         },
     ),
-    0x0013: ("ThumbnailImageValidArea",),
+    0x0013: ("ThumbnailImageValidArea", None),
     0x0015: ("SerialNumberFormat", {0x90000000: "Format 1", 0xA0000000: "Format 2"}),
     0x001A: ("SuperMacro", {0: "Off", 1: "On (1)", 2: "On (2)"}),
     0x001C: (
@@ -396,21 +398,21 @@ TAGS: Dict[int, Tuple] = {
             2: "Date & Time",
         },
     ),
-    0x001E: ("FirmwareRevision",),
-    0x0028: ("ImageUniqueID",),
-    0x0095: ("LensModel",),
-    0x0096: ("InternalSerialNumber ",),
-    0x0097: ("DustRemovalData ",),
-    0x0098: ("CropInfo ",),
-    0x009A: ("AspectInfo",),
+    0x001E: ("FirmwareRevision", None),
+    0x0028: ("ImageUniqueID", None),
+    0x0095: ("LensModel", None),
+    0x0096: ("InternalSerialNumber ", None),
+    0x0097: ("DustRemovalData ", None),
+    0x0098: ("CropInfo ", None),
+    0x009A: ("AspectInfo", None),
     0x00B4: ("ColorSpace", {1: "sRGB", 2: "Adobe RGB"}),
 }
 
 # this is in element offset, name, optional value dictionary format
 # 0x0001
-_CAMERA_SETTINGS: Dict[int, Tuple] = {
+_CAMERA_SETTINGS: SubIfdTagDict = {
     1: ("Macromode", {1: "Macro", 2: "Normal"}),
-    2: ("SelfTimer",),
+    2: ("SelfTimer", None),
     3: (
         "Quality",
         {
@@ -722,11 +724,11 @@ _CAMERA_SETTINGS: Dict[int, Tuple] = {
             65535: "n/a",
         },
     ),
-    23: ("LongFocalLengthOfLensInFocalUnits",),
-    24: ("ShortFocalLengthOfLensInFocalUnits",),
-    25: ("FocalUnitsPerMM",),
-    26: ("MaxAperture",),
-    27: ("MinAperture",),
+    23: ("LongFocalLengthOfLensInFocalUnits", None),
+    24: ("ShortFocalLengthOfLensInFocalUnits", None),
+    25: ("FocalUnitsPerMM", None),
+    26: ("MaxAperture", None),
+    27: ("MinAperture", None),
     28: ("FlashActivity", {0: "Did Not Fire", 1: "Fired"}),
     29: (
         "FlashDetails",
@@ -776,7 +778,7 @@ _CAMERA_SETTINGS: Dict[int, Tuple] = {
 }
 
 # 0x0002
-_FOCAL_LENGTH: Dict[int, Tuple] = {
+_FOCAL_LENGTH: SubIfdTagDict = {
     1: (
         "FocalType",
         {
@@ -784,17 +786,17 @@ _FOCAL_LENGTH: Dict[int, Tuple] = {
             2: "Zoom",
         },
     ),
-    2: ("FocalLength",),
+    2: ("FocalLength", None),
 }
 
 # 0x0004
-_SHOT_INFO: Dict[int, Tuple] = {
-    1: ("AutoISO",),
-    2: ("BaseISO",),
-    3: ("MeasuredEV",),
-    4: ("TargetAperture",),
-    5: ("TargetExposureTime",),
-    6: ("ExposureCompensation",),
+_SHOT_INFO: SubIfdTagDict = {
+    1: ("AutoISO", None),
+    2: ("BaseISO", None),
+    3: ("MeasuredEV", None),
+    4: ("TargetAperture", None),
+    5: ("TargetExposureTime", None),
+    6: ("ExposureCompensation", None),
     7: (
         "WhiteBalance",
         {
@@ -810,11 +812,11 @@ _SHOT_INFO: Dict[int, Tuple] = {
         },
     ),
     8: ("SlowShutter", {-1: "n/a", 0: "Off", 1: "Night Scene", 2: "On", 3: "None"}),
-    9: ("SequenceNumber",),
-    10: ("OpticalZoomCode",),
+    9: ("SequenceNumber", None),
+    10: ("OpticalZoomCode", None),
     12: ("CameraTemperature", convert_temp),
-    13: ("FlashGuideNumber",),
-    14: ("AFPointUsed",),
+    13: ("FlashGuideNumber", None),
+    14: ("AFPointUsed", None),
     15: (
         "FlashBias",
         {
@@ -855,28 +857,28 @@ _SHOT_INFO: Dict[int, Tuple] = {
             3: "Computer Remote Control",
         },
     ),
-    19: ("SubjectDistance",),
+    19: ("SubjectDistance", None),
 }
 
 # 0x0012
-_AF_INFO: Dict[int, Tuple] = {
-    0: ("NumAFPoints",),
-    1: ("ValidAFPoints",),
-    2: ("CanonImageWidth",),
-    3: ("CanonImageHeight",),
-    4: ("AFImageWidth",),
-    5: ("AFImageHeight",),
-    6: ("AFAreaWidth",),
-    7: ("AFAreaHeight",),
-    8: ("AFAreaXPositions",),
-    9: ("AFAreaYPositions",),
-    10: ("AFPointsInFocus",),
-    11: ("PrimaryAFPoint ",),
-    12: ("PrimaryAFPoint ",),
+_AF_INFO: SubIfdTagDict = {
+    0: ("NumAFPoints", None),
+    1: ("ValidAFPoints", None),
+    2: ("CanonImageWidth", None),
+    3: ("CanonImageHeight", None),
+    4: ("AFImageWidth", None),
+    5: ("AFImageHeight", None),
+    6: ("AFAreaWidth", None),
+    7: ("AFAreaHeight", None),
+    8: ("AFAreaXPositions", None),
+    9: ("AFAreaYPositions", None),
+    10: ("AFPointsInFocus", None),
+    11: ("PrimaryAFPoint ", None),
+    12: ("PrimaryAFPoint ", None),
 }
 
 # 0x0026
-_AF_INFO_2: Dict[int, Tuple] = {
+_AF_INFO_2: SubIfdTagDict = {
     2: (
         "AFAreaMode",
         {
@@ -892,14 +894,14 @@ _AF_INFO_2: Dict[int, Tuple] = {
             13: "Flexizone Single",
         },
     ),
-    3: ("NumAFPoints",),
-    4: ("ValidAFPoints",),
-    5: ("CanonImageWidth",),
+    3: ("NumAFPoints", None),
+    4: ("ValidAFPoints", None),
+    5: ("CanonImageWidth", None),
 }
 
 # 0x0093
-_FILE_INFO: Dict[int, Tuple] = {
-    1: ("FileNumber",),
+_FILE_INFO: SubIfdTagDict = {
+    1: ("FileNumber", None),
     3: (
         "BracketMode",
         {
@@ -910,8 +912,8 @@ _FILE_INFO: Dict[int, Tuple] = {
             4: "WB",
         },
     ),
-    4: ("BracketValue",),
-    5: ("BracketShotNumber",),
+    4: ("BracketValue", None),
+    5: ("BracketShotNumber", None),
     6: (
         "RawJpgQuality",
         {
@@ -948,8 +950,8 @@ _FILE_INFO: Dict[int, Tuple] = {
     ),
     8: ("LongExposureNoiseReduction2", {0: "Off", 1: "On (1D)", 2: "On", 3: "Auto"}),
     9: ("WBBracketMode", {0: "Off", 1: "On (shift AB)", 2: "On (shift GM)"}),
-    12: ("WBBracketValueAB",),
-    13: ("WBBracketValueGM",),
+    12: ("WBBracketValueAB", None),
+    13: ("WBBracketValueGM", None),
     14: ("FilterEffect", {0: "None", 1: "Yellow", 2: "Orange", 3: "Red", 4: "Green"}),
     15: (
         "ToningEffect",
@@ -961,7 +963,7 @@ _FILE_INFO: Dict[int, Tuple] = {
             4: "Green",
         },
     ),
-    16: ("MacroMagnification",),
+    16: ("MacroMagnification", None),
     19: ("LiveViewShooting", {0: "Off", 1: "On"}),
     25: ("FlashExposureLock", {0: "Off", 1: "On"}),
 }
@@ -1007,7 +1009,7 @@ CAMERA_INFO_MODEL_MAP: Dict[str, dict] = {
     r"\b(600D|REBEL T3i|Kiss X5)\b": CAMERA_INFO_600D,
 }
 
-OFFSET_TAGS: Dict[int, Dict] = {
+OFFSET_TAGS: Dict[int, SubIfdTagDict] = {
     0x0001: _CAMERA_SETTINGS,
     0x0002: _FOCAL_LENGTH,
     0x0004: _SHOT_INFO,

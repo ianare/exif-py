@@ -1410,6 +1410,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1419,6 +1420,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1431,11 +1433,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -1511,6 +1511,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1520,6 +1521,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1532,11 +1534,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -1612,6 +1612,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1621,6 +1622,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1633,11 +1635,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -1713,6 +1713,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1722,6 +1723,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1734,11 +1736,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -1814,6 +1814,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1823,6 +1824,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1835,11 +1837,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -1915,6 +1915,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -1924,6 +1925,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -1936,11 +1938,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -2016,6 +2016,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -2025,6 +2026,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -2037,11 +2039,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -2117,6 +2117,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -2126,6 +2127,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -2138,11 +2140,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -2218,6 +2218,7 @@ MakerNote ActiveDLighting (Short): Off
 MakerNote AuxiliaryLens (ASCII): OFF
 MakerNote ColorMode (ASCII): COLOR
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 1
 MakerNote FaceDetect (Undefined): [1, 0, 64, 1, 240, 0, 0, 0]
 MakerNote FlashSetting (ASCII):
@@ -2227,6 +2228,7 @@ MakerNote ISOSetting (Short): [0, 0]
 MakerNote ImageAdjustment (ASCII): NORMAL
 MakerNote ImageSharpening (ASCII): NORMAL
 MakerNote ImageStabilization (ASCII): VR-ON
+MakerNote LensMount (Ratio): 9321/1000
 MakerNote MakernoteVersion (Undefined): 0210
 MakerNote NEFBitDepth (Short): [0, 0, 0, 0]
 MakerNote NikonCaptureVersion (ASCII): COOLPIX P6000V1.0
@@ -2239,11 +2241,9 @@ MakerNote Saturation (ASCII): NORMAL
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (Undefined): [0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 67, 0, 0]
-MakerNote Tag 0x000A (Ratio): 9321/1000
 MakerNote Tag 0x0029 (Short): [0, 0]
 MakerNote Tag 0x002F (Short): 0
 MakerNote Tag 0x009B (Short): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00B2 (ASCII): NORMAL
 MakerNote ToneCompensation (ASCII): NORMAL
 MakerNote Whitebalance (ASCII): AUTO
@@ -2979,6 +2979,7 @@ MakerNote AFResponse (ASCII):
 MakerNote AuxiliaryLens (ASCII):
 MakerNote ColorMode (ASCII):
 MakerNote DataDump (Undefined): []
+MakerNote DateStampMode (Short): Off
 MakerNote DigitalZoomFactor (Ratio): 16843009/2049
 MakerNote FlashInfo (Undefined): [0, 0, 86, 82, 45, 79, 70, 70, 32, 32, 32, 32, 32, 0, 83, 84, 65, 78, 68, 65]
 MakerNote FlashSetting (ASCII): TO
@@ -2989,6 +2990,7 @@ MakerNote ImageAdjustment (ASCII):
 MakerNote ImageProcessing (ASCII):                       AUTO
 MakerNote ImageSharpening (ASCII): AL
 MakerNote ImageStabilization (ASCII): RD
+MakerNote LensMount (Ratio): 0
 MakerNote MakernoteVersion (Undefined): 0200
 MakerNote ManualFocusDistance (Ratio): 1
 MakerNote NikonPreview (Long): 2150
@@ -2999,9 +3001,7 @@ MakerNote Saturation (Signed Short): 0
 MakerNote Scene Assist (ASCII):
 MakerNote SceneMode (ASCII):
 MakerNote ShotInfo (ASCII):
-MakerNote Tag 0x000A (Ratio): 0
 MakerNote Tag 0x009B (Byte): [0, 0]
-MakerNote Tag 0x009D (Short): 0
 MakerNote Tag 0x00AE (Undefined): [0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 32]
 MakerNote Whitebalance (ASCII):
 Thumbnail Compression (Short): JPEG (old-style)
@@ -4015,7 +4015,7 @@ MakerNote FlashInfo (Undefined): [0, 0, 0, 0, 48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 
 MakerNote FlashMode (Byte): Did Not Fire
 MakerNote FlashSetting (ASCII):
 MakerNote FocusMode (ASCII):
-MakerNote HighISONoiseReduction (Short): 0
+MakerNote HighISONoiseReduction (Short): Off
 MakerNote ISOInfo (Undefined): [0, 0, 0, 10, 0, 0, 11, 184, 0, 0, 0, 10, 0, 0]
 MakerNote ISOSetting (Short): [0, 200]
 MakerNote ISOSpeedRequested (Short): [0, 200]

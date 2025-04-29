@@ -12,7 +12,7 @@ logger = get_logger()
 
 
 def convert_types(
-    exif_tags: Dict[str, Union[IfdTag, bytes]]
+    exif_tags: Dict[str, Union[IfdTag, bytes]],
 ) -> Dict[str, Union[int, float, str, bytes, list, None]]:
     """
     Convert Exif IfdTags to built-in Python types for easier serialization and programmatic use.
