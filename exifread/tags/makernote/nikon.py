@@ -87,7 +87,7 @@ TAGS_NEW: SubIfdTagDict = {
     0x001A: ("ImageProcessing", None),
     0x001B: (
         "CropHiSpeed",
-        None
+        None,
         # TODO: investigate, returns incoherent results
         #
         #          {
@@ -255,7 +255,7 @@ TAGS_NEW: SubIfdTagDict = {
     ),
     0x009E: (
         "RetouchHistory",
-        None
+        None,
         # TODO: investigate, returns incoherent results
         #
         #     {

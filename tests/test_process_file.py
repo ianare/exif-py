@@ -1,4 +1,5 @@
 """Basic tests."""
+
 import logging
 from pathlib import Path
 

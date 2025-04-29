@@ -1,6 +1,7 @@
 """
 Makernote (proprietary) tag definitions for Olympus.
 """
+
 from typing import Dict
 
 from exifread.tags import SubIfdTagDictValue

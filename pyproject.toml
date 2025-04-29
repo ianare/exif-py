@@ -59,10 +59,6 @@ version = {attr = "exifread.__version__"}
 "exifread" = ["py.typed"]
 
 
-[tool.isort]
-profile = "black"
-
-
 [tool.mypy]
 disallow_any_unimported = true
 disallow_subclassing_any = true

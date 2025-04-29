@@ -27,7 +27,7 @@ def _get_initial_base(fh: BinaryIO, data: bytes, fake_exif: int) -> Tuple[int, i
         fh.read(length - 8)
         # fake an EXIF beginning of file
         # I don't think this is used. --gd
-        data = b"\xFF\x00" + fh.read(10)
+        data = b"\xff\x00" + fh.read(10)
         fake_exif = 1
         if base > 2:
             logger.debug(" Added to base")
@@ -43,7 +43,7 @@ def _get_base(base: int, data: bytes) -> int:
     # pylint: disable=too-many-statements
     while True:
         logger.debug(" Segment base 0x%X", base)
-        if data[base : base + 2] == b"\xFF\xE1":
+        if data[base : base + 2] == b"\xff\xe1":
             # APP1
             logger.debug("  APP1 at base 0x%X", base)
             logger.debug(
@@ -59,7 +59,7 @@ def _get_base(base: int, data: bytes) -> int:
             increment = _increment_base(data, base)
             logger.debug(" Increment base by %s", increment)
             base += increment
-        elif data[base : base + 2] == b"\xFF\xE0":
+        elif data[base : base + 2] == b"\xff\xe0":
             # APP0
             logger.debug("  APP0 at base 0x%X", base)
             logger.debug(
@@ -69,7 +69,7 @@ def _get_base(base: int, data: bytes) -> int:
             increment = _increment_base(data, base)
             logger.debug(" Increment base by %s", increment)
             base += increment
-        elif data[base : base + 2] == b"\xFF\xE2":
+        elif data[base : base + 2] == b"\xff\xe2":
             # APP2
             logger.debug("  APP2 at base 0x%X", base)
             logger.debug(
@@ -79,7 +79,7 @@ def _get_base(base: int, data: bytes) -> int:
             increment = _increment_base(data, base)
             logger.debug(" Increment base by %s", increment)
             base += increment
-        elif data[base : base + 2] == b"\xFF\xEE":
+        elif data[base : base + 2] == b"\xff\xee":
             # APP14
             logger.debug("  APP14 Adobe segment at base 0x%X", base)
             logger.debug(
@@ -92,12 +92,12 @@ def _get_base(base: int, data: bytes) -> int:
             logger.debug(
                 "  There is useful EXIF-like data here, but we have no parser for it."
             )
-        elif data[base : base + 2] == b"\xFF\xDB":
+        elif data[base : base + 2] == b"\xff\xdb":
             logger.debug(
                 "  JPEG image data at base 0x%X No more segments are expected.", base
             )
             break
-        elif data[base : base + 2] == b"\xFF\xD8":
+        elif data[base : base + 2] == b"\xff\xd8":
             # APP12
             logger.debug("  FFD8 segment at base 0x%X", base)
             logger.debug(
@@ -113,7 +113,7 @@ def _get_base(base: int, data: bytes) -> int:
             increment = _increment_base(data, base)
             logger.debug("  Increment base by %s", increment)
             base += increment
-        elif data[base : base + 2] == b"\xFF\xEC":
+        elif data[base : base + 2] == b"\xff\xec":
             # APP12
             logger.debug(
                 "  APP12 XMP (Ducky) or Pictureinfo segment at base 0x%X", base
