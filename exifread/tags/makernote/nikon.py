@@ -1,8 +1,8 @@
 """
 Makernote (proprietary) tag definitions for Nikon.
 """
-from typing import Dict, Tuple
 
+from exifread.tags import SubIfdTagDict
 from exifread.tags.str_utils import make_string
 from exifread.utils import Ratio
 
@@ -58,35 +58,36 @@ def ev_bias(seq) -> str:
 
 
 # Nikon E99x MakerNote Tags
-TAGS_NEW: Dict[int, Tuple] = {
+TAGS_NEW: SubIfdTagDict = {
     0x0001: ("MakernoteVersion", make_string),  # Sometimes binary
-    0x0002: ("ISOSetting",),
-    0x0003: ("ColorMode",),
-    0x0004: ("Quality",),
-    0x0005: ("Whitebalance",),
-    0x0006: ("ImageSharpening",),
-    0x0007: ("FocusMode",),
-    0x0008: ("FlashSetting",),
-    0x0009: ("AutoFlashMode",),
-    0x000A: ("LensMount",),  # According to LibRAW
-    0x000B: ("WhiteBalanceBias",),
-    0x000C: ("WhiteBalanceRBCoeff",),
+    0x0002: ("ISOSetting", None),
+    0x0003: ("ColorMode", None),
+    0x0004: ("Quality", None),
+    0x0005: ("Whitebalance", None),
+    0x0006: ("ImageSharpening", None),
+    0x0007: ("FocusMode", None),
+    0x0008: ("FlashSetting", None),
+    0x0009: ("AutoFlashMode", None),
+    0x000A: ("LensMount", None),  # According to LibRAW
+    0x000B: ("WhiteBalanceBias", None),
+    0x000C: ("WhiteBalanceRBCoeff", None),
     0x000D: ("ProgramShift", ev_bias),
     # Nearly the same as the other EV vals, but step size is 1/12 EV (?)
     0x000E: ("ExposureDifference", ev_bias),
-    0x000F: ("ISOSelection",),
-    0x0010: ("DataDump",),
-    0x0011: ("NikonPreview",),
+    0x000F: ("ISOSelection", None),
+    0x0010: ("DataDump", None),
+    0x0011: ("NikonPreview", None),
     0x0012: ("FlashCompensation", ev_bias),
-    0x0013: ("ISOSpeedRequested",),
-    0x0014: ("ColorBalance",),  # According to LibRAW
-    0x0016: ("PhotoCornerCoordinates",),
+    0x0013: ("ISOSpeedRequested", None),
+    0x0014: ("ColorBalance", None),  # According to LibRAW
+    0x0016: ("PhotoCornerCoordinates", None),
     0x0017: ("ExternalFlashExposureComp", ev_bias),
     0x0018: ("FlashBracketCompensationApplied", ev_bias),
-    0x0019: ("AEBracketCompensationApplied",),
-    0x001A: ("ImageProcessing",),
+    0x0019: ("AEBracketCompensationApplied", None),
+    0x001A: ("ImageProcessing", None),
     0x001B: (
         "CropHiSpeed",
+        None
         # TODO: investigate, returns incoherent results
         #
         #          {
@@ -107,8 +108,8 @@ TAGS_NEW: Dict[int, Tuple] = {
         #     17: "1:1 Crop",
         # }
     ),
-    0x001C: ("ExposureTuning",),
-    0x001D: ("SerialNumber",),  # Conflict with 0x00A0 ?
+    0x001C: ("ExposureTuning", None),
+    0x001D: ("SerialNumber", None),  # Conflict with 0x00A0 ?
     0x001E: (
         "ColorSpace",
         {
@@ -117,9 +118,9 @@ TAGS_NEW: Dict[int, Tuple] = {
             4: "BT.2100",
         },
     ),
-    0x001F: ("VRInfo",),
-    0x0020: ("ImageAuthentication",),
-    0x0021: ("FaceDetect",),
+    0x001F: ("VRInfo", None),
+    0x0020: ("ImageAuthentication", None),
+    0x0021: ("FaceDetect", None),
     0x0022: (
         "ActiveDLighting",
         {
@@ -135,13 +136,13 @@ TAGS_NEW: Dict[int, Tuple] = {
             65535: "Auto",
         },
     ),
-    0x0023: ("PictureControl",),
-    0x0024: ("WorldTime",),
-    0x0025: ("ISOInfo",),
+    0x0023: ("PictureControl", None),
+    0x0024: ("WorldTime", None),
+    0x0025: ("ISOInfo", None),
     0x002A: ("VignetteControl", {0: "Off", 1: "Low", 3: "Normal", 5: "High"}),
-    0x002B: ("DistortInfo",),
-    0x002C: ("UnknownInfo",),
-    0x0032: ("UnknownInfo2",),
+    0x002B: ("DistortInfo", None),
+    0x002C: ("UnknownInfo", None),
+    0x0032: ("UnknownInfo2", None),
     0x0034: (
         "ShutterMode",
         {
@@ -154,21 +155,21 @@ TAGS_NEW: Dict[int, Tuple] = {
             96: "Electronic (High Speed)",
         },
     ),
-    0x0035: ("HDRInfo",),
-    0x0037: ("MechanicalShutterCount",),
-    0x0039: ("LocationInfo",),
-    0x0045: ("CropArea",),
-    0x003D: ("BlackLevel",),
-    0x003E: ("ImageSizeRAW",),
-    0x004E: ("NikonSettings",),
-    0x004F: ("ColorTemperatureAuto",),
-    0x0080: ("ImageAdjustment",),
-    0x0081: ("ToneCompensation",),
-    0x0082: ("AuxiliaryLens",),
-    0x0083: ("LensType",),
-    0x0084: ("LensMinMaxFocalMaxAperture",),
-    0x0085: ("ManualFocusDistance",),
-    0x0086: ("DigitalZoomFactor",),
+    0x0035: ("HDRInfo", None),
+    0x0037: ("MechanicalShutterCount", None),
+    0x0039: ("LocationInfo", None),
+    0x0045: ("CropArea", None),
+    0x003D: ("BlackLevel", None),
+    0x003E: ("ImageSizeRAW", None),
+    0x004E: ("NikonSettings", None),
+    0x004F: ("ColorTemperatureAuto", None),
+    0x0080: ("ImageAdjustment", None),
+    0x0081: ("ToneCompensation", None),
+    0x0082: ("AuxiliaryLens", None),
+    0x0083: ("LensType", None),
+    0x0084: ("LensMinMaxFocalMaxAperture", None),
+    0x0085: ("ManualFocusDistance", None),
+    0x0086: ("DigitalZoomFactor", None),
     0x0087: (
         "FlashMode",
         {
@@ -205,14 +206,14 @@ TAGS_NEW: Dict[int, Tuple] = {
             0x42: "Timer, white balance bracketing",
         },
     ),
-    0x008A: ("AutoBracketRelease",),
-    0x008B: ("LensFStops",),
-    0x008C: ("NEFCurve1",),  # ExifTool calls this 'ContrastCurve'
-    0x008D: ("ColorMode",),
-    0x008F: ("SceneMode",),
-    0x0090: ("LightingType",),
-    0x0091: ("ShotInfo",),  # First 4 bytes are a version number in ASCII
-    0x0092: ("HueAdjustment",),
+    0x008A: ("AutoBracketRelease", None),
+    0x008B: ("LensFStops", None),
+    0x008C: ("NEFCurve1", None),  # ExifTool calls this 'ContrastCurve'
+    0x008D: ("ColorMode", None),
+    0x008F: ("SceneMode", None),
+    0x0090: ("LightingType", None),
+    0x0091: ("ShotInfo", None),  # First 4 bytes are a version number in ASCII
+    0x0092: ("HueAdjustment", None),
     0x0093: (
         "NEFCompression",
         {
@@ -241,19 +242,20 @@ TAGS_NEW: Dict[int, Tuple] = {
             2: "2",
         },
     ),
-    0x0095: ("NoiseReduction",),
-    0x0096: ("NEFCurve2",),  # ExifTool calls this 'LinearizationTable'
-    0x0097: ("ColorBalance",),  # First 4 bytes are a version number in ASCII
-    0x0098: ("LensData",),  # First 4 bytes are a version number in ASCII
-    0x0099: ("RawImageCenter",),
-    0x009A: ("SensorPixelSize",),
-    0x009C: ("Scene Assist",),
+    0x0095: ("NoiseReduction", None),
+    0x0096: ("NEFCurve2", None),  # ExifTool calls this 'LinearizationTable'
+    0x0097: ("ColorBalance", None),  # First 4 bytes are a version number in ASCII
+    0x0098: ("LensData", None),  # First 4 bytes are a version number in ASCII
+    0x0099: ("RawImageCenter", None),
+    0x009A: ("SensorPixelSize", None),
+    0x009C: ("Scene Assist", None),
     0x009D: (
         "DateStampMode",
         {0: "Off", 1: "Date & Time", 2: "Date", 3: "Date Counter"},
     ),
     0x009E: (
         "RetouchHistory",
+        None
         # TODO: investigate, returns incoherent results
         #
         #     {
@@ -302,22 +304,22 @@ TAGS_NEW: Dict[int, Tuple] = {
         #     54: "Low Key",
         # },
     ),
-    0x00A0: ("SerialNumber",),
-    0x00A2: ("ImageDataSize",),
+    0x00A0: ("SerialNumber", None),
+    0x00A2: ("ImageDataSize", None),
     # 00A3: unknown - a single byte 0
     # 00A4: In NEF, looks like a 4 byte ASCII version number ('0200')
-    0x00A5: ("ImageCount",),
-    0x00A6: ("DeletedImageCount",),
-    0x00A7: ("TotalShutterReleases",),
+    0x00A5: ("ImageCount", None),
+    0x00A6: ("DeletedImageCount", None),
+    0x00A7: ("TotalShutterReleases", None),
     # First 4 bytes are a version number in ASCII, with version specific
     # info to follow.  It's hard to treat it as a string due to embedded nulls.
-    0x00A8: ("FlashInfo",),
-    0x00A9: ("ImageOptimization",),
-    0x00AA: ("Saturation",),
-    0x00AB: ("DigitalVariProgram",),
-    0x00AC: ("ImageStabilization",),
-    0x00AD: ("AFResponse",),
-    0x00B0: ("MultiExposure",),
+    0x00A8: ("FlashInfo", None),
+    0x00A9: ("ImageOptimization", None),
+    0x00AA: ("Saturation", None),
+    0x00AB: ("DigitalVariProgram", None),
+    0x00AC: ("ImageStabilization", None),
+    0x00AD: ("AFResponse", None),
+    0x00B0: ("MultiExposure", None),
     0x00B1: (
         "HighISONoiseReduction",
         {
@@ -330,17 +332,17 @@ TAGS_NEW: Dict[int, Tuple] = {
             6: "High",
         },
     ),
-    0x00B3: ("ToningEffect",),
-    0x00B6: ("PowerUpTime",),
-    0x00B7: ("AFInfo2",),
-    0x00B8: ("FileInfo",),
-    0x00B9: ("AFTune",),
-    0x00BB: ("RetouchInfo",),
-    0x00BD: ("PictureControlData",),
+    0x00B3: ("ToningEffect", None),
+    0x00B6: ("PowerUpTime", None),
+    0x00B7: ("AFInfo2", None),
+    0x00B8: ("FileInfo", None),
+    0x00B9: ("AFTune", None),
+    0x00BB: ("RetouchInfo", None),
+    0x00BD: ("PictureControlData", None),
     0x00BF: ("SilentPhotography", {0: "Off", 1: "On"}),
-    0x0100: ("DigitalICE",),
-    0x0201: ("PreviewImageStart",),
-    0x0202: ("PreviewImageLength",),
+    0x0100: ("DigitalICE", None),
+    0x0201: ("PreviewImageStart", None),
+    0x0202: ("PreviewImageLength", None),
     0x0213: (
         "PreviewYCbCrPositioning",
         {
@@ -348,18 +350,18 @@ TAGS_NEW: Dict[int, Tuple] = {
             2: "Co-sited",
         },
     ),
-    0x0E00: ("PrintIM",),
-    0x0E01: ("InCameraEditNote",),
-    0x0E09: ("NikonCaptureVersion",),
-    0x0E0E: ("NikonCaptureOffsets",),
-    0x0E10: ("NikonScan",),
-    0x0E13: ("NikonCaptureEditVersions",),
-    0x0E1D: ("NikonICCProfile",),
-    0x0E1E: ("NikonCaptureOutput",),
-    0x0E22: ("NEFBitDepth",),
+    0x0E00: ("PrintIM", None),
+    0x0E01: ("InCameraEditNote", None),
+    0x0E09: ("NikonCaptureVersion", None),
+    0x0E0E: ("NikonCaptureOffsets", None),
+    0x0E10: ("NikonScan", None),
+    0x0E13: ("NikonCaptureEditVersions", None),
+    0x0E1D: ("NikonICCProfile", None),
+    0x0E1E: ("NikonCaptureOutput", None),
+    0x0E22: ("NEFBitDepth", None),
 }
 
-TAGS_OLD: Dict[int, Tuple] = {
+TAGS_OLD: SubIfdTagDict = {
     0x0003: (
         "Quality",
         {
