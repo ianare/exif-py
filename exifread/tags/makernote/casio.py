@@ -41,6 +41,7 @@ TAGS: Dict[int, Tuple] = {
             129: "Manual",
         },
     ),
+    0x000A: ("DigitalZoom",),
     0x000B: (
         "Sharpness",
         {
@@ -76,4 +77,5 @@ TAGS: Dict[int, Tuple] = {
             250: "+2.0",
         },
     ),
+    0x0015: ("FirmwareDate",),
 }
