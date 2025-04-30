@@ -328,10 +328,13 @@ class HEICExifFinder:
 
     def find_exif(self) -> Tuple[int, bytes]:
         ftyp = self.expect_parse("ftyp")
-        assert ftyp.major_brand == b"heic"
-        assert ftyp.minor_version == 0
+        if ftyp.major_brand != b"heic" or ftyp.minor_version != 0:
+            return 0, b""
+
         meta = self.expect_parse("meta")
-        assert meta.subs["iinf"].exif_infe is not None
+        if meta.subs["iinf"].exif_infe is None:
+            return 0, b""
+
         item_id = meta.subs["iinf"].exif_infe.item_id
         extents = meta.subs["iloc"].locs[item_id]
         logger.debug("HEIC: found Exif location.")
