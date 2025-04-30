@@ -4687,6 +4687,66 @@ Thumbnail ResolutionUnit (Signed Long): Pixels/Inch
 Thumbnail XResolution (Signed Long): 72
 Thumbnail YResolution (Signed Long): 72
 
+Opening: tests/resources/jpg/tests/Xiaomi_Mi_9T_KeyError.jpg
+File has JPEG thumbnail
+EXIF ApertureValue (Ratio): 161/100
+EXIF BrightnessValue (Signed Ratio): -221/100
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF DateTimeDigitized (ASCII): 2022:07:16 16:27:30
+EXIF DateTimeOriginal (ASCII): 2022:07:16 16:27:30
+EXIF ExifImageLength (Long): 3000
+EXIF ExifImageWidth (Long): 4000
+EXIF ExifVersion (Undefined): 0220
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/33
+EXIF FNumber (Ratio): 7/4
+EXIF Flash (Short): Flash did not fire, compulsory flash mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 477/100
+EXIF FocalLengthIn35mmFilm (Short): 26
+EXIF ISOSpeedRatings (Short): 1522
+EXIF InteroperabilityOffset (Long): 3418
+EXIF LightSource (Short): D65
+EXIF MaxApertureValue (Ratio): 161/100
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): Not defined
+EXIF ShutterSpeedValue (Signed Ratio): 2529/500
+EXIF SubSecTime (ASCII): 360058
+EXIF SubSecTimeDigitized (ASCII): 360058
+EXIF SubSecTimeOriginal (ASCII): 360058
+EXIF Tag 0x8895 (Short): 0
+EXIF Tag 0x9999 (ASCII): {"mirror":false,"?sensor_type":"rear","Hdr":"off","OpMode":32769,"AIScene":0,"FilterId":66048,"ZoomMultiple":1}
+EXIF Tag 0x9AAA (Byte): []
+EXIF WhiteBalance (Short): Auto
+Image DateTime (ASCII): 2022:07:16 16:27:30
+Image ExifOffset (Long): 207
+Image GPSInfo (Long): 3448
+Image ImageLength (Short): 3000
+Image ImageWidth (Short): 4000
+Image Make (ASCII): Xiaomi
+Image Model (ASCII): Mi 9T
+Image Orientation (Short): Rotated 90 CW
+Image ResolutionUnit (Short): Pixels/Inch
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Centered
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail ExifImageLength (Long): 240
+Thumbnail ExifImageWidth (Long): 320
+Thumbnail JPEGInterchangeFormat (Long): 3584
+Thumbnail JPEGInterchangeFormatLength (Long): 12755
+Thumbnail Orientation (Short): Rotated 90 CW
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
+
 Opening: tests/resources/jpg/WWL_Polaroid_ION230.jpg
 File has JPEG thumbnail
 EXIF ColorSpace (Short): sRGB

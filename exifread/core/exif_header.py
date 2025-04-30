@@ -455,9 +455,10 @@ class ExifHeader:
         (Thankfully the JPEG data is stored as a unit.)
         """
         thumb_offset = self.tags.get("Thumbnail JPEGInterchangeFormat")
-        if thumb_offset:
+        thumb_length = self.tags.get("Thumbnail JPEGInterchangeFormatLength")
+        if thumb_offset and thumb_length:
             self.file_handle.seek(self.offset + thumb_offset.values[0])
-            size = self.tags["Thumbnail JPEGInterchangeFormatLength"].values[0]
+            size = thumb_length.values[0]
             self.tags["JPEGThumbnail"] = self.file_handle.read(size)
 
         # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
