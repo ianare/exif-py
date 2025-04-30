@@ -1,6 +1,13 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.3.0 — 2025-04-30
+    * add more makernote tags for Canon (AFInfo), Nikon, Casio, Apple
+    * Clarify usage of the stop_tag argument
+    * Add typing to the tag dicts, migrate to Ruff (#225)
+    * fix for KeyError extracting thumbnail (#227)
+    * fix for exception on unhandled heic box hdlr (#228)
+
 3.2.0 — 2025-04-27
     * Add testing using pytest (#214)
     * Field types should be easier to use (#213)
