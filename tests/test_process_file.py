@@ -106,3 +106,15 @@ def test_warning_messages(caplog, file_path, message):
     with open(RESOURCES_ROOT / file_path, "rb") as fh:
         exifread.process_file(fh=fh, details=True)
     assert message in caplog.text
+
+
+def test_stop_tag_with_thumbnail_extract():
+    """
+    Stop at `Orientation` tag and extract thumbnail.
+    Fails since the `Orientation` tag comes before the `JPEGInterchangeFormatLength` tag.
+    Should not raise an Exception.
+    """
+    file_path = RESOURCES_ROOT / "jpg/tests/Xiaomi_Mi_9T_KeyError.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=False, stop_tag="Orientation")
+    assert tags
