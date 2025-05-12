@@ -1,6 +1,10 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.3.1 — 2025-05-12
+    * Exclude tests from install in pyproject.toml (#229) by Antonio
+    * Fix for 'quick' instructions in readme
+
 3.3.0 — 2025-04-30
     * add more makernote tags for Canon (AFInfo), Nikon, Casio, Apple
     * Clarify usage of the stop_tag argument
@@ -211,7 +215,7 @@
 
 2007-10-28
     * Merged changes from ReimarBauer
-    * Added command line option for debug, stop 
+    * Added command line option for debug, stop
       processing on tag.
 
 2007-09-27
