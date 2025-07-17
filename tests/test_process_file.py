@@ -27,13 +27,16 @@ def test_corrupted_pass():
     assert len(tags) == 69
 
 
+@pytest.mark.parametrize("builtin_types", (True, False))
 @pytest.mark.parametrize(
     "stop_tag, tag_count", (("ColorSpace", 39), (DEFAULT_STOP_TAG, 51))
 )
-def test_stop_at_tag(stop_tag, tag_count):
+def test_stop_at_tag(builtin_types, stop_tag, tag_count):
     file_path = RESOURCES_ROOT / "jpg/Canon_40D.jpg"
     with open(file_path, "rb") as fh:
-        tags = exifread.process_file(fh=fh, stop_tag=stop_tag)
+        tags = exifread.process_file(
+            fh=fh, stop_tag=stop_tag, builtin_types=builtin_types
+        )
     assert len(tags) == tag_count
 
 
@@ -118,3 +121,35 @@ def test_stop_tag_with_thumbnail_extract():
     with open(file_path, "rb") as fh:
         tags = exifread.process_file(fh=fh, details=False, stop_tag="Orientation")
     assert tags
+
+
+@pytest.mark.parametrize("details", (True, False))
+@pytest.mark.parametrize("truncate_tags", (True, False))
+@pytest.mark.parametrize("stop_tag", ("WhiteBalance", DEFAULT_STOP_TAG))
+def test_builtin_types(stop_tag, details, truncate_tags):
+    """
+    When ``builtin_types=True``, always convert to Python types.
+    Test with various other options to make sure they don't interfere.
+    The "WhiteBalance" tag is after al the tags tested so must not have an impact.
+    """
+    file_path = RESOURCES_ROOT / "jpg/Canon_DIGITAL_IXUS_400.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(
+            fh=fh,
+            builtin_types=True,
+            stop_tag=stop_tag,
+            details=details,
+            truncate_tags=truncate_tags,
+        )
+    # Short mapped to string value
+    assert tags["EXIF ColorSpace"] == "sRGB"
+    # Short
+    assert isinstance(tags["EXIF ExifImageLength"], int)
+    assert tags["EXIF ExifImageLength"] == 75
+    # Ratio
+    assert isinstance(tags["EXIF ExposureTime"], float)
+    assert tags["EXIF ExposureTime"] == 0.005
+    # ASCII
+    assert tags["Image Make"] == "Canon"
+    # Unknown / Undefined
+    assert tags["EXIF FlashPixVersion"] == "0100"
