@@ -1,6 +1,9 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.3.2 — 2025-07-17
+    * Fix for import error (#230)
+
 3.3.1 — 2025-05-12
     * Exclude tests from install in pyproject.toml (#229) by Antonio
     * Fix for 'quick' instructions in readme
