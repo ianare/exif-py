@@ -64,4 +64,4 @@ venv.bak/
 dmypy.json
 
 # tests
-dump_test
+dump_test.txt
