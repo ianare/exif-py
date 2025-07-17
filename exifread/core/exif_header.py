@@ -624,27 +624,31 @@ class ExifHeader:
 
         See http://www.burren.cx/david/canon.html by David Burren
         """
-        for i in range(1, len(value)):
-            tag = mn_tags.get(i, ("Unknown", None))
-            name = tag[0]
-            if tag[1] is not None:
-                if callable(tag[1]):
-                    val = tag[1](value[i])
-                elif isinstance(tag[1], dict):
-                    val = tag[1].get(value[i], "Unknown")
+        for tag_idx in range(1, len(value)):
+            tag_name, tag_format = mn_tags.get(tag_idx, ("Unknown", None))
+            if tag_format is not None:
+                if callable(tag_format):
+                    val = tag_format(value[tag_idx])
+                elif isinstance(tag_format, dict):
+                    val = tag_format.get(value[tag_idx], "Unknown")
                 else:
-                    raise ExifError(f"Invalid tag type for Canon: {type(tag[1])}")
+                    raise ExifError(f"Invalid tag type for Canon: {type(tag_format)}")
             else:
-                val = value[i]
+                val = value[tag_idx]
             try:
-                logger.debug(" %s %s %s", i, name, hex(value[i]))
+                logger.debug(" %s %s %s", tag_idx, tag_name, hex(value[tag_idx]))
             except TypeError:
-                logger.debug(" %s %s %s", i, name, value[i])
+                logger.debug(" %s %s %s", tag_idx, tag_name, value[tag_idx])
 
             # It's not a real IFD Tag, but we fake one to make everybody happy.
             # This will have a "proprietary" type
-            self.tags["MakerNote " + name] = IfdTag(
-                str(val), 0, FieldType.PROPRIETARY, val, 0, 0
+            self.tags["MakerNote " + tag_name] = IfdTag(
+                printable=str(val),
+                tag=0,
+                field_type=FieldType.PROPRIETARY,
+                values=val,
+                field_offset=0,
+                field_length=0,
             )
 
     def _canon_decode_camera_info(self, camera_info_tag: IfdTag) -> None:
@@ -652,9 +656,9 @@ class ExifHeader:
         Decode the variable length encoded camera info section.
         """
         model_tag: Optional[IfdTag] = self.tags.get("Image Model", None)
-        if not model_tag:
+        if model_tag is None:
             return
-        model = str(model_tag.values)
+        model = model_tag.printable
 
         for model_name_re, tag_desc in canon.CAMERA_INFO_MODEL_MAP.items():
             if re.search(model_name_re, model):
@@ -672,24 +676,22 @@ class ExifHeader:
 
         # Look for each data value and decode it appropriately.
         for offset, tag in camera_info_tags.items():
-            tag_format = tag[1]
+            tag_name, tag_format, tag_func = tag
             tag_size = struct.calcsize(tag_format)
             if len(camera_info) < offset + tag_size:
                 continue
             packed_tag_value = camera_info[offset : offset + tag_size]
-            tag_value = struct.unpack(tag_format, packed_tag_value)[0]
+            tag_value = tag_func(struct.unpack(tag_format, packed_tag_value)[0])
 
-            tag_name = tag[0]
-            if len(tag) > 2:
-                # pylint: disable=no-member
-                if callable(tag[2]):
-                    tag_value = tag[2](tag_value)
-                else:
-                    tag_value = tag[2].get(tag_value, tag_value)
             logger.debug(" %s %s", tag_name, tag_value)
 
             self.tags["MakerNote " + tag_name] = IfdTag(
-                str(tag_value), 0, FieldType.PROPRIETARY, tag_value, 0, 0
+                printable=str(tag_value),
+                tag=0,
+                field_type=FieldType.PROPRIETARY,
+                values=tag_value,
+                field_offset=0,
+                field_length=0,
             )
 
     def parse_xmp(self, xmp_bytes: bytes):

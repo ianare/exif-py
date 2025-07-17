@@ -8,7 +8,7 @@ import pytest
 import exifread
 from exifread import DEFAULT_STOP_TAG
 
-RESOURCES_ROOT = Path("tests/resources/")
+RESOURCES_ROOT = Path(__file__).parent / "resources"
 
 
 def test_corrupted_exception():

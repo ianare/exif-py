@@ -975,19 +975,22 @@ _FILE_INFO: SubIfdTagDict = {
 # specified offset.
 CAMERA_INFO_TAG_NAME = "MakerNote Tag 0x000D"
 
-CAMERA_INFO_5D: Dict[int, Tuple[str, str, Callable]] = {
+CanonCameraInfo = Tuple[str, str, Callable]
+CanonCameraInfoMap = Dict[int, CanonCameraInfo]
+
+CAMERA_INFO_5D: CanonCameraInfoMap = {
     23: ("CameraTemperature", "<B", convert_temp),
     204: ("DirectoryIndex", "<L", subtract_one),
     208: ("FileIndex", "<H", add_one),
 }
 
-CAMERA_INFO_5DMKII: Dict[int, Tuple[str, str, Callable]] = {
+CAMERA_INFO_5DMKII: CanonCameraInfoMap = {
     25: ("CameraTemperature", "<B", convert_temp),
     443: ("FileIndex", "<L", add_one),
     455: ("DirectoryIndex", "<L", subtract_one),
 }
 
-CAMERA_INFO_5DMKIII: Dict[int, Tuple[str, str, Callable]] = {
+CAMERA_INFO_5DMKIII: CanonCameraInfoMap = {
     27: ("CameraTemperature", "<B", convert_temp),
     652: ("FileIndex", "<L", add_one),
     656: ("FileIndex2", "<L", add_one),
@@ -995,14 +998,14 @@ CAMERA_INFO_5DMKIII: Dict[int, Tuple[str, str, Callable]] = {
     668: ("DirectoryIndex2", "<L", subtract_one),
 }
 
-CAMERA_INFO_600D: Dict[int, Tuple[str, str, Callable]] = {
+CAMERA_INFO_600D: CanonCameraInfoMap = {
     25: ("CameraTemperature", "<B", convert_temp),
     475: ("FileIndex", "<L", add_one),
     487: ("DirectoryIndex", "<L", subtract_one),
 }
 
 # A map of regular expressions on 'Image Model' to the CameraInfo spec
-CAMERA_INFO_MODEL_MAP: Dict[str, dict] = {
+CAMERA_INFO_MODEL_MAP: Dict[str, CanonCameraInfoMap] = {
     r"EOS 5D$": CAMERA_INFO_5D,
     r"EOS 5D Mark II$": CAMERA_INFO_5DMKII,
     r"EOS 5D Mark III$": CAMERA_INFO_5DMKIII,
