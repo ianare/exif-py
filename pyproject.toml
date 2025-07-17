@@ -48,7 +48,7 @@ Changelog = "https://github.com/ianare/exif-py/blob/master/ChangeLog.rst"
 
 
 [tool.setuptools.packages.find]
-include = ["exifread"]
+include = ["exifread*"]
 exclude = ["tests"]
 
 
