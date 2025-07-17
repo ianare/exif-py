@@ -2,7 +2,7 @@
 
 
 class ExifError(Exception):
-    """Base class for all errros."""
+    """Base class for all errors."""
 
 
 class InvalidExif(ExifError):

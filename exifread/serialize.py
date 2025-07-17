@@ -10,10 +10,13 @@ from exifread.tags.fields import FieldType
 
 logger = get_logger()
 
+SerializedTagValue = Union[int, float, str, bytes, List[int], List[float], None]
+SerializedTagDict = Dict[str, SerializedTagValue]
+
 
 def convert_types(
     exif_tags: Dict[str, Union[IfdTag, bytes]],
-) -> Dict[str, Union[int, float, str, bytes, list, None]]:
+) -> SerializedTagDict:
     """
     Convert Exif IfdTags to built-in Python types for easier serialization and programmatic use.
 
@@ -22,7 +25,7 @@ def convert_types(
     - Single-element lists are unpacked to return the item directly.
     """
 
-    output: Dict[str, Union[int, float, str, bytes, list, None]] = {}
+    output: SerializedTagDict = {}
 
     for tag_name, ifd_tag in exif_tags.items():
         # JPEGThumbnail and TIFFThumbnail are the only values
@@ -31,9 +34,7 @@ def convert_types(
             output[tag_name] = ifd_tag
             continue
 
-        convert_func: Callable[
-            [IfdTag, str], Union[int, float, List[int], List[float], bytes, str, None]
-        ]
+        convert_func: Callable[[IfdTag, str], SerializedTagValue]
 
         if ifd_tag.prefer_printable:
             # Prioritize the printable value if prefer_printable is set
@@ -123,7 +124,7 @@ def convert_undefined(ifd_tag: IfdTag, _tag_name: str) -> Union[bytes, str, int,
     if not out:
         return None
 
-    # Empty byte sequences or unicode values should be decoded as strings
+    # Empty byte sequences or Unicode values should be decoded as strings
     try:
         return out.decode()
     except UnicodeDecodeError:
