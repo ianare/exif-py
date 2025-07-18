@@ -153,3 +153,15 @@ def test_builtin_types(stop_tag, details, truncate_tags):
     assert tags["Image Make"] == "Canon"
     # Unknown / Undefined
     assert tags["EXIF FlashPixVersion"] == "0100"
+
+
+def test_xmp_no_tag():
+    """Read XMP data not in an Exif tag."""
+
+    file_path = RESOURCES_ROOT / "tiff/Arbitro.tiff"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(
+            fh=fh,
+            builtin_types=True,
+        )
+    assert len(tags["Image ApplicationNotes"]) == 323

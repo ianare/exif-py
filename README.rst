@@ -198,7 +198,9 @@ For direct JSON serialization, combine this option with ``details=False`` to avo
 
 .. code-block:: python
 
-    json.dumps(exifread.process_file(file_handle, details=False, builtin_types=True))
+    json.dumps(
+        exifread.process_file(file_handle, details=False, builtin_types=True)
+    )
 
 Usage Example
 =============
