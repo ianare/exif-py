@@ -88,9 +88,11 @@ class ExifHeader:
         buf = self.file_handle.read(length)
 
         if buf:
-            # https://github.com/ianare/exif-py/pull/158
-            # had to revert as this certain fields to be empty
-            # please provide test images
+            # Make sure the buffer is the proper length.
+            # Allows bypassing of corrupt slices.
+            if len(buf) != length:
+                logger.warning("Unexpected slice length: %d", len(buf))
+                return 0
             return struct.unpack(fmt, buf)[0]
         return 0
 
