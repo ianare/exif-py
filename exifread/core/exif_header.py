@@ -5,11 +5,10 @@ Base classes.
 import re
 import struct
 from typing import Any, BinaryIO, Dict, List, Optional, Tuple, Union
-from xml.dom.minidom import parseString
-from xml.parsers.expat import ExpatError
 
 from exifread.core.exceptions import ExifError
 from exifread.core.ifd_tag import IfdTag
+from exifread.core.xmp import xmp_bytes_to_str
 from exifread.exif_log import get_logger
 from exifread.tags import (
     DEFAULT_STOP_TAG,
@@ -700,23 +699,6 @@ class ExifHeader:
         """Adobe's Extensible Metadata Platform, just dump the pretty XML."""
 
         logger.debug("XMP cleaning data")
-
-        # Pray that it's encoded in UTF-8
-        # TODO: allow user to specify encoding
-        xmp_string = xmp_bytes.decode("utf-8")
-
-        try:
-            pretty = parseString(xmp_string).toprettyxml()
-        except ExpatError:
-            logger.warning("XMP: XML is not well formed")
-            self.tags["Image ApplicationNotes"] = IfdTag(
-                xmp_string, 0, FieldType.BYTE, xmp_bytes, 0, 0
-            )
-            return
-        cleaned = []
-        for line in pretty.splitlines():
-            if line.strip():
-                cleaned.append(line)
         self.tags["Image ApplicationNotes"] = IfdTag(
-            "\n".join(cleaned), 0, FieldType.BYTE, xmp_bytes, 0, 0
+            xmp_bytes_to_str(xmp_bytes), 0, FieldType.BYTE, xmp_bytes, 0, 0
         )

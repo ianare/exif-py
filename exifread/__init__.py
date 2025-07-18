@@ -8,6 +8,7 @@ from typing import Any, BinaryIO, Dict
 from exifread.core.exceptions import ExifNotFound, InvalidExif
 from exifread.core.exif_header import ExifHeader
 from exifread.core.find_exif import determine_type, get_endian_str
+from exifread.core.xmp import find_xmp_data
 from exifread.exif_log import get_logger
 from exifread.serialize import convert_types
 from exifread.tags import DEFAULT_STOP_TAG
@@ -17,36 +18,9 @@ __version__ = "3.3.2"
 logger = get_logger()
 
 
-def _get_xmp(fh: BinaryIO) -> bytes:
-    xmp_bytes = b""
-    logger.debug("XMP not in Exif, searching file for XMP info...")
-    xml_started = False
-    xml_finished = False
-    for line in fh:
-        open_tag = line.find(b"<x:xmpmeta")
-        close_tag = line.find(b"</x:xmpmeta>")
-        if open_tag != -1:
-            xml_started = True
-            line = line[open_tag:]
-            logger.debug("XMP found opening tag at line position %s", open_tag)
-        if close_tag != -1:
-            logger.debug("XMP found closing tag at line position %s", close_tag)
-            line_offset = 0
-            if open_tag != -1:
-                line_offset = open_tag
-            line = line[: (close_tag - line_offset) + 12]
-            xml_finished = True
-        if xml_started:
-            xmp_bytes += line
-        if xml_finished:
-            break
-    logger.debug("XMP Finished searching for info")
-    return xmp_bytes
-
-
 def process_file(
     fh: BinaryIO,
-    stop_tag=DEFAULT_STOP_TAG,
+    stop_tag: str = DEFAULT_STOP_TAG,
     details=True,
     strict=False,
     debug=False,
@@ -56,10 +30,27 @@ def process_file(
     builtin_types=False,
 ) -> Dict[str, Any]:
     """
-    Process an image file (expects an open file object).
+    Process an image file to extract EXIF metadata.
 
     This is the function that has to deal with all the arbitrary nasty bits
     of the EXIF standard.
+
+    :param fh: the file to process, must be opened in binary mode.
+    :param stop_tag: Stop processing when the given tag is retrieved.
+    :param details: If `True`, process MakerNotes.
+    :param strict: If `True`, raise exceptions on errors.
+    :param debug: Output debug information.
+    :param truncate_tags: If `True`, truncate the `printable` tag output.
+        There is no effect on tag `values`.
+    :param auto_seek: If `True`, automatically `seek` to the start of the file.
+    :param extract_thumbnail: If `True`, extract the JPEG thumbnail.
+        The thumbnail is not always present in the EXIF metadata.
+    :param builtin_types: If `True`, convert tags to standard Python types.
+
+    :returns: A `dict` containing the EXIF metadata.
+        The keys are a string in the format `"IFD_NAME TAG_NAME"`.
+        If `builtin_types` is `False`, the value will be a `IfdTag` class, or bytes.
+        IF `builtin_types` is `True`, the value will be a standard Python type.
     """
 
     if auto_seek:
@@ -121,7 +112,7 @@ def process_file(
             xmp_bytes = bytes(xmp_tag.values)
         # We need to look in the entire file for the XML
         else:
-            xmp_bytes = _get_xmp(fh)
+            xmp_bytes = find_xmp_data(fh)
         if xmp_bytes:
             hdr.parse_xmp(xmp_bytes)
 
