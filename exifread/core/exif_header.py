@@ -25,7 +25,16 @@ from exifread.tags.fields import (
     SIGNED_FIELD_TYPES,
     FieldType,
 )
-from exifread.tags.makernote import apple, canon, casio, dji, fujifilm, nikon, olympus
+from exifread.tags.makernote import (
+    apple,
+    canon,
+    casio,
+    dji,
+    fujifilm,
+    nikon,
+    olympus,
+    sony,
+)
 from exifread.utils import Ratio
 
 logger = get_logger()
@@ -548,6 +557,12 @@ class ExifHeader:
         if "CASIO" in make or "Casio" in make:
             self.dump_ifd(
                 ifd=note.field_offset, ifd_name="MakerNote", tag_dict=casio.TAGS
+            )
+            return
+
+        if "SONY" in make:
+            self.dump_ifd(
+                ifd=note.field_offset, ifd_name="MakerNote", tag_dict=sony.TAGS
             )
             return
 
