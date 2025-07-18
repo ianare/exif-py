@@ -45,7 +45,14 @@ TAGS: Dict[int, SubIfdTagDictValue] = {
             3: "SHQ",
         },
     ),
-    0x0202: ("Macro", {0: "Normal", 1: "Macro", 2: "SuperMacro"}),
+    0x0202: (
+        "Macro",
+        {
+            0: "Normal",
+            1: "Macro",
+            2: "SuperMacro",
+        },
+    ),
     0x0203: ("BWMode", {0: "Off", 1: "On"}),
     0x0204: ("DigitalZoom", None),
     0x0205: ("FocalPlaneDiagonal", None),
@@ -63,7 +70,12 @@ TAGS: Dict[int, SubIfdTagDictValue] = {
     0x1004: ("FlashMode", {2: "On", 3: "Off"}),
     0x1005: (
         "FlashDevice",
-        {0: "None", 1: "Internal", 4: "External", 5: "Internal + External"},
+        {
+            0: "None",
+            1: "Internal",
+            4: "External",
+            5: "Internal + External",
+        },
     ),
     0x1006: ("ExposureCompensation", None),
     0x1007: ("SensorTemperature", None),
@@ -139,7 +151,13 @@ TAG_0x2020: Dict[int, SubIfdTagDictValue] = {
             10: "MF",
         },
     ),
-    0x0302: ("FocusProcess", {0: "AF Not Used", 1: "AF Used"}),
+    0x0302: (
+        "FocusProcess",
+        {
+            0: "AF Not Used",
+            1: "AF Used",
+        },
+    ),
     0x0303: ("AFSearch", {0: "Not Ready", 1: "Ready"}),
     0x0304: ("AFAreas", None),
     0x0401: ("FlashExposureCompensation", None),
@@ -180,7 +198,14 @@ TAG_0x2020: Dict[int, SubIfdTagDictValue] = {
     ),
     0x0505: ("ContrastSetting", None),  # (3 numbers: 1. Contrast, 2. Min, 3. Max)
     0x0506: ("SharpnessSetting", None),  # (3 numbers: 1. Sharpness, 2. Min, 3. Max)
-    0x0507: ("ColorSpace", {0: "sRGB", 1: "Adobe RGB", 2: "Pro Photo RGB"}),
+    0x0507: (
+        "ColorSpace",
+        {
+            0: "sRGB",
+            1: "Adobe RGB",
+            2: "Pro Photo RGB",
+        },
+    ),
     0x0509: (
         "SceneMode",
         {
@@ -227,11 +252,21 @@ TAG_0x2020: Dict[int, SubIfdTagDictValue] = {
     0x050D: ("CompressionFactor", None),
     0x050F: (
         "Gradation",
-        {"-1 -1 1": "Low Key", "0 -1 1": "Normal", "1 -1 1": "High Key"},
+        {
+            "-1 -1 1": "Low Key",
+            "0 -1 1": "Normal",
+            "1 -1 1": "High Key",
+        },
     ),
     0x0520: (
         "PictureMode",
-        {1: "Vivid", 2: "Natural", 3: "Muted", 256: "Monotone", 512: "Sepia"},
+        {
+            1: "Vivid",
+            2: "Natural",
+            3: "Muted",
+            256: "Monotone",
+            512: "Sepia",
+        },
     ),
     0x0521: ("PictureModeSaturation", None),
     0x0522: ("PictureModeHue?", None),
@@ -239,11 +274,25 @@ TAG_0x2020: Dict[int, SubIfdTagDictValue] = {
     0x0524: ("PictureModeSharpness", None),
     0x0525: (
         "PictureModeBWFilter",
-        {0: "n/a", 1: "Neutral", 2: "Yellow", 3: "Orange", 4: "Red", 5: "Green"},
+        {
+            0: "n/a",
+            1: "Neutral",
+            2: "Yellow",
+            3: "Orange",
+            4: "Red",
+            5: "Green",
+        },
     ),
     0x0526: (
         "PictureModeTone",
-        {0: "n/a", 1: "Neutral", 2: "Sepia", 3: "Blue", 4: "Purple", 5: "Green"},
+        {
+            0: "n/a",
+            1: "Neutral",
+            2: "Sepia",
+            3: "Blue",
+            4: "Purple",
+            5: "Green",
+        },
     ),
     0x0600: ("Sequence", None),  # 2 or 3 numbers: 1. Mode, 2. Shot number, 3. Mode bits
     0x0601: ("PanoramaMode", None),  # (2 numbers: 1. Mode, 2. Shot number)

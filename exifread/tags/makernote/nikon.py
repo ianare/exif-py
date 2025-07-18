@@ -139,7 +139,15 @@ TAGS_NEW: SubIfdTagDict = {
     0x0023: ("PictureControl", None),
     0x0024: ("WorldTime", None),
     0x0025: ("ISOInfo", None),
-    0x002A: ("VignetteControl", {0: "Off", 1: "Low", 3: "Normal", 5: "High"}),
+    0x002A: (
+        "VignetteControl",
+        {
+            0: "Off",
+            1: "Low",
+            3: "Normal",
+            5: "High",
+        },
+    ),
     0x002B: ("DistortInfo", None),
     0x002C: ("UnknownInfo", None),
     0x0032: ("UnknownInfo2", None),

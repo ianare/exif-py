@@ -75,9 +75,24 @@ TAGS: SubIfdTagDict = {
         },
     ),
     0x1005: ("ColorTemperature", None),
-    0x1006: ("Contrast", {0x0: "Normal", 0x100: "High", 0x300: "Low"}),
+    0x1006: (
+        "Contrast",
+        {
+            0x0: "Normal",
+            0x100: "High",
+            0x300: "Low",
+        },
+    ),
     0x100A: ("WhiteBalanceFineTune", None),
-    0x1010: ("FlashMode", {0: "Auto", 1: "On", 2: "Off", 3: "Red Eye Reduction"}),
+    0x1010: (
+        "FlashMode",
+        {
+            0: "Auto",
+            1: "On",
+            2: "Off",
+            3: "Red Eye Reduction",
+        },
+    ),
     0x1011: ("FlashStrength", None),
     0x1020: ("Macro", {0: "Off", 1: "On"}),
     0x1021: ("FocusMode", {0: "Auto", 1: "Manual"}),
@@ -100,7 +115,14 @@ TAGS: SubIfdTagDict = {
     ),
     0x1032: ("ExposureCount", None),
     0x1100: ("MotorOrBracket", {0: "Off", 1: "On"}),
-    0x1210: ("ColorMode", {0x0: "Standard", 0x10: "Chrome", 0x30: "B & W"}),
+    0x1210: (
+        "ColorMode",
+        {
+            0x0: "Standard",
+            0x10: "Chrome",
+            0x30: "B & W",
+        },
+    ),
     0x1300: ("BlurWarning", {0: "Off", 1: "On"}),
     0x1301: ("FocusWarning", {0: "Off", 1: "On"}),
     0x1302: ("ExposureWarning", {0: "Off", 1: "On"}),

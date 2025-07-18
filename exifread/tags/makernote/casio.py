@@ -15,10 +15,22 @@ TAGS: SubIfdTagDict = {
             5: "Landscape",
         },
     ),
-    0x0002: ("Quality", {1: "Economy", 2: "Normal", 3: "Fine"}),
+    0x0002: (
+        "Quality",
+        {
+            1: "Economy",
+            2: "Normal",
+            3: "Fine",
+        },
+    ),
     0x0003: (
         "FocusingMode",
-        {2: "Macro", 3: "Auto Focus", 4: "Manual Focus", 5: "Infinity"},
+        {
+            2: "Macro",
+            3: "Auto Focus",
+            4: "Manual Focus",
+            5: "Infinity",
+        },
     ),
     0x0004: (
         "FlashMode",
@@ -29,7 +41,14 @@ TAGS: SubIfdTagDict = {
             4: "Red Eye Reduction",
         },
     ),
-    0x0005: ("FlashIntensity", {11: "Weak", 13: "Normal", 15: "Strong"}),
+    0x0005: (
+        "FlashIntensity",
+        {
+            11: "Weak",
+            13: "Normal",
+            15: "Strong",
+        },
+    ),
     0x0006: ("Object Distance", None),
     0x0007: (
         "WhiteBalance",

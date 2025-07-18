@@ -729,7 +729,13 @@ _CAMERA_SETTINGS: SubIfdTagDict = {
     25: ("FocalUnitsPerMM", None),
     26: ("MaxAperture", None),
     27: ("MinAperture", None),
-    28: ("FlashActivity", {0: "Did Not Fire", 1: "Fired"}),
+    28: (
+        "FlashActivity",
+        {
+            0: "Did Not Fire",
+            1: "Fired",
+        },
+    ),
     29: (
         "FlashDetails",
         {
@@ -773,7 +779,13 @@ _CAMERA_SETTINGS: SubIfdTagDict = {
     39: ("SpotMeteringMode", {0: "Center", 1: "AF Point"}),
     41: (
         "ManualFlashOutput",
-        {0x0: "n/a", 0x500: "Full", 0x502: "Medium", 0x504: "Low", 0x7FFF: "n/a"},
+        {
+            0x0: "n/a",
+            0x500: "Full",
+            0x502: "Medium",
+            0x504: "Low",
+            0x7FFF: "n/a",
+        },
     ),
 }
 
@@ -811,7 +823,16 @@ _SHOT_INFO: SubIfdTagDict = {
             8: "Shade",
         },
     ),
-    8: ("SlowShutter", {-1: "n/a", 0: "Off", 1: "Night Scene", 2: "On", 3: "None"}),
+    8: (
+        "SlowShutter",
+        {
+            -1: "n/a",
+            0: "Off",
+            1: "Night Scene",
+            2: "On",
+            3: "None",
+        },
+    ),
     9: ("SequenceNumber", None),
     10: ("OpticalZoomCode", None),
     12: ("CameraTemperature", convert_temp),
@@ -948,11 +969,35 @@ _FILE_INFO: SubIfdTagDict = {
             142: "1920x1080 Movie",
         },
     ),
-    8: ("LongExposureNoiseReduction2", {0: "Off", 1: "On (1D)", 2: "On", 3: "Auto"}),
-    9: ("WBBracketMode", {0: "Off", 1: "On (shift AB)", 2: "On (shift GM)"}),
+    8: (
+        "LongExposureNoiseReduction2",
+        {
+            0: "Off",
+            1: "On (1D)",
+            2: "On",
+            3: "Auto",
+        },
+    ),
+    9: (
+        "WBBracketMode",
+        {
+            0: "Off",
+            1: "On (shift AB)",
+            2: "On (shift GM)",
+        },
+    ),
     12: ("WBBracketValueAB", None),
     13: ("WBBracketValueGM", None),
-    14: ("FilterEffect", {0: "None", 1: "Yellow", 2: "Orange", 3: "Red", 4: "Green"}),
+    14: (
+        "FilterEffect",
+        {
+            0: "None",
+            1: "Yellow",
+            2: "Orange",
+            3: "Red",
+            4: "Green",
+        },
+    ),
     15: (
         "ToningEffect",
         {
