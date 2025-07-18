@@ -3475,7 +3475,7 @@ Thumbnail ResolutionUnit (Short): Pixels/Inch
 Thumbnail XResolution (Ratio): 1
 Thumbnail YResolution (Ratio): 1
 
-Opening: tests/resources/jpg/sony_alpha_a58.JPG
+Opening: tests/resources/jpg/Sony_alpha_a58.JPG
 File has JPEG thumbnail
 EXIF BrightnessValue (Signed Ratio): -1543/1280
 EXIF ColorSpace (Short): sRGB
@@ -3542,6 +3542,65 @@ Thumbnail Software (ASCII): SLT-A58 v1.01
 Thumbnail XResolution (Signed Long): 72
 Thumbnail YCbCrPositioning (Short): Co-sited
 Thumbnail YResolution (Signed Long): 72
+
+Opening: tests/resources/jpg/Sony_DSLR-A200.jpg
+File has JPEG thumbnail
+EXIF BrightnessValue (Signed Ratio): 387/100
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF CompressedBitsPerPixel (Ratio): 8
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2007:01:01 00:00:00
+EXIF DateTimeOriginal (ASCII): 2007:01:01 00:00:00
+EXIF ExifImageLength (Long): 2463
+EXIF ExifImageWidth (Long): 1391
+EXIF ExifVersion (Undefined): 0221
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Program Normal
+EXIF ExposureTime (Ratio): 1/60
+EXIF FNumber (Ratio): 28/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash fired, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 26
+EXIF FocalLengthIn35mmFilm (Short): 39
+EXIF ISOSpeedRatings (Short): 400
+EXIF ImageUniqueID (ASCII): 5eb7c1ccbf663e54ed89e0fbc4026c84
+EXIF InteroperabilityOffset (Long): 5868
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [83, 79, 78, 89, 32, 68, 83, 67, 32, 0, 0, 0, 19, 0, 24, 0, 7, 0, 0, 16, ... ]
+EXIF MaxApertureValue (Ratio): 217/50
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF Sharpness (Short): Normal
+EXIF UserComment (Undefined):
+EXIF WhiteBalance (Short): Auto
+Image Artist (ASCII): Picasa
+Image DateTime (ASCII): 2014:02:03 21:15:18
+Image ExifOffset (Long): 366
+Image ImageDescription (ASCII): SONY DSC
+Image Make (ASCII): SONY
+Image Model (ASCII): DSLR-A200
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 6, 0, 1, 0, 22, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): DSLR-A200 v1.00
+Image XResolution (Ratio): 72
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 72
+Interoperability InteroperabilityIndex (ASCII): R98
+Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+Interoperability RelatedImageLength (Long): 2592
+Interoperability RelatedImageWidth (Long): 3872
+Thumbnail Compression (Short): JPEG (old-style)
+Thumbnail JPEGInterchangeFormat (Long): 6016
+Thumbnail JPEGInterchangeFormatLength (Long): 3578
+Thumbnail ResolutionUnit (Short): Pixels/Inch
+Thumbnail XResolution (Ratio): 72
+Thumbnail YResolution (Ratio): 72
 
 Opening: tests/resources/jpg/Sony_HDR-HC3.jpg
 File has JPEG thumbnail
