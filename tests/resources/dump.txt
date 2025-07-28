@@ -161,6 +161,10 @@ Image XResolution (Ratio): 72
 Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
 
+Opening: tests/resources/heic/spring_1440x960.heic
+File format not recognized.
+No EXIF information found
+
 Opening: tests/resources/jpg/Canon_40D.jpg
 File has JPEG thumbnail
 EXIF ApertureValue (Ratio): 45/8
