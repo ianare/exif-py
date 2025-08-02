@@ -1,3 +1,54 @@
+Opening: tests/resources/avif/mountains.avif
+EXIF ColorSpace (Short): sRGB
+EXIF ComponentsConfiguration (Undefined): YCbCr
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Normal
+EXIF DateTimeDigitized (ASCII): 2024:04:05 10:59:24
+EXIF DateTimeOriginal (ASCII): 2024:04:05 10:59:24
+EXIF DigitalZoomRatio (Ratio): 1
+EXIF ExifImageLength (Long): 1080
+EXIF ExifImageWidth (Long): 1920
+EXIF ExifVersion (Undefined): 0230
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Auto Exposure
+EXIF ExposureProgram (Short): Aperture Priority
+EXIF ExposureTime (Ratio): 1/1000
+EXIF FNumber (Ratio): 5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire, auto mode
+EXIF FlashPixVersion (Undefined): 0100
+EXIF FocalLength (Ratio): 25
+EXIF GainControl (Short): Low gain up
+EXIF ISOSpeedRatings (Short): 200
+EXIF LensModel (ASCII): LEICA DG SUMMILUX 25/F1.4 
+EXIF LensSpecification (Ratio): [25, 25, 7/5, 7/5]
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [79, 77, 32, 83, 89, 83, 84, 69, 77, 0, 0, 0, 73, 73, 4, 0, 7, 0, 9, 2, ... ]
+EXIF MaxApertureValue (Ratio): 1
+EXIF MeteringMode (Short): Pattern
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SensitivityType (Short): Standard Output Sensitivity
+EXIF Sharpness (Short): Normal
+EXIF UserComment (Undefined): 
+EXIF WhiteBalance (Short): Auto
+GPS GPSVersionID (Byte): [2, 3, 0, 0]
+Image Artist (ASCII): 
+Image Copyright (ASCII): 
+Image DateTime (ASCII): 2025:08:02 22:48:04
+Image ExifOffset (Long): 932
+Image GPSInfo (Long): 16626
+Image ImageDescription (ASCII):                                                                                                                      
+Image Make (ASCII): OLYMPUS CORPORATION    
+Image Model (ASCII): E-PL8           
+Image Orientation (Short): Horizontal (normal)
+Image PrintIM (Undefined): [80, 114, 105, 110, 116, 73, 77, 0, 48, 51, 48, 48, 0, 0, 37, 0, 1, 0, 20, 0, ... ]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): GIMP 2.10.36
+Image XResolution (Ratio): 350
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 350
+
 Opening: tests/resources/heic/heic_hdlr_box.jpg
 No EXIF information found
 
