@@ -162,8 +162,9 @@ Image YCbCrPositioning (Short): Centered
 Image YResolution (Ratio): 72
 
 Opening: tests/resources/heic/spring_1440x960.heic
-File format not recognized.
-No EXIF information found
+EXIF DateTimeOriginal (ASCII): 2020:12:03 15:04:31
+EXIF SubSecTimeOriginal (ASCII): 04
+Image ExifOffset (Long): 26
 
 Opening: tests/resources/jpg/Canon_40D.jpg
 File has JPEG thumbnail

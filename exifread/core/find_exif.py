@@ -84,7 +84,7 @@ def determine_type(fh: BinaryIO) -> Tuple[int, bytes, int]:
     if data[0:2] in [b"II", b"MM"]:
         # it's a TIFF file
         offset, endian = find_tiff_exif(fh)
-    elif data[4:12] == b"ftypheic":
+    elif data[4:12] in [b"ftypheic", b"ftypavif", b"ftypmif1"]:
         fh.seek(0)
         heic = HEICExifFinder(fh)
         offset, endian = heic.find_exif()

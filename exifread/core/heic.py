@@ -328,7 +328,7 @@ class HEICExifFinder:
 
     def find_exif(self) -> Tuple[int, bytes]:
         ftyp = self.expect_parse("ftyp")
-        if ftyp.major_brand != b"heic" or ftyp.minor_version != 0:
+        if ftyp.major_brand not in [b"heic", b"avif", b"mif1"] or ftyp.minor_version != 0:
             return 0, b""
 
         meta = self.expect_parse("meta")
