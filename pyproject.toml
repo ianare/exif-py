@@ -30,7 +30,7 @@ dynamic = ["version"]
 [project.optional-dependencies]
 dev = [
     "pre-commit~=2.21",
-    "pylint~=3.0",
+    "pylint~=3.1",
     "build~=1.0",
 ]
 test = [
