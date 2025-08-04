@@ -36,9 +36,6 @@ test-diff: ## Run and compare exif dump
 	$(FIND_IMAGES) $(EXIF_PY) > tests/resources/dump_test.txt
 	diff -Zu --color --suppress-common-lines tests/resources/dump.txt tests/resources/dump_test.txt
 
-test-cli: ## Run exifread CLI on all sample images
-	$(FIND_IMAGES) $(EXIF_PY) -dc
-
 test-pytest: ## Run pytest
 	$(PYTEST_BIN) -v
 
