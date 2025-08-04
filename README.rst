@@ -9,7 +9,7 @@ EXIF.py
     :target: https://pypi.org/project/ExifRead
     :alt: PyPi
 .. image:: https://img.shields.io/pypi/dm/ExifRead
-    :target: https://opensource.org/license/bsd-3-clause
+    :target: https://pypi.org/project/ExifRead
     :alt: BSD-3-clause
 .. image:: http://www.mypy-lang.org/static/mypy_badge.svg
     :target: http://mypy-lang.org/

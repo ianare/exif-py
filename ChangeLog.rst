@@ -1,6 +1,13 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.4.0 — 2025-08-04
+    * better typing of serialize module, varius code cleanup
+    * fix for invalid slice length (#235)
+    * Add tests and document usage of truncate_tags (#232)
+    * Add support for files with signature "ftypavif" or "ftypmif1" (#237) by Markus Vogt
+    * Add basic makernote tags for Sony (#236)
+
 3.3.2 — 2025-07-17
     * Fix for import error (#230)
 
