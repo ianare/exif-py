@@ -3532,6 +3532,7 @@ Thumbnail XResolution (Ratio): 1
 Thumbnail YResolution (Ratio): 1
 
 Opening: tests/resources/jpg/Sony_alpha_a58.JPG
+Unexpected slice length: 1
 File has JPEG thumbnail
 EXIF BrightnessValue (Signed Ratio): -1543/1280
 EXIF ColorSpace (Short): sRGB
@@ -3586,6 +3587,126 @@ Image YCbCrPositioning (Short): Co-sited
 Image YResolution (Ratio): 350
 Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
+MakerNote Anti-Blur (Short): On - Shooting
+MakerNote AutoPortraitFramed (Short): No
+MakerNote Brightness (Signed Long): 0
+MakerNote ColorCompensationFilter (Long): 0
+MakerNote ColorMode (Long): Standard
+MakerNote ColorTemperature (Long): 0
+MakerNote Contrast (Signed Long): 0
+MakerNote CreativeStyle (ASCII): Standard
+MakerNote DistortionCorrectionSetting (Long): Off
+MakerNote DynamicRangeOptimizer (Short): Standard
+MakerNote ElectronicFrontCurtainShutter (Long): On
+MakerNote ExposureMode (Short): Manual
+MakerNote FlashAction (Long): Did not fire
+MakerNote FlashExposureComp (Signed Ratio): 0
+MakerNote FlashLevel (Signed Short): Normal
+MakerNote FocusMode (Byte): Manual
+MakerNote HighISONoiseReduction (Short): Normal
+MakerNote HighISONoiseReduction2 (Short): N/A
+MakerNote ImageStabilization (Long): On
+MakerNote IntelligentAuto (Short): Off
+MakerNote JPEGQuality (Short): N/A
+MakerNote LateralChromaticAberration (Long): Auto
+MakerNote LongExposureNoiseReduction (Long): Off
+MakerNote MultiFrameNoiseReduction (Long): Off
+MakerNote PictureEffect (Short): Off
+MakerNote Quality (Long): Fine
+MakerNote Rating (Long): 0
+MakerNote ReleaseMode (Short): Continuous
+MakerNote Saturation (Signed Long): 0
+MakerNote SceneMode (Long): Standard
+MakerNote SequenceNumber (Short): 2
+MakerNote Sharpness (Signed Long): 0
+MakerNote SoftSkinEffect (Long): Off
+MakerNote SonyModelID (Short): SLT-A58
+MakerNote Tag 0x0000 (ASCII): F
+MakerNote Tag 0x0001 (Signed Short): []
+MakerNote Tag 0x0004 (Byte): []
+MakerNote Tag 0x0005 (Short): []
+MakerNote Tag 0x0008 (Signed Ratio): []
+MakerNote Tag 0x0028 (Ratio): []
+MakerNote Tag 0x005E (Byte): []
+MakerNote Tag 0x0088 (ASCII):
+MakerNote Tag 0x00D8 (Long): []
+MakerNote Tag 0x0101 (Signed Short): []
+MakerNote Tag 0x0103 (Short): 6
+MakerNote Tag 0x010F (ASCII): SONY
+MakerNote Tag 0x0110 (ASCII): SLT-A58
+MakerNote Tag 0x011A (Signed Long): 72
+MakerNote Tag 0x011B (Signed Long): 72
+MakerNote Tag 0x0128 (Signed Long): 2
+MakerNote Tag 0x0131 (ASCII): SLT-A58 v1.01
+MakerNote Tag 0x0132 (ASCII): 2023:10:28 21:42:29
+MakerNote Tag 0x0201 (Long): 24290
+MakerNote Tag 0x0202 (Long): 285
+MakerNote Tag 0x0213 (Short): 2
+MakerNote Tag 0x0400 (Signed Short): []
+MakerNote Tag 0x0401 (Signed Byte): []
+MakerNote Tag 0x0804 (Signed Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x1003 (Signed Long): []
+MakerNote Tag 0x1400 (Long): []
+MakerNote Tag 0x2000 (Undefined): 0
+MakerNote Tag 0x200A (Long): 0
+MakerNote Tag 0x200C (Long): [0, 0, 0]
+MakerNote Tag 0x200D (Ratio): 1
+MakerNote Tag 0x2010 (Undefined): []
+MakerNote Tag 0x2015 (Short): 65535
+MakerNote Tag 0x2018 (Long): 0
+MakerNote Tag 0x2019 (Long): 0
+MakerNote Tag 0x201C (Byte): 0
+MakerNote Tag 0x201D (Short): [0, 0]
+MakerNote Tag 0x201E (Byte): 0
+MakerNote Tag 0x201F (Byte): [0, 0, 0, 0]
+MakerNote Tag 0x2020 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x2022 (Signed Ratio): []
+MakerNote Tag 0x2023 (Long): 0
+MakerNote Tag 0x2080 (Ratio): []
+MakerNote Tag 0x2240 (Byte): []
+MakerNote Tag 0x3000 (Undefined): [73, 73, 94, 0, 2, 1, 50, 48, 50, 51, 58, 49, 48, 58, 50, 56, 32, 50, 49, 58, ... ]
+MakerNote Tag 0x3038 (Long): []
+MakerNote Tag 0x340C (ASCII):
+MakerNote Tag 0x3ED9 (Byte): []
+MakerNote Tag 0x5084 (Signed Byte): []
+MakerNote Tag 0x8008 (ASCII):
+MakerNote Tag 0x8400 (Byte): []
+MakerNote Tag 0x8410 (Long): []
+MakerNote Tag 0x9050 (Undefined): [121, 39, 0, 0, 0, 0, 0, 0, 106, 0, 255, 27, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9400 (Byte): []
+MakerNote Tag 0x9401 (Undefined): []
+MakerNote Tag 0x9402 (Byte): [0, 128, 4, 16, 64, 0, 130, 16, 10, 130, 22, 7, 8, 8, 18, 0, 128, 194, 1, 2, ... ]
+MakerNote Tag 0x9403 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9404 (Undefined): [234, 0, 14, 8, 8, 216, 8, 216, 64, 1, 0, 1, 27, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9405 (Undefined): []
+MakerNote Tag 0x9406 (Undefined): [8, 44, 8, 9, 9, 221, 0, 182, 255, 186, 27, 71, 27, 186, 27, 186, 27, 75, 27, 0, ... ]
+MakerNote Tag 0x9407 (Undefined): [1, 8, 56, 0, 4, 128, 0, 9, 72, 1, 128, 17, 0, 128, 0, 72, 0, 5, 9, 100, ... ]
+MakerNote Tag 0x9408 (Undefined): []
+MakerNote Tag 0x9409 (Undefined): []
+MakerNote Tag 0x940A (Undefined): [205, 182, 197, 205, 0, 0, 0, 0, 156, 0, 0, 0, 255, 254, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x940B (Undefined): [16, 16, 36, 34, 0, 16, 12, 12, 16, 0, 0, 16, 12, 0, 0, 0, 2, 2, 2, 193, ... ]
+MakerNote Tag 0x940C (Undefined): [5, 0, 3, 0, 0, 26, 10, 2, 0, 2, 72, 0, 0, 0, 2, 16, 0, 0, 1, 2, ... ]
+MakerNote Tag 0x940D (Undefined): []
+MakerNote Tag 0x940F (Undefined): []
+MakerNote Tag 0xA100 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0xB000 (Byte): [3, 3, 0, 0]
+MakerNote Tag 0xB027 (Long): 52
+MakerNote Tag 0xB02A (Byte): [0, 0, 112, 3, 0, 64, 86, 1]
+MakerNote Tag 0xB02B (Long): [3632, 5456]
+MakerNote Tag 0xB02C (Long): [1080, 1616]
+MakerNote Tag 0xB045 (Short): 0
+MakerNote Tag 0xB046 (Short): 0
+MakerNote Tag 0xB04C (Ratio): 1
+MakerNote Tag 0xB04D (Short): 0
+MakerNote Tag 0xB051 (Short): 0
+MakerNote Tag 0xB053 (Short): 0
+MakerNote Tag 0xD800 (Byte): 216
+MakerNote Teleconverter (Long): None
+MakerNote VignettingCorrection (Long): Auto
+MakerNote WBShiftAB_GM (Signed Long): [0, 0]
+MakerNote WhiteBalance (Short): Auto
+MakerNote WhiteBalanceFineTune (Short): 1
+MakerNote ZoneMatching (Long): ISO Setting Used
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail DateTime (ASCII): 2023:10:28 21:42:29
 Thumbnail JPEGInterchangeFormat (Long): 24290
@@ -3600,6 +3721,7 @@ Thumbnail YCbCrPositioning (Short): Co-sited
 Thumbnail YResolution (Signed Long): 72
 
 Opening: tests/resources/jpg/Sony_DSLR-A200.jpg
+Possibly corrupted field Tag 0x0000 in MakerNote IFD
 File has JPEG thumbnail
 EXIF BrightnessValue (Signed Ratio): 387/100
 EXIF ColorSpace (Short): sRGB
@@ -3651,6 +3773,43 @@ Interoperability InteroperabilityIndex (ASCII): R98
 Interoperability InteroperabilityVersion (Undefined): [48, 49, 48, 48]
 Interoperability RelatedImageLength (Long): 2592
 Interoperability RelatedImageWidth (Long): 3872
+MakerNote ColorCompensationFilter (Long): 0
+MakerNote ColorMode (Long): Standard
+MakerNote ColorTemperature (Long): 0
+MakerNote DynamicRangeOptimizer (Long): Advanced Auto
+MakerNote FlashExposureComp (Signed Ratio): 0
+MakerNote ImageStabilization (Long): On
+MakerNote MultiBurstImageHeight (ASCII):
+MakerNote Quality (Long): Standard
+MakerNote Rating (Long): 0
+MakerNote SceneMode (Long): Auto
+MakerNote Tag 0x0000 (Signed Byte): []
+MakerNote Tag 0x0002 (Long): []
+MakerNote Tag 0x0004 (Byte): []
+MakerNote Tag 0x0007 (Long): []
+MakerNote Tag 0x0008 (Signed Short): []
+MakerNote Tag 0x0018 (Undefined): []
+MakerNote Tag 0x001C (Byte): []
+MakerNote Tag 0x0100 (Signed Short): []
+MakerNote Tag 0x0114 (Undefined): [0, 95, 0, 48, 0, 0, 0, 128, 0, 1, 0, 2, 0, 0, 0, 55, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0200 (Signed Short): []
+MakerNote Tag 0x2000 (Long): []
+MakerNote Tag 0x2003 (ASCII):
+MakerNote Tag 0x3961 (Short): []
+MakerNote Tag 0x421C (Signed Byte): []
+MakerNote Tag 0x4400 (Signed Short): []
+MakerNote Tag 0x51E6 (Signed Byte): []
+MakerNote Tag 0x6B9E (Ratio): []
+MakerNote Tag 0x906C (ASCII):
+MakerNote Tag 0xB027 (Long): 40
+MakerNote Tag 0xB02A (Byte): [0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0xC020 (Long): []
+MakerNote Tag 0xDA60 (Long): []
+MakerNote Tag 0xFB99 (Short): []
+MakerNote Teleconverter (Long): None
+MakerNote WhiteBalance (Long): Auto
+MakerNote WhiteBalanceFineTune (Long): 0
+MakerNote ZoneMatching (Long): ISO Setting Used
 Thumbnail Compression (Short): JPEG (old-style)
 Thumbnail JPEGInterchangeFormat (Long): 6016
 Thumbnail JPEGInterchangeFormatLength (Long): 3578
@@ -4993,6 +5152,104 @@ Image Tag 0xC634 (Byte): [2, 209, 0, 0]
 Image XResolution (Ratio): 350
 Image YCbCrPositioning (Short): Co-sited
 Image YResolution (Ratio): 350
+MakerNote Anti-Blur (Short): On - Shooting
+MakerNote AutoPortraitFramed (Short): No
+MakerNote Brightness (Signed Long): 0
+MakerNote ColorCompensationFilter (Long): 0
+MakerNote ColorMode (Long): Standard
+MakerNote ColorTemperature (Long): 0
+MakerNote Contrast (Signed Long): 0
+MakerNote CreativeStyle (ASCII): Standard
+MakerNote DistortionCorrectionSetting (Long): Off
+MakerNote DynamicRangeOptimizer (Short): Standard
+MakerNote ElectronicFrontCurtainShutter (Long): On
+MakerNote ExposureMode (Short): Manual
+MakerNote FlashAction (Long): Did not fire
+MakerNote FlashExposureComp (Byte): Off
+MakerNote FlashLevel (Signed Short): Normal
+MakerNote FocusMode (Byte): Manual
+MakerNote HighISONoiseReduction (Short): Off
+MakerNote HighISONoiseReduction2 (Short): N/A
+MakerNote ImageStabilization (Long): On
+MakerNote IntelligentAuto (Short): Off
+MakerNote LateralChromaticAberration (Long): Auto
+MakerNote LongExposureNoiseReduction (Long): Off
+MakerNote MultiFrameNoiseReduction (Long): Off
+MakerNote PictureEffect (Short): Off
+MakerNote Quality (Long): RAW + JPEG/HEIF
+MakerNote Rating (Long): 0
+MakerNote ReleaseMode (Short): Continuous
+MakerNote Saturation (Signed Long): 0
+MakerNote SceneMode (Long): Standard
+MakerNote SequenceNumber (Short): 1
+MakerNote Sharpness (Signed Long): 0
+MakerNote SoftSkinEffect (Long): Off
+MakerNote SonyModelID (Short): ILCE-7M3
+MakerNote Tag 0x1003 (Long): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x2000 (Undefined): 0
+MakerNote Tag 0x2003 (ASCII):
+MakerNote Tag 0x200A (Long): 0
+MakerNote Tag 0x200C (Long): [0, 0, 0]
+MakerNote Tag 0x200D (Ratio): 1
+MakerNote Tag 0x2010 (Undefined): []
+MakerNote Tag 0x2015 (Short): 65535
+MakerNote Tag 0x2018 (Long): 0
+MakerNote Tag 0x2019 (Long): 0
+MakerNote Tag 0x201C (Byte): 1
+MakerNote Tag 0x201D (Short): [0, 0]
+MakerNote Tag 0x201E (Byte): 0
+MakerNote Tag 0x201F (Byte): [0, 0, 0, 0]
+MakerNote Tag 0x2020 (Byte): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x2023 (Long): 0
+MakerNote Tag 0x2025 (Byte): [0, 0, 0, 0]
+MakerNote Tag 0x2026 (Signed Long): [0, 0]
+MakerNote Tag 0x2027 (Short): [6000, 4000, 3000, 2000]
+MakerNote Tag 0x2028 (Short): [0, 0]
+MakerNote Tag 0x2029 (Short): 0
+MakerNote Tag 0x202A (Undefined): [1, 0, 128, 2, 172, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, ... ]
+MakerNote Tag 0x202B (Byte): 0
+MakerNote Tag 0x202C (Short): 512
+MakerNote Tag 0x202D (Signed Ratio): 0
+MakerNote Tag 0x202E (Short): [1, 3]
+MakerNote Tag 0x202F (Undefined): [0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x3000 (Undefined): [73, 73, 94, 0, 2, 1, 50, 48, 50, 52, 58, 48, 57, 58, 49, 52, 32, 49, 51, 58, ... ]
+MakerNote Tag 0x5001 (Ratio): 0
+MakerNote Tag 0x5002 (Byte): 128
+MakerNote Tag 0x9050 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9400 (Undefined): [38, 1, 1, 1, 0, 0, 0, 0, 0, 1, 22, 91, 0, 0, 8, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9401 (Undefined): []
+MakerNote Tag 0x9402 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9403 (Undefined): []
+MakerNote Tag 0x9404 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9405 (Undefined): []
+MakerNote Tag 0x9406 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9407 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x9408 (Undefined): []
+MakerNote Tag 0x9409 (Undefined): []
+MakerNote Tag 0x940A (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x940B (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x940C (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x940D (Undefined): []
+MakerNote Tag 0x940E (Undefined): []
+MakerNote Tag 0x940F (Undefined): []
+MakerNote Tag 0x9412 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0xA100 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0xB000 (Byte): [3, 3, 5, 0]
+MakerNote Tag 0xB027 (Long): 65535
+MakerNote Tag 0xB02A (Byte): [0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0xB02B (Long): [4000, 6000]
+MakerNote Tag 0xB02C (Long): [1080, 1616]
+MakerNote Tag 0xB045 (Short): 0
+MakerNote Tag 0xB046 (Short): 0
+MakerNote Tag 0xB04C (Ratio): 1
+MakerNote Tag 0xB04D (Short): 0
+MakerNote Tag 0xB051 (Short): 0
+MakerNote Tag 0xB053 (Short): 0
+MakerNote VignettingCorrection (Long): Auto
+MakerNote WBShiftAB_GM (Signed Long): [0, 0]
+MakerNote WhiteBalance (Short): Auto
+MakerNote WhiteBalanceFineTune (Long): 0
+MakerNote ZoneMatching (Long): ISO Setting Used
 
 Opening: tests/resources/tiff/Arbitro.tiff
 Image ApplicationNotes (Byte): [60, 120, 58, 120, 109, 112, 109, 101, 116, 97, 32, 120, 109, 108, 110, 115, 58, 120, 61, 34, ... ]
