@@ -23,13 +23,13 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-dev-${{ hashFiles('setup.py') }}
+        key: ${{ runner.os }}-dev-${{ hashFiles('pyproject.toml') }}
         restore-keys: |
           ${{ runner.os }}-dev-
 
     - name: Install dependencies
       run: |
-        pip install virtualenv
+        pip install virtualenv==20.31.2
         make venv install-all
 
     - name: Static analysis of the code
