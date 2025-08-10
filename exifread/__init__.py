@@ -92,6 +92,12 @@ def process_file(
         logger.debug("Exif SubIFD at offset %s:", exif_off.values[0])
         hdr.dump_ifd(ifd=exif_off.values[0], ifd_name="EXIF", stop_tag=stop_tag)
 
+    # EXIF SubIFD
+    if details and "Image SubIFDs" in hdr.tags:
+        for subifd_id, subifd_offset in enumerate(hdr.tags.get("Image SubIFDs").values):
+            logger.debug("Exif SubIFD%d at offset %d:", subifd_id, subifd_offset)
+            hdr.dump_ifd(ifd=subifd_offset, ifd_name=f"EXIF SubIFD{subifd_id}", stop_tag=stop_tag)
+
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
     # have a description, do not process these).
