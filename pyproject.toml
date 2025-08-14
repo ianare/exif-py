@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "ODMExifRead"
+name = "ExifRead"
 description = "Library to extract Exif information from digital camera image files."
 readme = "README.rst"
 license = {file = "LICENSE"}
@@ -21,8 +21,7 @@ classifiers = [
 ]
 keywords = ["exif", "image", "metadata", "photo"]
 authors = [
-  {name = "Ianaré Sévi"},
-  {name = "Piero Toffanin", email = "pt@masseranolabs.com"}
+  {name = "Ianaré Sévi"}
 ]
 dependencies = []
 dynamic = ["version"]
@@ -40,8 +39,8 @@ test = [
 
 
 [project.urls]
-Repository = "https://github.com/OpenDroneMap/exif-py"
-Changelog = "https://github.com/OpenDroneMap/exif-py/blob/master/ChangeLog.rst"
+Repository = "https://github.com/ianare/exif-py"
+Changelog = "https://github.com/ianare/exif-py/blob/master/ChangeLog.rst"
 
 
 [project.scripts]
