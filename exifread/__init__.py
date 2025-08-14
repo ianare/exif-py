@@ -111,7 +111,7 @@ def process_file(
             pass
 
     # extract thumbnails
-    if details and thumb_ifd and extract_thumbnail:
+    if thumb_ifd and extract_thumbnail:
         hdr.extract_tiff_thumbnail(thumb_ifd)
         hdr.extract_jpeg_thumbnail()
 
