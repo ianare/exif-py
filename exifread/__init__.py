@@ -108,7 +108,7 @@ def process_file(
     if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
         try:
             hdr.decode_maker_note()
-        except Exception as e:
+        except ValueError as e:
             if ignore_makernote_errors:
                 logger.debug("Failed to decode EXIF MakerNote")
             else:
