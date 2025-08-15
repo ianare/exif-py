@@ -2,13 +2,14 @@
 Find Exif data in a JPEG XL file
 """
 
-import struct
-from typing import Any, BinaryIO, Callable, Dict, List, Optional, Tuple
+from typing import Tuple
 
 from exifread.core.heic import HEICExifFinder
 
 
 class JXLExifFinder(HEICExifFinder):
+    """Find JPEG XL EXIF tags."""
+
     def find_exif(self) -> Tuple[int, bytes]:
         ftyp = self.expect_parse("ftyp")
         assert ftyp.major_brand == b"jxl "
