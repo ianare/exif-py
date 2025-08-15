@@ -4643,7 +4643,7 @@ Opening: tests/resources/jpg/xmp/no_exif.jpg
 No EXIF information found
 
 Opening: tests/resources/jxl/test_0001.jxl
-EXIF DateTimeOriginal (ASCII): 2025:08:14 18:10:43
+EXIF DateTimeOriginal (ASCII): 2025:08:15 22:25:54
 EXIF FocalLength (Ratio): 14
 EXIF FocalPlaneResolutionUnit (Short): 3
 EXIF FocalPlaneXResolution (Ratio): 3/2500
@@ -4652,17 +4652,17 @@ EXIF Make (ASCII): Lab 308
 EXIF MakerNote (ASCII): {}
 EXIF Model (ASCII): Smart Pilot Cam
 EXIF TimeZoneOffset (Signed Short): 0
-GPS GPSAltitude (Ratio): 403969/200
+GPS GPSAltitude (Ratio): 2019847/1000
 GPS GPSAltitudeRef (Byte): 0
-GPS GPSImgDirection (Ratio): 105936197/1000000
+GPS GPSImgDirection (Ratio): 124223909/1000000
 GPS GPSImgDirectionRef (ASCII): T
-GPS GPSLatitude (Ratio): [105126811/2386093, 0, 0]
+GPS GPSLatitude (Ratio): [525660803/11930465, 0, 0]
 GPS GPSLatitudeRef (ASCII): N
-GPS GPSLongitude (Ratio): [1447351354/11930465, 0, 0]
+GPS GPSLongitude (Ratio): [1447334054/11930465, 0, 0]
 GPS GPSLongitudeRef (ASCII): W
-GPS GPSSpeed (Ratio): 125999937/500000
+GPS GPSSpeed (Ratio): 50399963/200000
 GPS GPSSpeedRef (ASCII): K
-GPS GPSTrack (Ratio): 15936197/1000000
+GPS GPSTrack (Ratio): 34223909/1000000
 GPS GPSTrackRef (ASCII): T
 GPS Tag 0xD000 (Signed Ratio): 40
 GPS Tag 0xD001 (Signed Ratio): 0
