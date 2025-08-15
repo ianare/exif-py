@@ -82,10 +82,9 @@ def process_file(
     hdr = ExifHeader(
         fh, endian_str, offset, fake_exif, strict, debug, details, truncate_tags
     )
-    ifd_list = hdr.list_ifd()
     thumb_ifd = 0
     ctr = 0
-    for ifd in ifd_list:
+    for ifd in hdr.list_ifd():
         if ctr == 0:
             ifd_name = "Image"
         elif ctr == 1:
