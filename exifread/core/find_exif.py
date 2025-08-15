@@ -5,8 +5,8 @@ from typing import BinaryIO, Dict, Tuple
 
 from exifread.core.exceptions import ExifNotFound, InvalidExif
 from exifread.core.heic import HEICExifFinder, find_heic_tiff
-from exifread.core.jxl import JXLExifFinder
 from exifread.core.jpeg import find_jpeg_exif
+from exifread.core.jxl import JXLExifFinder
 from exifread.core.utils import ord_
 from exifread.exif_log import get_logger
 
@@ -79,7 +79,7 @@ def find_png_exif(fh: BinaryIO, data: bytes) -> Tuple[int, bytes]:
 
 def find_jxl_exif(fh: BinaryIO) -> Tuple[int, bytes]:
     logger.debug("JPEG XL format recognized in data[0:12]")
-    
+
     fh.seek(0)
     jxl = JXLExifFinder(fh)
     offset, endian = jxl.find_exif()
