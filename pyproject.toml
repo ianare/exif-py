@@ -21,7 +21,7 @@ classifiers = [
 ]
 keywords = ["exif", "image", "metadata", "photo"]
 authors = [
-  {name = "Ianaré Sévi"}
+  {name = "Ianaré Sévi"},
 ]
 dependencies = []
 dynamic = ["version"]
