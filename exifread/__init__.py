@@ -104,7 +104,7 @@ def process_file(
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
     # have a description, do not process these).
-    if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
+    if details and "EXIF MakerNote" in hdr.tags and "Image Make" in hdr.tags:
         try:
             hdr.decode_maker_note()
         except ValueError as e:
