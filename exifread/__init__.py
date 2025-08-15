@@ -54,6 +54,7 @@ def process_file(
     auto_seek=True,
     extract_thumbnail=True,
     builtin_types=False,
+    ignore_makernote_errors=False,
 ) -> Dict[str, Any]:
     """
     Process an image file (expects an open file object).
@@ -107,8 +108,11 @@ def process_file(
     if details and 'EXIF MakerNote' in hdr.tags and 'Image Make' in hdr.tags:
         try:
             hdr.decode_maker_note()
-        except:
-            pass
+        except Exception as e:
+            if ignore_makernote_errors:
+                logger.debug("Failed to decode EXIF MakerNote")
+            else:
+                raise e
 
     # extract thumbnails
     if thumb_ifd and extract_thumbnail:

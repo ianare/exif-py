@@ -17,6 +17,14 @@ def test_corrupted_exception():
         assert "tag 0x089C" in str(err.value)
 
 
+def test_corrupted_ignored_exception():
+    file_path = RESOURCES_ROOT / "jpg/corrupted.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, strict=True, ignore_makernote_errors=True)
+    assert "EXIF Contrast" in tags
+    assert len(tags) == 53
+
+
 def test_corrupted_pass():
     file_path = RESOURCES_ROOT / "jpg/corrupted.jpg"
     with open(file_path, "rb") as fh:
