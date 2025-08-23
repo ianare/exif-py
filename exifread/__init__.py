@@ -118,7 +118,13 @@ def process_file(
     # (Some apps use MakerNote tags but do not use a format for which we
     # have a description, do not process these).
     if details and "EXIF MakerNote" in hdr.tags and "Image Make" in hdr.tags:
-        hdr.decode_maker_note()
+        try:
+            hdr.decode_maker_note()
+        except ValueError as e:
+            if not strict:
+                logger.debug("Failed to decode EXIF MakerNote")
+            else:
+                raise e
 
     # extract thumbnails
     if thumb_ifd and extract_thumbnail:
