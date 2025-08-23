@@ -6,6 +6,7 @@ from typing import BinaryIO, Dict, Tuple
 from exifread.core.exceptions import ExifNotFound, InvalidExif
 from exifread.core.heic import HEICExifFinder, find_heic_tiff
 from exifread.core.jpeg import find_jpeg_exif
+from exifread.core.jxl import JXLExifFinder
 from exifread.core.utils import ord_
 from exifread.exif_log import get_logger
 
@@ -76,6 +77,18 @@ def find_png_exif(fh: BinaryIO, data: bytes) -> Tuple[int, bytes]:
     raise ExifNotFound("PNG file does not have exif data.")
 
 
+def find_jxl_exif(fh: BinaryIO) -> Tuple[int, bytes]:
+    logger.debug("JPEG XL format recognized in data[0:12]")
+
+    fh.seek(0)
+    jxl = JXLExifFinder(fh)
+    offset, endian = jxl.find_exif()
+    if offset > 0:
+        return offset, endian
+
+    raise ExifNotFound("JPEG XL file does not have exif data.")
+
+
 def determine_type(fh: BinaryIO) -> Tuple[int, bytes, int]:
     # by default do not fake an EXIF beginning
     fake_exif = 0
@@ -98,6 +111,8 @@ def determine_type(fh: BinaryIO) -> Tuple[int, bytes, int]:
         offset, endian, fake_exif = find_jpeg_exif(fh, data, fake_exif)
     elif data[0:8] == b"\x89PNG\r\n\x1a\n":
         offset, endian = find_png_exif(fh, data)
+    elif data == b"\0\0\0\x0cJXL\x20\x0d\x0a\x87\x0a":
+        offset, endian = find_jxl_exif(fh)
     else:
         raise ExifNotFound("File format not recognized.")
     return offset, endian, fake_exif

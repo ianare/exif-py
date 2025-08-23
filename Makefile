@@ -20,7 +20,7 @@ endif
 EXIF_PY := $(if $(shell which EXIF.py),EXIF.py,./EXIF.py)
 
 # Find images, support multiple case insensitive extensions and file names with spaces
-FIND_IMAGES := find tests/resources -regextype posix-egrep -iregex ".*\.(bmp|gif|heic|heif|jpg|jpeg|png|tiff|webp|arw|avif)" -print0 | LC_COLLATE=C sort -fz | xargs -0
+FIND_IMAGES := find tests/resources -regextype posix-egrep -iregex ".*\.(bmp|gif|heic|heif|jpg|jpeg|png|tiff|webp|arw|avif|jxl)" -print0 | LC_COLLATE=C sort -fz | xargs -0
 
 
 .PHONY: help
