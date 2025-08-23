@@ -5119,6 +5119,365 @@ GPS Tag 0xD001 (Signed Ratio): 0
 Image ExifOffset (Long): 38
 Image GPSInfo (Long): 220
 
+Opening: tests/resources/raw/nikon_z_9_high_efficiency_compressed_dx_cropped_max_overexposed.dng
+EXIF ApertureValue (Ratio): 526069/1000000
+EXIF BodySerialNumber (ASCII): 3020326
+EXIF CVAPattern (Undefined): [2, 0, 2, 0, 0, 1, 1, 2]
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Custom
+EXIF DateTimeDigitized (ASCII): 2025:08:10 19:02:53
+EXIF DateTimeOriginal (ASCII): 2025:08:10 19:02:53
+EXIF ExifVersion (Undefined): 0231
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 30
+EXIF FNumber (Ratio): 6/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 85
+EXIF FocalLengthIn35mmFilm (Short): 127
+EXIF FocalPlaneResolutionUnit (Short): 3
+EXIF FocalPlaneXResolution (Ratio): 75409805/32768
+EXIF FocalPlaneYResolution (Ratio): 75409805/32768
+EXIF GainControl (Short): High gain up
+EXIF ISOSpeedRatings (Short): 65535
+EXIF LensMake (ASCII): NIKON
+EXIF LensModel (ASCII): NIKKOR Z 85mm f/1.2 S
+EXIF LensSerialNumber (ASCII): 20003695
+EXIF LensSpecification (Ratio): [85, 85, 6/5, 6/5]
+EXIF LightSource (Short): Unknown
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF OffsetTime (ASCII): +03:00
+EXIF OffsetTimeDigitized (ASCII): +03:00
+EXIF OffsetTimeOriginal (ASCII): +03:00
+EXIF RecommendedExposureIndex (Long): 102400
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF SensitivityType (Short): Recommended Exposure Index
+EXIF Sharpness (Short): Normal
+EXIF ShutterSpeedValue (Signed Ratio): -4906891/1000000
+EXIF SubIFD0 BitsPerSample (Short): [16, 16, 16]
+EXIF SubIFD0 BlackLevel (Ratio): [0, 0, 0]
+EXIF SubIFD0 Compression (Short): 52546
+EXIF SubIFD0 ImageLength (Long): 3592
+EXIF SubIFD0 ImageWidth (Long): 5392
+EXIF SubIFD0 PhotometricInterpretation (Short): 34892
+EXIF SubIFD0 PlanarConfiguration (Short): 1
+EXIF SubIFD0 SamplesPerPixel (Short): 3
+EXIF SubIFD0 SubfileType (Long): Full-resolution Image
+EXIF SubIFD0 Tag 0xC619 (Short): [1, 1]
+EXIF SubIFD0 Tag 0xC61D (Short): [65535, 65535, 65535]
+EXIF SubIFD0 Tag 0xC61E (Ratio): [1, 1]
+EXIF SubIFD0 Tag 0xC61F (Ratio): [0, 0]
+EXIF SubIFD0 Tag 0xC620 (Ratio): [5392, 3592]
+EXIF SubIFD0 Tag 0xC632 (Ratio): 1
+EXIF SubIFD0 Tag 0xC65C (Ratio): 1
+EXIF SubIFD0 Tag 0xC741 (Undefined): [0, 0, 0, 3, 0, 0, 0, 8, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, ... ]
+EXIF SubIFD0 Tag 0xC761 (Double-Precision Floating Point (64-bit)): [(0.026357055008773937,), (0.0009755176357161326,), (0.02327476920729381,), (0.0008106505434907474,), (0.02375000839246204,), (0.0008743814393062217,)]
+EXIF SubIFD0 Tag 0xCD49 (Single-Precision Floating Point (32-bit)): (0.5,)
+EXIF SubIFD0 Tag 0xCD4A (Long): 7
+EXIF SubIFD0 Tag 0xCD4B (Long): 4
+EXIF SubIFD0 TileByteCounts (Long): [171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, 171, ... ]
+EXIF SubIFD0 TileLength (Long): 400
+EXIF SubIFD0 TileOffsets (Long): [207700, 207872, 208044, 208216, 208388, 208560, 208732, 208904, 209076, 209248, 209420, 209592, 209764, 209936, 210108, 210280, 210452, 210624, 210796, 210968, ... ]
+EXIF SubIFD0 TileWidth (Long): 416
+EXIF SubSecTimeDigitized (ASCII): 27
+EXIF SubSecTimeOriginal (ASCII): 27
+EXIF SubjectDistanceRange (Short): 0
+EXIF WhiteBalance (Short): Manual
+Image ApplicationNotes (Byte): []
+Image Artist (ASCII): Martins Bruvelis
+Image BitsPerSample (Short): [8, 8, 8]
+Image Compression (Short): JPEG
+Image Copyright (ASCII): All rights reserved.
+Image DateTime (ASCII): 2025:08:10 19:15:34
+Image ExifOffset (Long): 203296
+Image ImageLength (Long): 171
+Image ImageNumber (Long): 29265
+Image ImageWidth (Long): 256
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON Z 9
+Image Orientation (Short): Horizontal (normal)
+Image PhotometricInterpretation (Short): 6
+Image PlanarConfiguration (Short): 1
+Image ReferenceBlackWhite (Ratio): [0, 255, 128, 255, 128, 255]
+Image RowsPerStrip (Long): 171
+Image SamplesPerPixel (Short): 3
+Image Software (ASCII): Adobe DNG Converter 17.4.1 (Windows)
+Image StripByteCounts (Long): 2021
+Image StripOffsets (Long): 205678
+Image SubIFDs (Long): 204032
+Image SubfileType (Long): Reduced-resolution image
+Image Tag 0xC612 (Byte): [1, 7, 0, 0]
+Image Tag 0xC613 (Byte): [1, 7, 0, 0]
+Image Tag 0xC614 (ASCII): Nikon Z 9
+Image Tag 0xC621 (Signed Ratio): [2911/2000, -1799/2000, 329/10000, -1949/5000, 11249/10000, 1521/5000, 9/5000, 201/5000, 8473/10000]
+Image Tag 0xC622 (Signed Ratio): [13389/10000, -6049/10000, -1441/10000, -284/625, 12757/10000, 1969/10000, 229/10000, 249/5000, 739/1000]
+Image Tag 0xC623 (Signed Ratio): [1, 0, 0, 0, 1, 0, 0, 0, 1]
+Image Tag 0xC624 (Signed Ratio): [1, 0, 0, 0, 1, 0, 0, 0, 1]
+Image Tag 0xC627 (Ratio): [1, 1, 1]
+Image Tag 0xC628 (Ratio): [20813/40000, 1, 148191/200000]
+Image Tag 0xC62A (Signed Ratio): 1/5
+Image Tag 0xC62B (Ratio): 4/5
+Image Tag 0xC62C (Ratio): 1
+Image Tag 0xC62E (Ratio): 1
+Image Tag 0xC62F (ASCII): 3020326
+Image Tag 0xC630 (Ratio): [85, 85, 6/5, 6/5]
+Image Tag 0xC633 (Ratio): 1
+Image Tag 0xC634 (Byte): []
+Image Tag 0xC65A (Short): 17
+Image Tag 0xC65B (Short): 21
+Image Tag 0xC65D (Byte): [24, 129, 223, 244, 235, 174, 53, 58, 137, 170, 73, 178, 26, 6, 192, 85]
+Image Tag 0xC68B (ASCII): nikon_z_9_high_efficiency_compressed_dx_cropped_max_overexposed.nef
+Image Tag 0xC6F3 (ASCII): com.adobe
+Image Tag 0xC6F4 (ASCII): com.adobe
+Image Tag 0xC6F8 (ASCII): Adobe Standard
+Image Tag 0xC6F9 (Long): [90, 30, 1]
+Image Tag 0xC6FA (Single-Precision Floating Point (32-bit)): []
+Image Tag 0xC6FB (Single-Precision Floating Point (32-bit)): []
+Image Tag 0xC6FD (Long): 0
+Image Tag 0xC6FE (ASCII): Copyright 2021 Adobe Systems, Inc.
+Image Tag 0xC714 (Signed Ratio): [831/2000, 4153/10000, 267/2000, 69/400, 7897/10000, 189/5000, 357/10000, 21/5000, 1963/2500]
+Image Tag 0xC715 (Signed Ratio): [33/80, 244/625, 807/5000, 2121/10000, 1479/2000, 483/10000, 629/10000, 41/2500, 7459/10000]
+Image Tag 0xC716 (ASCII): Adobe DNG Converter
+Image Tag 0xC717 (ASCII): 17.4.1
+Image Tag 0xC719 (Byte): [124, 43, 250, 162, 150, 192, 63, 201, 64, 213, 27, 159, 25, 16, 103, 79]
+Image Tag 0xC71A (Long): 2
+Image Tag 0xC71B (ASCII): 2025-08-10T19:15:34+03:00
+Image Tag 0xC725 (Long): [36, 8, 16]
+Image Tag 0xC726 (Single-Precision Floating Point (32-bit)): []
+Image Tag 0xC761 (Double-Precision Floating Point (64-bit)): [(0.026357055008773937,), (0.0009755176357161326,), (0.02327476920729381,), (0.0008106505434907474,), (0.02375000839246204,), (0.0008743814393062217,)]
+Image Tag 0xC7A7 (Byte): [25, 78, 210, 142, 139, 84, 4, 140, 207, 95, 40, 46, 254, 160, 179, 220]
+Image YCbCrCoefficients (Ratio): [299/1000, 587/1000, 57/500]
+Image YCbCrPositioning (Short): 0
+Image YCbCrSubSampling (Short): [1, 1]
+
+Opening: tests/resources/raw/nikon_z_9_high_efficiency_compressed_dx_cropped_max_overexposed.nef
+EXIF BodySerialNumber (ASCII): 3020326
+EXIF CVAPattern (Undefined): [2, 0, 2, 0, 0, 1, 1, 2]
+EXIF Contrast (Short): Normal
+EXIF CustomRendered (Short): Custom
+EXIF DateTimeDigitized (ASCII): 2025:08:10 19:02:53
+EXIF DateTimeOriginal (ASCII): 2025:08:10 19:02:53
+EXIF ExposureBiasValue (Signed Ratio): 0
+EXIF ExposureMode (Short): Manual Exposure
+EXIF ExposureProgram (Short): Manual
+EXIF ExposureTime (Ratio): 30
+EXIF FNumber (Ratio): 6/5
+EXIF FileSource (Undefined): Digital Camera
+EXIF Flash (Short): Flash did not fire
+EXIF FocalLength (Ratio): 85
+EXIF FocalLengthIn35mmFilm (Short): 127
+EXIF GainControl (Short): High gain up
+EXIF ISOSpeedRatings (Short): 65535
+EXIF LensMake (ASCII): NIKON
+EXIF LensModel (ASCII): NIKKOR Z 85mm f/1.2 S
+EXIF LensSerialNumber (ASCII): 20003695
+EXIF LensSpecification (Ratio): [85, 85, 6/5, 6/5]
+EXIF LightSource (Short): Unknown
+EXIF MakerNote (Undefined): [78, 105, 107, 111, 110, 0, 2, 17, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 80, 0, ... ]
+EXIF MeteringMode (Short): CenterWeightedAverage
+EXIF OffsetTime (ASCII): +03:00
+EXIF OffsetTimeDigitized (ASCII): +03:00
+EXIF OffsetTimeOriginal (ASCII): +03:00
+EXIF RecommendedExposureIndex (Long): 102400
+EXIF Saturation (Short): Normal
+EXIF SceneCaptureType (Short): Standard
+EXIF SceneType (Undefined): Directly Photographed
+EXIF SensingMethod (Short): One-chip color area
+EXIF SensitivityType (Short): Recommended Exposure Index
+EXIF Sharpness (Short): Normal
+EXIF SubIFD0 Compression (Short): JPEG (old-style)
+EXIF SubIFD0 JPEGInterchangeFormat (Long): 285696
+EXIF SubIFD0 JPEGInterchangeFormatLength (Long): 378875
+EXIF SubIFD0 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD0 SubfileType (Long): Reduced-resolution image
+EXIF SubIFD0 XResolution (Ratio): 300
+EXIF SubIFD0 YCbCrPositioning (Short): Co-sited
+EXIF SubIFD0 YResolution (Ratio): 300
+EXIF SubIFD1 BitsPerSample (Short): 14
+EXIF SubIFD1 CFAPattern (Byte): [0, 1, 1, 2]
+EXIF SubIFD1 CFARepeatPatternDim (Short): [2, 2]
+EXIF SubIFD1 Compression (Short): Nikon NEF Compressed
+EXIF SubIFD1 ImageLength (Long): 3608
+EXIF SubIFD1 ImageWidth (Long): 5408
+EXIF SubIFD1 PhotometricInterpretation (Short): 32803
+EXIF SubIFD1 PlanarConfiguration (Short): 1
+EXIF SubIFD1 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD1 RowsPerStrip (Long): 3608
+EXIF SubIFD1 SamplesPerPixel (Short): 1
+EXIF SubIFD1 StripByteCounts (Long): 7316992
+EXIF SubIFD1 StripOffsets (Long): 664576
+EXIF SubIFD1 SubfileType (Long): Full-resolution Image
+EXIF SubIFD1 Tag 0x9217 (Short): 2
+EXIF SubIFD1 Tag 0xC7D5 (Undefined): [78, 105, 107, 111, 110, 0, 1, 3, 0, 0, 73, 73, 42, 0, 8, 0, 0, 0, 14, 0, ... ]
+EXIF SubIFD1 Tag 0xC7D6 (Byte): 1
+EXIF SubIFD1 XResolution (Ratio): 300
+EXIF SubIFD1 YResolution (Ratio): 300
+EXIF SubIFD2 Compression (Short): JPEG (old-style)
+EXIF SubIFD2 JPEGInterchangeFormat (Long): 250368
+EXIF SubIFD2 JPEGInterchangeFormatLength (Long): 35018
+EXIF SubIFD2 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD2 SubfileType (Long): Reduced-resolution image
+EXIF SubIFD2 XResolution (Ratio): 300
+EXIF SubIFD2 YCbCrPositioning (Short): Co-sited
+EXIF SubIFD2 YResolution (Ratio): 300
+EXIF SubIFD3 BitsPerSample (Short): 8
+EXIF SubIFD3 Compression (Short): Uncompressed
+EXIF SubIFD3 ImageLength (Long): 290
+EXIF SubIFD3 ImageWidth (Long): 480
+EXIF SubIFD3 PhotometricInterpretation (Short): 1
+EXIF SubIFD3 PlanarConfiguration (Short): 1
+EXIF SubIFD3 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD3 RowsPerStrip (Long): 290
+EXIF SubIFD3 SamplesPerPixel (Short): 1
+EXIF SubIFD3 StripByteCounts (Long): 139200
+EXIF SubIFD3 StripOffsets (Long): 111104
+EXIF SubIFD3 SubfileType (Long): Reduced-resolution image
+EXIF SubIFD3 XResolution (Ratio): 300
+EXIF SubIFD3 YResolution (Ratio): 300
+EXIF SubIFD4 BitsPerSample (Short): 12
+EXIF SubIFD4 Compression (Short): Nikon NEF Compressed
+EXIF SubIFD4 ImageLength (Long): 0
+EXIF SubIFD4 ImageWidth (Long): 0
+EXIF SubIFD4 PhotometricInterpretation (Short): 1
+EXIF SubIFD4 PlanarConfiguration (Short): 1
+EXIF SubIFD4 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD4 RowsPerStrip (Long): 0
+EXIF SubIFD4 SamplesPerPixel (Short): 1
+EXIF SubIFD4 StripByteCounts (Long): 0
+EXIF SubIFD4 StripOffsets (Long): 0
+EXIF SubIFD4 SubfileType (Long): Reduced-resolution image
+EXIF SubIFD4 XResolution (Ratio): 300
+EXIF SubIFD4 YResolution (Ratio): 300
+EXIF SubIFD5 BitsPerSample (Short): 8
+EXIF SubIFD5 Compression (Short): Uncompressed
+EXIF SubIFD5 ImageLength (Long): 0
+EXIF SubIFD5 ImageWidth (Long): 0
+EXIF SubIFD5 PhotometricInterpretation (Short): 1
+EXIF SubIFD5 PlanarConfiguration (Short): 1
+EXIF SubIFD5 ResolutionUnit (Short): Pixels/Inch
+EXIF SubIFD5 RowsPerStrip (Long): 0
+EXIF SubIFD5 SamplesPerPixel (Short): 1
+EXIF SubIFD5 StripByteCounts (Long): 0
+EXIF SubIFD5 StripOffsets (Long): 0
+EXIF SubIFD5 SubfileType (Long): Reduced-resolution image
+EXIF SubIFD5 XResolution (Ratio): 300
+EXIF SubIFD5 YResolution (Ratio): 300
+EXIF SubSecTime (ASCII): 27
+EXIF SubSecTimeDigitized (ASCII): 27
+EXIF SubSecTimeOriginal (ASCII): 27
+EXIF SubjectDistanceRange (Short): 0
+EXIF Tag 0xA460 (Short): 1
+EXIF UserComment (Undefined):
+EXIF WhiteBalance (Short): Manual
+GPS GPSVersionID (Byte): [2, 3, 0, 0]
+Image ApplicationNotes (Byte): []
+Image Artist (ASCII): Martins Bruvelis
+Image Compression (Short): JPEG (old-style)
+Image Copyright (ASCII): All rights reserved.
+Image DateTime (ASCII): 2025:08:10 19:02:53
+Image DateTimeOriginal (ASCII): 2025:08:10 19:02:53
+Image ExifOffset (Long): 33320
+Image GPSInfo (Long): 106810
+Image JPEGInterchangeFormat (Long): 106828
+Image JPEGInterchangeFormatLength (Long): 1874
+Image Make (ASCII): NIKON CORPORATION
+Image Model (ASCII): NIKON Z 9
+Image Orientation (Short): Horizontal (normal)
+Image ReferenceBlackWhite (Ratio): [0, 255, 0, 255, 0, 255]
+Image ResolutionUnit (Short): Pixels/Inch
+Image Software (ASCII): Ver.05.20
+Image SubIFDs (Long): [108702, 108820, 109984, 110104, 110296, 110488]
+Image SubfileType (Long): Reduced-resolution image
+Image TIFF/EPStandardID (Byte): [1, 0, 0, 0]
+Image XResolution (Ratio): 300
+Image YCbCrPositioning (Short): Co-sited
+Image YResolution (Ratio): 300
+MakerNote AEBracketCompensationApplied (Signed Ratio): 0
+MakerNote AFInfo2 (Undefined): [48, 52, 48, 48, 2, 207, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote AFTune (Undefined): [0, 255, 0, 0]
+MakerNote ActiveDLighting (Short): Off
+MakerNote AutoBracketRelease (Short): 1
+MakerNote AutoFlashMode (ASCII):
+MakerNote BlackLevel (Short): [1008, 1008, 1008, 1008]
+MakerNote BracketingMode (Short): Single frame, no bracketing
+MakerNote ColorBalance (Undefined): [48, 56, 48, 51, 102, 153, 223, 56, 163, 35, 181, 90, 58, 221, 187, 172, 140, 199, 241, 46, ... ]
+MakerNote ColorSpace (Short): sRGB
+MakerNote ColorTemperatureAuto (Short): 5600
+MakerNote CropArea (Short): [8, 8, 5392, 3592]
+MakerNote CropHiSpeed (Short): [2, 8280, 5520, 5408, 3608, 1436, 956]
+MakerNote DigitalVariProgram (ASCII):
+MakerNote DistortInfo (Undefined): [48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote ExposureDifference (Undefined): -8.666666666666666 2/3 EV
+MakerNote ExposureTuning (Undefined): [0, 1, 6]
+MakerNote ExternalFlashExposureComp (Undefined): 0 EV
+MakerNote FileInfo (Undefined): [48, 49, 48, 48, 0, 0, 100, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote FlashBracketCompensationApplied (Undefined): 0 EV
+MakerNote FlashInfo (Undefined): [48, 51, 48, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote FlashMode (Byte): Did Not Fire
+MakerNote FlashSetting (ASCII):
+MakerNote FocusMode (ASCII): AF-C
+MakerNote HighISONoiseReduction (Short): Off
+MakerNote ISOInfo (Undefined): [180, 1, 12, 0, 1, 8, 180, 1, 12, 0, 1, 8, 0, 0]
+MakerNote ImageSizeRAW (Short): 1
+MakerNote LensData (Undefined): [48, 56, 48, 50, 102, 153, 223, 56, 164, 35, 181, 90, 18, 221, 187, 172, 176, 199, 241, 46, ... ]
+MakerNote LensFStops (Undefined): [90, 1, 12, 0]
+MakerNote LensMinMaxFocalMaxAperture (Ratio): [85, 85, 6/5, 6/5]
+MakerNote LensType (Byte): 0
+MakerNote MakernoteVersion (Undefined): 0211
+MakerNote MechanicalShutterCount (Long): 0
+MakerNote MultiExposure (Undefined): [48, 49, 48, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote MultiExposureWhiteBalance (Ratio): [1, 1, 1, 1]
+MakerNote NEFCurve1 (Undefined): [73, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote NikonPreview (Long): 66702
+MakerNote NoiseReduction (ASCII): OFF
+MakerNote PictureControl (Undefined): [48, 51, 49, 48, 48, 51, 49, 48, 77, 79, 78, 79, 67, 72, 82, 79, 77, 69, 0, 0, ... ]
+MakerNote PowerUpTime (Undefined): [233, 7, 8, 10, 19, 1, 7, 0]
+MakerNote ProgramShift (Undefined): 0 EV
+MakerNote Quality (ASCII): RAW
+MakerNote RetouchHistory (Short): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote RetouchInfo (Undefined): [48, 50, 48, 48, 255, 255, 255, 0]
+MakerNote SerialNumber (ASCII): 3020326
+MakerNote ShotInfo (Undefined): []
+MakerNote ShutterMode (Short): Electronic
+MakerNote SilentPhotography (Short): Off
+MakerNote Tag 0x003C (Short): 1
+MakerNote Tag 0x003F (Signed Ratio): [0, 0]
+MakerNote Tag 0x0040 (Undefined): [48, 49, 48, 48, 1, 0, 67, 0, 48, 53, 50, 48]
+MakerNote Tag 0x0042 (Undefined): [48, 49, 48, 48, 1, 0]
+MakerNote Tag 0x0043 (Undefined): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0044 (Short): 0
+MakerNote Tag 0x0046 (Short): [0, 0]
+MakerNote Tag 0x0047 (Undefined): [48, 49, 48, 48, 1, 0, 0, 0, 220, 121, 86, 140]
+MakerNote Tag 0x004D (Undefined): [48, 49, 48, 48, 2, 0, 0, 0, 48, 49, 48, 48, 8, 0, 0, 0, 48, 53, 50, 48, ... ]
+MakerNote Tag 0x0051 (Undefined): [48, 49, 48, 50, 48, 53, 48, 49, 0, 0, 13, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0053 (Undefined): [48, 49, 48, 48, 2, 3, 0, 0, 154, 89, 1, 0, 0, 16, 0, 0, 4, 0, 0, 0, ... ]
+MakerNote Tag 0x0054 (Undefined): [48, 49, 48, 48, 130, 7, 0, 0, 0, 1, 0, 0, 185, 1, 0, 0, 0, 1, 0, 0]
+MakerNote Tag 0x0055 (Undefined): [48, 49, 48, 48, 0, 0, 0, 0]
+MakerNote Tag 0x0056 (Undefined): [48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x0057 (Undefined): [48, 49, 48, 48, 0, 0, 0, 0]
+MakerNote Tag 0x0058 (Undefined): [48, 49, 48, 48, 0, 166, 111, 0, 1, 0, 0, 0]
+MakerNote Tag 0x0059 (Undefined): [48, 49, 48, 48, 1, 1, 0, 0]
+MakerNote Tag 0x005A (Undefined): [48, 49, 48, 48, 0, 255, 4, 255, 4, 0, 0, 0]
+MakerNote Tag 0x005B (Undefined): [48, 49, 48, 48, 0, 0, 0, 0]
+MakerNote Tag 0x005C (Undefined): [48, 49, 48, 48, 48, 51, 49, 48, 48, 51, 49, 48, 255, 1, 255, 1, 255, 1, 255, 1, ... ]
+MakerNote Tag 0x005D (Undefined): [48, 49, 48, 48, 0, 0, 0, 0]
+MakerNote Tag 0x005F (Undefined): [48, 49, 48, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x0062 (Undefined): [48, 49, 48, 48, 1, 0, 0, 0]
+MakerNote Tag 0x00A3 (Byte): 0
+MakerNote Tag 0x00A4 (Undefined): [48, 53, 48, 49]
+MakerNote Tag 0x00C0 (Undefined): [52, 1, 12, 0, 156, 1, 12, 0]
+MakerNote TotalShutterReleases (Long): 29265
+MakerNote VRInfo (Undefined): [48, 50, 48, 48, 2, 0, 0, 0, 2]
+MakerNote VignetteControl (Short): Off
+MakerNote WhiteBalanceRBCoeff (Ratio): [123/64, 691/512, 1, 1]
+MakerNote Whitebalance (ASCII): 5600K
+MakerNote WorldTime (Undefined): [180, 0, 0, 0]
+
 Opening: tests/resources/raw/sony_alpha_a7iii_raw_image.ARW
 EXIF BrightnessValue (Signed Ratio): -3483/1280
 EXIF ColorSpace (Short): sRGB

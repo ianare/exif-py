@@ -18,6 +18,19 @@ __version__ = "3.4.0"
 logger = get_logger()
 
 
+def _extract_xmp_data(hdr: ExifHeader, fh: BinaryIO):
+    # Easy we already have them
+    xmp_tag = hdr.tags.get("Image ApplicationNotes")
+    if xmp_tag:
+        logger.debug("XMP present in Exif")
+        xmp_bytes = bytes(xmp_tag.values)
+    # We need to look in the entire file for the XML
+    else:
+        xmp_bytes = find_xmp_data(fh)
+    if xmp_bytes:
+        hdr.parse_xmp(xmp_bytes)
+
+
 def process_file(
     fh: BinaryIO,
     stop_tag: str = DEFAULT_STOP_TAG,
@@ -93,10 +106,13 @@ def process_file(
         hdr.dump_ifd(ifd=exif_off.values[0], ifd_name="EXIF", stop_tag=stop_tag)
 
     # EXIF SubIFD
-    if details and "Image SubIFDs" in hdr.tags:
-        for subifd_id, subifd_offset in enumerate(hdr.tags.get("Image SubIFDs").values):
+    sub_ifds = hdr.tags.get("Image SubIFDs")
+    if details and sub_ifds:
+        for subifd_id, subifd_offset in enumerate(sub_ifds.values):
             logger.debug("Exif SubIFD%d at offset %d:", subifd_id, subifd_offset)
-            hdr.dump_ifd(ifd=subifd_offset, ifd_name=f"EXIF SubIFD{subifd_id}", stop_tag=stop_tag)
+            hdr.dump_ifd(
+                ifd=subifd_offset, ifd_name=f"EXIF SubIFD{subifd_id}", stop_tag=stop_tag
+            )
 
     # deal with MakerNote contained in EXIF IFD
     # (Some apps use MakerNote tags but do not use a format for which we
@@ -111,16 +127,7 @@ def process_file(
 
     # parse XMP tags (experimental)
     if debug and details:
-        # Easy we already have them
-        xmp_tag = hdr.tags.get("Image ApplicationNotes")
-        if xmp_tag:
-            logger.debug("XMP present in Exif")
-            xmp_bytes = bytes(xmp_tag.values)
-        # We need to look in the entire file for the XML
-        else:
-            xmp_bytes = find_xmp_data(fh)
-        if xmp_bytes:
-            hdr.parse_xmp(xmp_bytes)
+        _extract_xmp_data(hdr=hdr, fh=fh)
 
     if builtin_types:
         return convert_types(hdr.tags)
