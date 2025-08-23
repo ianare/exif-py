@@ -194,7 +194,9 @@ class ExifHeader:
                 offset = offset + type_length
         return values
 
-    def _process_ascii_field(self, ifd_name, tag_name, count: int, offset: int):
+    def _process_ascii_field(
+        self, ifd_name: str, tag_name: str, count: int, offset: int
+    ):
         values: Union[str, bytes] = ""
         # special case: null-terminated ASCII string
         # XXX investigate
@@ -285,8 +287,8 @@ class ExifHeader:
         entry: int,
         tag: int,
         tag_name: str,
-        relative,
-        stop_tag,
+        relative: bool,
+        stop_tag: str,
     ) -> None:
         field_type_id = self.s2n(entry + 2, 2)
         try:
