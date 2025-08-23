@@ -13,7 +13,7 @@ from exifread.exif_log import get_logger
 from exifread.serialize import convert_types
 from exifread.tags import DEFAULT_STOP_TAG
 
-__version__ = "3.4.0"
+__version__ = "3.5.0"
 
 logger = get_logger()
 

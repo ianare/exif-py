@@ -24,7 +24,7 @@ Easy to use Python module to extract Exif metadata from digital image files.
 
 Pure Python, lightweight, no dependencies.
 
-Supported formats: TIFF, JPEG, PNG, Webp, HEIC, JPEG XL
+Supported formats: TIFF, JPEG, JPEG XL, PNG, Webp, HEIC, RAW
 
 
 Compatibility

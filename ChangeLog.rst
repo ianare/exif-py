@@ -1,6 +1,11 @@
 ﻿EXIF.py Change Log
 ##################
 
+3.5.0 — 2025-08-23
+    * Add support for JPEG XL (#242) by Nathan Olson
+    * Add Image SubIFDs decoding and Nikon Z 9 sample (#240) by Martins Bruvelis
+    * Make it easier to add new file types to testing
+
 3.4.0 — 2025-08-04
     * better typing of serialize module, varius code cleanup
     * fix for invalid slice length (#235)
