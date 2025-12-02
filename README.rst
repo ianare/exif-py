@@ -17,6 +17,9 @@ EXIF.py
 .. image:: https://img.shields.io/github/actions/workflow/status/ianare/exif-py/test.yml
     :target: https://github.com/ianare/exif-py
     :alt: Tests
+.. image:: https://img.shields.io/badge/Wikidata-006699
+    :target: https://www.wikidata.org/wiki/Q137190252
+    :alt: Wikidata
 
 |
 
