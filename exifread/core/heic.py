@@ -160,7 +160,13 @@ class HEICExifFinder:
     def next_box(self) -> Box:
         pos = self.file_handle.tell()
         size = self.get32()
-        kind = self.get(4).decode("ascii")
+        raw = self.get(4)
+        try:
+            kind = raw.decode("ascii")
+        except UnicodeDecodeError:
+            raise InvalidExif(
+                "Invalid HEIC box type at offset %d: %r" % (pos, raw)
+            )
         box = Box(kind)
         if size == 0:
             # signifies 'to the end of the file', we shouldn't see this.
