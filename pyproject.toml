@@ -7,7 +7,8 @@ build-backend = "setuptools.build_meta"
 name = "ExifRead"
 description = "Library to extract Exif information from digital camera image files."
 readme = "README.rst"
-license = {file = "LICENSE"}
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
 requires-python = ">= 3.7"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -19,6 +20,7 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Utilities",
 ]
+
 keywords = ["exif", "image", "metadata", "photo"]
 authors = [
   {name = "Ianaré Sévi"},
