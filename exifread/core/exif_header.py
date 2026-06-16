@@ -469,19 +469,25 @@ class ExifHeader:
         thumb_offset = self.tags.get("Thumbnail JPEGInterchangeFormat")
         thumb_length = self.tags.get("Thumbnail JPEGInterchangeFormatLength")
         if thumb_offset and thumb_length:
-            self.file_handle.seek(self.offset + thumb_offset.values[0])
-            size = thumb_length.values[0]
-            self.tags["JPEGThumbnail"] = self.file_handle.read(size)
+            try:
+                self.file_handle.seek(self.offset + thumb_offset.values[0])
+                size = thumb_length.values[0]
+                self.tags["JPEGThumbnail"] = self.file_handle.read(size)
+            except TypeError:
+                logger.debug("Invalid JPEG thumbnail offset or length, skipping")
 
         # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
         # since it's not allowed in a uncompressed TIFF IFD
         if "JPEGThumbnail" not in self.tags:
             thumb_offset = self.tags.get("MakerNote JPEGThumbnail")
             if thumb_offset:
-                self.file_handle.seek(self.offset + thumb_offset.values[0])
-                self.tags["JPEGThumbnail"] = self.file_handle.read(
-                    thumb_offset.field_length
-                )
+                try:
+                    self.file_handle.seek(self.offset + thumb_offset.values[0])
+                    self.tags["JPEGThumbnail"] = self.file_handle.read(
+                        thumb_offset.field_length
+                    )
+                except TypeError:
+                    logger.debug("Invalid MakerNote thumbnail offset, skipping")
 
     def decode_maker_note(self) -> None:
         """
