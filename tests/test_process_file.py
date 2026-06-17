@@ -155,6 +155,19 @@ def test_builtin_types(stop_tag, details, truncate_tags):
     assert tags["EXIF FlashPixVersion"] == "0100"
 
 
+def test_empty_float_value_no_index_error():
+    """
+    A field declared with ``count == 1`` whose decoded value list is empty
+    (e.g. a float field with truncated/corrupted data, as seen in some DJI
+    MakerNote blocks) must not raise ``IndexError`` while building the
+    printable representation. See issue #254.
+    """
+    file_path = RESOURCES_ROOT / "tiff/empty_float_value.tiff"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=True)
+    assert tags["Image ImageWidth"].printable == ""
+
+
 def test_xmp_no_tag():
     """Read XMP data not in an Exif tag."""
 

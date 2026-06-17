@@ -238,7 +238,10 @@ class ExifHeader:
     ) -> Tuple[str, bool]:
         # TODO: use only one type
         if count == 1 and field_type != FieldType.ASCII:
-            printable = str(values[0])
+            # ``values`` can be empty when the field was declared with a count
+            # but decoding produced no value, e.g. a float field whose data is
+            # truncated/corrupted (see ``_process_field``). Guard the index.
+            printable = str(values[0]) if values else ""
         elif count > 50 and len(values) > 20 and not isinstance(values, str):
             if self.truncate_tags:
                 printable = str(values[0:20])[0:-1] + ", ... ]"
