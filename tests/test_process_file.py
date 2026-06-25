@@ -1,12 +1,14 @@
 """Basic tests."""
 
 import logging
+import math
 from pathlib import Path
 
 import pytest
 
 import exifread
 from exifread import DEFAULT_STOP_TAG
+from exifread.utils import Ratio
 
 RESOURCES_ROOT = Path(__file__).parent / "resources"
 
@@ -153,6 +155,12 @@ def test_builtin_types(stop_tag, details, truncate_tags):
     assert tags["Image Make"] == "Canon"
     # Unknown / Undefined
     assert tags["EXIF FlashPixVersion"] == "0100"
+
+
+def test_ratio_decimal_zero_denominator():
+    """Ratio.decimal() returns nan (not ZeroDivisionError) when denominator is 0."""
+    r = Ratio(0, 0)
+    assert math.isnan(r.decimal())
 
 
 def test_xmp_no_tag():
