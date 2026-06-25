@@ -80,4 +80,6 @@ class Ratio(Fraction):
         return self.denominator
 
     def decimal(self) -> float:
+        if self.denominator == 0:
+            return float("nan")
         return float(self)
