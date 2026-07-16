@@ -111,6 +111,18 @@ def test_warning_messages(caplog, file_path, message):
     assert message in caplog.text
 
 
+def test_empty_values_no_index_error():
+    """
+    A tag declaring a single value whose data cannot be read (truncated or
+    corrupted file) must not raise an IndexError.
+    Seen on DJI M3E MakerNote tags, issue #254.
+    """
+    file_path = RESOURCES_ROOT / "jpg/tests/254_empty_values.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=True)
+    assert tags["MakerNote SpeedX"].printable == ""
+
+
 def test_stop_tag_with_thumbnail_extract():
     """
     Stop at `Orientation` tag and extract thumbnail.
