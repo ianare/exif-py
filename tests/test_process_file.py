@@ -111,6 +111,19 @@ def test_warning_messages(caplog, file_path, message):
     assert message in caplog.text
 
 
+def test_malformed_thumbnail_offset():
+    """
+    A thumbnail offset tag declaring a field type it should not have (here a
+    float, which decodes to a tuple) must not raise a TypeError, issue #247.
+    The thumbnail is skipped, the remaining tags are still returned.
+    """
+    file_path = RESOURCES_ROOT / "jpg/tests/247_thumbnail_offset.jpg"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=True)
+    assert "JPEGThumbnail" not in tags
+    assert tags["Image Make"].printable == "DJI"
+
+
 def test_stop_tag_with_thumbnail_extract():
     """
     Stop at `Orientation` tag and extract thumbnail.

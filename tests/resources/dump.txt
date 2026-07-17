@@ -4102,6 +4102,12 @@ Thumbnail ResolutionUnit (Short): Pixels/Inch
 Thumbnail XResolution (Ratio): 180
 Thumbnail YResolution (Ratio): 180
 
+Opening: tests/resources/jpg/tests/247_thumbnail_offset.jpg
+Invalid value for Thumbnail JPEGInterchangeFormat
+Image Make (ASCII): DJI
+Thumbnail JPEGInterchangeFormat (Single-Precision Floating Point (32-bit)): (7.847271400218976e-44,)
+Thumbnail JPEGInterchangeFormatLength (Long): 4
+
 Opening: tests/resources/jpg/tests/28-hex_value.jpg
 Possibly corrupted field Tag 0x0001 in MakerNote IFD
 File has JPEG thumbnail
