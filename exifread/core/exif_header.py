@@ -460,27 +460,45 @@ class ExifHeader:
 
         self.tags["TIFFThumbnail"] = tiff
 
+    def _thumbnail_int_value(self, tag_name: str) -> Optional[int]:
+        """
+        Return the value of a thumbnail offset or length tag, if it is usable.
+
+        The field type is declared by the file itself, so the decoded value is
+        not necessarily an integer: a float field decodes to a tuple, and a
+        field whose data could not be read decodes to nothing at all.
+        See issue #247.
+        """
+        tag = self.tags.get(tag_name)
+        if tag is None:
+            return None
+        value = tag.values[0] if tag.values else None
+        if not isinstance(value, int) or value < 0:
+            logger.warning("Invalid value for %s", tag_name)
+            return None
+        return value
+
     def extract_jpeg_thumbnail(self) -> None:
         """
         Extract JPEG thumbnail.
 
         (Thankfully the JPEG data is stored as a unit.)
         """
-        thumb_offset = self.tags.get("Thumbnail JPEGInterchangeFormat")
-        thumb_length = self.tags.get("Thumbnail JPEGInterchangeFormatLength")
-        if thumb_offset and thumb_length:
-            self.file_handle.seek(self.offset + thumb_offset.values[0])
-            size = thumb_length.values[0]
+        thumb_offset = self._thumbnail_int_value("Thumbnail JPEGInterchangeFormat")
+        size = self._thumbnail_int_value("Thumbnail JPEGInterchangeFormatLength")
+        if thumb_offset is not None and size is not None:
+            self.file_handle.seek(self.offset + thumb_offset)
             self.tags["JPEGThumbnail"] = self.file_handle.read(size)
 
         # Sometimes in a TIFF file, a JPEG thumbnail is hidden in the MakerNote
         # since it's not allowed in a uncompressed TIFF IFD
         if "JPEGThumbnail" not in self.tags:
-            thumb_offset = self.tags.get("MakerNote JPEGThumbnail")
-            if thumb_offset:
-                self.file_handle.seek(self.offset + thumb_offset.values[0])
+            thumb_tag = self.tags.get("MakerNote JPEGThumbnail")
+            thumb_offset = self._thumbnail_int_value("MakerNote JPEGThumbnail")
+            if thumb_tag and thumb_offset is not None:
+                self.file_handle.seek(self.offset + thumb_offset)
                 self.tags["JPEGThumbnail"] = self.file_handle.read(
-                    thumb_offset.field_length
+                    thumb_tag.field_length
                 )
 
     def decode_maker_note(self) -> None:
