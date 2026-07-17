@@ -4102,6 +4102,13 @@ Thumbnail ResolutionUnit (Short): Pixels/Inch
 Thumbnail XResolution (Ratio): 180
 Thumbnail YResolution (Ratio): 180
 
+Opening: tests/resources/jpg/tests/254_empty_values.jpg
+Possibly corrupted field SpeedX
+EXIF MakerNote (Undefined): [1, 0, 3, 0, 12, 0, 1, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 217]
+Image ExifOffset (Long): 38
+Image Make (ASCII): DJI
+MakerNote SpeedX (Double-Precision Floating Point (64-bit)):
+
 Opening: tests/resources/jpg/tests/28-hex_value.jpg
 Possibly corrupted field Tag 0x0001 in MakerNote IFD
 File has JPEG thumbnail
