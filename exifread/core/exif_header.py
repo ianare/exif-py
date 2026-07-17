@@ -238,7 +238,9 @@ class ExifHeader:
     ) -> Tuple[str, bool]:
         # TODO: use only one type
         if count == 1 and field_type != FieldType.ASCII:
-            printable = str(values[0])
+            # value may be empty if reading it failed (e.g. corrupted or
+            # truncated data), see issue #254
+            printable = str(values[0]) if values else ""
         elif count > 50 and len(values) > 20 and not isinstance(values, str):
             if self.truncate_tags:
                 printable = str(values[0:20])[0:-1] + ", ... ]"
