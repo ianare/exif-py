@@ -78,6 +78,10 @@ def process_file(
         logger.debug(err)
         return {}
 
+    if not endian_bytes:
+        logger.debug("Invalid EXIF: endian marker missing (truncated header)")
+        return {}
+
     endian_str, endian_type = get_endian_str(endian_bytes)
     # deal with the EXIF info we found
     logger.debug("Endian format is %s (%s)", endian_str, endian_type)

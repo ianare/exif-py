@@ -1,5 +1,6 @@
 """Basic tests."""
 
+import io
 import logging
 from pathlib import Path
 
@@ -165,3 +166,17 @@ def test_xmp_no_tag():
             builtin_types=True,
         )
     assert len(tags["Image ApplicationNotes"]) == 323
+
+
+def test_truncated_headers_do_not_crash():
+    # A JPEG/EXIF/TIFF header that ends partway through must yield no tags
+    # rather than raising IndexError from an unchecked byte read.
+    truncated = [
+        bytes.fromhex('ffd8'),  # SOI only
+        bytes.fromhex('ffd8ffe1'),  # APP1 marker, no length
+        bytes.fromhex('ffd8ffe10008') + b'Exif' + bytes.fromhex('0000'),  # cut before endian
+        bytes.fromhex('ffd8ffe00010') + b'JFIF' + bytes.fromhex('00'),  # truncated APP0/JFIF
+        b'II*' + bytes.fromhex('0008000000'),  # TIFF header, empty IFD
+    ]
+    for data in truncated:
+        assert exifread.process_file(io.BytesIO(data)) == {}

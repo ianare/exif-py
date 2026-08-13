@@ -15,13 +15,20 @@ def _increment_base(data, base) -> int:
 
 def _get_initial_base(fh: BinaryIO, data: bytes, fake_exif: int) -> Tuple[int, int]:
     base = 2
+    if len(data) < 6:
+        # Too short to hold an APP0/JFIF header; nothing to skip.
+        return base, fake_exif
     logger.debug(
         "data[2]=0x%X data[3]=0x%X data[6:10]=%s",
         ord_(data[2]),
         ord_(data[3]),
         data[6:10],
     )
-    while ord_(data[2]) == 0xFF and data[6:10] in (b"JFIF", b"JFXX", b"OLYM", b"Phot"):
+    while (
+        len(data) >= 6
+        and ord_(data[2]) == 0xFF
+        and data[6:10] in (b"JFIF", b"JFXX", b"OLYM", b"Phot")
+    ):
         length = ord_(data[4]) * 256 + ord_(data[5])
         logger.debug(" Length offset is %s", length)
         fh.read(length - 8)
@@ -43,6 +50,10 @@ def _get_base(base: int, data: bytes) -> int:
     # pylint: disable=too-many-statements
     while True:
         logger.debug(" Segment base 0x%X", base)
+        if base + 4 > len(data):
+            # Truncated JPEG: not enough bytes left for another segment
+            # header, so there is no readable EXIF here.
+            raise InvalidExif("Truncated JPEG data while scanning for EXIF")
         if data[base : base + 2] == b"\xff\xe1":
             # APP1
             logger.debug("  APP1 at base 0x%X", base)
