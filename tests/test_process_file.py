@@ -165,3 +165,25 @@ def test_xmp_no_tag():
             builtin_types=True,
         )
     assert len(tags["Image ApplicationNotes"]) == 323
+
+
+def test_malformed_heic_does_not_crash():
+    # A HEIC/ISO-BMFF box with an unsupported size (0 or the 64-bit form) or
+    # one that runs past the end of the file must yield no tags, not a bare
+    # NotImplementedError / EOFError escaping process_file.
+    import io
+    import struct
+
+    def box(kind, payload=b""):
+        return struct.pack(">I", 8 + len(payload)) + kind + payload
+
+    ftyp = box(b"ftyp", b"heic" + struct.pack(">I", 0) + b"heic")
+    cases = [
+        ftyp + struct.pack(">I", 0) + b"meta" + b"\x00" * 4,
+        ftyp + struct.pack(">I", 0xFFFFFFFF) + b"meta" + b"\x00" * 4,
+        ftyp + struct.pack(">I", 1) + b"meta",
+        ftyp,
+        box(b"ftyp", b"heic"),
+    ]
+    for data in cases:
+        assert exifread.process_file(io.BytesIO(data)) == {}

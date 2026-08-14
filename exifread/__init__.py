@@ -5,7 +5,7 @@ Supported formats: TIFF, JPEG, PNG, Webp, HEIC
 
 from typing import Any, BinaryIO, Dict
 
-from exifread.core.exceptions import ExifNotFound, InvalidExif
+from exifread.core.exceptions import ExifError, ExifNotFound, InvalidExif
 from exifread.core.exif_header import ExifHeader
 from exifread.core.find_exif import determine_type, get_endian_str
 from exifread.core.xmp import find_xmp_data
@@ -74,7 +74,7 @@ def process_file(
     except ExifNotFound as err:
         logger.warning(err)
         return {}
-    except InvalidExif as err:
+    except ExifError as err:
         logger.debug(err)
         return {}
 

@@ -113,7 +113,7 @@ class HEICExifFinder:
     def get(self, nbytes: int) -> bytes:
         read = self.file_handle.read(nbytes)
         if not read:
-            raise EOFError
+            raise BadSize("unexpected end of file")
         if len(read) != nbytes:
             msg = "get(nbytes={nbytes}) found {read} bytes at position {pos}".format(
                 nbytes=nbytes, read=len(read), pos=self.file_handle.tell()
@@ -163,8 +163,10 @@ class HEICExifFinder:
         kind = self.get(4).decode("ascii")
         box = Box(kind)
         if size == 0:
-            # signifies 'to the end of the file', we shouldn't see this.
-            raise NotImplementedError
+            # A size of 0 means 'box extends to the end of the file'. This box
+            # walker needs an explicit length, so treat it as a bad size rather
+            # than raising a bare NotImplementedError that escapes process_file.
+            raise BadSize(size)
         if size == 1:
             # 64-bit size follows type.
             size = self.get64()
