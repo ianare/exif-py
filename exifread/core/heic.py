@@ -30,7 +30,7 @@ def find_heic_tiff(fh: BinaryIO) -> Tuple[int, bytes]:
     """
 
     data = fh.read(4)
-    if data[0:2] in [b"II", b"MM"] and data[2] == 42 and data[3] == 0:
+    if data in (b"II\x2a\x00", b"MM\x00\x2a"):
         offset = fh.tell() - 4
         fh.seek(offset)
         endian = data[0:2]
