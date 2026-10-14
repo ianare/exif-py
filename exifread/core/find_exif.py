@@ -46,12 +46,15 @@ def find_webp_exif(fh: BinaryIO) -> Tuple[int, bytes]:
             data = fh.read(8)  # Chunk FourCC (32 bits) and Chunk Size (32 bits)
             if len(data) != 8:
                 raise InvalidExif("Invalid webp file chunk header.")
+            size = struct.unpack("<L", data[4:8])[0]
             if data[0:4] == b"EXIF":
-                fh.seek(6, 1)
                 offset = fh.tell()
+                # WebP EXIF may start directly with TIFF or include the legacy Exif prefix.
+                if fh.read(min(size, 6)) == b"Exif\x00\x00":
+                    offset += 6
+                fh.seek(offset)
                 endian = fh.read(1)
                 return offset, endian
-            size = struct.unpack("<L", data[4:8])[0]
             fh.seek(size, 1)
     raise ExifNotFound("Webp file does not have exif data.")
 
