@@ -10,10 +10,15 @@ def make_string_uc(seq) -> str:
     """
     if not isinstance(seq, str):
         # Remove code from sequence only if it is valid
-        if make_string(seq[:8]).upper() in ("ASCII", "UNICODE", "JIS", ""):
+        coding = make_string(seq[:8]).upper()
+        if coding in ("ASCII", "UNICODE", "JIS", ""):
             seq = seq[8:]
-    # Of course, this is only correct if ASCII, and the standard explicitly
-    # allows JIS and Unicode.
+            if coding == "UNICODE" and bytes(seq[:2]) in (b"\xff\xfe", b"\xfe\xff"):
+                try:
+                    return bytes(seq).decode("utf-16").strip(" \x00")
+                except UnicodeDecodeError:
+                    pass
+    # Preserve the legacy conversion for unmarked and unsupported encodings.
     return make_string(seq)
 
 
