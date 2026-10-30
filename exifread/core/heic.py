@@ -360,8 +360,16 @@ class HEICExifFinder:
             offset = 0
             endian = b"?"  # Haven't got Endian info yet
         else:
-            assert exif_tiff_header_offset >= 6
-            assert self.get(exif_tiff_header_offset)[-6:] == b"Exif\x00\x00"
+            if exif_tiff_header_offset < 6:
+                raise InvalidExif("Exif TIFF header offset is too small")
+            # Skip file-controlled padding without allocating a buffer for it.
+            try:
+                self.file_handle.seek(pos + 4 + exif_tiff_header_offset - 6)
+            except (OSError, OverflowError, ValueError) as err:
+                raise InvalidExif("Exif TIFF header offset invalid") from err
+            marker = self.file_handle.read(6)
+            if marker != b"Exif\x00\x00":
+                raise InvalidExif("Exif header not found at expected offset")
             offset = self.file_handle.tell()
             endian = self.file_handle.read(1)
 

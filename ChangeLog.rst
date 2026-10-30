@@ -1,6 +1,9 @@
 ﻿EXIF.py Change Log
 ##################
 
+Unreleased
+    * Fix unbounded memory allocation on large HEIC TIFF header offset (#249)
+
 3.5.0 — 2025-08-23
     * Add support for JPEG XL (#242) by Nathan Olson
     * Add Image SubIFDs decoding and Nikon Z 9 sample (#240) by Martins Bruvelis
