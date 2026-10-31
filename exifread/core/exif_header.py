@@ -2,6 +2,7 @@
 Base classes.
 """
 
+import os
 import re
 import struct
 from typing import Any, BinaryIO, Dict, List, Optional, Tuple, Union
@@ -188,6 +189,18 @@ class ExifHeader:
         # The test above causes problems with tags that are
         # supposed to have long values! Fix up one important case.
         elif tag_name in ("MakerNote", canon.CAMERA_INFO_TAG_NAME):
+            # A corrupted count can be huge, don't read past the end of the file
+            self.file_handle.seek(0, os.SEEK_END)
+            max_count = max(
+                0, (self.file_handle.tell() - self.offset - offset) // type_length
+            )
+            if count > max_count:
+                logger.warning(
+                    "Possibly corrupted field %s, count %d exceeds file size",
+                    tag_name,
+                    count,
+                )
+                count = max_count
             for _ in range(count):
                 value = self.s2n(offset, type_length, signed)
                 values.append(value)

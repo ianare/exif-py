@@ -1,5 +1,6 @@
 """Basic tests."""
 
+import io
 import logging
 from pathlib import Path
 
@@ -165,3 +166,13 @@ def test_xmp_no_tag():
             builtin_types=True,
         )
     assert len(tags["Image ApplicationNotes"]) == 323
+
+
+def test_corrupted_makernote_count():
+    """A huge MakerNote count must be clamped to the file size, issue #182."""
+    data = bytearray((RESOURCES_ROOT / "jpg/Canon_DIGITAL_IXUS_400.jpg").read_bytes())
+    # Intel byte order: tag 0x927C, type 7 (undefined), then the 4-byte count
+    entry = data.index(b"\x7c\x92\x07\x00")
+    data[entry + 4 : entry + 8] = (1006641184).to_bytes(4, "little")
+    tags = exifread.process_file(io.BytesIO(bytes(data)))
+    assert len(tags["EXIF MakerNote"].values) < len(data)
